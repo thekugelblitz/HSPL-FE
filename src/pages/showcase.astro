@@ -1,0 +1,346 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from '../components/ui/AnimatedCounter';
+
+const clients = [
+  {
+    name: "Bookflow",
+    industry: "E-Commerce",
+    description: "Hosts their digital book publishing and online eCommerce platform on HostingSpell cloud infrastructure with 99.99% uptime.",
+    url: "https://bookflow.in",
+    image: "https://staging.2hs.in/showcase/showcase-bookflow.png"
+  },
+  {
+    name: "Digicloudify",
+    industry: "Cloud & IT Services",
+    description: "Accelerates client cloud deployments and reduces server latency with HostingSpell high-performance VPS solutions.",
+    url: "https://digicloudify.com",
+    image: "https://staging.2hs.in/showcase/showcase-digicloudify.png"
+  },
+  {
+    name: "Love.com",
+    industry: "E-Commerce",
+    description: "Scales online retail operations seamlessly with LiteSpeed caching to handle massive flash-sale traffic spikes.",
+    url: "https://love.com",
+    image: "https://staging.2hs.in/showcase/showcase-lovecom.png"
+  },
+  {
+    name: "Pinkal IT Solutions",
+    industry: "Digital Agency",
+    description: "Manages client web experiences, design portfolios, and business hosting effortlessly with HostingSpell.",
+    url: "https://pinkalitsolutions.com",
+    image: "https://staging.2hs.in/showcase/showcase-pinkal.png"
+  },
+  {
+    name: "PlanckStudio",
+    industry: "Digital Agency",
+    description: "Powers IT development, app publishing, and digital agency solutions with HostingSpell's reliable infrastructure.",
+    url: "https://planckstudio.in",
+    image: "https://staging.2hs.in/showcase/showcase-planckstudio.png"
+  },
+  {
+    name: "RPJ Hotel",
+    industry: "Hospitality & Tourism",
+    description: "Delivers fast 24/7 online room booking and guest management backed by HostingSpell's server infrastructure.",
+    url: "https://rpjhotels.com",
+    image: "https://staging.2hs.in/showcase/showcase-rpjhotel.png"
+  },
+  {
+    name: "Trans Globe",
+    industry: "Education",
+    description: "Powers study-abroad education portals for international students on HostingSpell's secure hosting infrastructure.",
+    url: "https://transglobeedu.com",
+    image: "https://staging.2hs.in/showcase/showcase-transglobe.png"
+  },
+  {
+    name: "Zorba Stays",
+    industry: "Tourism",
+    description: "Delivers rapid page load times and seamless booking workflows for luxury vacation rental properties.",
+    url: "https://zorbastays.com",
+    image: "https://staging.2hs.in/showcase/showcase-zorbastays.png"
+  }
+];
+
+const stats = [
+  { label: "110,000+", title: "Websites Hosted", desc: "Active websites running on HostingSpell infrastructure" },
+  { label: "57+", title: "Countries Served", desc: "Clients from across the globe trust HostingSpell" },
+  { label: "99.99%", title: "Uptime Guarantee", desc: "Industry-leading reliability backed by SLA" },
+  { label: "7+", title: "Years of Expertise", desc: "Proven track record in web hosting & IT infrastructure" }
+];
+
+const impacts = [
+  { title: "40% Cost Reduction", desc: "Average savings compared to AWS and traditional enterprise hosts.", icon: "TrendingDown" },
+  { title: "Sub-second Load Times", desc: "Achieved via global LiteSpeed Edge caching and NVMe SSDs.", icon: "Zap" },
+  { title: "Zero Downtime Migration", desc: "Seamless onboarding managed entirely by our expert team.", icon: "ShieldCheck" },
+  { title: "120+ Sites Managed", desc: "Effortlessly handle bulk deployments on our cloud infrastructure.", icon: "Layers" }
+];
+
+const reviews = [
+  {
+    name: "Rahul Verma",
+    role: "Founder, PlanckStudio",
+    image: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    content: "Switching to HostingSpell was the best decision for our agency. The server response times dropped by half, and the 24/7 support team resolved our complex migration without a single minute of downtime.",
+    rating: 5
+  },
+  {
+    name: "Priya Desai",
+    role: "CTO, Bookflow",
+    image: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+    content: "During our recent flash sale, we experienced 10x our normal traffic. HostingSpell's cloud infrastructure scaled perfectly. Not a single dropped connection. Incredible value for money.",
+    rating: 5
+  },
+  {
+    name: "Amit Patel",
+    role: "Director, Trans Globe",
+    image: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
+    content: "The level of security and uptime provided is enterprise-grade. We host sensitive student data and the automated backups give us complete peace of mind. Highly recommended.",
+    rating: 5
+  }
+];
+---
+
+<Layout title="Client Showcase & Success Stories | HostingSpell">
+  <Navbar />
+  
+  <main class="flex-1 mt-0">
+    {/* Hero Section */}
+    <section class="py-24 md:py-32 relative overflow-hidden bg-background border-b border-border/40">
+      <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full opacity-20 blur-[100px] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)]" aria-hidden="true"></div>
+      
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-5xl mx-auto text-center">
+          <div class="mb-6">
+            <span class="inline-flex items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary px-5 py-2 text-sm font-bold tracking-wide uppercase shadow-sm">
+              Our Wall of Love
+            </span>
+          </div>
+          <h1 class="font-extrabold tracking-tight text-5xl md:text-6xl lg:text-7xl mb-8">
+            Built by you. <br class="hidden md:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-indigo-500">Powered by HostingSpell.</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+            Join 110,000+ visionaries, developers, and founders who trust our infrastructure to scale their digital ambitions globally.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/pricing">
+              <Button size="lg" className="h-14 px-8 text-base rounded-xl font-bold shadow-lg hover:shadow-primary/25 transition-all">
+                Join Our Success Stories
+              </Button>
+            </a>
+            <a href="#clients">
+              <Button size="lg" variant="outline" className="h-14 px-8 text-base rounded-xl font-bold bg-background/50 backdrop-blur">
+                Explore Projects
+              </Button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Trust Bar */}
+    <section class="py-10 bg-muted/30 border-b border-border/40 overflow-hidden">
+      <div class="container mx-auto px-4">
+        <p class="text-center text-sm font-bold text-muted-foreground tracking-widest uppercase mb-8">Trusted by industry leaders worldwide</p>
+        <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <img src="/brands/cpanel.svg" alt="cPanel" class="h-8 object-contain" />
+          <img src="/brands/linode.svg" alt="Linode" class="h-8 object-contain" />
+          <img src="/brands/digitalocean.svg" alt="DigitalOcean" class="h-8 object-contain" />
+          <img src="/brands/litespeed.svg" alt="LiteSpeed" class="h-8 object-contain" />
+        </div>
+      </div>
+    </section>
+
+    {/* Animated Stats Section */}
+    <section class="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20 border-b border-border/40 relative overflow-hidden">
+      <div class="absolute right-0 top-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute left-0 bottom-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
+          <div class="text-center group">
+            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <AnimatedCounter client:visible value={110000} suffix="+" />
+            </div>
+            <div class="font-bold text-lg mb-2 text-foreground/90">Websites Hosted</div>
+            <div class="text-sm text-muted-foreground hidden md:block">Active websites running on HostingSpell infrastructure</div>
+          </div>
+          
+          <div class="text-center group">
+            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <AnimatedCounter client:visible value={57} suffix="+" />
+            </div>
+            <div class="font-bold text-lg mb-2 text-foreground/90">Countries Served</div>
+            <div class="text-sm text-muted-foreground hidden md:block">Clients from across the globe trust HostingSpell</div>
+          </div>
+          
+          <div class="text-center group">
+            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <AnimatedCounter client:visible value={99.99} suffix="%" decimals={2} />
+            </div>
+            <div class="font-bold text-lg mb-2 text-foreground/90">Uptime Guarantee</div>
+            <div class="text-sm text-muted-foreground hidden md:block">Industry-leading reliability backed by SLA</div>
+          </div>
+          
+          <div class="text-center group">
+            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <AnimatedCounter client:visible value={7} suffix="+" />
+            </div>
+            <div class="font-bold text-lg mb-2 text-foreground/90">Years of Expertise</div>
+            <div class="text-sm text-muted-foreground hidden md:block">Proven track record in web hosting</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Real Impact Section */}
+    <section class="py-20 md:py-32 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold mb-6">The HostingSpell Impact</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">
+            We don't just provide servers; we provide a foundation for your business to grow without technical bottlenecks.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          {impacts.map(impact => (
+            <div class="bg-card p-8 rounded-3xl border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+              <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  {impact.icon === "TrendingDown" && <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" /><polyline points="16 17 22 17 22 11" />}
+                  {impact.icon === "Zap" && <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />}
+                  {impact.icon === "ShieldCheck" && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" />}
+                  {impact.icon === "Layers" && <polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 12 12 17 22 12" /><polyline points="2 17 12 22 22 17" />}
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-3">{impact.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{impact.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Customer Reviews Section - NEW */}
+    <section class="py-24 bg-muted/20 border-y border-border/40 relative overflow-hidden">
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <div class="flex justify-center gap-1 mb-6">
+            {[1, 2, 3, 4, 5].map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="text-yellow-400"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <h2 class="text-3xl md:text-5xl font-bold mb-6">Loved by Founders & Developers</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Don't just take our word for it. Read what real users have to say about migrating their infrastructure to HostingSpell.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {reviews.map(review => (
+            <div class="bg-card rounded-3xl p-8 border border-border/50 shadow-sm relative hover:shadow-xl transition-shadow duration-300">
+              <div class="absolute -top-4 -right-4 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+              </div>
+              <div class="flex gap-1 mb-6">
+                {[...Array(review.rating)].map(() => (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-yellow-400"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                ))}
+              </div>
+              <p class="text-foreground/90 text-lg leading-relaxed mb-8 font-medium">"{review.content}"</p>
+              <div class="flex items-center gap-4 mt-auto">
+                <img src={review.image} alt={review.name} class="w-14 h-14 rounded-full border-2 border-primary/20 object-cover" />
+                <div>
+                  <h4 class="font-bold text-base">{review.name}</h4>
+                  <p class="text-sm text-muted-foreground">{review.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Client Portfolio Grid */}
+    <section class="py-24 md:py-32" id="clients">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary mb-4 border border-primary/20">
+              Portfolio
+            </span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Featured Client Projects</h2>
+            <p class="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Explore some of the incredible platforms, stores, and applications built by our community.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {clients.map(client => (
+              <div class="bg-card text-card-foreground rounded-2xl border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group flex flex-col overflow-hidden">
+                <div class="p-8 flex flex-col h-full">
+                  <div class="w-full bg-white dark:bg-zinc-100/90 rounded-xl p-6 border border-border/20 shadow-inner h-32 flex items-center justify-center relative shrink-0 mb-6 group-hover:scale-[1.02] transition-transform">
+                    <img src={client.image} alt={client.name} class="max-h-20 w-auto max-w-full object-contain filter drop-shadow-sm" />
+                    <span class="inline-flex items-center justify-center rounded-full border border-border px-3 py-1 font-semibold absolute top-3 right-3 text-xs bg-background/90 backdrop-blur-md text-foreground shadow-sm">
+                      {client.industry}
+                    </span>
+                  </div>
+                  <div class="flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold mb-3">{client.name}</h3>
+                    <p class="text-muted-foreground leading-relaxed line-clamp-3 mb-6 flex-1">
+                      {client.description}
+                    </p>
+                    <a href={client.url} target="_blank" rel="noopener noreferrer" class="text-sm text-primary font-bold hover:underline break-all inline-flex items-center gap-1 group/link">
+                      {client.url.replace('https://', '')}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Bottom CTA */}
+    <section class="py-24 bg-primary text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
+      
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="inline-flex items-center gap-2 mb-6 bg-white/10 backdrop-blur px-4 py-2 rounded-full border border-white/20">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+          <span class="text-sm font-bold uppercase tracking-wider">Migration Team Ready</span>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tight">Ready to join our wall of love?</h2>
+        <p class="text-primary-foreground/90 text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+          Stop worrying about server limits. Experience the high-performance, reliable hosting that powers our most successful clients.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <a href="/pricing">
+            <Button size="lg" variant="secondary" className="h-16 px-10 text-lg font-bold rounded-xl text-primary shadow-xl hover:scale-105 transition-all duration-300">
+              Start Free Migration
+            </Button>
+          </a>
+          <a href="/contact">
+            <Button size="lg" className="h-16 px-10 text-lg font-bold rounded-xl bg-white/10 text-white hover:bg-white/20 border-white/20 backdrop-blur shadow-xl transition-all duration-300">
+              Talk to Sales
+            </Button>
+          </a>
+        </div>
+        <p class="mt-8 text-sm text-primary-foreground/70 font-medium">30-Day Money-Back Guarantee • No Hidden Fees • Instant Setup</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

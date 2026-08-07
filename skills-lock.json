@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "skills": {
+    "astro-expert": {
+      "source": "smithery.ai",
+      "sourceUrl": "https://smithery.ai/skills/oimiragieo/astro-expert",
+      "sourceType": "well-known",
+      "computedHash": "cd73bb072595efb67b20c237bec2c339023505b6c6af77908feae553939901e3",
+      "wellKnownDigest": "sha256:08683e971fbc07a2495ac13d09be82a442dca2fd2fb8719779a1ed3519911faf"
+    },
+    "astro-seo": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "astro-seo/SKILL.md",
+      "computedHash": "fc448d43509b78c62c95e0dd9cee051a02917b050b4affe061739c160a2ba4de"
+    },
+    "astro.js": {
+      "source": "ajelinek/skills-stash",
+      "sourceType": "github",
+      "skillPath": "astro.js/SKILL.md",
+      "computedHash": "7015286a1bd7f2ebf57e4e80ae0b314b05f8a3525e2e6e714c9591c9ac32f2b1"
+    },
+    "styling-expert": {
+      "source": "oimiragieo/agent-studio",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/styling-expert/SKILL.md",
+      "computedHash": "65b7625ae4751c33f69e759a2f5e80b7c184bcdcc369d979fbf9cb67b0e440a0"
+    }
+  }
+}

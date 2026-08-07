@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/blocks/Hero.astro';
+import DomainSearch from '../components/blocks/DomainSearch.astro';
+import CostComparison from '../components/blocks/CostComparison.astro';
+import { FeatureTabs } from '../components/blocks/FeatureTabs';
+import ShowcasePreview from '../components/blocks/ShowcasePreview.astro';
+import FeatureCard from '../components/blocks/FeatureCard.astro';
+import PricingCard from '../components/blocks/PricingCard.astro';
+import { cloudPlans, premiumPlans, vpsPlans } from '../lib/data';
+
+const features = [
+  {
+    title: "100% Uptime Mark",
+    description: "Our cloud infrastructure guarantees maximum uptime so your website is always online.",
+    icon: "Server" as const
+  },
+  {
+    title: "Daily Backups",
+    description: "Automated daily backups ensure your data is safe and easily restorable at any time.",
+    icon: "RefreshCw" as const
+  },
+  {
+    title: "Advanced Security",
+    description: "Powered by Imunify360 to protect against malware, DDoS attacks, and vulnerabilities.",
+    icon: "Shield" as const
+  },
+  {
+    title: "LiteSpeed Web Server",
+    description: "Blazing fast performance with LiteSpeed web server and LSCache integration.",
+    icon: "Zap" as const
+  }
+];
+
+// Get popular plans to show on homepage
+const popularCloud = cloudPlans.find(p => p.name === 'MARS') || cloudPlans[1];
+const popularPremium = premiumPlans.find(p => p.name === 'PREMIUM 2') || premiumPlans[1];
+const popularVps = vpsPlans.find(p => p.name === 'CONSOLUS MODEL') || vpsPlans[1];
+
+const popularPlans = [popularCloud, popularPremium, popularVps];
+---
+
+<Layout title="HostingSpell | Powerful yet Affordable Cloud Hosting">
+  <Navbar />
+  <main>
+    <Hero />
+    
+    <DomainSearch />
+
+    <section class="py-24" id="pricing">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Choose Your Plan</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">Affordable hosting plans designed to fit any budget without compromising speed.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {popularPlans.map((plan, index) => (
+            <PricingCard {...plan} isPopular={index === 1} ctaText={index === 1 ? "Get Premium" : "Get Started"} />
+          ))}
+        </div>
+        <div class="mt-12 text-center">
+          <a href="/pricing" class="text-primary hover:underline font-medium">View all plans and features &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <CostComparison />
+
+    <FeatureTabs client:visible />
+
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Everything You Need to Succeed</h2>
+          <p class="text-muted-foreground">Our hosting platform is packed with premium features at no extra cost.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ShowcasePreview />
+
+    {/* Trust Badges */}
+    <section class="py-16 border-t border-border/40">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-sm font-bold text-muted-foreground tracking-widest uppercase mb-8">With the support of giants</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+          <img src="/brands/cpanel.svg" alt="cPanel" class="h-8 object-contain" />
+          <img src="/brands/linode.svg" alt="Linode" class="h-8 object-contain" />
+          <img src="/brands/digitalocean.svg" alt="DigitalOcean" class="h-8 object-contain" />
+          <img src="/brands/litespeed.svg" alt="LiteSpeed" class="h-8 object-contain" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

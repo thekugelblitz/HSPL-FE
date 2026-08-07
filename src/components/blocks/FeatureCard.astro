@@ -1,0 +1,32 @@
+---
+// src/components/blocks/FeatureCard.astro
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Server, Shield, Zap, RefreshCw } from "lucide-react";
+
+interface Props {
+  title: string;
+  description: string;
+  iconName: 'Server' | 'Shield' | 'Zap' | 'RefreshCw';
+}
+
+const { title, description, iconName } = Astro.props;
+
+const Icon = {
+  Server,
+  Shield,
+  Zap,
+  RefreshCw
+}[iconName];
+---
+
+<Card className="border-border shadow-sm hover:shadow-md transition-shadow">
+  <CardHeader>
+    <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+      {Icon && <Icon className="h-5 w-5 text-primary" />}
+    </div>
+    <CardTitle>{title}</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <CardDescription className="text-base">{description}</CardDescription>
+  </CardContent>
+</Card>

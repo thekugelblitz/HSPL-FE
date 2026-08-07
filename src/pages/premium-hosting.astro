@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PricingCard from '../components/blocks/PricingCard.astro';
+import FeatureCard from '../components/blocks/FeatureCard.astro';
+import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { premiumPlans, faqs } from '../lib/data';
+
+const features = [
+  {
+    title: "Premium Infrastructure",
+    description: "Powered by top-tier providers like Linode and DigitalOcean for unmatched reliability.",
+    icon: "Server" as const
+  },
+  {
+    title: "Fully Managed",
+    description: "We handle the server updates, security patches, and optimizations so you don't have to.",
+    icon: "Shield" as const
+  },
+  {
+    title: "Blazing Fast Speed",
+    description: "Optimized server stacks with Redis and Memcached support for ultimate performance.",
+    icon: "Zap" as const
+  },
+  {
+    title: "Automated Backups",
+    description: "Peace of mind with off-site automated backups and 1-click restore functionality.",
+    icon: "RefreshCw" as const
+  }
+];
+---
+
+<Layout 
+  title="Premium Hosting - High Performance, Secure Web Hosting | HostingSpell"
+  description="Top-tier premium hosting plans with blazing-fast performance, robust security, and 24/7 support for demanding business websites."
+>
+  <Navbar />
+  <main class="flex-1">
+    <section class="relative bg-background pt-24 pb-28 border-b border-border/40 overflow-hidden">
+      <div class="absolute inset-0 bg-purple-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px] pointer-events-none animate-in fade-in duration-1000"></div>
+      <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none animate-in fade-in duration-1000 delay-300"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl text-center relative z-10">
+        <div class="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-sm font-semibold text-purple-500 mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <span class="flex h-2 w-2 rounded-full bg-violet-400 mr-2 animate-pulse"></span> High-Traffic Ready
+        </div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150 fill-mode-both">
+          Premium Hosting For <br class="hidden md:block"/><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-violet-400">High Traffic Sites</span>
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
+          Dedicated resources and priority support for mission-critical applications and high volume eCommerce stores.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
+          <a href="#plans">
+            <Button size="lg" className="h-12 px-8 text-base bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-500/25 transition-all group overflow-hidden relative font-bold">
+              <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+              <span class="relative">View Premium Plans</span>
+            </Button>
+          </a>
+          <a href="/contact">
+            <Button size="lg" variant="outline" className="h-12 px-8 text-base font-bold hover:bg-purple-500/10 hover:text-purple-500 border-border/60 transition-colors">
+              Contact Sales
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24" id="plans">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Plans That Adapt to Your Budget</h2>
+          <p class="text-muted-foreground">Choose the perfect plan for your needs</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {premiumPlans.map(plan => (
+            <PricingCard {...plan} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Host on Your Preferred Cloud Server</h2>
+          <p class="text-muted-foreground">Cloud hosting on top providers ensures maximum performance, security and high availability.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    {/* FAQ Section */}
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p class="text-muted-foreground">Find answers to the most common questions about HostingSpell's platform.</p>
+        </div>
+        <FaqAccordion items={faqs} client:visible />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PricingCard from '../components/blocks/PricingCard.astro';
+import FeatureCard from '../components/blocks/FeatureCard.astro';
+import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { cloudPlans, faqs } from '../lib/data';
+
+const features = [
+  {
+    title: "1-Click WP Install",
+    description: "Launch your WordPress site instantly with Softaculous 1-click installer.",
+    icon: "Server" as const
+  },
+  {
+    title: "LiteSpeed WP Cache",
+    description: "Enterprise-grade LSCache plugin pre-configured for maximum WordPress speed.",
+    icon: "Zap" as const
+  },
+  {
+    title: "Automated Updates",
+    description: "Keep your core, plugins, and themes automatically updated and secure.",
+    icon: "Shield" as const
+  },
+  {
+    title: "Daily Backups",
+    description: "Your WordPress data is automatically backed up daily with JetBackup.",
+    icon: "RefreshCw" as const
+  }
+];
+---
+
+<Layout 
+  title="WordPress Hosting - Fast, Secure & Managed WordPress Hosting | HostingSpell"
+  description="Supercharge your WordPress site with HostingSpell's managed WordPress hosting. LiteSpeed cache, one-click installs, daily backups, free SSL, and expert 24/7 support."
+>
+  <Navbar />
+  <main class="flex-1">
+    {/* Page Hero */}
+    <section class="relative bg-background pt-24 pb-28 border-b border-border/40 overflow-hidden">
+      <div class="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="container mx-auto px-4 max-w-screen-xl text-center relative z-10">
+        <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary mb-4">
+          Optimized for WordPress
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+          Managed <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">WordPress Hosting</span>
+        </h1>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Experience blazing fast WordPress speeds powered by LiteSpeed Enterprise and NVMe storage.
+        </p>
+      </div>
+    </section>
+
+    {/* Pricing Section */}
+    <section class="py-24" id="plans">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">WordPress Optimized Plans</h2>
+          <p class="text-muted-foreground">Perfect for blogs, portfolios, and eCommerce stores.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {cloudPlans.map(plan => (
+            <PricingCard {...plan} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Features Section */}
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Why Host WordPress With Us?</h2>
+          <p class="text-muted-foreground">We provide a tailored environment specifically for WordPress performance.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">WordPress FAQ</h2>
+          <p class="text-muted-foreground">Find answers to the most common questions about our WordPress hosting.</p>
+        </div>
+        <FaqAccordion items={faqs} client:visible />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

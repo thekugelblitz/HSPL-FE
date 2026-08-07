@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import FeatureCard from '../components/blocks/FeatureCard.astro';
+import { Button } from "@/components/ui/button";
+
+const tlds = [
+  { ext: ".com", price: "₹999/yr", oldPrice: "₹1200", sale: true },
+  { ext: ".in", price: "₹499/yr", oldPrice: "₹700", sale: true },
+  { ext: ".net", price: "₹1099/yr", oldPrice: "", sale: false },
+  { ext: ".org", price: "₹1199/yr", oldPrice: "", sale: false },
+  { ext: ".co", price: "₹2499/yr", oldPrice: "", sale: false },
+  { ext: ".io", price: "₹3499/yr", oldPrice: "", sale: false },
+];
+
+const features = [
+  {
+    title: "Domain Locking",
+    description: "Lock your domain to prevent unauthorized transfers.",
+    icon: "Shield" as const
+  },
+  {
+    title: "Privacy Protection",
+    description: "Your personal info will be secure and protected. Free WHOIS privacy protection is included.",
+    icon: "Shield" as const
+  },
+  {
+    title: "Easy Management",
+    description: "Manage your products with our easy to use control panel & dashboard.",
+    icon: "Server" as const
+  },
+  {
+    title: "Auto-renewal",
+    description: "Never Lose your domain when it expires even if you forget to renew it!",
+    icon: "RefreshCw" as const
+  }
+];
+---
+
+<Layout 
+  title="Domain Registration - Buy Cheap Domain Name | HostingSpell"
+  description="Find and register your perfect domain name with HostingSpell. Affordable domain registration with reliable support for your online identity."
+>
+  <Navbar />
+  <main class="flex-1">
+    <section class="relative bg-muted/30 pt-24 pb-32 border-b border-border/40 text-center overflow-hidden">
+      <div class="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="container mx-auto px-4 max-w-4xl relative z-10">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+          Search for a <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">domain name</span>
+        </h1>
+        <p class="text-xl text-muted-foreground mb-10">
+          Discover, buy and register your unique domain with our domain name search or AI domain generator.
+        </p>
+        
+        <div class="relative max-w-3xl mx-auto flex items-center shadow-xl shadow-primary/5 rounded-full bg-background border border-border p-2">
+          <input 
+            type="text" 
+            placeholder="Find your perfect domain..." 
+            class="flex-1 bg-transparent border-none outline-none px-6 text-lg placeholder:text-muted-foreground"
+          />
+          <a href="https://manage.hostingspell.com/cart.php?a=add&domain=register" class="shrink-0">
+            <Button size="lg" className="rounded-full px-8 text-md font-semibold">
+              Search
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Website Extensions for your Needs</h2>
+          <p class="text-muted-foreground">Secure your brand across the most recognized TLDs.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {tlds.map(tld => (
+            <div class="border border-border bg-card text-card-foreground rounded-xl p-6 text-center hover:border-primary/50 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md cursor-pointer group">
+              <h3 class="text-3xl font-extrabold text-foreground mb-2 group-hover:text-primary transition-colors">{tld.ext}</h3>
+              {tld.sale && <div class="text-xs text-muted-foreground line-through mb-1">{tld.oldPrice}</div>}
+              <div class="text-primary font-semibold">{tld.price}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Why Get Domains From HostingSpell</h2>
+          <p class="text-muted-foreground">Most affordable prices in the industry and even more affordable to renew.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

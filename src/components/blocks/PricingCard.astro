@@ -1,0 +1,60 @@
+---
+// src/components/blocks/PricingCard.astro
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
+
+interface Props {
+  name: string;
+  tagline?: string;
+  price: string;
+  billingCycle?: string;
+  features: string[];
+  isPopular?: boolean;
+  link?: string;
+  ctaText?: string;
+}
+
+const { 
+  name, 
+  tagline,
+  price, 
+  billingCycle = "/mo",
+  features, 
+  isPopular = false,
+  link = "/checkout",
+  ctaText = "Get Started"
+} = Astro.props;
+---
+
+<div class={`relative flex flex-col p-6 rounded-2xl border transition-all hover:border-primary/50 ${isPopular ? 'border-primary shadow-xl shadow-primary/5 scale-[1.02]' : 'border-border shadow-sm'} bg-card text-card-foreground`}>
+  {isPopular && (
+    <div class="absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-gradient-to-r from-primary to-blue-500 px-3 py-1 text-xs font-semibold text-primary-foreground shadow-md">
+      Most Popular
+    </div>
+  )}
+  
+  <div class="mb-4">
+    <h3 class="text-xl font-bold uppercase tracking-tight">{name}</h3>
+    {tagline && <p class="text-xs font-semibold text-primary uppercase mt-1 tracking-wider">{tagline}</p>}
+  </div>
+  
+  <div class="mb-6 flex items-baseline text-4xl font-extrabold">
+    {price}
+    <span class="ml-1 text-sm font-medium text-muted-foreground">{billingCycle}</span>
+  </div>
+  
+  <ul class="mb-8 flex-1 space-y-3 text-sm">
+    {features.map((feature) => (
+      <li class="flex items-start">
+        <Check className="mr-3 h-5 w-5 text-primary shrink-0" />
+        <span class="text-muted-foreground font-medium">{feature}</span>
+      </li>
+    ))}
+  </ul>
+  
+  <a href={link} class="w-full mt-auto group">
+    <Button className="w-full transition-all group-hover:shadow-md" variant={isPopular ? 'default' : 'outline'}>
+      {ctaText}
+    </Button>
+  </a>
+</div>

@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import PricingCard from '../components/blocks/PricingCard.astro';
+import FeatureCard from '../components/blocks/FeatureCard.astro';
+import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { premiumPlans, faqs } from '../lib/data';
+
+const features = [
+  {
+    title: "WSGI Integration",
+    description: "Run Django and Flask apps natively through Phusion Passenger WSGI integration.",
+    icon: "Server" as const
+  },
+  {
+    title: "Virtual Environments",
+    description: "Create isolated Python environments (virtualenv) directly from the dashboard.",
+    icon: "Zap" as const
+  },
+  {
+    title: "Python Selector",
+    description: "Switch between Python 3.7, 3.8, 3.9, 3.10 and 3.11 with ease.",
+    icon: "Shield" as const
+  },
+  {
+    title: "PIP Access",
+    description: "Install PIP packages globally or locally via our built-in terminal interface.",
+    icon: "RefreshCw" as const
+  }
+];
+---
+
+<Layout 
+  title="Python Hosting - Django, Flask & FastAPI Hosting via cPanel | HostingSpell"
+  description="Deploy Python applications including Django, Flask, and FastAPI on HostingSpell cPanel hosting. Powered by Phusion Passenger WSGI, Python Manager, virtualenv support, and easy VPS scaling."
+>
+  <Navbar />
+  <main class="flex-1">
+    {/* Page Hero */}
+    <section class="relative bg-background pt-24 pb-28 border-b border-border/40 overflow-hidden">
+      <div class="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="container mx-auto px-4 max-w-screen-xl text-center relative z-10">
+        <span class="inline-flex items-center rounded-full bg-yellow-500/10 px-3 py-1 text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-4 border border-yellow-500/20">
+          Powered by Python
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+          Premium <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-yellow-500">Python Hosting</span>
+        </h1>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Deploy production-ready Django, Flask, and FastAPI apps seamlessly with our managed Python environments.
+        </p>
+      </div>
+    </section>
+
+    {/* Pricing Section */}
+    <section class="py-24" id="plans">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Python Optimized Plans</h2>
+          <p class="text-muted-foreground">High-performance hosting for demanding Python web applications.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {premiumPlans.map(plan => (
+            <PricingCard {...plan} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Features Section */}
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Why Choose Us for Python?</h2>
+          <p class="text-muted-foreground">We provide all the tools required for a smooth Python deployment workflow.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Python Hosting FAQ</h2>
+          <p class="text-muted-foreground">Got questions? We've got answers.</p>
+        </div>
+        <FaqAccordion items={faqs} client:visible />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

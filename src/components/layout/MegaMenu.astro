@@ -1,0 +1,114 @@
+---
+import { Cloud, Server, Globe, MonitorSmartphone, Code, Cpu } from 'lucide-react';
+
+const hostingItems = [
+  {
+    title: "Cloud Hosting",
+    description: "Most Affordable Web Hosting",
+    href: "/cloud-hosting",
+    icon: Cloud,
+  },
+  {
+    title: "Premium Hosting",
+    description: "Powered BY Digital Ocean, Linode & Other",
+    href: "/premium-hosting",
+    icon: Server,
+  },
+  {
+    title: "Combo Hosting",
+    description: "Lifetime Free Domain with Combo Hosting",
+    href: "/combo-hosting",
+    icon: Globe,
+  },
+  {
+    title: "WordPress Hosting",
+    description: "Optimised for WordPress",
+    href: "#",
+    icon: MonitorSmartphone,
+  },
+  {
+    title: "NodeJS Hosting",
+    description: "Run Node.js Apps",
+    href: "#",
+    icon: Code,
+  },
+  {
+    title: "Python Hosting",
+    description: "Deploy Django & Flask",
+    href: "#",
+    icon: Cpu,
+  },
+];
+
+const vpsItems = [
+  {
+    title: "VPS Hosting",
+    description: "High Performance VPS Hosting Solutions",
+    href: "/vps",
+    icon: Server,
+  },
+  {
+    title: "VPS Apps",
+    description: "One-Click App Deployments on VPS",
+    href: "#",
+    icon: Cloud,
+  },
+];
+---
+
+<div class="hidden md:flex items-center space-x-1 font-medium">
+  <a href="/" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">Home</a>
+  
+  {/* Hosting Mega Menu */}
+  <div class="group relative px-4 py-2 text-sm text-foreground/80 cursor-pointer">
+    <span class="flex items-center gap-1 group-hover:text-primary transition-colors">
+      HOSTING
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+    
+    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div class="bg-card border border-border shadow-xl rounded-xl p-4 w-[600px] grid grid-cols-2 gap-2 relative before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-border after:absolute after:-top-[7px] after:left-1/2 after:-translate-x-1/2 after:border-8 after:border-transparent after:border-b-card">
+        {hostingItems.map(item => (
+          <a href={item.href} class="flex items-start gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group/item">
+            <div class="bg-primary/10 text-primary p-2 rounded-md group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors mt-0.5">
+              <item.icon className="w-5 h-5" />
+            </div>
+            <div>
+              <div class="font-semibold text-sm text-foreground group-hover/item:text-primary transition-colors">{item.title}</div>
+              <div class="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* VPS Mega Menu */}
+  <div class="group relative px-4 py-2 text-sm text-foreground/80 cursor-pointer">
+    <span class="flex items-center gap-1 group-hover:text-primary transition-colors">
+      VPS
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+    
+    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div class="bg-card border border-border shadow-xl rounded-xl p-4 w-[320px] flex flex-col gap-2 relative before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-border after:absolute after:-top-[7px] after:left-1/2 after:-translate-x-1/2 after:border-8 after:border-transparent after:border-b-card">
+        {vpsItems.map(item => (
+          <a href={item.href} class="flex items-start gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group/item">
+            <div class="bg-primary/10 text-primary p-2 rounded-md group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors mt-0.5">
+              <item.icon className="w-5 h-5" />
+            </div>
+            <div>
+              <div class="font-semibold text-sm text-foreground group-hover/item:text-primary transition-colors">{item.title}</div>
+              <div class="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <a href="/reseller" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">RESELLER</a>
+  <a href="/domain" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">DOMAIN</a>
+  <a href="#" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">BLOG</a>
+  <a href="/pricing" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">PRICING</a>
+</div>
