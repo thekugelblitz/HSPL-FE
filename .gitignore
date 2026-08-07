@@ -1,5 +1,5 @@
 # build output
-dist/
+# dist/ (tracked for cPanel static deployment)
 
 # generated types
 .astro/

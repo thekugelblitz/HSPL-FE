@@ -1,5 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/hostingspell/public_html
-    - /bin/cp -R dist/* $DEPLOYPATH
+    - export DEPLOYPATH=/home/hostingspell/hsplfe.hostingspell.net
+    - /bin/cp -R dist/* $DEPLOYPATH 2>/dev/null || true
+    - export DEPLOYPATH2=/home/hostingspell/public_html
+    - /bin/cp -R dist/* $DEPLOYPATH2 2>/dev/null || true
