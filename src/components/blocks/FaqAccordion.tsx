@@ -10,10 +10,11 @@ interface FaqItem {
   answer: string;
 }
 
-export function FaqAccordion({ items }: { items: FaqItem[] }) {
+export function FaqAccordion({ items, faqs }: { items?: FaqItem[]; faqs?: FaqItem[] }) {
+  const faqList = items || faqs || [];
   return (
     <Accordion type="single" collapsible className="w-full text-left">
-      {items.map((item, i) => (
+      {faqList.map((item, i) => (
         <AccordionItem key={i} value={`item-${i}`}>
           <AccordionTrigger className="text-left font-medium text-lg hover:text-primary transition-colors">
             {item.question}
@@ -26,3 +27,4 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
     </Accordion>
   )
 }
+

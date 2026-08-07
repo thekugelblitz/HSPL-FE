@@ -377,3 +377,363 @@ export const comboPlans = [
     link: "https://manage.hostingspell.com/store/combo-cpanel-hosting-free-domain/io?currency=1"
   }
 ];
+
+export const wordpressPlans = [
+  {
+    name: "WP STARTER",
+    tagline: "FOR BLOGS & SITES",
+    price: "$1.49",
+    billingCycle: "/mo",
+    features: [
+      "1 WordPress Website",
+      "10 GB Pure NVMe SSD",
+      "50 GB Bandwidth",
+      "LiteSpeed Cache Engine",
+      "Free Auto SSL & Staging",
+      "Automatic WP Core Updates",
+      "WP-CLI & Git Integration",
+      "Daily Automated Backups"
+    ],
+    isPopular: false,
+    link: "https://manage.hostingspell.com/store/ssd-web-hosting/mars?currency=1"
+  },
+  {
+    name: "WP PRO",
+    tagline: "FOR BUSINESS & WOOCOMMERCE",
+    price: "$2.49",
+    billingCycle: "/mo",
+    features: [
+      "5 WordPress Websites",
+      "30 GB Pure NVMe SSD",
+      "Unlimited Bandwidth",
+      "LiteSpeed Enterprise + LSCache",
+      "Smart Staging & 1-Click Clone",
+      "Advanced ObjectCache (Redis)",
+      "Imunify360 Malware Defense",
+      "Daily Backups & Free SSL"
+    ],
+    isPopular: true,
+    link: "https://manage.hostingspell.com/store/ssd-web-hosting/saturns?currency=1"
+  },
+  {
+    name: "WP TURBO",
+    tagline: "HIGH TRAFFIC & STORES",
+    price: "$4.99",
+    billingCycle: "/mo",
+    features: [
+      "Unlimited WP Websites",
+      "Unlimited Pure NVMe Storage",
+      "Unmetered Bandwidth",
+      "Dedicated PHP RAM (1024M)",
+      "Instant WP Staging & Push",
+      "LSCache Enterprise + Redis",
+      "Priority 24/7 Expert Support",
+      "Daily Offsite Backups"
+    ],
+    isPopular: false,
+    link: "https://manage.hostingspell.com/store/ssd-web-hosting/jupiter?currency=1"
+  }
+];
+
+export const nodejsPlans = [
+  {
+    name: "NODE MINI",
+    tagline: "API & MICROSERVICES",
+    price: "$2.99",
+    billingCycle: "/mo",
+    features: [
+      "Node.js 18.x, 20.x, 22.x LTS",
+      "1 CPU Core & 2GB RAM",
+      "25 GB Pure NVMe SSD",
+      "250 GB Monthly Bandwidth",
+      "Passenger / Nginx Reverse Proxy",
+      "Git Deployment & NPM/Yarn/PNPM",
+      "MongoDB & PostgreSQL Ready",
+      "Free SSL & DDoS Protection"
+    ],
+    isPopular: false,
+    link: "https://manage.hostingspell.com/store/cpanel-cloud-hosting-ind/ind-do-premium1?currency=1"
+  },
+  {
+    name: "NODE SCALE",
+    tagline: "FULLSTACK APPS",
+    price: "$4.99",
+    billingCycle: "/mo",
+    features: [
+      "Node.js 18.x, 20.x, 22.x LTS",
+      "2 CPU Cores & 4GB RAM",
+      "60 GB Pure NVMe SSD",
+      "1 TB Monthly Bandwidth",
+      "Custom Port & WebSockets Support",
+      "PM2 Process Management",
+      "Redis Server Included",
+      "Free Auto SSL & Daily Backups"
+    ],
+    isPopular: true,
+    link: "https://manage.hostingspell.com/store/cpanel-cloud-hosting-ind/ind-do-premium2?currency=1"
+  }
+];
+
+export const pythonPlans = [
+  {
+    name: "PYTHON LITE",
+    tagline: "DJANGO & FLASK",
+    price: "$2.99",
+    billingCycle: "/mo",
+    features: [
+      "Python 3.9, 3.10, 3.11, 3.12",
+      "Virtualenv & Pip Manager",
+      "20 GB NVMe Storage",
+      "WSGI / ASGI Gateway Ready",
+      "MySQL / PostgreSQL Support",
+      "Free SSL Certificate",
+      "Imunify360 Firewall",
+      "Automated Daily Backups"
+    ],
+    isPopular: true,
+    link: "https://manage.hostingspell.com/store/cpanel-cloud-hosting-ind/ind-do-premium1?currency=1"
+  }
+];
+
+export const datacenters = [
+  {
+    city: "Ashburn",
+    country: "United States",
+    code: "US-EAST",
+    latency: "< 25ms",
+    specs: "AMD EPYC™ 9004 Gen 4, DDR5 ECC RAM, NVMe RAID-10",
+    status: "Optimal",
+    flag: "🇺🇸"
+  },
+  {
+    city: "Mumbai",
+    country: "India",
+    code: "IN-BOM",
+    latency: "< 12ms",
+    specs: "Intel® Xeon® Scalable 3rd Gen, NVMe RAID-10",
+    status: "Optimal",
+    flag: "🇮🇳"
+  },
+  {
+    city: "Frankfurt",
+    country: "Germany",
+    code: "EU-FRA",
+    latency: "< 18ms",
+    specs: "AMD EPYC™ 7003, DDR4 ECC RAM, Pure NVMe",
+    status: "Optimal",
+    flag: "🇩🇪"
+  },
+  {
+    city: "Singapore",
+    country: "Singapore",
+    code: "AP-SIN",
+    latency: "< 20ms",
+    specs: "Intel® Xeon® Gold, Enterprise NVMe Storage",
+    status: "Optimal",
+    flag: "🇸🇬"
+  }
+];
+
+export const networkStatusData = {
+  overall: "Operational",
+  lastUpdated: "Just now",
+  uptime: "99.99%",
+  services: [
+    { name: "Cloud Web Hosting Cluster (US-East)", status: "Operational", responseTime: "24ms" },
+    { name: "Cloud Web Hosting Cluster (IN-BOM)", status: "Operational", responseTime: "12ms" },
+    { name: "KVM VPS Hypervisors Node 1-12", status: "Operational", responseTime: "15ms" },
+    { name: "cPanel / WHM Control Panel Nodes", status: "Operational", responseTime: "28ms" },
+    { name: "LiteSpeed Enterprise Web Servers", status: "Operational", responseTime: "18ms" },
+    { name: "Imunify360 DDoS & Firewall Engine", status: "Operational", responseTime: "4ms" },
+    { name: "Global Anycast DNS Resolvers", status: "Operational", responseTime: "8ms" },
+    { name: "JetBackup 5 Offsite Vaults", status: "Operational", responseTime: "32ms" }
+  ],
+  incidents: [
+    {
+      date: "August 2, 2026",
+      title: "Scheduled Maintenance - Network Switch Upgrade (EU-FRA)",
+      status: "Completed",
+      description: "Routine hardware maintenance and switch firmware upgrades completed with zero impact on web services."
+    },
+    {
+      date: "July 18, 2026",
+      title: "Minor Latency Spike - Asia Pacific Transit Provider",
+      status: "Resolved",
+      description: "Upstream carrier rerouted traffic due to undersea cable degradation. Normal latency restored within 14 minutes."
+    }
+  ]
+};
+
+export const kbCategories = [
+  {
+    id: "cpanel",
+    name: "cPanel & Dashboard",
+    count: 24,
+    description: "Email configuration, file management, subdomains, and database setups.",
+    icon: "LayoutDashboard"
+  },
+  {
+    id: "domains",
+    name: "Domains & DNS",
+    count: 18,
+    description: "Nameservers, A/AAAA records, MX configuration, and domain transfers.",
+    icon: "Globe"
+  },
+  {
+    id: "wordpress",
+    name: "WordPress & LSCache",
+    count: 32,
+    description: "Speed optimization, LiteSpeed plugin setup, staging sites, and troubleshooting.",
+    icon: "Zap"
+  },
+  {
+    id: "security",
+    name: "SSL & Security",
+    count: 15,
+    description: "AutoSSL installation, Imunify360 malware cleanup, 2FA, and SSH keys.",
+    icon: "ShieldCheck"
+  },
+  {
+    id: "vps",
+    name: "KVM VPS & Linux",
+    count: 21,
+    description: "Root SSH access, Virtualizor management, firewall configuration, and OS reinstalls.",
+    icon: "Server"
+  },
+  {
+    id: "billing",
+    name: "Billing & Invoices",
+    count: 12,
+    description: "Payment methods, invoices, subscription changes, and affiliate payouts.",
+    icon: "CreditCard"
+  }
+];
+
+export const popularArticles = [
+  {
+    id: "1",
+    title: "How to Point Your Domain Name to HostingSpell Nameservers",
+    category: "Domains & DNS",
+    readTime: "3 min read",
+    views: "14.2k",
+    link: "/knowledgebase"
+  },
+  {
+    id: "2",
+    title: "Setting Up Free AutoSSL Certificate on Your cPanel Account",
+    category: "SSL & Security",
+    readTime: "2 min read",
+    views: "11.8k",
+    link: "/knowledgebase"
+  },
+  {
+    id: "3",
+    title: "Optimizing WordPress with LiteSpeed Cache (LSCache) & Redis",
+    category: "WordPress & LSCache",
+    readTime: "6 min read",
+    views: "22.5k",
+    link: "/knowledgebase"
+  },
+  {
+    id: "4",
+    title: "How to Access Root SSH on KVM VPS via Terminal & Virtualizor",
+    category: "KVM VPS & Linux",
+    readTime: "4 min read",
+    views: "9.1k",
+    link: "/knowledgebase"
+  },
+  {
+    id: "5",
+    title: "Deploying Node.js & Python Applications using cPanel Application Manager",
+    category: "cPanel & Dashboard",
+    readTime: "5 min read",
+    views: "18.3k",
+    link: "/knowledgebase"
+  }
+];
+
+export const blogPosts = [
+  {
+    id: "1",
+    slug: "why-litespeed-nvme-outperforms-apache",
+    title: "Why LiteSpeed Enterprise + Pure NVMe Outperforms Traditional Apache by 10x",
+    excerpt: "Discover the architectural advantages of LiteSpeed Web Server, event-driven I/O, and hardware NVMe RAID arrays for high-concurrency web hosting.",
+    date: "August 4, 2026",
+    author: "HostingSpell Infrastructure Team",
+    category: "Technology & Infrastructure",
+    readTime: "7 min read",
+    image: "⚡"
+  },
+  {
+    id: "2",
+    slug: "wordpress-core-web-vitals-optimization-2026",
+    title: "The Ultimate Guide to Achieving 100/100 Core Web Vitals on WordPress in 2026",
+    excerpt: "Learn how to optimize LCP, CLS, and INP metrics using server-level caching, WebP image generation, and critical CSS inline strategies.",
+    date: "July 29, 2026",
+    author: "Alex Morgan, CRO & Performance Lead",
+    category: "WordPress & Performance",
+    readTime: "10 min read",
+    image: "🚀"
+  },
+  {
+    id: "3",
+    slug: "imunify360-ai-security-explained",
+    title: "Inside Imunify360: How AI-Driven Security Blocks 99.9% of Web Attacks",
+    excerpt: "An in-depth look at automated malware detection, web application firewalls (WAF), proactive defense layers, and brute-force mitigation.",
+    date: "July 15, 2026",
+    author: "Security & Operations Team",
+    category: "Cybersecurity",
+    readTime: "5 min read",
+    image: "🛡️"
+  }
+];
+
+export const affiliateTiers = [
+  {
+    salesRange: "1 - 5 Sales / month",
+    commission: "$15 per sale",
+    perk: "Instant Portal Access & Custom Links"
+  },
+  {
+    salesRange: "6 - 20 Sales / month",
+    commission: "$25 per sale",
+    perk: "Dedicated Affiliate Manager + Custom Coupons"
+  },
+  {
+    salesRange: "21 - 50 Sales / month",
+    commission: "$35 per sale",
+    perk: "Co-branded Landing Pages & Banner Ads"
+  },
+  {
+    salesRange: "50+ Sales / month",
+    commission: "$50+ Custom Commission",
+    perk: "Weekly Payouts & VIP Bonus Rewards"
+  }
+];
+
+export const affiliateFaqs = [
+  {
+    question: "How does the HostingSpell Affiliate Program work?",
+    answer: "You simply sign up for free, get your unique affiliate referral link, share it on your blog, social media, or clients, and earn up to $50 for every customer who buys a hosting plan."
+  },
+  {
+    question: "What is the minimum payout threshold?",
+    answer: "Our minimum payout threshold is just $50. Once reached, you can request payment via PayPal, Direct Bank Transfer, or Hosting Account Credits."
+  },
+  {
+    question: "How long is the cookie duration?",
+    answer: "We offer a 90-day tracking cookie! If a visitor clicks your link and purchases within 90 days, you get full credit for the sale."
+  }
+];
+
+export const domainPricing = [
+  { tld: ".com", register: "$9.99", renew: "$12.99", transfer: "$9.99", popular: true },
+  { tld: ".in", register: "$3.99", renew: "$6.99", transfer: "$4.99", popular: true },
+  { tld: ".net", register: "$11.99", renew: "$14.99", transfer: "$11.99", popular: false },
+  { tld: ".org", register: "$12.99", renew: "$15.99", transfer: "$12.99", popular: false },
+  { tld: ".co", register: "$8.99", renew: "$24.99", transfer: "$10.99", popular: false },
+  { tld: ".store", register: "$1.99", renew: "$29.99", transfer: "$14.99", popular: true },
+  { tld: ".tech", register: "$2.99", renew: "$34.99", transfer: "$19.99", popular: false },
+  { tld: ".online", register: "$1.49", renew: "$27.99", transfer: "$12.99", popular: false }
+];
+

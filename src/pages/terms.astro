@@ -1,12 +1,68 @@
 ---
-import SimpleLayout from '../layouts/SimpleLayout.astro';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { ShieldCheck, FileText, Scale } from 'lucide-react';
 ---
 
-<SimpleLayout 
-  title="Terms of Service | HostingSpell" 
-  heading="Terms of Service" 
-  description="Read our terms of service agreement."
->
-  <p>This page is currently under construction. Please check back later for full details regarding our Terms of Service.</p>
-  <p>If you need immediate assistance, please <a href="/contact" class="text-primary hover:underline">contact our support team</a>.</p>
-</SimpleLayout>
+<Layout title="Terms of Service | HostingSpell Legal Framework">
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    <section class="py-16 bg-grid-pattern border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
+          <Scale class="w-3.5 h-3.5" />
+          Legal Terms & Conditions
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+          Terms of Service Agreement
+        </h1>
+        <p class="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">
+          Last Updated: August 2026. Please read these terms carefully before utilizing HostingSpell cloud services.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-screen-md">
+        <div class="glass-card p-8 sm:p-12 rounded-3xl glow-card space-y-8 text-sm leading-relaxed text-muted-foreground">
+          <div class="space-y-3">
+            <h2 class="text-xl font-bold text-foreground">1. Account Provisioning & Services</h2>
+            <p>
+              By registering an account or purchasing any hosting package from HostingSpell, you agree to abide by all terms contained within this agreement. Accounts are activated immediately upon receipt of confirmed payment.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">2. Resource Usage & Fair Policy</h2>
+            <p>
+              Shared Cloud and cPanel hosting accounts are subject to CloudLinux LVE resource limits (CPU cores, RAM, Entry Processes, and I/O rates) designed to maintain maximum performance for all tenants on the node. Excessive resource utilization that degrades server stability may result in automatic throttling or suspension.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">3. Billing, Renewals & Upgrades</h2>
+            <p>
+              All hosting subscriptions renew automatically based on your chosen billing cycle (monthly, annually, or triennially). Renewal notices are dispatched 14 days prior to invoice due dates. Failure to settle invoices within 3 days past due may lead to temporary service suspension.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">4. Uptime SLA Guarantee</h2>
+            <p>
+              HostingSpell guarantees a 99.99% network and power uptime mark for all Cloud Web Hosting and KVM VPS hypervisors. In the rare event of unplanned outage exceeding SLA parameters, eligible account credits are provided upon ticket submission.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">5. Termination & Data Retention</h2>
+            <p>
+              Clients may cancel services at any time via the client portal. Upon cancellation or termination due to non-payment past 15 days, server data and JetBackup restore points are permanently deleted in accordance with data sanitation standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

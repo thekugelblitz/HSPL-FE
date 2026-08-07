@@ -1,12 +1,125 @@
 ---
-import SimpleLayout from '../layouts/SimpleLayout.astro';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { kbCategories, popularArticles } from '../lib/data';
+import { Search, HelpCircle, ArrowRight, LayoutDashboard, Globe, Zap, ShieldCheck, Server, CreditCard, BookOpen } from 'lucide-react';
+
+const iconMap = {
+  LayoutDashboard,
+  Globe,
+  Zap,
+  ShieldCheck,
+  Server,
+  CreditCard
+};
 ---
 
-<SimpleLayout 
-  title="Knowledgebase | HostingSpell" 
-  heading="Knowledgebase" 
-  description="Find answers to common questions and technical tutorials."
->
-  <p>This page is currently under construction. Please check back later for full details regarding our Knowledgebase.</p>
-  <p>If you need immediate assistance, please <a href="/contact" class="text-primary hover:underline">contact our support team</a>.</p>
-</SimpleLayout>
+<Layout title="Knowledgebase | HostingSpell Documentation & Tutorials">
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    {/* Hero Search Bar */}
+    <section class="py-24 bg-grid-pattern border-b border-border/40 relative">
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
+          <HelpCircle class="w-3.5 h-3.5" />
+          Documentation & Help Portal
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6">
+          How Can We Help You?
+        </h1>
+        
+        <div class="max-w-2xl mx-auto relative mb-6">
+          <input 
+            type="text" 
+            placeholder="Search tutorials (e.g. 'cPanel SSL', 'WordPress LSCache', 'Nameservers')..." 
+            class="w-full pl-12 pr-4 py-4 rounded-2xl bg-card border border-border text-base focus:outline-none focus:ring-2 focus:ring-primary shadow-xl"
+          />
+          <Search class="w-5 h-5 text-muted-foreground absolute left-4 top-1/2 -translate-y-1/2" />
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
+          <span>Popular searches:</span>
+          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Nameservers</a>
+          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Free AutoSSL</a>
+          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">WordPress Cache</a>
+          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Root SSH</a>
+        </div>
+      </div>
+    </section>
+
+    {/* Categories Grid */}
+    <section class="py-20 border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <h2 class="text-2xl font-bold mb-8">Browse Knowledgebase Categories</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {kbCategories.map((cat) => {
+            const IconComponent = iconMap[cat.icon as keyof typeof iconMap] || BookOpen;
+            return (
+              <div class="glass-card rounded-2xl p-6 glow-card transition-all hover:-translate-y-1 group">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <IconComponent class="w-5 h-5" />
+                  </div>
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-muted text-muted-foreground">
+                    {cat.count} Articles
+                  </span>
+                </div>
+                <h3 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{cat.name}</h3>
+                <p class="text-xs text-muted-foreground leading-relaxed mb-4">{cat.description}</p>
+                <div class="text-xs font-semibold text-primary inline-flex items-center gap-1">
+                  <span>Explore articles</span>
+                  <ArrowRight class="w-3.5 h-3.5" />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    {/* Popular Tutorials */}
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <h2 class="text-2xl font-bold mb-8">Most Popular Guides</h2>
+
+        <div class="grid md:grid-cols-2 gap-4 max-w-5xl">
+          {popularArticles.map((art) => (
+            <a 
+              href={art.link}
+              class="glass-card rounded-xl p-5 glow-card flex items-center justify-between hover:bg-muted/30 transition-all border border-border/40 group"
+            >
+              <div class="space-y-1">
+                <span class="text-[10px] uppercase font-bold text-primary tracking-wider">{art.category}</span>
+                <h3 class="font-semibold text-sm group-hover:text-primary transition-colors">{art.title}</h3>
+                <div class="text-[11px] text-muted-foreground flex items-center gap-3">
+                  <span>{art.readTime}</span>
+                  <span>•</span>
+                  <span>{art.views} views</span>
+                </div>
+              </div>
+              <ArrowRight class="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0 ml-4" />
+            </a>
+          ))}
+        </div>
+
+        {/* Can't Find Answer Card */}
+        <div class="mt-16 glass-card rounded-3xl p-8 text-center max-w-2xl mx-auto border border-white/10 glow-card">
+          <h3 class="text-xl font-bold mb-2">Can't find what you're looking for?</h3>
+          <p class="text-xs text-muted-foreground mb-6">Our support team is available 24/7/365 to assist with any technical issues.</p>
+          <a 
+            href="https://manage.hostingspell.com/submitticket.php" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-90 transition-all shadow-md shadow-primary/20"
+          >
+            <span>Open a Support Ticket</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

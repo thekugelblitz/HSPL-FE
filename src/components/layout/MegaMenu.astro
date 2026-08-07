@@ -107,8 +107,43 @@ const vpsItems = [
     </div>
   </div>
 
-  <a href="/reseller" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">RESELLER</a>
-  <a href="/domain" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">DOMAIN</a>
-  <a href="#" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">BLOG</a>
-  <a href="/pricing" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80">PRICING</a>
+  <a href="/reseller" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80 font-medium">RESELLER</a>
+  <a href="/domain" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80 font-medium">DOMAIN</a>
+  <a href="/pricing" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80 font-medium">PRICING</a>
+  <a href="/showcase" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80 font-medium">SHOWCASE</a>
+  <a href="/blog" class="px-4 py-2 text-sm transition-colors hover:text-primary text-foreground/80 font-medium">BLOG</a>
+  
+  {/* Resources & Support Menu */}
+  <div class="group relative px-4 py-2 text-sm text-foreground/80 cursor-pointer">
+    <span class="flex items-center gap-1 group-hover:text-primary transition-colors font-medium">
+      RESOURCES
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+    
+    <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div class="bg-card border border-border shadow-xl rounded-xl p-3 w-[260px] flex flex-col gap-1">
+        <a href="/about" class="px-3 py-2 text-xs font-semibold hover:bg-muted rounded-md transition-colors flex items-center justify-between">
+          <span>About HostingSpell</span>
+          <span class="text-[10px] text-muted-foreground">Story</span>
+        </a>
+        <a href="/knowledgebase" class="px-3 py-2 text-xs font-semibold hover:bg-muted rounded-md transition-colors flex items-center justify-between">
+          <span>Knowledgebase</span>
+          <span class="text-[10px] text-muted-foreground">Guides</span>
+        </a>
+        <a href="/network-status" class="px-3 py-2 text-xs font-semibold hover:bg-muted rounded-md transition-colors flex items-center justify-between">
+          <span>Network Status</span>
+          <span class="text-[10px] text-emerald-500 font-bold">🟢 99.99%</span>
+        </a>
+        <a href="/affiliates" class="px-3 py-2 text-xs font-semibold hover:bg-muted rounded-md transition-colors flex items-center justify-between">
+          <span>Affiliate Program</span>
+          <span class="text-[10px] text-primary font-bold">Earn $50</span>
+        </a>
+        <a href="/contact" class="px-3 py-2 text-xs font-semibold hover:bg-muted rounded-md transition-colors flex items-center justify-between">
+          <span>Contact Support</span>
+          <span class="text-[10px] text-muted-foreground">24/7</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
+

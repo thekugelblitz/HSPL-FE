@@ -1,12 +1,61 @@
 ---
-import SimpleLayout from '../layouts/SimpleLayout.astro';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { ShieldCheck, Lock } from 'lucide-react';
 ---
 
-<SimpleLayout 
-  title="Privacy Policy | HostingSpell" 
-  heading="Privacy Policy" 
-  description="Learn how we collect, use, and protect your data."
->
-  <p>This page is currently under construction. Please check back later for full details regarding our Privacy Policy.</p>
-  <p>If you need immediate assistance, please <a href="/contact" class="text-primary hover:underline">contact our support team</a>.</p>
-</SimpleLayout>
+<Layout title="Privacy Policy | HostingSpell Data Protection">
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    <section class="py-16 bg-grid-pattern border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <Lock class="w-3.5 h-3.5" />
+          Data Security & Privacy
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+          Privacy Policy
+        </h1>
+        <p class="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">
+          How HostingSpell collects, protects, and handles customer data under GDPR & privacy standards.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-screen-md">
+        <div class="glass-card p-8 sm:p-12 rounded-3xl glow-card space-y-8 text-sm leading-relaxed text-muted-foreground">
+          <div class="space-y-3">
+            <h2 class="text-xl font-bold text-foreground">1. Data Collection & Usage</h2>
+            <p>
+              We collect personal information necessary to provision web hosting, process domain registrations, and provide technical assistance (name, email address, billing address, IP logs, and payment details). We never sell your personal data to third-party brokers.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">2. Payment Security & Encryption</h2>
+            <p>
+              All payment transactions are encrypted using 256-bit TLS/SSL encryption. HostingSpell does not store complete credit card or debit card numbers on local infrastructure; payment processing is handled securely by certified PCI-DSS Compliant payment gateways.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">3. Cookie & Analytical Logging</h2>
+            <p>
+              We use essential session cookies required for client portal login authentication, cart preservation, and anonymous analytical tracking to optimize server performance and user experience.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">4. GDPR Compliance & User Rights</h2>
+            <p>
+              European Union residents possess full rights under GDPR to request data export, account deletion ("Right to be Forgotten"), or consent modification by submitting a ticket to our compliance team.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

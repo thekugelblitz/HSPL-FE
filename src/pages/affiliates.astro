@@ -1,12 +1,137 @@
 ---
-import SimpleLayout from '../layouts/SimpleLayout.astro';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { affiliateTiers, affiliateFaqs } from '../lib/data';
+import { DollarSign, Award, Users, ArrowRight, CheckCircle2, TrendingUp, Sparkles, ShieldCheck } from 'lucide-react';
 ---
 
-<SimpleLayout 
-  title="Affiliate Program | HostingSpell" 
-  heading="Affiliate Program" 
-  description="Join our affiliate program and earn commissions for referring customers."
->
-  <p>This page is currently under construction. Please check back later for full details regarding our Affiliate Program.</p>
-  <p>If you need immediate assistance, please <a href="/contact" class="text-primary hover:underline">contact our support team</a>.</p>
-</SimpleLayout>
+<Layout title="Affiliate Program | HostingSpell - Earn Up to $50 Per Sale">
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    {/* Hero Header */}
+    <section class="py-24 bg-grid-pattern border-b border-border/40 relative">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-6">
+          <DollarSign class="w-4 h-4" />
+          High-Paying Partner Program
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 max-w-4xl mx-auto">
+          Partner with HostingSpell & Earn Up to <span class="text-emerald-400">$50 Per Sale</span>
+        </h1>
+        <p class="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+          Recommend ultra-fast NVMe cloud hosting to your audience, clients, or followers and earn industry-leading commissions with 90-day cookie tracking.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a 
+            href="https://manage.hostingspell.com/register.php" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-8 py-4 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2"
+          >
+            <span>Join Affiliate Program Now</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+          <a 
+            href="#tiers" 
+            class="px-8 py-4 rounded-xl bg-secondary/80 text-secondary-foreground font-semibold hover:bg-secondary transition-all border border-border"
+          >
+            View Commission Tiers
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Benefits Grid */}
+    <section class="py-20 border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="glass-card rounded-2xl p-8 glow-card space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+              <TrendingUp class="w-6 h-6" />
+            </div>
+            <h3 class="font-bold text-xl">High Conversion Rates</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Our ultra-competitive pricing ($1.29/mo) and 99.99% uptime make HostingSpell exceptionally easy to convert for any tech or blogging audience.
+            </p>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8 glow-card space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+              <Sparkles class="w-6 h-6" />
+            </div>
+            <h3 class="font-bold text-xl">90-Day Cookie Tracking</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Visitors referred by your link are tracked for 90 days. Even if they purchase weeks later, you get full commission credit.
+            </p>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8 glow-card space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+              <ShieldCheck class="w-6 h-6" />
+            </div>
+            <h3 class="font-bold text-xl">Reliable Monthly Payouts</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Get paid on time every month via PayPal, Direct Bank Transfer, or Hosting Credit with a low minimum payout threshold of just $50.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Tiers Section */}
+    <section class="py-24 border-b border-border/40" id="tiers">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">
+            Tiered Commission Structure
+          </h2>
+          <p class="text-muted-foreground text-base">
+            The more referrals you bring each month, the higher your commission payout per customer!
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {affiliateTiers.map((tier, idx) => (
+            <div class={`glass-card rounded-2xl p-6 glow-card flex flex-col justify-between ${idx === 3 ? 'border-emerald-500/50 bg-emerald-950/20' : ''}`}>
+              <div>
+                <span class="text-xs font-mono uppercase font-bold text-muted-foreground">{tier.salesRange}</span>
+                <div class="text-3xl font-extrabold text-emerald-400 my-3">{tier.commission}</div>
+                <p class="text-xs text-muted-foreground leading-relaxed pt-2 border-t border-border/40">
+                  {tier.perk}
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border/40 text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <CheckCircle2 class="w-4 h-4 text-emerald-400" />
+                <span>Instant Approval</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Affiliate FAQs */}
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
+          <p class="text-muted-foreground">Everything you need to know about our partner program.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4">
+          {affiliateFaqs.map((faq) => (
+            <div class="glass-card rounded-2xl p-6 glow-card">
+              <h3 class="font-bold text-base mb-2">{faq.question}</h3>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

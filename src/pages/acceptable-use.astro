@@ -1,12 +1,61 @@
 ---
-import SimpleLayout from '../layouts/SimpleLayout.astro';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { ShieldAlert, AlertTriangle } from 'lucide-react';
 ---
 
-<SimpleLayout 
-  title="Acceptable Use Policy | HostingSpell" 
-  heading="Acceptable Use Policy" 
-  description="Guidelines for acceptable use of our hosting services."
->
-  <p>This page is currently under construction. Please check back later for full details regarding our Acceptable Use Policy.</p>
-  <p>If you need immediate assistance, please <a href="/contact" class="text-primary hover:underline">contact our support team</a>.</p>
-</SimpleLayout>
+<Layout title="Acceptable Use Policy | HostingSpell Server Guidelines">
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    <section class="py-16 bg-grid-pattern border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <ShieldAlert class="w-3.5 h-3.5" />
+          Server Conduct Rules
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+          Acceptable Use Policy (AUP)
+        </h1>
+        <p class="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">
+          Guidelines and restrictions regarding permitted content and server activity on HostingSpell infrastructure.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-screen-md">
+        <div class="glass-card p-8 sm:p-12 rounded-3xl glow-card space-y-8 text-sm leading-relaxed text-muted-foreground">
+          <div class="space-y-3">
+            <h2 class="text-xl font-bold text-foreground">1. Strictly Prohibited Content & Activity</h2>
+            <p>
+              HostingSpell maintains zero tolerance for illicit activity. Accounts found hosting or facilitating any of the following will face immediate termination without refund:
+            </p>
+            <ul class="list-disc pl-5 space-y-1.5 pt-2">
+              <li>Unsolicited Bulk Email (Spam / Mail Bombing)</li>
+              <li>Malware, Ransomware, Phishing, or Scam sites</li>
+              <li>DDoS Attack Scripting / Botnet Command Controllers</li>
+              <li>Copyrighted Warez, Torrent Trackers, or Pirated Media</li>
+              <li>Crypto Mining scripts on Shared or VPS nodes</li>
+            </ul>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">2. Email & Anti-Spam Policy</h2>
+            <p>
+              Outbound emails on shared hosting accounts are limited to 200 emails per hour per domain to preserve IP reputation and prevent inclusion on RBL blacklists.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-6 border-t border-border/40">
+            <h2 class="text-xl font-bold text-foreground">3. Enforcement & Abuse Reporting</h2>
+            <p>
+              Abuse reports are handled promptly by our 24/7 compliance team. To report malicious content or security violations hosted on our network, email <strong>abuse@hostingspell.com</strong> with log evidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
