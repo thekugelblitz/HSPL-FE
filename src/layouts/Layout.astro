@@ -53,8 +53,14 @@ const {
     
     <script is:inline>
       const getThemePreference = () => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
+        if (typeof localStorage !== 'undefined') {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'light' || stored === 'dark') {
+            return stored;
+          }
+          if (stored === 'system') {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
         }
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       };
@@ -64,9 +70,18 @@ const {
       if (typeof localStorage !== 'undefined') {
         const observer = new MutationObserver(() => {
           const isDark = document.documentElement.classList.contains('dark');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          const currentTheme = localStorage.getItem('theme');
+          if (currentTheme !== 'system') {
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          }
         });
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          if (localStorage.getItem('theme') === 'system') {
+            document.documentElement.classList[e.matches ? 'add' : 'remove']('dark');
+          }
+        });
       }
     </script>
   </head>
@@ -75,7 +90,11 @@ const {
     
     <script>
       document.addEventListener('astro:after-swap', () => {
-        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const stored = localStorage.getItem('theme');
+        let theme = stored;
+        if (!theme || theme === 'system') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
         document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
       });
     </script>

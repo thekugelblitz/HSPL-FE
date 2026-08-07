@@ -10,24 +10,34 @@ import { premiumPlans, faqs } from '../lib/data';
 
 const features = [
   {
+    title: "cPanel Node.js Manager",
+    description: "Create, configure, and manage your Node.js applications visually inside cPanel. Set your application root, startup file, environment, and run npm install — all from your browser.",
+    icon: "layout" as const
+  },
+  {
     title: "Phusion Passenger",
-    description: "Easily deploy and manage Node.js applications directly via cPanel.",
-    icon: "Server" as const
+    description: "Your Node.js app is served by Phusion Passenger — the same battle-tested application server trusted by GitHub, Apple, and Basecamp. It auto-restarts crashed processes and manages worker threads for you.",
+    icon: "zap" as const
   },
   {
-    title: "NPM Support",
-    description: "Full terminal access and npm support to install required packages easily.",
-    icon: "Zap" as const
+    title: "npm & yarn Support",
+    description: "Install any npm or yarn package from the cPanel terminal. Run build scripts, manage package-lock.json, and use any framework — Express, Fastify, NestJS, Next.js, or your own custom server.",
+    icon: "package" as const
   },
   {
-    title: "Node.js Selector",
-    description: "Choose and switch between multiple Node.js versions with a single click.",
-    icon: "Shield" as const
+    title: "Per-App Environment Variables",
+    description: "Define custom environment variables (.env) for each Node.js application independently through the cPanel interface — no manual file editing or server-level config required.",
+    icon: "sliders" as const
   },
   {
-    title: "Scalable Resources",
-    description: "Seamlessly upgrade your RAM and CPU as your application traffic grows.",
-    icon: "RefreshCw" as const
+    title: "Multi-Version Node.js",
+    description: "Choose from Node.js 14, 16, 18, 20, or 22 per application. Run legacy projects and the latest LTS versions simultaneously on the same hosting account without conflicts.",
+    icon: "layers" as const
+  },
+  {
+    title: "Instant Scale to VPS",
+    description: "Start on Premium Hosting and move to a VPS when your Node.js app outgrows shared resources. Full root access, custom nginx/PM2 configs, and dedicated CPU & RAM await on our VPS plans.",
+    icon: "trending-up" as const
   }
 ];
 ---
@@ -37,79 +47,79 @@ const features = [
   description="Host Node.js applications with ease on HostingSpell's cPanel hosting. Powered by Phusion Passenger, Node.js Manager, npm support, and scalable VPS upgrade paths."
 >
   <Navbar />
+  
   <main class="flex-1">
-    {/* Page Hero */}
     <section class="relative bg-background pt-24 pb-28 border-b border-border/40 overflow-hidden">
-      <div class="absolute inset-0 bg-[#339933]/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
-      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#339933]/20 rounded-full blur-[120px] pointer-events-none animate-in fade-in duration-1000"></div>
-      <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-emerald-600/10 rounded-full blur-[100px] pointer-events-none animate-in fade-in duration-1000 delay-300"></div>
+      <div class="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-emerald-500/20 dark:bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none animate-in fade-in duration-1000"></div>
+      <div class="absolute -top-[100px] right-1/4 w-[400px] h-[400px] bg-green-500/20 dark:bg-green-500/10 rounded-full blur-[120px] pointer-events-none animate-in fade-in duration-1000 delay-300"></div>
       
       <div class="container mx-auto px-4 max-w-screen-xl text-center relative z-10">
-        <div class="inline-flex items-center rounded-full border border-[#339933]/30 bg-[#339933]/10 px-3 py-1 text-sm font-semibold text-[#339933] mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span class="flex h-2 w-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span> Node.js Ready
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted/50 border border-border mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-sm font-medium text-muted-foreground">Node.js Hosting powered by Phusion Passenger</span>
         </div>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150 fill-mode-both">
-          High Performance <br class="hidden md:block"/><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#339933] to-emerald-400">Node.js Hosting</span>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150 fill-mode-both">
+          Deploy Node.js Apps <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500">via cPanel Manager</span>
         </h1>
         <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
-          Deploy Next.js, Express, and React applications effortlessly with full SSH access and built-in PM2 process management.
+          Deploy your Node.js applications through cPanel's Node.js Manager, served by Phusion Passenger. Full npm support, multi-version Node.js, and a clear upgrade path to VPS when you need more.
         </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
+        <div class="flex items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
           <a href="#plans">
-            <Button size="lg" className="h-12 px-8 text-base bg-[#339933] hover:bg-[#2d882d] shadow-lg shadow-[#339933]/25 transition-all group overflow-hidden relative font-bold text-white">
-              <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-              <span class="relative">View Node.js Plans</span>
-            </Button>
+            <Button size="lg" className="h-12 px-8 text-base bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white border-0">View Premium Plans</Button>
           </a>
-          <a href="/contact">
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base font-bold hover:bg-[#339933]/10 hover:text-[#339933] border-border/60 transition-colors">
-              Contact Sales
-            </Button>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    {/* Pricing Section */}
-    <section class="py-24" id="plans">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-4">Powerful Plans for Node.js</h2>
-          <p class="text-muted-foreground">Premium dedicated resources for intensive JavaScript applications.</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {premiumPlans.map(plan => (
-            <PricingCard {...plan} />
-          ))}
         </div>
       </div>
     </section>
 
     {/* Features Section */}
-    <section class="py-24 bg-muted/30">
+    <section class="py-20 bg-muted/30">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-4">Optimized for JavaScript Developers</h2>
-          <p class="text-muted-foreground">Everything you need to run modern Node.js backends.</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose HostingSpell for Node.js?</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">From simple REST APIs to full-stack Next.js applications, our cPanel Node.js hosting gives you the tools to deploy with confidence.</p>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map(feature => (
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
             <FeatureCard {...feature} />
           ))}
         </div>
       </div>
     </section>
 
-    {/* FAQ Section */}
-    <section class="py-24">
-      <div class="container mx-auto px-4 max-w-3xl">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold mb-4">Node.js Hosting FAQ</h2>
-          <p class="text-muted-foreground">Common questions about deploying JS apps on our platform.</p>
+    {/* Pricing Section */}
+    <section id="plans" class="py-24 bg-background border-y border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Start with Premium Hosting for Node.js</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">Every plan includes cPanel Node.js Manager and Phusion Passenger. Deploy your app, then scale to VPS when you're ready.</p>
         </div>
-        <FaqAccordion items={faqs} client:visible />
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {premiumPlans.map((plan) => (
+            <PricingCard {...plan} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p class="text-muted-foreground text-lg">Find answers to the most common questions about our Node.js hosting platform.</p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border border-border shadow-sm overflow-hidden">
+          <FaqAccordion items={faqs} client:visible />
+        </div>
       </div>
     </section>
   </main>
+
   <Footer />
 </Layout>

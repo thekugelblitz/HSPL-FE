@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import MegaMenu from "./MegaMenu.astro";
 import { ThemeToggle } from "../ui/ThemeToggle";
+import { MobileMenu } from "./MobileMenu";
 ---
 
 <div class="bg-primary text-primary-foreground text-center text-xs py-1.5 font-medium relative z-50">
@@ -12,7 +13,8 @@ import { ThemeToggle } from "../ui/ThemeToggle";
 
 <header class="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
   <div class="container flex h-[4.5rem] max-w-screen-2xl items-center justify-between mx-auto px-4 sm:px-8">
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-4 md:gap-8">
+      <MobileMenu client:load />
       <a href="/" class="flex items-center gap-2 group">
         <img src="/logo.png" alt="HostingSpell" class="h-8 object-contain dark:hidden" />
         <img src="/logo-light.png" alt="HostingSpell" class="h-8 object-contain hidden dark:block" />
@@ -27,14 +29,14 @@ import { ThemeToggle } from "../ui/ThemeToggle";
         <a href="tel:+919409594000">+91 94095 94000</a>
       </div>
 
-      <div class="flex items-center gap-2 border-l border-border/40 pl-4">
-        <div class="font-medium text-sm text-foreground/80 mr-2 border border-border rounded-md px-2 py-1 flex items-center gap-1 bg-muted/30">
+      <div class="flex items-center gap-2 md:border-l md:border-border/40 md:pl-4">
+        <div class="hidden sm:flex font-medium text-sm text-foreground/80 mr-2 border border-border rounded-md px-2 py-1 items-center gap-1 bg-muted/30">
           <span>₹</span> INR
         </div>
         
         <ThemeToggle client:load />
 
-        <a href="https://manage.hostingspell.com/login">
+        <a href="https://manage.hostingspell.com/login" class="hidden sm:block">
           <Button variant="default" className="font-semibold px-6 shadow-md shadow-primary/20">
             LOGIN
           </Button>
