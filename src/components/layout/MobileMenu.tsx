@@ -21,12 +21,12 @@ export function MobileMenu() {
       </SheetTrigger>
       <SheetContent side="left" className="w-[320px] sm:w-[400px] overflow-y-auto bg-card/98 backdrop-blur-2xl border-r border-border/60 p-6">
         <SheetHeader className="border-b border-border/40 pb-4">
-          <SheetTitle className="text-left flex items-center justify-between">
-            <a href="/" className="flex items-center gap-2">
-              <img src="/logo.png" alt="HostingSpell" class="h-6 object-contain dark:hidden" />
-              <img src="/logo-light.png" alt="HostingSpell" class="h-6 object-contain hidden dark:block" />
+          <SheetTitle className="text-left flex items-center justify-between gap-2 pr-6">
+            <a href="/" className="flex items-center gap-2 shrink-0">
+              <img src="/logo.png" alt="HostingSpell" className="h-5 w-auto object-contain dark:hidden" />
+              <img src="/logo-light.png" alt="HostingSpell" className="h-5 w-auto object-contain hidden dark:block" />
             </a>
-            <span className="text-[10px] font-extrabold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+            <span className="text-[9px] font-extrabold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20 whitespace-nowrap shrink-0">
               🟢 99.99% Uptime
             </span>
           </SheetTitle>
