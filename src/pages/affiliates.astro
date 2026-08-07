@@ -3,44 +3,121 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import { affiliateTiers, affiliateFaqs } from '../lib/data';
-import { DollarSign, Award, Users, ArrowRight, CheckCircle2, TrendingUp, Sparkles, ShieldCheck } from 'lucide-react';
+import { DollarSign, Award, Users, ArrowRight, CheckCircle2, TrendingUp, Sparkles, ShieldCheck, Check } from 'lucide-react';
 ---
 
 <Layout title="Affiliate Program | HostingSpell - Earn Up to $50 Per Sale">
   <Navbar />
   <main class="bg-background overflow-hidden">
-    {/* Hero Header */}
-    <section class="py-24 bg-grid-pattern border-b border-border/40 relative">
-      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
+    {/* Page Hero - 2-Column Split Hero Layout */}
+    <section class="py-20 bg-grid-pattern border-b border-border/40 relative">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-6">
-          <DollarSign class="w-4 h-4" />
-          High-Paying Partner Program
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 max-w-4xl mx-auto">
-          Partner with HostingSpell & Earn Up to <span class="text-emerald-400">$50 Per Sale</span>
-        </h1>
-        <p class="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-          Recommend ultra-fast NVMe cloud hosting to your audience, clients, or followers and earn industry-leading commissions with 90-day cookie tracking.
-        </p>
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-bold rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 uppercase tracking-wider">
+              <DollarSign class="w-4 h-4" /> High-Paying Partner Program
+            </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a 
-            href="https://manage.hostingspell.com/register.php" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="px-8 py-4 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2"
-          >
-            <span>Join Affiliate Program Now</span>
-            <ArrowRight class="w-4 h-4" />
-          </a>
-          <a 
-            href="#tiers" 
-            class="px-8 py-4 rounded-xl bg-secondary/80 text-secondary-foreground font-semibold hover:bg-secondary transition-all border border-border"
-          >
-            View Commission Tiers
-          </a>
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Partner with HostingSpell & Earn Up to <span class="text-emerald-400">$50 Per Sale</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              Recommend ultra-fast NVMe cloud hosting to your audience, clients, or followers and earn industry-leading commissions with 90-day cookie tracking.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>90-Day Cookie Tracking Window for Maximum Conversions</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>On-Time Monthly Payouts via PayPal, Bank & Hosting Credits</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>High-Converting $1.29/mo Price Point & 99.99% Uptime Mark</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+              <a 
+                href="https://manage.hostingspell.com/register.php" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="w-full sm:w-auto px-8 h-13 rounded-xl bg-emerald-500 text-slate-950 font-extrabold hover:bg-emerald-400 transition-all shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-2"
+              >
+                <span>Join Affiliate Program</span>
+                <ArrowRight class="w-4 h-4" />
+              </a>
+              <a 
+                href="#tiers" 
+                class="w-full sm:w-auto px-8 h-13 rounded-xl bg-secondary/80 text-secondary-foreground font-extrabold hover:bg-secondary transition-all border border-border flex items-center justify-center"
+              >
+                View Payout Tiers
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - Affiliate Earning Visual Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-emerald-500/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
+                    <TrendingUp class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">Affiliate Commission Dashboard</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 90-Day Cookie Active</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+                  TOP COMMISSIONS
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <DollarSign class="w-3.5 h-3.5 text-emerald-400" /> Max Payout
+                  </div>
+                  <div class="text-lg font-black text-emerald-400">$50 / Sale</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <ShieldCheck class="w-3.5 h-3.5 text-blue-400" /> Cookie Life
+                  </div>
+                  <div class="text-lg font-black text-foreground">90 Days</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-emerald-500/5 to-transparent border border-emerald-500/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Instant Partner Account</div>
+                  <div class="text-[11px] text-muted-foreground">Free Sign Up + Custom Banners</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-lg font-black text-emerald-400">$50<span class="text-[10px] font-bold text-muted-foreground"> Min Payout</span></div>
+                  <span class="text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">INSTANT</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

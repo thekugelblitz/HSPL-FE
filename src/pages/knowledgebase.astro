@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import { kbCategories, popularArticles } from '../lib/data';
-import { Search, HelpCircle, ArrowRight, LayoutDashboard, Globe, Zap, ShieldCheck, Server, CreditCard, BookOpen } from 'lucide-react';
+import { Search, HelpCircle, ArrowRight, LayoutDashboard, Globe, Zap, ShieldCheck, Server, CreditCard, BookOpen, Check } from 'lucide-react';
 
 const iconMap = {
   LayoutDashboard,
@@ -18,32 +18,96 @@ const iconMap = {
 <Layout title="Knowledgebase | HostingSpell Documentation & Tutorials">
   <Navbar />
   <main class="bg-background overflow-hidden">
-    {/* Hero Search Bar */}
-    <section class="py-24 bg-grid-pattern border-b border-border/40 relative">
-      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
-          <HelpCircle class="w-3.5 h-3.5" />
-          Documentation & Help Portal
-        </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6">
-          How Can We Help You?
-        </h1>
-        
-        <div class="max-w-2xl mx-auto relative mb-6">
-          <input 
-            type="text" 
-            placeholder="Search tutorials (e.g. 'cPanel SSL', 'WordPress LSCache', 'Nameservers')..." 
-            class="w-full pl-12 pr-4 py-4 rounded-2xl bg-card border border-border text-base focus:outline-none focus:ring-2 focus:ring-primary shadow-xl"
-          />
-          <Search class="w-5 h-5 text-muted-foreground absolute left-4 top-1/2 -translate-y-1/2" />
-        </div>
+    {/* Page Hero - 2-Column Split Hero Layout */}
+    <section class="py-20 bg-grid-pattern border-b border-border/40 relative">
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-bold rounded-full bg-primary/10 border border-primary/20 text-primary uppercase tracking-wider">
+              <HelpCircle class="w-4 h-4 text-primary" /> Documentation & Help Portal
+            </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
-          <span>Popular searches:</span>
-          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Nameservers</a>
-          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Free AutoSSL</a>
-          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">WordPress Cache</a>
-          <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Root SSH</a>
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              How Can We <br />
+              <span class="text-gradient-primary">Help You?</span>
+            </h1>
+
+            <div class="relative max-w-xl">
+              <input 
+                type="text" 
+                placeholder="Search tutorials (e.g. 'cPanel SSL', 'WordPress LSCache')..." 
+                class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-card border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-xl"
+              />
+              <Search class="w-5 h-5 text-muted-foreground absolute left-4 top-1/2 -translate-y-1/2" />
+            </div>
+
+            <ul class="space-y-2 text-xs font-semibold text-foreground">
+              <li class="flex items-center gap-2">
+                <Check class="w-3.5 h-3.5 text-emerald-400" />
+                <span>150+ Step-by-Step Guides for cPanel, LiteSpeed & VPS</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <Check class="w-3.5 h-3.5 text-emerald-400" />
+                <span>Instant DNS, SSL, and Migration Troubleshooting</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap items-center gap-2 text-xs text-muted-foreground pt-1">
+              <span class="text-foreground font-bold">Popular:</span>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Nameservers</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Free AutoSSL</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">WordPress Cache</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted font-medium text-foreground">Root SSH</a>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - KB Portal Visual Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-primary/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-primary/20 text-primary">
+                    <BookOpen class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">HostingSpell Knowledgebase</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 Updated Daily</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+                  DOCS
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <BookOpen class="w-3.5 h-3.5 text-primary" /> Total Guides
+                  </div>
+                  <div class="text-lg font-black text-foreground">150+ Articles</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <ShieldCheck class="w-3.5 h-3.5 text-emerald-400" /> Ticket SLA
+                  </div>
+                  <div class="text-xs font-black text-emerald-400">&lt; 15m Response</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-transparent border border-primary/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Need 1-on-1 Help?</div>
+                  <div class="text-[11px] text-muted-foreground">Open a ticket in client portal</div>
+                </div>
+                <a href="https://manage.hostingspell.com/submitticket.php" target="_blank" rel="noopener" class="text-xs font-bold text-primary hover:underline">Submit Ticket &rarr;</a>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

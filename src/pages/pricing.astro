@@ -4,9 +4,10 @@ import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import PricingCard from '../components/blocks/PricingCard.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { cloudPlans, premiumPlans, vpsPlans, resellerPlans, comboPlans, faqs } from '../lib/data';
-import { ShieldCheck, Zap, RefreshCw } from 'lucide-react';
+import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'lucide-react';
 ---
 
 <Layout 
@@ -15,30 +16,110 @@ import { ShieldCheck, Zap, RefreshCw } from 'lucide-react';
 >
   <Navbar />
   <main class="flex-1 bg-background overflow-hidden">
-    <section class="relative bg-background pt-24 pb-20 border-b border-border/40 overflow-hidden bg-grid-pattern">
+    {/* Page Hero - 2-Column Split Hero Layout */}
+    <section class="relative bg-background pt-20 pb-24 border-b border-border/40 overflow-hidden bg-grid-pattern">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
       
-      <div class="container mx-auto px-4 text-center relative z-10">
-        <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary mb-6">
-          <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Transparent Pricing Matrix
-        </div>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
-          Simple, Honest Pricing <br class="hidden md:block"/><span class="text-gradient-primary">Zero Hidden Fees</span>
-        </h1>
-        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          All plans include 30-day money-back guarantee, free site migration, LiteSpeed Enterprise server, and 24/7 human support.
-        </p>
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+              <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span> Transparent Pricing Matrix
+            </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground pt-4 font-medium">
-          <div class="flex items-center gap-1.5"><ShieldCheck class="w-4 h-4 text-emerald-400" /> 30-Day Guarantee</div>
-          <div class="flex items-center gap-1.5"><Zap class="w-4 h-4 text-amber-400" /> Instant Activation</div>
-          <div class="flex items-center gap-1.5"><RefreshCw class="w-4 h-4 text-blue-400" /> Free Zero-Downtime Migration</div>
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Simple, Honest Pricing <br />
+              <span class="text-gradient-primary">Zero Hidden Fees</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              All plans include 30-day money-back guarantee, free site migration, LiteSpeed Enterprise server, and 24/7 human support.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>30-Day Money-Back Guarantee on all hosting plans</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Free Zero-Downtime Migration from any web host</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>24/7 Human SLA Support & LiteSpeed Enterprise Server</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex items-center gap-4">
+              <a href="#plans" class="px-8 h-13 rounded-xl bg-primary text-primary-foreground font-extrabold shadow-xl shadow-primary/25 flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+                <span>Browse Pricing Matrix</span>
+                <ArrowRight class="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - Transparent Price Card Visual */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-primary/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-primary/20 text-primary">
+                    <DollarSign class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">Transparent Billing SLA</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 No Contract Lock-in</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+                  GUARANTEED
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <ShieldCheck class="w-3.5 h-3.5 text-emerald-400" /> Refund Guarantee
+                  </div>
+                  <div class="text-lg font-black text-emerald-400">30 Days</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <RefreshCw class="w-3.5 h-3.5 text-blue-400" /> Migration Fee
+                  </div>
+                  <div class="text-lg font-black text-foreground">$0 FREE</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-transparent border border-primary/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Starting Price</div>
+                  <div class="text-[11px] text-muted-foreground">Cloud NVMe Shared Tier</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-lg font-black text-primary">$1.29<span class="text-[10px] font-bold text-muted-foreground">/mo</span></div>
+                  <span class="text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">BEST PRICE</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section class="py-24">
+    <section class="py-24" id="plans">
       <div class="container mx-auto px-4 max-w-screen-xl space-y-32">
         {/* Cloud Hosting Section */}
         <div>
@@ -103,6 +184,8 @@ import { ShieldCheck, Zap, RefreshCw } from 'lucide-react';
     </section>
 
     <MigrationBanner />
+
+    <FounderGuarantee />
 
     <section class="py-24 border-t border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">

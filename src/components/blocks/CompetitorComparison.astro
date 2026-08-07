@@ -1,0 +1,76 @@
+---
+import { competitorComparison } from '../../lib/data';
+import { Check, X, Trophy, ShieldCheck, Zap } from 'lucide-react';
+---
+
+<section class="py-24 bg-background relative border-t border-border/40 overflow-hidden">
+  <div class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
+
+  <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-4">
+        <Trophy class="w-4 h-4 text-amber-400" /> Side-by-Side Benchmark Matrix
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+        Why HostingSpell Beats The Competition
+      </h2>
+      <p class="text-muted-foreground text-base sm:text-lg">
+        Compare key features, infrastructure technology, and pricing against traditional hosting providers.
+      </p>
+    </div>
+
+    {/* Polished Glassmorphic Table Card */}
+    <div class="glass-card rounded-3xl p-4 sm:p-8 border border-border/80 glow-card shadow-2xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse min-w-[700px]">
+          <thead>
+            <tr class="border-b border-border/60">
+              <th class="py-5 px-6 text-sm font-extrabold text-muted-foreground w-1/4 uppercase tracking-wider">Feature / Benchmark</th>
+              <th class="py-5 px-6 text-base font-black text-primary bg-primary/15 rounded-t-2xl border-t border-x border-primary/40 w-1/4 text-center shadow-lg relative">
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] font-black uppercase tracking-wider bg-emerald-500 text-slate-950 px-2.5 py-0.5 rounded-full shadow-md">
+                  WINNER 🏆
+                </span>
+                <span>HostingSpell ✨</span>
+              </th>
+              <th class="py-5 px-6 text-sm font-extrabold text-muted-foreground text-center w-1/6">Hostinger</th>
+              <th class="py-5 px-6 text-sm font-extrabold text-muted-foreground text-center w-1/6">Bluehost</th>
+              <th class="py-5 px-6 text-sm font-extrabold text-muted-foreground text-center w-1/6">GoDaddy</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/40 text-sm">
+            {competitorComparison.map((row) => (
+              <tr class={row.highlight ? "bg-primary/5 hover:bg-primary/10 transition-colors" : "hover:bg-muted/30 transition-colors"}>
+                <td class="py-4 px-6 font-bold text-foreground">{row.feature}</td>
+                
+                {/* HostingSpell Column */}
+                <td class="py-4 px-6 font-extrabold text-emerald-400 bg-primary/15 border-x border-primary/30 text-center">
+                  <div class="inline-flex items-center gap-2 justify-center">
+                    <Check class="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>{row.hostingspell}</span>
+                  </div>
+                </td>
+
+                {/* Hostinger */}
+                <td class="py-4 px-6 text-muted-foreground text-center font-medium">{row.hostinger}</td>
+
+                {/* Bluehost */}
+                <td class="py-4 px-6 text-muted-foreground text-center font-medium">{row.bluehost}</td>
+
+                {/* GoDaddy */}
+                <td class="py-4 px-6 text-muted-foreground text-center font-medium">{row.godaddy}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    {/* Bottom Trust Guarantee Pill */}
+    <div class="mt-12 text-center">
+      <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold shadow-sm">
+        <ShieldCheck class="w-4 h-4" />
+        <span>Try HostingSpell Risk-Free with Our 30-Day Money Back Guarantee</span>
+      </div>
+    </div>
+  </div>
+</section>

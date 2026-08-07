@@ -3,35 +3,113 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import { networkStatusData } from '../lib/data';
-import { Activity, ShieldCheck, CheckCircle2, Clock, AlertTriangle, RefreshCw } from 'lucide-react';
+import { Activity, ShieldCheck, CheckCircle2, Clock, AlertTriangle, RefreshCw, Check, Globe } from 'lucide-react';
 ---
 
 <Layout title="Network Status | HostingSpell Infrastructure Dashboard">
   <Navbar />
   <main class="bg-background overflow-hidden">
-    {/* Header Status Banner */}
+    {/* Page Hero - 2-Column Split Hero Layout */}
     <section class="py-20 bg-grid-pattern border-b border-border/40 relative">
-      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-6">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>Global Network Operational</span>
-        </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
-          Real-Time System & Infrastructure Status
-        </h1>
-        <p class="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
-          Live operational status of HostingSpell web servers, databases, control panels, Anycast DNS, and security firewalls.
-        </p>
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-bold rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Global Network Operational
+            </div>
 
-        <div class="flex items-center justify-center gap-6 mt-8 text-xs font-medium">
-          <div class="flex items-center gap-2">
-            <span class="text-muted-foreground">Global Uptime:</span>
-            <span class="text-emerald-400 font-bold font-mono">{networkStatusData.uptime}</span>
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Real-Time System & <br />
+              <span class="text-emerald-400">Infrastructure Status</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              Live operational status of HostingSpell web servers, databases, control panels, Anycast DNS, and security firewalls.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>99.99% Guaranteed SLA Uptime Across All Datacenter Regions</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Sub-20ms Global Average Response Latency</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Automated 24/7/365 Health & Anti-DDoS Mitigation Checks</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex items-center gap-6 text-xs font-bold text-muted-foreground">
+              <div>
+                <span class="text-muted-foreground">Global Uptime:</span>
+                <span class="text-emerald-400 font-extrabold font-mono ml-2 text-sm">{networkStatusData.uptime}</span>
+              </div>
+              <div class="h-6 w-px bg-border/60"></div>
+              <div>
+                <span class="text-muted-foreground">Last Checked:</span>
+                <span class="text-foreground font-mono ml-2">{networkStatusData.lastUpdated}</span>
+              </div>
+            </div>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="text-muted-foreground">Last Checked:</span>
-            <span class="text-foreground font-mono">{networkStatusData.lastUpdated}</span>
+
+          {/* Right Column (5 cols) - Live Network Health Visual Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-emerald-500/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
+                    <Activity class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">Global Health Pulse</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 100% Systems Operational</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+                  LIVE MONITOR
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <CheckCircle2 class="w-3.5 h-3.5 text-emerald-400" /> Uptime SLA
+                  </div>
+                  <div class="text-lg font-black text-emerald-400">99.99%</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Globe class="w-3.5 h-3.5 text-blue-400" /> Datacenters
+                  </div>
+                  <div class="text-xs font-black text-foreground">US • DE • IN • SG</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-emerald-500/5 to-transparent border border-emerald-500/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Status Ping Check</div>
+                  <div class="text-[11px] text-muted-foreground">Every 60 Seconds</div>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-black text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full border border-emerald-500/30">ALL GREEN</span>
+                </div>
+              </div>
+
+            </div>
           </div>
+
         </div>
       </div>
     </section>

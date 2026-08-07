@@ -1,6 +1,9 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import { StickyUrgencyBar } from '../components/blocks/StickyUrgencyBar';
+import { FloatingLeadWidget } from '../components/blocks/FloatingLeadWidget';
+import { ExitIntentModal } from '../components/blocks/ExitIntentModal';
 
 interface Props {
   title: string;
@@ -11,7 +14,7 @@ interface Props {
 
 const { 
   title, 
-  description = "HostingSpell provides reliable, fast and cheap hosting solutions.",
+  description = "HostingSpell provides ultra-fast NVMe cloud web hosting with free migration and 24/7 expert support.",
   image = "/og-image.png",
   canonical = Astro.url.href
 } = Astro.props;
@@ -29,7 +32,7 @@ const {
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
     
     <!-- OpenGraph -->
@@ -87,7 +90,12 @@ const {
     </script>
   </head>
   <body class="min-h-screen bg-background text-foreground flex flex-col font-sans">
+    <StickyUrgencyBar client:load />
+
     <slot />
+
+    <FloatingLeadWidget client:idle />
+    <ExitIntentModal client:idle />
     
     <script>
       document.addEventListener('astro:after-swap', () => {

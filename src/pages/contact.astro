@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
-import { Mail, Phone, MapPin, Clock, MessageSquare, ShieldAlert, CreditCard, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageSquare, ShieldAlert, CreditCard, Send, CheckCircle2, Check, Headphones } from 'lucide-react';
 
 const departments = [
   {
@@ -39,19 +39,101 @@ const departments = [
 <Layout title="Contact Us | HostingSpell - 24/7 Expert Support">
   <Navbar />
   <main class="bg-background overflow-hidden">
-    {/* Hero Header */}
+    {/* Page Hero - 2-Column Split Hero Layout */}
     <section class="py-20 bg-grid-pattern border-b border-border/40 relative">
-      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
-          <Clock class="w-3.5 h-3.5" />
-          Always Available 24/7
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-bold rounded-full bg-primary/10 border border-primary/20 text-primary uppercase tracking-wider">
+              <Clock class="w-4 h-4 text-emerald-400" /> Always Available 24/7/365
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              How Can We Help <br />
+              <span class="text-gradient-primary">You Today?</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              Have questions about our cloud hosting plans or need help migrating your site? Our expert engineers are here 24 hours a day.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Average Support Ticket Response &lt; 15 Minutes</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>24/7 L2/L3 Linux Systems Engineers On Call</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Free Zero-Downtime Migration Support & Pre-Sales Guidance</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex items-center gap-4">
+              <a href="tel:+919409594000" class="px-6 py-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-extrabold text-xs flex items-center gap-2">
+                <Phone class="w-4 h-4" />
+                <span>Sales Hotline: +91 94095 94000</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - Live Helpdesk Visual Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-primary/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-primary/20 text-primary">
+                    <Headphones class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">HostingSpell Helpdesk</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 Support Engineers Online</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+                  24/7 SLA
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Clock class="w-3.5 h-3.5 text-emerald-400" /> SLA Target
+                  </div>
+                  <div class="text-lg font-black text-emerald-400">&lt; 15 mins</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Mail class="w-3.5 h-3.5 text-blue-400" /> Support Email
+                  </div>
+                  <div class="text-xs font-black text-foreground">support@hostingspell.com</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-transparent border border-primary/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Client Portal Desk</div>
+                  <div class="text-[11px] text-muted-foreground">Submit Ticket via Portal</div>
+                </div>
+                <a href="https://manage.hostingspell.com/submitticket.php" target="_blank" rel="noopener" class="text-xs font-bold text-primary hover:underline">Open Ticket &rarr;</a>
+              </div>
+
+            </div>
+          </div>
+
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
-          How Can We Help You Today?
-        </h1>
-        <p class="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
-          Have questions about our cloud hosting plans or need help migrating your site? Our expert engineers are here 24 hours a day.
-        </p>
       </div>
     </section>
 

@@ -5,6 +5,8 @@ export const cloudPlans = [
     name: "VENUS",
     tagline: "BEST FOR STARTERS!",
     price: "$1.29",
+    originalPrice: "$4.99",
+    discount: "SAVE 74%",
     billingCycle: "/mo",
     features: [
       "Host 1 Website",
@@ -25,6 +27,8 @@ export const cloudPlans = [
     name: "MARS",
     tagline: "BEST FOR SMALL BUSINESSES!",
     price: "$1.69",
+    originalPrice: "$5.99",
+    discount: "SAVE 72%",
     billingCycle: "/mo",
     features: [
       "Host 2 Websites",
@@ -45,6 +49,8 @@ export const cloudPlans = [
     name: "SATURN",
     tagline: "BEST FOR GROWING WEBSITES!",
     price: "$1.99",
+    originalPrice: "$7.99",
+    discount: "SAVE 75%",
     billingCycle: "/mo",
     features: [
       "Host 5 Websites",
@@ -65,6 +71,8 @@ export const cloudPlans = [
     name: "JUPITER",
     tagline: "BEST FOR LARGE BUSINESSES!",
     price: "$2.99",
+    originalPrice: "$9.99",
+    discount: "SAVE 70%",
     billingCycle: "/mo",
     features: [
       "Host 10 Websites",
@@ -82,6 +90,7 @@ export const cloudPlans = [
     link: "https://manage.hostingspell.com/store/ssd-web-hosting/jupiter?currency=1"
   }
 ];
+
 
 export const premiumPlans = [
   {
@@ -736,4 +745,554 @@ export const domainPricing = [
   { tld: ".tech", register: "$2.99", renew: "$34.99", transfer: "$19.99", popular: false },
   { tld: ".online", register: "$1.49", renew: "$27.99", transfer: "$12.99", popular: false }
 ];
+
+export const competitorComparison = [
+  {
+    feature: "Starting Price",
+    hostingspell: "$1.29 / mo",
+    hostinger: "$2.99 / mo",
+    bluehost: "$4.95 / mo",
+    godaddy: "$6.99 / mo",
+    highlight: true
+  },
+  {
+    feature: "Storage Type",
+    hostingspell: "Pure NVMe SSD (10x Faster)",
+    hostinger: "Standard NVMe",
+    bluehost: "Traditional SSD",
+    godaddy: "Standard HDD/SSD",
+    highlight: true
+  },
+  {
+    feature: "Web Server Tech",
+    hostingspell: "LiteSpeed Enterprise + LSCache",
+    hostinger: "LiteSpeed Custom",
+    bluehost: "Apache",
+    godaddy: "Apache / Nginx",
+    highlight: true
+  },
+  {
+    feature: "Free Site Migration",
+    hostingspell: "Unlimited Free Zero-Downtime",
+    hostinger: "Free (Automated)",
+    bluehost: "Paid ($149)",
+    godaddy: "Paid ($99)",
+    highlight: false
+  },
+  {
+    feature: "Free SSL & Daily Backups",
+    hostingspell: "Included Free (JetBackup 5)",
+    hostinger: "Included Free",
+    bluehost: "SSL Free, Backups Paid",
+    godaddy: "Paid Add-on",
+    highlight: false
+  },
+  {
+    feature: "Control Panel",
+    hostingspell: "cPanel® + DirectAdmin",
+    hostinger: "hPanel (Proprietary)",
+    bluehost: "cPanel (Custom)",
+    godaddy: "cPanel",
+    highlight: false
+  },
+  {
+    feature: "24/7 Human Support",
+    hostingspell: "< 15 min Avg SLA",
+    hostinger: "Chat Support",
+    bluehost: "Chat / Phone",
+    godaddy: "Phone Only",
+    highlight: false
+  }
+];
+
+export const vpsAppsData = [
+  // AI & ML Tools
+  {
+    name: "Argilla",
+    slug: "argilla",
+    category: "AI & Machine Learning",
+    icon: "Brain",
+    logoUrl: "https://argilla.io/favicon.ico",
+    description: "Collaborative platform for AI engineers to build high-quality datasets for LLM fine-tuning.",
+    deployTime: "< 60s",
+    recommendedRam: "4GB RAM",
+    popular: true,
+    tag: "AI Dataset"
+  },
+  {
+    name: "OpenClaw",
+    slug: "openclaw",
+    category: "AI & Machine Learning",
+    icon: "Bot",
+    logoUrl: "https://cdn.jsdelivr.net/gh/selfh.st/icons/png/openclaw.png",
+    description: "Personal AI assistant with multi-channel messaging support (formerly Moitbot/Clawdbot).",
+    deployTime: "< 45s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "AI Assistant"
+  },
+
+  {
+    name: "Open WebUI",
+    slug: "openwebui",
+    category: "AI & Machine Learning",
+    icon: "Sparkles",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/open-webui.png",
+    description: "Self-Hosted ChatGPT-Style Interface for Private AI & local LLM Deployment with Ollama.",
+    deployTime: "< 60s",
+    recommendedRam: "4GB RAM",
+    popular: true,
+    tag: "ChatGPT Clone"
+  },
+
+  // PaaS & Backend Platforms
+  {
+    name: "Dokploy",
+    slug: "dokploy",
+    category: "PaaS & Deployment",
+    icon: "Container",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/dokploy.png",
+    description: "Modern Docker-Based Application Deployment Platform for VPS Hosting (Vercel/Coolify alternative).",
+    deployTime: "< 45s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "Docker PaaS"
+  },
+  {
+    name: "CapRover",
+    slug: "caprover",
+    category: "PaaS & Deployment",
+    icon: "Rocket",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/caprover.png",
+    description: "Lightweight PaaS for deploying complex microservices, Docker apps, and databases in minutes.",
+    deployTime: "< 45s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "Free PaaS"
+  },
+  {
+    name: "Appwrite",
+    slug: "appwrite",
+    category: "PaaS & Deployment",
+    icon: "Server",
+    logoUrl: "https://cdn.simpleicons.org/appwrite",
+    description: "Production-Ready Open-Source Backend Server for Secure & Scalable Web & Mobile App Development.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "BaaS Server"
+  },
+  {
+    name: "Supabase",
+    slug: "supabase",
+    category: "PaaS & Deployment",
+    icon: "Zap",
+    logoUrl: "https://cdn.simpleicons.org/supabase",
+    description: "The open-source Firebase alternative with Postgres database, Authentication, Instant APIs, and Realtime.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "Firebase Alternative"
+  },
+  {
+    name: "MinIO",
+    slug: "minio",
+    category: "PaaS & Deployment",
+    icon: "HardDrive",
+    logoUrl: "https://cdn.simpleicons.org/minio",
+    description: "High-performance S3-compatible object storage server built for cloud-native workloads.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "S3 Storage"
+  },
+
+  // CMS & Media
+  {
+    name: "WordPress + LSCache",
+    slug: "wordpress",
+    category: "CMS & Web App",
+    icon: "Globe",
+    logoUrl: "https://cdn.simpleicons.org/wordpress",
+    description: "The world's most popular content management system running on LiteSpeed Web Server and MySQL 8.",
+    deployTime: "< 45s",
+    recommendedRam: "1GB RAM",
+    popular: true,
+    tag: "Popular CMS"
+  },
+  {
+    name: "Strapi",
+    slug: "strapi",
+    category: "CMS & Web App",
+    icon: "Layers",
+    logoUrl: "https://cdn.simpleicons.org/strapi",
+    description: "Leading open-source headless CMS for building customizable REST and GraphQL APIs.",
+    deployTime: "< 45s",
+    recommendedRam: "2GB RAM",
+    popular: false,
+    tag: "Headless CMS"
+  },
+  {
+    name: "Directus",
+    slug: "directus",
+    category: "CMS & Web App",
+    icon: "Database",
+    logoUrl: "https://cdn.simpleicons.org/directus",
+    description: "Headless CMS and real-time REST/GraphQL API for any SQL database.",
+    deployTime: "< 45s",
+    recommendedRam: "2GB RAM",
+    popular: false,
+    tag: "SQL Headless"
+  },
+  {
+    name: "Nextcloud",
+    slug: "nextcloud",
+    category: "CMS & Web App",
+    icon: "Cloud",
+    logoUrl: "https://cdn.simpleicons.org/nextcloud",
+    description: "Self-Hosted Cloud Storage & Collaboration Platform to store files, sync contacts, and edit docs.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "Cloud Drive"
+  },
+
+  // Team Chat & Security
+  {
+    name: "Chatwoot",
+    slug: "chatwoot",
+    category: "Team Chat & Security",
+    icon: "MessageSquare",
+    logoUrl: "https://cdn.simpleicons.org/chatwoot",
+    description: "Open-source customer engagement platform, live chat, and omnichannel inbox.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "Live Chat"
+  },
+  {
+    name: "Mattermost",
+    slug: "mattermost",
+    category: "Team Chat & Security",
+    icon: "MessageCircle",
+    logoUrl: "https://cdn.simpleicons.org/mattermost",
+    description: "Open source enterprise Slack alternative for secure team communication and workflow automation.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: false,
+    tag: "Slack Alternative"
+  },
+  {
+    name: "Rocket.Chat",
+    slug: "rocketchat",
+    category: "Team Chat & Security",
+    icon: "Send",
+    logoUrl: "https://cdn.simpleicons.org/rocket.chat",
+    description: "Secure Self-Hosted Team Messaging Platform with encrypted chat, video calls, and file sharing.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: false,
+    tag: "Encrypted Chat"
+  },
+  {
+    name: "Passbolt",
+    slug: "passbolt",
+    category: "Team Chat & Security",
+    icon: "Lock",
+    logoUrl: "https://cdn.simpleicons.org/passbolt",
+    description: "Open-source team password manager built specifically for DevOps and enterprise teams.",
+    deployTime: "< 45s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Pass Manager"
+  },
+  {
+    name: "RustDesk",
+    slug: "rustdesk",
+    category: "Team Chat & Security",
+    icon: "Monitor",
+    logoUrl: "https://cdn.simpleicons.org/rustdesk",
+    description: "Self-hosted remote desktop software alternative to TeamViewer and AnyDesk with zero data latency.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: true,
+    tag: "Remote Desktop"
+  },
+  {
+    name: "Roundcube",
+    slug: "roundcube",
+    category: "Team Chat & Security",
+    icon: "Mail",
+    logoUrl: "https://cdn.simpleicons.org/roundcube",
+    description: "Free and open-source webmail client with intuitive AJAX interface and MIME support.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Webmail"
+  },
+
+  // Monitoring & Productivity
+  {
+    name: "Uptime Kuma",
+    slug: "uptime-kuma",
+    category: "Monitoring & Utilities",
+    icon: "Activity",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/uptime-kuma.png",
+    description: "Fancy self-hosted monitoring tool like Uptime Robot supporting HTTP, Ping, DNS, and Docker.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: true,
+    tag: "Uptime Monitor"
+  },
+  {
+    name: "Umami",
+    slug: "umami",
+    category: "Monitoring & Utilities",
+    icon: "BarChart3",
+    logoUrl: "https://cdn.simpleicons.org/umami",
+    description: "Privacy-focused, lightweight Google Analytics alternative with zero cookie consent required.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: true,
+    tag: "Analytics"
+  },
+  {
+    name: "AdGuard Home",
+    slug: "adguardhome",
+    category: "Monitoring & Utilities",
+    icon: "ShieldAlert",
+    logoUrl: "https://cdn.simpleicons.org/adguard",
+    description: "Network-wide ad and tracker blocking DNS server to protect all devices on your local network.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: true,
+    tag: "DNS Adblocker"
+  },
+
+  // Wiki & Knowledge Management
+  {
+    name: "AppFlowy",
+    slug: "appflowy",
+    category: "Knowledge & Wikis",
+    icon: "FileText",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/appflowy.png",
+    description: "Open-source Notion alternative for wikis, docs, and project management with total data privacy.",
+    deployTime: "< 45s",
+    recommendedRam: "2GB RAM",
+    popular: false,
+    tag: "Notion Alternative"
+  },
+  {
+    name: "BookStack",
+    slug: "bookstack",
+    category: "Knowledge & Wikis",
+    icon: "BookOpen",
+    logoUrl: "https://cdn.simpleicons.org/bookstack",
+    description: "Simple and free Wiki system for storing and organizing documentation in Books, Chapters & Pages.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Documentation"
+  },
+  {
+    name: "Focalboard",
+    slug: "focalboard",
+    category: "Knowledge & Wikis",
+    icon: "Kanban",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/focalboard.png",
+    description: "Open source Trello, Notion, and Asana alternative for project and task management.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Kanban Board"
+  },
+  {
+    name: "Answer",
+    slug: "answer",
+    category: "Knowledge & Wikis",
+    icon: "HelpCircle",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/answer.png",
+    description: "Open-source Q&A community platform for developer teams, product support, and communities.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Q&A Forum"
+  },
+  {
+    name: "Linkwarden",
+    slug: "linkwarden",
+    category: "Knowledge & Wikis",
+    icon: "Bookmark",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/linkwarden.png",
+    description: "Collaborative bookmark manager to collect, organize, and automatically archive web pages.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Bookmark Manager"
+  },
+  {
+    name: "Slash",
+    slug: "slash",
+    category: "Knowledge & Wikis",
+    icon: "Link",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/slash.png",
+    description: "Open-source link shortening and sharing platform for custom short URLs and team shortcuts.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "URL Shortener"
+  },
+  {
+    name: "Draw.io",
+    slug: "drawio",
+    category: "Knowledge & Wikis",
+    icon: "PenTool",
+    logoUrl: "https://cdn.simpleicons.org/diagramsdotnet",
+    description: "Free online diagramming and whiteboarding tool for flowcharting, network diagrams, and UML.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Diagramming"
+  },
+  {
+    name: "Habitica",
+    slug: "habitica",
+    category: "Knowledge & Wikis",
+    icon: "Award",
+    logoUrl: "https://cdn.simpleicons.org/habitica",
+    description: "Gamified habit tracker and task manager that treats your life like a role-playing game.",
+    deployTime: "< 45s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Habit Tracker"
+  },
+  {
+    name: "Kimai",
+    slug: "kimai",
+    category: "Knowledge & Wikis",
+    icon: "Clock",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/kimai.png",
+    description: "Open-source time tracking application for freelancers, agencies, and enterprise teams.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Time Tracking"
+  },
+
+  // Business & E-Commerce
+  {
+    name: "Odoo ERP",
+    slug: "odoo",
+    category: "Business & ERP",
+    icon: "Briefcase",
+    logoUrl: "https://cdn.simpleicons.org/odoo",
+    description: "All-in-one business management suite covering CRM, eCommerce, Accounting, Inventory & Point of Sale.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: true,
+    tag: "Enterprise ERP"
+  },
+  {
+    name: "ERPNext",
+    slug: "erpnext",
+    category: "Business & ERP",
+    icon: "Building2",
+    logoUrl: "https://cdn.simpleicons.org/frappe",
+    description: "Full-featured open-source ERP system built on Python/Frappe framework for manufacturing & retail.",
+    deployTime: "< 90s",
+    recommendedRam: "4GB RAM",
+    popular: false,
+    tag: "Python ERP"
+  },
+  {
+    name: "Akaunting",
+    slug: "akaunting",
+    category: "Business & ERP",
+    icon: "CreditCard",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/akaunting.png",
+    description: "Free online accounting software designed for small businesses and freelancers to manage invoicing.",
+    deployTime: "< 45s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Invoicing"
+  },
+  {
+    name: "Paymenter",
+    slug: "paymenter",
+    category: "Business & ERP",
+    icon: "DollarSign",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/paymenter.png",
+    description: "Open-source web hosting billing and client management portal built for modern hosting providers.",
+    deployTime: "< 45s",
+    recommendedRam: "1GB RAM",
+    popular: true,
+    tag: "Hosting Billing"
+  },
+  {
+    name: "Saleor Commerce",
+    slug: "saleor",
+    category: "Business & ERP",
+    icon: "ShoppingCart",
+    logoUrl: "https://cdn.simpleicons.org/saleor",
+    description: "GraphQL-first headless e-commerce engine built with Python and Next.js for high volume stores.",
+    deployTime: "< 60s",
+    recommendedRam: "2GB RAM",
+    popular: false,
+    tag: "GraphQL Store"
+  },
+
+  // Media & Dev Utilities
+  {
+    name: "Immich",
+    slug: "immich",
+    category: "Media & Dev Utilities",
+    icon: "Image",
+    logoUrl: "https://cdn.simpleicons.org/immich",
+    description: "High performance self-hosted photo and video backup solution with facial recognition & AI search.",
+    deployTime: "< 60s",
+    recommendedRam: "4GB RAM",
+    popular: true,
+    tag: "Photos Backup"
+  },
+  {
+    name: "Chevereto",
+    slug: "chevereto",
+    category: "Media & Dev Utilities",
+    icon: "Camera",
+    logoUrl: "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/chevereto.png",
+    description: "Self-hosted image hosting and sharing solution for creating community image upload portals.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "Image Hosting"
+  },
+  {
+    name: "Elasticsearch",
+    slug: "elasticsearch",
+    category: "Media & Dev Utilities",
+    icon: "Search",
+    logoUrl: "https://cdn.simpleicons.org/elasticsearch",
+    description: "Distributed, JSON-based search and analytics engine for log monitoring and full-text search.",
+    deployTime: "< 60s",
+    recommendedRam: "4GB RAM",
+    popular: false,
+    tag: "Search Engine"
+  },
+  {
+    name: "phpMyAdmin",
+    slug: "phpmyadmin",
+    category: "Media & Dev Utilities",
+    icon: "Database",
+    logoUrl: "https://cdn.simpleicons.org/phpmyadmin",
+    description: "Web-based MySQL and MariaDB database administration tool for managing tables and SQL queries.",
+    deployTime: "< 30s",
+    recommendedRam: "1GB RAM",
+    popular: false,
+    tag: "MySQL Manager"
+  }
+];
+
+
+
+
 

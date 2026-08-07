@@ -7,6 +7,7 @@ import PricingCard from '../components/blocks/PricingCard.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { comboPlans, faqs } from '../lib/data';
+import { Check, Globe, Zap, Shield, ArrowRight, Gift } from 'lucide-react';
 
 const features = [
   {
@@ -38,33 +39,114 @@ const features = [
 >
   <Navbar />
   <main class="flex-1">
-    <section class="relative bg-background pt-24 pb-28 border-b border-border/40 overflow-hidden">
+    {/* Page Hero - 2-Column Split Hero Layout */}
+    <section class="relative bg-background pt-20 pb-24 border-b border-border/40 overflow-hidden">
       <div class="absolute inset-0 bg-orange-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
-      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[120px] pointer-events-none animate-in fade-in duration-1000"></div>
-      <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none animate-in fade-in duration-1000 delay-300"></div>
+      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
       
-      <div class="container mx-auto px-4 max-w-screen-xl text-center relative z-10">
-        <div class="inline-flex items-center rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-sm font-semibold text-orange-500 mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span class="flex h-2 w-2 rounded-full bg-red-400 mr-2 animate-pulse"></span> Ultimate Value
-        </div>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150 fill-mode-both">
-          The Best Value <br class="hidden md:block"/><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-400">Combo Hosting</span>
-        </h1>
-        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
-          Get a free domain, massive storage, and premium features all bundled together for unbelievable savings.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
-          <a href="#plans">
-            <Button size="lg" className="h-12 px-8 text-base bg-orange-600 hover:bg-orange-700 shadow-lg shadow-orange-500/25 transition-all group overflow-hidden relative font-bold text-white">
-              <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-              <span class="relative">View Combo Plans</span>
-            </Button>
-          </a>
-          <a href="/contact">
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base font-bold hover:bg-orange-500/10 hover:text-orange-600 border-border/60 transition-colors">
-              Contact Sales
-            </Button>
-          </a>
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center rounded-full border border-orange-500/30 bg-orange-500/10 px-3.5 py-1 text-xs font-bold text-orange-400">
+              <span class="flex h-2 w-2 rounded-full bg-red-400 mr-2 animate-pulse"></span> Ultimate Value Bundle
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              The Best Value <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Combo Hosting</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              Get a lifetime free domain, massive NVMe storage, and premium LiteSpeed features all bundled together for unbelievable savings.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Lifetime Free Domain Name (.com / .in / .net / .org)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>LiteSpeed Web Server + Pure NVMe SSD Storage</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Free Zero-Downtime Migration & 24/7 Human Support</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+              <a href="#plans" class="w-full sm:w-auto">
+                <Button size="lg" className="w-full h-13 px-8 text-base bg-orange-600 hover:bg-orange-500 text-white font-extrabold shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
+                  <span>View Combo Plans</span>
+                  <ArrowRight class="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="/contact" class="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full h-13 px-8 text-base font-extrabold hover:bg-orange-500/10 hover:text-orange-400 border-border/80">
+                  Contact Sales
+                </Button>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - Visual Combo Bundle Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-orange-500/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-orange-500/20 text-orange-400">
+                    <Gift class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">Combo Bundle Pack</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 Free Domain Included</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30 px-2.5 py-1 rounded-full">
+                  FREE DOMAIN
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Globe class="w-3.5 h-3.5 text-orange-400" /> Domain Savings
+                  </div>
+                  <div class="text-lg font-black text-emerald-400">$14.99/yr FREE</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Zap class="w-3.5 h-3.5 text-amber-400" /> Web Server
+                  </div>
+                  <div class="text-lg font-black text-foreground">LiteSpeed NVMe</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-orange-500/15 via-orange-500/5 to-transparent border border-orange-500/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Combo Lifetime Deal</div>
+                  <div class="text-[11px] text-muted-foreground">Hosting + Free Domain Pack</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-lg font-black text-orange-400">$3.99<span class="text-[10px] font-bold text-muted-foreground">/mo</span></div>
+                  <span class="text-[9px] font-black uppercase bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded">ALL-IN-ONE</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

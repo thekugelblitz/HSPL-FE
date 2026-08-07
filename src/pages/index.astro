@@ -11,6 +11,9 @@ import FeatureCard from '../components/blocks/FeatureCard.astro';
 import PricingCard from '../components/blocks/PricingCard.astro';
 import DatacenterMap from '../components/blocks/DatacenterMap.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import TrustProofBar from '../components/blocks/TrustProofBar.astro';
+import CompetitorComparison from '../components/blocks/CompetitorComparison.astro';
+import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { cloudPlans, premiumPlans, vpsPlans, faqs } from '../lib/data';
 
@@ -48,6 +51,8 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
   <Navbar />
   <main class="bg-background overflow-hidden">
     <Hero />
+
+    <TrustProofBar />
     
     <DomainSearch />
 
@@ -55,7 +60,7 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
-            Flexible Plans
+            🔥 Flash Deals - Up to 75% OFF
           </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Transparent Pricing for Every Project</h2>
           <p class="text-muted-foreground text-base max-w-2xl mx-auto">High-performance cloud hosting engineered for developers, businesses, and agency portfolios.</p>
@@ -79,6 +84,8 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
 
     <CostComparison />
 
+    <CompetitorComparison />
+
     <FeatureTabs client:visible />
 
     <DatacenterMap />
@@ -97,6 +104,8 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
       </div>
     </section>
 
+    <FounderGuarantee />
+
     <ShowcasePreview />
 
     {/* Frequently Asked Questions */}
@@ -113,18 +122,46 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
       </div>
     </section>
 
-    {/* Trust Badges */}
-    <section class="py-16 border-t border-border/40 bg-muted/10">
+    {/* Tech Partners Trust Badges */}
+    <section class="py-14 border-t border-border/40 bg-background">
       <div class="container mx-auto px-4 text-center">
-        <p class="text-xs font-bold text-muted-foreground tracking-widest uppercase mb-8">Backed by World-Class Tech Partners</p>
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-          <img src="/brands/cpanel.svg" alt="cPanel" class="h-8 object-contain" />
-          <img src="/brands/linode.svg" alt="Linode" class="h-8 object-contain" />
-          <img src="/brands/digitalocean.svg" alt="DigitalOcean" class="h-8 object-contain" />
-          <img src="/brands/litespeed.svg" alt="LiteSpeed" class="h-8 object-contain" />
+        <p class="text-xs font-extrabold text-muted-foreground/80 tracking-widest uppercase mb-8">Backed by World-Class Tech Partners</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-85 hover:opacity-100 transition-opacity">
+          <div class="flex items-center gap-2.5">
+            <img src="https://cdn.simpleicons.org/cpanel/FF6C2C" alt="cPanel" class="h-6 w-auto object-contain" />
+            <span class="text-sm font-extrabold text-foreground">cPanel®</span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="DigitalOcean" class="h-6 w-auto object-contain" />
+            <span class="text-sm font-extrabold text-foreground">DigitalOcean</span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <img src="/brands/linode.svg" alt="Linode" class="h-6 w-auto object-contain" />
+            <span class="text-sm font-extrabold text-foreground">Linode</span>
+          </div>
+
+
+          <div class="flex items-center gap-2.5">
+            <img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" class="h-6 w-auto object-contain" />
+            <span class="text-sm font-extrabold text-foreground">Cloudflare</span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <img src="https://cdn.simpleicons.org/almalinux" alt="AlmaLinux" class="h-6 w-auto object-contain dark:invert" />
+            <span class="text-sm font-extrabold text-foreground">AlmaLinux</span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <img src="https://cdn.simpleicons.org/ubuntu/E95420" alt="Ubuntu" class="h-6 w-auto object-contain" />
+            <span class="text-sm font-extrabold text-foreground">Ubuntu</span>
+          </div>
         </div>
       </div>
     </section>
+
+
 
   </main>
   <Footer />

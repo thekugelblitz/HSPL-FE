@@ -4,7 +4,8 @@ import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import DatacenterMap from '../components/blocks/DatacenterMap.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
-import { Server, Shield, Zap, HeartHandshake, Users, Trophy, Award, CheckCircle2 } from 'lucide-react';
+import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
+import { Server, Shield, Zap, HeartHandshake, Users, Trophy, Award, CheckCircle2, Check, Globe } from 'lucide-react';
 
 const stats = [
   { value: "10,000+", label: "Websites Hosted Worldwide" },
@@ -40,30 +41,109 @@ const values = [
 <Layout title="About Us | HostingSpell - Next-Gen Cloud Infrastructure">
   <Navbar />
   <main class="bg-background overflow-hidden">
-    {/* Hero Section */}
-    <section class="py-24 relative overflow-hidden bg-grid-pattern border-b border-border/40">
+    {/* Page Hero - 2-Column Split Hero Layout */}
+    <section class="py-20 relative overflow-hidden bg-grid-pattern border-b border-border/40">
       <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
       
-      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
-          <Trophy class="w-4 h-4" />
-          Our Journey & Mission
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 max-w-4xl mx-auto">
-          Empowering Creators & Businesses with High-Performance Cloud Hosting
-        </h1>
-        <p class="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
-          HostingSpell was built with a simple mission: bring enterprise-grade NVMe cloud performance and LiteSpeed caching to developers and small businesses at affordable pricing.
-        </p>
-
-        {/* Stats Grid */}
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto pt-8 border-t border-border/40">
-          {stats.map(s => (
-            <div class="glass-card p-6 rounded-2xl glow-card">
-              <div class="text-3xl sm:text-4xl font-extrabold text-gradient-primary mb-1">{s.value}</div>
-              <div class="text-xs sm:text-sm font-medium text-muted-foreground">{s.label}</div>
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-bold rounded-full bg-primary/10 border border-primary/20 text-primary uppercase tracking-wider">
+              <Trophy class="w-4 h-4 text-amber-400" /> Our Journey & Mission
             </div>
-          ))}
+
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Empowering Creators with <br />
+              <span class="text-gradient-primary">Next-Gen Infrastructure</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              HostingSpell was built to bring enterprise-grade NVMe cloud performance and LiteSpeed caching to developers and small businesses at honest pricing.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>100% Enterprise Pure NVMe SSD Storage & LiteSpeed LSCache</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Proactive Imunify360 AI Security Guarding Every Application</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>24/7/365 Human SLA Support Handled by In-House Systems Engineers</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex items-center gap-6">
+              <div>
+                <div class="text-2xl font-black text-foreground">10,000+</div>
+                <div class="text-xs text-muted-foreground font-semibold">Active Clients</div>
+              </div>
+              <div class="h-8 w-px bg-border/60"></div>
+              <div>
+                <div class="text-2xl font-black text-emerald-400">99.99%</div>
+                <div class="text-xs text-muted-foreground font-semibold">Guaranteed Uptime</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - Company Mission Visual Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-primary/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-primary/20 text-primary">
+                    <Globe class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">HostingSpell Cloud Infra</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 4 Global Datacenter Zones</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+                  EST. 2017
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Zap class="w-3.5 h-3.5 text-amber-400" /> Avg Latency
+                  </div>
+                  <div class="text-lg font-black text-foreground">&lt; 20 ms</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Shield class="w-3.5 h-3.5 text-blue-400" /> Security Shield
+                  </div>
+                  <div class="text-xs font-black text-emerald-400">Imunify360 AI</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-transparent border border-primary/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Human Support SLA</div>
+                  <div class="text-[11px] text-muted-foreground">&lt; 15m Average Ticket Response</div>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-black text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full border border-emerald-500/30">24/7 ONLINE</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -115,6 +195,9 @@ const values = [
         </div>
       </div>
     </section>
+
+    {/* Founder Risk-Free Guarantee */}
+    <FounderGuarantee />
 
     {/* Datacenter Map */}
     <DatacenterMap />

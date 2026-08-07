@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
+import DatacenterMap from '../../components/blocks/DatacenterMap.astro';
+import MigrationBanner from '../../components/blocks/MigrationBanner.astro';
+import { VpsAppsCatalog } from '../../components/blocks/VpsAppsCatalog';
+import { FaqAccordion } from '../../components/blocks/FaqAccordion';
+import { faqs } from '../../lib/data';
+import { Zap, ArrowRight, Server, Clock, Cpu, Sparkles, ShieldCheck } from 'lucide-react';
+
+const steps = [
+  {
+    num: "01",
+    title: "Select VPS Plan",
+    desc: "Choose your desired RAM, CPU cores, and NVMe SSD storage tier."
+  },
+  {
+    num: "02",
+    title: "Pick 1-Click App Template",
+    desc: "Select Argilla, Dokploy, Supabase, WordPress, or WireGuard from Virtualizor image list."
+  },
+  {
+    num: "03",
+    title: "Instant OS Provisioning",
+    desc: "Your server is deployed with root SSH credentials emailed to you in under 60 seconds."
+  }
+];
+---
+
+<Layout 
+  title="1-Click VPS App Marketplace | Deploy Production Stacks Instantly - HostingSpell"
+  description="Launch private AI platforms, Dokploy PaaS, Supabase backends, WordPress, and developer tools on NVMe KVM VPS in under 60 seconds."
+>
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    {/* Hero Section */}
+    <section class="py-24 bg-grid-pattern border-b border-border/40 relative">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/20 blur-[140px] rounded-full pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+          <Zap class="w-4 h-4 text-primary" /> 1-Click Production Marketplace
+        </div>
+        
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+          Deploy Any App in 60 Seconds. <br class="hidden sm:block" />
+          <span class="text-gradient-primary">Zero Terminal Setup.</span>
+        </h1>
+        
+        <p class="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
+          Spin up private AI stacks, Docker PaaS platforms, databases, and control panels on high-speed NVMe KVM infrastructure with instant SSH root access.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+          <a 
+            href="/vps#plans" 
+            class="px-8 py-4 rounded-xl bg-primary text-primary-foreground font-extrabold hover:opacity-90 transition-all shadow-xl shadow-primary/25 flex items-center gap-2"
+          >
+            <span>Launch Production App Now</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+          <a 
+            href="/vps" 
+            class="px-8 py-4 rounded-xl bg-card/80 backdrop-blur text-foreground font-bold hover:bg-muted transition-all border border-border/80"
+          >
+            Compare VPS Hardware Specs
+          </a>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-center gap-6 text-xs text-muted-foreground font-semibold">
+          <div class="flex items-center gap-1.5"><ShieldCheck class="w-4 h-4 text-emerald-400" /> Full SSH Root Permissions</div>
+          <div class="flex items-center gap-1.5"><ShieldCheck class="w-4 h-4 text-emerald-400" /> Pre-Hardened Security Baseline</div>
+          <div class="flex items-center gap-1.5"><ShieldCheck class="w-4 h-4 text-emerald-400" /> Dedicated KVM Hypervisors</div>
+        </div>
+      </div>
+    </section>
+
+    {/* Application Grid & Filter Catalog */}
+    <section class="py-20 border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">Production-Ready Application Catalog</h2>
+          <p class="text-muted-foreground text-sm sm:text-base">Filter by ecosystem or search for developer platforms, AI tools, databases, and control panels.</p>
+        </div>
+
+        <VpsAppsCatalog client:load />
+      </div>
+    </section>
+
+    {/* 3-Step Deployment Workflow */}
+    <section class="py-24 bg-muted/20 border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-extrabold tracking-tight mb-4">How 1-Click VPS Deployment Works</h2>
+          <p class="text-muted-foreground">Launch your stack in 3 automated steps without manually compiling software.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {steps.map((s) => (
+            <div class="glass-card p-8 rounded-3xl glow-card relative">
+              <div class="text-4xl font-black text-primary/30 mb-4">{s.num}</div>
+              <h3 class="text-xl font-bold mb-2">{s.title}</h3>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <DatacenterMap />
+
+    <MigrationBanner />
+
+    {/* FAQ Section */}
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">VPS Apps FAQs</h2>
+          <p class="text-muted-foreground">Common questions about 1-Click VPS app deployments.</p>
+        </div>
+        <FaqAccordion faqs={faqs} client:visible />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
