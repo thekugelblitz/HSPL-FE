@@ -6,6 +6,7 @@ import PricingCard from '../components/blocks/PricingCard.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { cloudPlans, premiumPlans, vpsPlans, resellerPlans, comboPlans, faqs } from '../lib/data';
 import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'lucide-react';
 ---
@@ -182,6 +183,8 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
         </div>
       </div>
     </section>
+
+    <PlanComparisonTable client:visible />
 
     <MigrationBanner />
 

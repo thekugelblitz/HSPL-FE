@@ -6,7 +6,8 @@ import Footer from '../components/layout/Footer.astro';
 import PricingCard from '../components/blocks/PricingCard.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
-import { premiumPlans, faqs } from '../lib/data';
+import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
+import { wordpressPlans, faqs } from '../lib/data';
 import { Check, MonitorSmartphone, Zap, Shield, Database, ArrowRight, Sparkles } from 'lucide-react';
 
 const features = [
@@ -186,13 +187,15 @@ const features = [
           <p class="text-muted-foreground max-w-2xl mx-auto text-lg">LiteSpeed-powered servers on Linode & DigitalOcean infrastructure — the ideal base for any WordPress site.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {premiumPlans.map((plan) => (
+        <div class="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-8">
+          {wordpressPlans.map((plan) => (
             <PricingCard {...plan} />
           ))}
         </div>
       </div>
     </section>
+
+    <PlanComparisonTable service="wordpress" client:visible />
 
     {/* FAQ Section */}
     <section class="py-24 bg-muted/30">

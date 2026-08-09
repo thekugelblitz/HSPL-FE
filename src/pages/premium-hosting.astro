@@ -6,6 +6,7 @@ import Footer from '../components/layout/Footer.astro';
 import PricingCard from '../components/blocks/PricingCard.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { premiumPlans, faqs } from '../lib/data';
 import { Check, Server, Shield, Zap, RefreshCw, ArrowRight, Cpu } from 'lucide-react';
 
@@ -164,6 +165,8 @@ const features = [
         </div>
       </div>
     </section>
+
+    <PlanComparisonTable service="premium" client:visible />
 
     <section class="py-24 bg-muted/30">
       <div class="container mx-auto px-4 max-w-screen-xl">

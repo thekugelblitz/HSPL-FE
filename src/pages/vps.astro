@@ -7,6 +7,7 @@ import PricingCard from '../components/blocks/PricingCard.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import DatacenterMap from '../components/blocks/DatacenterMap.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { vpsPlans, faqs } from '../lib/data';
 import { Check, Terminal, Server, Shield, Cpu, Zap, ArrowRight, HardDrive } from 'lucide-react';
 
@@ -165,6 +166,8 @@ const features = [
         </div>
       </div>
     </section>
+
+    <PlanComparisonTable service="vps" client:visible />
 
     <DatacenterMap />
 
