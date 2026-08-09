@@ -124,38 +124,52 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
 
     {/* Tech Partners Trust Badges */}
     <section class="py-14 border-t border-border/40 bg-background">
-      <div class="container mx-auto px-4 text-center">
+      <div class="container mx-auto px-4 max-w-screen-2xl text-center">
         <p class="text-xs font-extrabold text-muted-foreground/80 tracking-widest uppercase mb-8">Backed by World-Class Tech Partners</p>
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-85 hover:opacity-100 transition-opacity">
-          <div class="flex items-center gap-2.5">
-            <img src="https://cdn.simpleicons.org/cpanel/FF6C2C" alt="cPanel" class="h-6 w-auto object-contain" />
-            <span class="text-sm font-extrabold text-foreground">cPanel®</span>
+        <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 opacity-85 hover:opacity-100 transition-opacity text-xs sm:text-sm">
+          <div class="flex items-center gap-2">
+            <img src="https://cdn.simpleicons.org/cpanel/FF6C2C" alt="cPanel" class="h-5 sm:h-6 w-auto object-contain" />
+            <span class="font-extrabold text-foreground whitespace-nowrap">cPanel®</span>
           </div>
 
-          <div class="flex items-center gap-2.5">
-            <img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="DigitalOcean" class="h-6 w-auto object-contain" />
-            <span class="text-sm font-extrabold text-foreground">DigitalOcean</span>
+          <div class="flex items-center gap-2">
+            <img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="DigitalOcean" class="h-5 sm:h-6 w-auto object-contain" />
+            <span class="font-extrabold text-foreground whitespace-nowrap">DigitalOcean</span>
           </div>
 
-          <div class="flex items-center gap-2.5">
-            <img src="/brands/linode.svg" alt="Linode" class="h-6 w-auto object-contain" />
-            <span class="text-sm font-extrabold text-foreground">Linode</span>
+          <div class="flex items-center gap-2">
+            <img src="/brands/linode.svg" alt="Linode" class="h-5 sm:h-6 w-auto object-contain" />
+            <span class="font-extrabold text-foreground whitespace-nowrap">Linode</span>
           </div>
 
-
-          <div class="flex items-center gap-2.5">
-            <img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" class="h-6 w-auto object-contain" />
-            <span class="text-sm font-extrabold text-foreground">Cloudflare</span>
+          <div class="flex items-center gap-2">
+            <img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" class="h-5 sm:h-6 w-auto object-contain" />
+            <span class="font-extrabold text-foreground whitespace-nowrap">Cloudflare</span>
           </div>
 
-          <div class="flex items-center gap-2.5">
-            <img src="https://cdn.simpleicons.org/almalinux" alt="AlmaLinux" class="h-6 w-auto object-contain dark:invert" />
-            <span class="text-sm font-extrabold text-foreground">AlmaLinux</span>
+          <div class="flex items-center gap-2">
+            <img src="https://cdn.simpleicons.org/almalinux" alt="AlmaLinux" class="h-5 sm:h-6 w-auto object-contain dark:invert" />
+            <span class="font-extrabold text-foreground whitespace-nowrap">AlmaLinux</span>
           </div>
 
-          <div class="flex items-center gap-2.5">
-            <img src="https://cdn.simpleicons.org/ubuntu/E95420" alt="Ubuntu" class="h-6 w-auto object-contain" />
-            <span class="text-sm font-extrabold text-foreground">Ubuntu</span>
+          <div class="flex items-center gap-2">
+            <img src="https://cdn.simpleicons.org/ubuntu/E95420" alt="Ubuntu" class="h-5 sm:h-6 w-auto object-contain" />
+            <span class="font-extrabold text-foreground whitespace-nowrap">Ubuntu</span>
+          </div>
+
+          <div class="flex items-center gap-2 whitespace-nowrap">
+            <svg class="h-5 w-auto text-amber-500 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 22h20L12 2zm0 3.99L18.66 19H5.34L12 5.99z"/>
+              <path d="M12 9l1.1 2.3 2.5.4-1.8 1.8.4 2.5-2.2-1.2-2.2 1.2.4-2.5-1.8-1.8 2.5-.4L12 9z"/>
+            </svg>
+            <span class="font-extrabold text-foreground">HostAdvice Top 10 (2021-2026)</span>
+          </div>
+
+          <div class="flex items-center gap-2 whitespace-nowrap">
+            <svg class="h-5 w-auto text-emerald-400 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2c-3.86 0-7 3.14-7 7 0 2.24 1.05 4.22 2.69 5.5l-1.69 5.5 6-3 6 3-1.69-5.5C17.95 13.22 19 11.24 19 9c0-3.86-3.14-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+            </svg>
+            <span class="font-extrabold text-foreground">HostAdvice Recommended (2021-2026)</span>
           </div>
         </div>
       </div>
