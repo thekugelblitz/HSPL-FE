@@ -1,16 +1,114 @@
 import * as React from "react"
 import { createPortal } from "react-dom"
-import { Menu, X, Server, Cloud, Globe, MonitorSmartphone, Code, Cpu, Sparkles, User, ChevronRight } from "lucide-react"
+import { 
+  Menu, X, Server, Cloud, Globe, MonitorSmartphone, Code, Cpu, 
+  Sparkles, User, ChevronRight, ChevronDown, Layers, BookOpen, PhoneCall
+} from "lucide-react"
+
+interface NavItem {
+  title: string
+  desc: string
+  href: string
+  icon: React.ElementType
+  badge?: string
+  color: string
+}
+
+interface NavGroup {
+  id: string
+  title: string
+  items: NavItem[]
+}
+
+const navGroups: NavGroup[] = [
+  {
+    id: "hosting",
+    title: "Cloud & Web Hosting",
+    items: [
+      {
+        title: "Cloud NVMe Hosting",
+        desc: "10x LiteSpeed speed & NVMe SSDs",
+        href: "/cloud-hosting",
+        icon: Cloud,
+        color: "text-blue-400 bg-blue-500/10 border-blue-500/20"
+      },
+      {
+        title: "Premium Hosting",
+        desc: "Dedicated CPU & RAM resources",
+        href: "/premium-hosting",
+        icon: Server,
+        color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20"
+      },
+      {
+        title: "WordPress Hosting",
+        desc: "Pre-installed LSCache optimization",
+        href: "/wordpress-hosting",
+        icon: MonitorSmartphone,
+        color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20"
+      },
+      {
+        title: "Combo Free Domain",
+        desc: "Free lifetime domain inclusion",
+        href: "/combo-hosting",
+        icon: Globe,
+        color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+      },
+      {
+        title: "Node.js Hosting",
+        desc: "Optimized for Express & Next.js",
+        href: "/nodejs-hosting",
+        icon: Code,
+        color: "text-green-400 bg-green-500/10 border-green-500/20"
+      },
+      {
+        title: "Python Hosting",
+        desc: "Django, Flask & FastAPI support",
+        href: "/python-hosting",
+        icon: Cpu,
+        color: "text-amber-400 bg-amber-500/10 border-amber-500/20"
+      }
+    ]
+  },
+  {
+    id: "vps",
+    title: "VPS & Infrastructure",
+    items: [
+      {
+        title: "Dedicated KVM VPS",
+        desc: "Full Root SSH & dedicated resources",
+        href: "/vps",
+        icon: Server,
+        color: "text-purple-400 bg-purple-500/10 border-purple-500/20"
+      },
+      {
+        title: "1-Click VPS Apps",
+        desc: "Dokploy, Open WebUI, Supabase",
+        href: "/vps/apps",
+        icon: Sparkles,
+        badge: "39+ APPS",
+        color: "text-fuchsia-400 bg-fuchsia-500/10 border-fuchsia-500/20"
+      },
+      {
+        title: "Reseller WHM Hosting",
+        desc: "White-label cPanel accounts",
+        href: "/reseller",
+        icon: Layers,
+        color: "text-rose-400 bg-rose-500/10 border-rose-500/20"
+      }
+    ]
+  }
+]
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [mounted, setMounted] = React.useState(false)
+  const [openAccordion, setOpenAccordion] = React.useState<string | null>("hosting")
 
   React.useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Prevent background scrolling when mobile menu is open
+  // Lock body scroll when overlay is active
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"
@@ -22,218 +120,159 @@ export function MobileMenu() {
     }
   }, [isOpen])
 
-  const menuDropdownContent = (
-    <div className="fixed inset-x-0 top-[100px] bottom-0 w-full bg-[#0B0C0E] text-white z-[9999] overflow-y-auto p-5 sm:p-6 border-t border-zinc-800/90 flex flex-col justify-between shadow-2xl opacity-100 font-sans">
-      <div className="flex flex-col gap-6">
-        
-        {/* Status SLA Indicator */}
-        <div className="flex items-center justify-between pb-3 border-b border-zinc-800/80">
-          <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Navigation Menu</span>
-          <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full">
-            🟢 99.99% Uptime SLA
+  const toggleAccordion = (id: string) => {
+    setOpenAccordion(prev => prev === id ? null : id)
+  }
+
+  const menuOverlay = (
+    <div className="fixed inset-0 z-[99999] bg-[#08090B] text-white flex flex-col font-sans animate-in fade-in duration-200">
+      
+      {/* Pristine Mobile Header Bar */}
+      <div className="h-16 px-5 border-b border-zinc-800/80 bg-[#0C0D10] flex items-center justify-between shrink-0 shadow-lg">
+        <a href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
+          <img src="/logo-light.png" alt="HostingSpell" className="h-6 object-contain" />
+        </a>
+
+        <div className="flex items-center gap-3">
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            99.99% SLA
           </span>
+
+          <button
+            onClick={() => setIsOpen(false)}
+            className="w-10 h-10 rounded-full bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white flex items-center justify-center transition-all focus:outline-none cursor-pointer"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
+      </div>
 
-        {/* Cloud Hosting Tiers */}
-        <div className="flex flex-col gap-2">
-          <div className="text-xs font-black uppercase tracking-wider text-zinc-500 mb-1">Cloud Hosting Tiers</div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <a 
-              href="/cloud-hosting" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-blue-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <Cloud className="w-5 h-5 text-blue-400" />
-                <div>
-                  <div className="font-extrabold text-sm text-white group-hover:text-blue-400">Cloud NVMe Hosting</div>
-                  <div className="text-[11px] text-zinc-400">10x LiteSpeed speed</div>
+      {/* Scrollable Content Body */}
+      <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4">
+        
+        {/* Accordion Categories */}
+        {navGroups.map((group) => {
+          const isExpanded = openAccordion === group.id
+          return (
+            <div key={group.id} className="rounded-2xl border border-zinc-800/80 bg-[#0F1115] overflow-hidden transition-colors">
+              <button
+                onClick={() => toggleAccordion(group.id)}
+                className="w-full px-4 py-3.5 flex items-center justify-between text-left font-extrabold text-sm text-zinc-200 hover:text-white transition-colors bg-zinc-900/60 cursor-pointer"
+              >
+                <span>{group.title}</span>
+                <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform duration-200 ${isExpanded ? "rotate-180 text-blue-400" : ""}`} />
+              </button>
+
+              {isExpanded && (
+                <div className="p-2 space-y-1.5 border-t border-zinc-800/60">
+                  {group.items.map((item) => {
+                    const IconComponent = item.icon
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center justify-between p-3 rounded-xl hover:bg-zinc-800/60 transition-all group border border-transparent hover:border-zinc-700/50"
+                      >
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className={`p-2 rounded-xl border ${item.color} shrink-0`}>
+                            <IconComponent className="w-4 h-4" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2">
+                              <span className="font-extrabold text-xs text-white group-hover:text-blue-400 transition-colors truncate">
+                                {item.title}
+                              </span>
+                              {item.badge && (
+                                <span className="text-[9px] font-black uppercase bg-purple-500/20 text-purple-400 border border-purple-500/30 px-1.5 py-0.5 rounded shrink-0">
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-[11px] text-zinc-400 truncate mt-0.5">{item.desc}</p>
+                          </div>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 transition-transform group-hover:translate-x-0.5 shrink-0" />
+                      </a>
+                    )
+                  })}
                 </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
+              )}
+            </div>
+          )
+        })}
 
-            <a 
-              href="/premium-hosting" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-blue-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <Server className="w-5 h-5 text-blue-400" />
-                <div>
-                  <div className="font-extrabold text-sm text-white group-hover:text-blue-400">Premium Hosting</div>
-                  <div className="text-[11px] text-zinc-400">Dedicated CPU & RAM</div>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
-
-            <a 
-              href="/wordpress-hosting" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-blue-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <MonitorSmartphone className="w-5 h-5 text-blue-400" />
-                <div>
-                  <div className="font-extrabold text-sm text-white group-hover:text-blue-400">WordPress Hosting</div>
-                  <div className="text-[11px] text-zinc-400">LSCache Optimized</div>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
-
-            <a 
-              href="/combo-hosting" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-blue-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <Globe className="w-5 h-5 text-blue-400" />
-                <div>
-                  <div className="font-extrabold text-sm text-white group-hover:text-blue-400">Combo Free Domain</div>
-                  <div className="text-[11px] text-zinc-400">Free Lifetime Domain</div>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
-
-            <a 
-              href="/nodejs-hosting" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-blue-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <Code className="w-5 h-5 text-blue-400" />
-                <div>
-                  <div className="font-extrabold text-sm text-white group-hover:text-blue-400">Node.js Hosting</div>
-                  <div className="text-[11px] text-zinc-400">Express & Next.js</div>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
-
-            <a 
-              href="/python-hosting" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-blue-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <Cpu className="w-5 h-5 text-blue-400" />
-                <div>
-                  <div className="font-extrabold text-sm text-white group-hover:text-blue-400">Python Hosting</div>
-                  <div className="text-[11px] text-zinc-400">Django, Flask & FastAPI</div>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-        </div>
-
-        {/* VPS & Infrastructure */}
-        <div className="flex flex-col gap-2 pt-2">
-          <div className="text-xs font-black uppercase tracking-wider text-zinc-500 mb-1">VPS & Infrastructure</div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <a 
-              href="/vps" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-purple-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <Server className="w-5 h-5 text-purple-400" />
-                <div>
-                  <div className="font-extrabold text-sm text-white group-hover:text-purple-400">Dedicated KVM VPS</div>
-                  <div className="text-[11px] text-zinc-400">Full Root SSH Control</div>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-purple-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
-
-            <a 
-              href="/vps/apps" 
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-purple-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-purple-400" />
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-extrabold text-sm text-white group-hover:text-purple-400">1-Click VPS Apps</span>
-                    <span className="text-[9px] font-black uppercase bg-purple-500/20 text-purple-400 px-1.5 py-0.5 rounded">39+ APPS</span>
-                  </div>
-                  <div className="text-[11px] text-zinc-400">Dokploy, Open WebUI, Supabase</div>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-purple-400 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-        </div>
-
-        {/* Quick Links & Resources */}
-        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-zinc-800">
-          <div>
-            <div className="text-xs font-black uppercase tracking-wider text-zinc-500 mb-2">Domains & Pricing</div>
-            <div className="flex flex-col gap-2 text-sm font-semibold text-zinc-300">
+        {/* Quick Services Grid (Domains & Resources) */}
+        <div className="grid grid-cols-2 gap-3 pt-1">
+          <div className="p-4 rounded-2xl border border-zinc-800/80 bg-[#0F1115] space-y-3">
+            <div className="text-[11px] font-black uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+              <Globe className="w-3.5 h-3.5 text-blue-400" />
+              <span>Domains</span>
+            </div>
+            <div className="flex flex-col gap-2 text-xs font-semibold text-zinc-300">
               <a href="/domain" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Domain Search</a>
               <a href="/pricing" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Pricing Matrix</a>
-              <a href="/reseller" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Reseller Hosting</a>
             </div>
           </div>
 
-          <div>
-            <div className="text-xs font-black uppercase tracking-wider text-zinc-500 mb-2">Resources</div>
-            <div className="flex flex-col gap-2 text-sm font-semibold text-zinc-300">
-              <a href="/showcase" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Client Showcase</a>
-              <a href="/blog" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Engineering Blog</a>
+          <div className="p-4 rounded-2xl border border-zinc-800/80 bg-[#0F1115] space-y-3">
+            <div className="text-[11px] font-black uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5 text-purple-400" />
+              <span>Resources</span>
+            </div>
+            <div className="flex flex-col gap-2 text-xs font-semibold text-zinc-300">
+              <a href="/showcase" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Showcase</a>
               <a href="/knowledgebase" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Knowledgebase</a>
-              <a href="/affiliates" onClick={() => setIsOpen(false)} className="text-emerald-400 hover:underline">Affiliates (Earn $50)</a>
+              <a href="/blog" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">Blog</a>
+              <a href="/affiliates" onClick={() => setIsOpen(false)} className="text-emerald-400 font-bold hover:underline">Earn $50</a>
             </div>
           </div>
         </div>
 
       </div>
 
-      {/* Bottom Sticky Action CTAs */}
-      <div className="flex flex-col gap-3 pt-6 border-t border-zinc-800 mt-6 pb-6">
-        <a href="/pricing" onClick={() => setIsOpen(false)} className="w-full">
-          <button className="w-full bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-sm py-4 rounded-2xl shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2 transition-all">
-            <Sparkles className="w-4 h-4" /> Claim 75% OFF Cloud Offer
+      {/* Pro Sticky Bottom CTAs */}
+      <div className="p-4 border-t border-zinc-800/80 bg-[#0C0D10] shrink-0 space-y-3 shadow-2xl">
+        <a href="/pricing" onClick={() => setIsOpen(false)} className="block w-full">
+          <button className="w-full bg-gradient-to-r from-[#0073EC] via-blue-600 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-extrabold text-xs py-3.5 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer">
+            <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+            <span>Claim 75% OFF Cloud Offer</span>
           </button>
         </a>
 
-        <div className="grid grid-cols-2 gap-3">
-          <a href="https://manage.hostingspell.com/login" target="_blank" rel="noopener noreferrer" className="w-full">
-            <button className="w-full font-extrabold text-xs py-3.5 rounded-xl border border-zinc-800 bg-zinc-900 text-white hover:bg-zinc-800 flex items-center justify-center gap-1.5 transition-all">
-              <User className="w-4 h-4" /> Client Portal
+        <div className="grid grid-cols-2 gap-2.5">
+          <a href="https://manage.hostingspell.com/login" target="_blank" rel="noopener noreferrer" className="block w-full">
+            <button className="w-full font-bold text-xs py-3 rounded-xl border border-zinc-700/80 bg-zinc-900 text-white hover:bg-zinc-800 flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+              <User className="w-3.5 h-3.5 text-zinc-400" />
+              <span>Client Portal</span>
             </button>
           </a>
 
-          <a href="https://wa.me/919409594000" target="_blank" rel="noopener noreferrer" className="w-full">
-            <button className="w-full font-extrabold text-xs py-3.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 flex items-center justify-center gap-1.5 transition-all">
-              <svg className="w-4 h-4 text-emerald-400 fill-emerald-400 shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-              </svg>
-              <span>+91 94095 94000</span>
+          <a href="https://wa.me/919409594000" target="_blank" rel="noopener noreferrer" className="block w-full">
+            <button className="w-full font-bold text-xs py-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+              <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Support</span>
             </button>
           </a>
         </div>
       </div>
+
     </div>
   )
 
   return (
     <div className="lg:hidden">
-      {/* Toggle Button in Header (Morphs between Menu & X) */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(true)}
         className="p-2 rounded-xl text-white hover:bg-zinc-800/80 transition-colors flex items-center justify-center focus:outline-none cursor-pointer"
-        aria-label="Toggle Navigation Menu"
+        aria-label="Open Navigation Menu"
       >
-        {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
+        <Menu className="h-6 w-6 text-white" />
       </button>
 
-      {/* Render Portal directly under document.body to break out of header backdrop-filter containing block */}
-      {isOpen && mounted && createPortal(menuDropdownContent, document.body)}
+      {isOpen && mounted && createPortal(menuOverlay, document.body)}
     </div>
   )
 }

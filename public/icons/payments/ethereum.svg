@@ -1,7 +1,12 @@
-<svg width="780" height="500" viewBox="0 0 780 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="780" height="500" rx="40" fill="#3C3C3D"/>
-<path d="M390 80L230 330l160 95 160-95L390 80z" fill="#8A92B2"/>
-<path d="M390 80L230 330l160 95V80z" fill="#62688F"/>
-<path d="M390 450L230 350l160 55 160-55-160 100z" fill="#8A92B2"/>
-<path d="M390 450L230 350l160 55V450z" fill="#62688F"/>
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="80" fill="#18181B"/>
+  <rect x="0.5" y="0.5" width="119" height="79" stroke="#27272A" stroke-width="1"/>
+  <g transform="translate(60, 40) scale(1.3) translate(-12, -12)">
+    <path fill="#62688F" d="M12 0L11.8 0.7V16.4L12 16.6L19.5 12.2L12 0Z"/>
+    <path fill="#454A75" d="M12 0L4.5 12.2L12 16.6V8.9V0Z"/>
+    <path fill="#62688F" d="M12 18L11.9 18.1V23.7L12 24L19.5 13.5L12 18Z"/>
+    <path fill="#454A75" d="M12 24V18L4.5 13.5L12 24Z"/>
+    <path fill="#8A92B2" d="M12 16.6L19.5 12.2L12 8.9V16.6Z"/>
+    <path fill="#62688F" d="M4.5 12.2L12 16.6V8.9L4.5 12.2Z"/>
+  </g>
 </svg>

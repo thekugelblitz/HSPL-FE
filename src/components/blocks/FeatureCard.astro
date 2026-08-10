@@ -64,14 +64,14 @@ const iconMap: Record<string, any> = {
 const Icon = iconMap[rawKey] || Server;
 ---
 
-<Card className="border-border shadow-sm hover:shadow-md transition-shadow">
-  <CardHeader>
-    <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-      <Icon class="h-5 w-5 text-primary" />
+<Card className="border-zinc-800 bg-[#141518] hover:border-blue-500/50 shadow-md hover:shadow-xl transition-all duration-300 text-white">
+  <CardHeader className="p-6">
+    <div class="h-10 w-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mb-4">
+      <Icon class="h-5 w-5 text-blue-400" />
     </div>
-    <CardTitle>{title}</CardTitle>
+    <CardTitle className="text-lg font-extrabold text-white">{title}</CardTitle>
   </CardHeader>
-  <CardContent>
-    <CardDescription className="text-base">{description}</CardDescription>
+  <CardContent className="px-6 pb-6 pt-0">
+    <CardDescription className="text-sm text-zinc-300 leading-relaxed">{description}</CardDescription>
   </CardContent>
 </Card>

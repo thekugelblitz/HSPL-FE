@@ -221,10 +221,10 @@ const reviews = [
       <div class="container mx-auto px-4">
         <p class="text-center text-sm font-bold text-muted-foreground tracking-widest uppercase mb-8">Trusted by industry leaders worldwide</p>
         <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          <img src="/brands/cpanel.svg" alt="cPanel" class="h-8 object-contain" />
-          <img src="/brands/linode.svg" alt="Linode" class="h-8 object-contain" />
-          <img src="/brands/digitalocean.svg" alt="DigitalOcean" class="h-8 object-contain" />
-          <img src="/brands/litespeed.svg" alt="LiteSpeed" class="h-8 object-contain" />
+          <img src="/brands/cpanel.svg" alt="cPanel" class="h-8 object-contain brightness-0 dark:brightness-100" />
+          <img src="/brands/linode.svg" alt="Linode" class="h-8 object-contain brightness-0 dark:brightness-100" />
+          <img src="/brands/digitalocean.svg" alt="DigitalOcean" class="h-8 object-contain brightness-0 dark:brightness-100" />
+          <img src="/brands/litespeed.svg" alt="LiteSpeed" class="h-8 object-contain brightness-0 dark:brightness-100" />
         </div>
       </div>
     </section>
@@ -234,36 +234,36 @@ const reviews = [
       <div class="absolute right-0 top-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
       <div class="absolute left-0 bottom-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
-          <div class="text-center group">
-            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 md:gap-12 max-w-6xl mx-auto">
+          <div class="text-center group p-1 sm:p-2 flex flex-col items-center justify-center min-w-0">
+            <div class="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary via-blue-500 to-blue-600 mb-2 group-hover:scale-105 transition-transform duration-300 tracking-tight leading-none overflow-visible whitespace-nowrap">
               <AnimatedCounter client:visible value={110000} suffix="+" />
             </div>
-            <div class="font-bold text-lg mb-2 text-foreground/90">Websites Hosted</div>
-            <div class="text-sm text-muted-foreground hidden md:block">Active websites running on HostingSpell infrastructure</div>
+            <div class="font-bold text-xs sm:text-base md:text-lg mb-1 text-foreground/90">Websites Hosted</div>
+            <div class="text-xs sm:text-sm text-muted-foreground hidden md:block">Active websites running on HostingSpell infrastructure</div>
           </div>
           
-          <div class="text-center group">
-            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+          <div class="text-center group p-1 sm:p-2 flex flex-col items-center justify-center min-w-0">
+            <div class="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary via-blue-500 to-blue-600 mb-2 group-hover:scale-105 transition-transform duration-300 tracking-tight leading-none overflow-visible whitespace-nowrap">
               <AnimatedCounter client:visible value={57} suffix="+" />
             </div>
-            <div class="font-bold text-lg mb-2 text-foreground/90">Countries Served</div>
+            <div class="font-bold text-xs sm:text-base md:text-lg mb-1 text-foreground/90">Countries Served</div>
             <div class="text-sm text-muted-foreground hidden md:block">Clients from across the globe trust HostingSpell</div>
           </div>
           
-          <div class="text-center group">
-            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+          <div class="text-center group p-1 sm:p-2 flex flex-col items-center justify-center min-w-0">
+            <div class="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary via-blue-500 to-blue-600 mb-2 group-hover:scale-105 transition-transform duration-300 tracking-tight leading-none overflow-visible whitespace-nowrap">
               <AnimatedCounter client:visible value={99.99} suffix="%" decimals={2} />
             </div>
-            <div class="font-bold text-lg mb-2 text-foreground/90">Uptime Guarantee</div>
+            <div class="font-bold text-xs sm:text-base md:text-lg mb-1 text-foreground/90">Uptime Guarantee</div>
             <div class="text-sm text-muted-foreground hidden md:block">Industry-leading reliability backed by SLA</div>
           </div>
           
-          <div class="text-center group">
-            <div class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+          <div class="text-center group p-1 sm:p-2 flex flex-col items-center justify-center min-w-0">
+            <div class="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary via-blue-500 to-blue-600 mb-2 group-hover:scale-105 transition-transform duration-300 tracking-tight leading-none overflow-visible whitespace-nowrap">
               <AnimatedCounter client:visible value={7} suffix="+" />
             </div>
-            <div class="font-bold text-lg mb-2 text-foreground/90">Years of Expertise</div>
+            <div class="font-bold text-xs sm:text-base md:text-lg mb-1 text-foreground/90">Years of Expertise</div>
             <div class="text-sm text-muted-foreground hidden md:block">Proven track record in web hosting</div>
           </div>
         </div>

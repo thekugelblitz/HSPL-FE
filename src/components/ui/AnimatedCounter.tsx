@@ -64,7 +64,7 @@ export function AnimatedCounter({ value, suffix = "", decimals = 0, duration = 2
   });
 
   return (
-    <span ref={elementRef} className="tabular-nums">
+    <span ref={elementRef} className="tabular-nums inline-block max-w-full text-center">
       {formattedCount}{suffix}
     </span>
   );
