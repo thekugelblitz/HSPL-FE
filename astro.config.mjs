@@ -1,11 +1,37 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
+  site: 'https://hostingspell.com',
+  
+  compressHTML: true,
+  
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'viewport',
   },
-  integrations: [react()]
+  
+  vite: {
+    plugins: [tailwindcss()],
+    build: {
+      cssMinify: 'lightningcss',
+    },
+  },
+  
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/500') && !page.includes('/503'),
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    }),
+  ],
+
+  build: {
+    inlineStylesheets: 'auto',
+  },
 });

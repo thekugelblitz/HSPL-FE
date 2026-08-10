@@ -44,9 +44,9 @@ import { PhoneCall, Sparkles, User, ArrowRight, Tag } from 'lucide-react';
     
     {/* Left Logo & Brand */}
     <div class="flex items-center gap-4 lg:gap-8">
-      <MobileMenu client:load />
+      <MobileMenu client:idle />
       <a href="/" class="flex items-center gap-2 group transition-transform hover:scale-105">
-        <img src="/logo-light.png" alt="HostingSpell" class="h-5.5 sm:h-6 lg:h-6.5 object-contain transition-all" />
+        <img src="/logo-light.png" alt="HostingSpell" class="h-5.5 sm:h-6 lg:h-6.5 object-contain transition-all" width="150" height="26" decoding="async" />
       </a>
       
       {/* Clean Mega Menu */}
@@ -75,7 +75,7 @@ import { PhoneCall, Sparkles, User, ArrowRight, Tag } from 'lucide-react';
           <span class="text-blue-400 font-black">₹</span> INR
         </div>
         
-        <ThemeToggle client:load />
+        <ThemeToggle client:idle />
       </div>
 
       {/* Client Portal Button (DreamHost Royal Blue) */}

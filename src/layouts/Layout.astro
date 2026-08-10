@@ -32,8 +32,23 @@ const {
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href={canonical} />
+    
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+    
+    <!-- DNS Prefetch for external domains used in nav/footer -->
+    <link rel="dns-prefetch" href="https://manage.hostingspell.com" />
+    <link rel="dns-prefetch" href="https://wa.me" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Theme Color (matches dark nav bar) -->
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     
     <!-- OpenGraph -->
     <meta property="og:title" content={title} />
@@ -41,6 +56,7 @@ const {
     <meta property="og:image" content={image} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HostingSpell" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -48,10 +64,37 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
 
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter — Non-blocking preload pattern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    </noscript>
+    
+    <!-- Organization Structured Data for Google Knowledge Panel -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HostingSpell",
+      "url": "https://hostingspell.com",
+      "logo": "https://hostingspell.com/logo-light.png",
+      "description": "Ultra-fast NVMe cloud web hosting with free migration and 24/7 expert support.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-94095-94000",
+        "contactType": "sales",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "sameAs": [
+        "https://twitter.com/hostingspell"
+      ]
+    })} />
     
     <ClientRouter />
     

@@ -1,2 +1,5 @@
+# HostingSpell — Robots.txt
+# Block all crawlers — site is in testing, old site is still live
+
 User-agent: *
 Disallow: /
