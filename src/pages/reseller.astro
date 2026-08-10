@@ -7,6 +7,7 @@ import PricingCard from '../components/blocks/PricingCard.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
+import { ResellerRoiCalculator } from '../components/blocks/ResellerRoiCalculator';
 import { resellerPlans, faqs } from '../lib/data';
 import { Check, Shield, Server, Zap, RefreshCw, ArrowRight, Layers, Users } from 'lucide-react';
 
@@ -163,6 +164,8 @@ const features = [
             <PricingCard {...plan} />
           ))}
         </div>
+
+        <ResellerRoiCalculator client:visible />
       </div>
     </section>
 

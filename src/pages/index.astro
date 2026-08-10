@@ -15,6 +15,8 @@ import TrustProofBar from '../components/blocks/TrustProofBar.astro';
 import CompetitorComparison from '../components/blocks/CompetitorComparison.astro';
 import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import { StickyMobileBuyBar } from '../components/blocks/StickyMobileBuyBar';
 import { cloudPlans, premiumPlans, vpsPlans, faqs } from '../lib/data';
 
 const features = [
@@ -51,6 +53,12 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
   <Navbar />
   <main class="bg-background overflow-hidden">
     <Hero />
+
+    <section class="py-12 border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <InteractiveSpeedTest client:visible />
+      </div>
+    </section>
 
     <TrustProofBar />
     
@@ -175,8 +183,7 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
       </div>
     </section>
 
-
-
+    <StickyMobileBuyBar client:media="(max-width: 768px)" />
   </main>
   <Footer />
 </Layout>

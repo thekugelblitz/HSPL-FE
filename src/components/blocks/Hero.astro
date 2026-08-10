@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { cloudPlans, premiumPlans, vpsPlans } from '../../lib/data';
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Server, Cpu, Cloud, Sparkles, Activity, Lock, Globe, HardDrive, Check } from 'lucide-react';
+import { HostingQuizModal } from './HostingQuizModal';
 
 const startingCloud = cloudPlans[0];
 const startingPremium = premiumPlans[0];
@@ -70,11 +71,8 @@ const startingVps = vpsPlans[0];
               <ArrowRight className="w-4 h-4" />
             </Button>
           </a>
-          <a href="/domain" class="w-full sm:w-auto">
-            <Button size="lg" variant="outline" className="w-full text-base h-13 px-8 rounded-xl bg-card/90 backdrop-blur font-extrabold hover:bg-muted transition-all border-border/80 shadow-md">
-              Search Domain Names
-            </Button>
-          </a>
+          
+          <HostingQuizModal client:load />
         </div>
 
         {/* Price Anchor */}

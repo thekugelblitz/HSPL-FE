@@ -7,6 +7,7 @@ import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
+import { SavingsCalculator } from '../components/blocks/SavingsCalculator';
 import { cloudPlans, premiumPlans, vpsPlans, resellerPlans, comboPlans, faqs } from '../lib/data';
 import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'lucide-react';
 ---
@@ -183,6 +184,10 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
         </div>
       </div>
     </section>
+
+    <div class="container mx-auto px-4 max-w-screen-xl">
+      <SavingsCalculator client:visible />
+    </div>
 
     <PlanComparisonTable client:visible />
 
