@@ -30,11 +30,11 @@ const {
 } = Astro.props;
 ---
 
-<div class={`relative flex flex-col p-6 sm:p-8 rounded-3xl border transition-all duration-300 hover:border-primary/60 glow-card ${isPopular ? 'border-primary shadow-2xl shadow-primary/10 bg-gradient-to-b from-primary/5 via-card to-card scale-[1.03] z-10' : 'border-border/60 bg-card shadow-sm'}`}>
+<div class={`relative flex flex-col p-6 sm:p-8 rounded-3xl border transition-all duration-300 hover:border-blue-500/60 ${isPopular ? 'border-[#0073EC] shadow-2xl shadow-blue-500/10 bg-gradient-to-b from-[#0073EC]/5 via-card to-card scale-[1.02] z-10' : 'border-border/60 bg-card shadow-sm'}`}>
   {isPopular && (
-    <div class="absolute -top-3.5 left-0 right-0 mx-auto w-fit rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-4 py-1 text-xs font-bold text-white shadow-lg flex items-center gap-1.5 uppercase tracking-wider">
+    <div class="absolute -top-3.5 left-0 right-0 mx-auto w-fit rounded-full bg-[#0073EC] px-4 py-1 text-xs font-extrabold text-white shadow-lg flex items-center gap-1.5 uppercase tracking-wider">
       <Zap class="w-3.5 h-3.5 fill-white" />
-      Most Popular & Best Value
+      Most Popular Plan
     </div>
   )}
   
@@ -47,7 +47,7 @@ const {
         </span>
       )}
     </div>
-    {tagline && <p class="text-xs font-bold text-primary uppercase mt-1 tracking-wider">{tagline}</p>}
+    {tagline && <p class="text-xs font-bold text-[#0073EC] uppercase mt-1 tracking-wider">{tagline}</p>}
   </div>
   
   <div class="mb-6 border-b border-border/40 pb-6">
@@ -84,7 +84,7 @@ const {
   
   <div class="space-y-3 mt-auto">
     <a href={link} target="_blank" rel="noopener noreferrer" class="w-full block group">
-      <Button className={`w-full py-6 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 ${isPopular ? 'bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/25' : ''}`} variant={isPopular ? 'default' : 'outline'}>
+      <Button className={`w-full py-6 font-extrabold text-sm rounded-xl transition-all flex items-center justify-center gap-2 ${isPopular ? 'bg-[#0073EC] hover:bg-[#005bb5] text-white shadow-lg shadow-blue-500/25' : ''}`} variant={isPopular ? 'default' : 'outline'}>
         <span>{ctaText}</span>
         <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
       </Button>

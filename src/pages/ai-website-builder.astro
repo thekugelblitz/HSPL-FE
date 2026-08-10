@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import AiWebDevSection from '../components/blocks/AiWebDevSection.astro';
+import TrustProofBar from '../components/blocks/TrustProofBar.astro';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
+import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import { StickyMobileBuyBar } from '../components/blocks/StickyMobileBuyBar';
+
+const aiFaqs = [
+  {
+    question: "How does AI-Powered Website Development work?",
+    answer: "You simply type a prompt describing your business vision, visual preferences, or site structure. Our AI Web Engine generates a live preview in 30 seconds. You then keep chatting to make real-time layout edits, change color themes, add pricing tables, or refine copy until your website is 100% complete."
+  },
+  {
+    question: "Can I host the AI-generated website on my own domain?",
+    answer: "Yes! Every website built with HostingSpell AI includes high-speed NVMe cloud hosting, free SSL certificates, custom domain binding, and full cPanel access out of the box."
+  },
+  {
+    question: "What does 'Keep Chatting' mean?",
+    answer: "'Keep Chatting' allows you to continuously converse with our AI web co-pilot. Instead of wrestling with complex drag-and-drop page builders, you type instructions like 'Add a dark mode toggle', 'Insert 3 customer testimonials', or 'Make the hero CTA glowing blue' and watch the live website update instantly."
+  },
+  {
+    question: "What is the difference between Autonomous AI Builder and AI + Expert Co-Creation?",
+    answer: "Autonomous AI Builder is 100% self-serve for users who want to prompt and converse with the AI themselves. AI + Expert Co-Creation adds human senior web developers from HostingSpell who review, polish, optimize PageSpeed to 100/100, and audit your site within 24 hours before launch."
+  },
+  {
+    question: "Is the generated code clean and SEO ready?",
+    answer: "Absolutly. The AI produces semantic HTML5, modern Tailwind CSS, React components, and OpenGraph/JSON-LD schema markup formatted for maximum search engine indexability and lightning-fast load times."
+  }
+];
+---
+
+<Layout 
+  title="AI-Powered Website Development | One Prompt, Keep Chatting & Build Your Dream | HostingSpell"
+  description="Describe your dream site in one prompt. Keep chatting with our AI web co-pilot to generate, customize, and launch production-ready websites on ultra-fast NVMe cloud hosting."
+>
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    
+    {/* Primary Comprehensive AI Web Development Component Suite */}
+    <AiWebDevSection />
+
+    {/* Speed Test Proof Bar */}
+    <section class="py-12 border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <InteractiveSpeedTest client:visible />
+      </div>
+    </section>
+
+    <TrustProofBar />
+
+    <MigrationBanner />
+
+    <FounderGuarantee />
+
+    {/* Frequently Asked Questions */}
+    <section class="py-24 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-3xl font-extrabold tracking-tight mb-4">Frequently Asked Questions</h2>
+          <p class="text-muted-foreground">Everything you need to know about AI-Powered Website Development on HostingSpell.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <FaqAccordion client:visible faqs={aiFaqs} />
+        </div>
+      </div>
+    </section>
+
+    <StickyMobileBuyBar client:media="(max-width: 768px)" />
+  </main>
+  <Footer />
+</Layout>

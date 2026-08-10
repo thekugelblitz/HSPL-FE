@@ -6,76 +6,79 @@
 
 :root {
   --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
+  --foreground: 222.2 84% 4.9%;
   --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
+  --card-foreground: 222.2 84% 4.9%;
   --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
+  --popover-foreground: 222.2 84% 4.9%;
   
-  /* Premium Vibrant Blue */
-  --primary: 221.2 83.2% 53.3%;
+  /* DreamHost Royal Blue Accent (#0073EC) */
+  --primary: 212 100% 46%;
   --primary-foreground: 210 40% 98%;
   
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
   
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
   
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
   
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   
-  /* Success and Warning */
+  /* DreamHost Vivid Purple & Emerald */
+  --dh-purple: 262.1 83.3% 57.8%;
+  --dh-green: 142.1 76.2% 36.3%;
   --success: 142.1 76.2% 36.3%;
   --success-foreground: 355.7 100% 97.3%;
   --warning: 38 92% 50%;
   --warning-foreground: 48 96% 89%;
   
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 221.2 83.2% 53.3%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 212 100% 46%;
   
-  --radius: 0.5rem;
-  
-  /* Layout variables */
+  --radius: 0.75rem;
   --header-height: 4rem;
 }
 
 .dark {
-  /* True AMOLED Pure Pitch Black (#000000) */
+  /* True DreamHost Pitch Black & Off-Black (#000000 & #0B0C0E) */
   --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --card: 0 0% 0%;
-  --card-foreground: 0 0% 100%;
-  --popover: 0 0% 0%;
-  --popover-foreground: 0 0% 100%;
+  --foreground: 210 40% 98%;
+  --card: 224 71% 4%;
+  --card-foreground: 210 40% 98%;
+  --popover: 224 71% 4%;
+  --popover-foreground: 210 40% 98%;
   
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  /* DreamHost Electric Blue (#0073EC) */
+  --primary: 212 100% 46%;
+  --primary-foreground: 0 0% 100%;
   
-  --secondary: 0 0% 7%;
-  --secondary-foreground: 0 0% 100%;
+  --secondary: 217.2 32.6% 12%;
+  --secondary-foreground: 210 40% 98%;
   
-  --muted: 0 0% 8%;
-  --muted-foreground: 0 0% 70%;
+  --muted: 217.2 32.6% 10%;
+  --muted-foreground: 215 20.2% 65.1%;
   
-  --accent: 0 0% 9%;
-  --accent-foreground: 0 0% 100%;
+  --accent: 217.2 32.6% 12%;
+  --accent-foreground: 210 40% 98%;
   
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
+  --destructive-foreground: 210 40% 98%;
   
-  --success: 149 61% 20%;
+  --dh-purple: 263.4 70% 50.4%;
+  --dh-green: 142.1 70% 45.3%;
+  --success: 142.1 70% 45.3%;
   --success-foreground: 149 61% 90%;
-  --warning: 38 92% 30%;
+  --warning: 38 92% 50%;
   --warning-foreground: 38 92% 90%;
   
-  --border: 0 0% 18%;
-  --input: 0 0% 18%;
-  --ring: 224.3 76.3% 48%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212 100% 46%;
 }
 
 @theme inline {
@@ -119,7 +122,19 @@
   }
 }
 
-/* Glassmorphism & Modern Vercel Design Utilities */
+/* DreamHost Aesthetic Utilities */
+.dh-card {
+  @apply bg-card border border-border/80 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-300;
+}
+
+.dh-badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 border border-primary/20 text-primary;
+}
+
+.dh-button-primary {
+  @apply bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold rounded-xl px-6 py-3.5 text-sm shadow-lg shadow-blue-500/25 transition-transform hover:scale-[1.02] active:scale-100 flex items-center justify-center gap-2;
+}
+
 .glass-card {
   @apply bg-background/80 backdrop-blur-xl border border-white/10 shadow-xl dark:border-zinc-800 dark:bg-black/90;
 }
@@ -135,7 +150,7 @@
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(to bottom right, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
+  background: linear-gradient(to bottom right, rgba(0, 115, 236, 0.25), rgba(255,255,255,0.02));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -164,7 +179,6 @@
   @apply bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent;
 }
 
-/* Shimmer Effect */
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }

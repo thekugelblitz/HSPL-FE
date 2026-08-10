@@ -66,15 +66,15 @@ const vpsItems = [
 
 <div class="hidden lg:flex items-center space-x-1 font-semibold text-sm">
   {/* Hosting Mega Menu */}
-  <div class="group relative px-3 py-2 text-foreground/80 cursor-pointer">
-    <span class="flex items-center gap-1 group-hover:text-primary transition-colors uppercase tracking-wider text-xs font-bold">
+  <div class="group relative px-3 py-2 text-white/90 hover:text-white cursor-pointer">
+    <span class="flex items-center gap-1 transition-colors uppercase tracking-wider text-xs font-bold">
       Hosting
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
     </span>
     
     <div class="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      {/* 100% Opaque Solid Dark & Light Dropdown Container */}
-      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[680px] grid grid-cols-3 gap-5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10">
+      {/* Dropdown Container: Light = White bg + Dark Text, Dark = Pitch Black bg + White Text */}
+      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[680px] grid grid-cols-3 gap-5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
         <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-primary to-indigo-500"></div>
 
         {/* Left 2 Columns: Product Links */}
@@ -88,14 +88,14 @@ const vpsItems = [
                 </div>
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center justify-between">
-                    <span class="font-extrabold text-xs text-foreground group-hover/item:text-primary transition-colors">{item.title}</span>
+                    <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover/item:text-primary transition-colors">{item.title}</span>
                     {item.badge && (
                       <span class="text-[9px] font-black uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-md border border-primary/20">
                         {item.badge}
                       </span>
                     )}
                   </div>
-                  <div class="text-[11px] text-muted-foreground mt-0.5 leading-snug font-medium">{item.description}</div>
+                  <div class="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5 leading-snug font-medium">{item.description}</div>
                 </div>
               </a>
             );
@@ -103,14 +103,14 @@ const vpsItems = [
         </div>
 
         {/* Right Column: High-Converting Lead Capture Card */}
-        <div class="col-span-1 rounded-2xl bg-gradient-to-b from-primary/20 via-primary/10 to-zinc-900 border border-primary/30 p-5 flex flex-col justify-between text-left relative overflow-hidden shadow-inner">
+        <div class="col-span-1 rounded-2xl bg-gradient-to-b from-primary/20 via-primary/10 to-zinc-100 dark:to-zinc-900 border border-primary/30 p-5 flex flex-col justify-between text-left relative overflow-hidden shadow-inner">
           <div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/30 rounded-full blur-2xl pointer-events-none"></div>
           <div>
             <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500 text-slate-950 px-2.5 py-1 rounded-full inline-block mb-3 shadow-md">
               ⚡ Flash Deal - 75% OFF
             </span>
-            <h4 class="text-sm font-extrabold text-foreground mb-1.5 leading-tight">Turbocharged NVMe Cloud</h4>
-            <p class="text-[11px] text-muted-foreground leading-relaxed mb-4">Pure NVMe SSD + LiteSpeed + Free SSL + Free Migration.</p>
+            <h4 class="text-sm font-extrabold text-zinc-900 dark:text-white mb-1.5 leading-tight">Turbocharged NVMe Cloud</h4>
+            <p class="text-[11px] text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">Pure NVMe SSD + LiteSpeed + Free SSL + Free Migration.</p>
           </div>
           <a href="/pricing" class="w-full py-2.5 px-4 rounded-xl bg-primary text-primary-foreground font-bold text-xs flex items-center justify-between hover:opacity-90 transition-all shadow-md shadow-primary/20 group/btn">
             <span>Claim Offer</span>
@@ -123,14 +123,14 @@ const vpsItems = [
   </div>
 
   {/* VPS Mega Menu */}
-  <div class="group relative px-3 py-2 text-foreground/80 cursor-pointer">
-    <span class="flex items-center gap-1 group-hover:text-primary transition-colors uppercase tracking-wider text-xs font-bold">
+  <div class="group relative px-3 py-2 text-white/90 hover:text-white cursor-pointer">
+    <span class="flex items-center gap-1 transition-colors uppercase tracking-wider text-xs font-bold">
       VPS
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
     </span>
     
     <div class="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[560px] grid grid-cols-2 gap-4 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10">
+      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[560px] grid grid-cols-2 gap-4 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
         <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-primary"></div>
 
         <div class="flex flex-col gap-2.5">
@@ -138,17 +138,17 @@ const vpsItems = [
             const ItemIcon = item.icon;
             return (
               <a href={item.href} class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 transition-all group/item border border-zinc-200/50 dark:border-zinc-800/50 hover:border-purple-500/40">
-                <div class="bg-purple-500/15 text-purple-400 p-2.5 rounded-xl group-hover/item:bg-purple-500 group-hover/item:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+                <div class="bg-purple-500/15 text-purple-600 dark:text-purple-400 p-2.5 rounded-xl group-hover/item:bg-purple-500 group-hover/item:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
                   <ItemIcon class="w-4 h-4" />
                 </div>
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center justify-between">
-                    <span class="font-extrabold text-xs text-foreground group-hover/item:text-purple-400 transition-colors">{item.title}</span>
-                    <span class="text-[9px] font-black uppercase tracking-wider bg-purple-500/10 text-purple-400 px-1.5 py-0.5 rounded border border-purple-500/20">
+                    <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover/item:text-purple-600 dark:group-hover/item:text-purple-400 transition-colors">{item.title}</span>
+                    <span class="text-[9px] font-black uppercase tracking-wider bg-purple-500/10 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded border border-purple-500/20">
                       {item.badge}
                     </span>
                   </div>
-                  <div class="text-[11px] text-muted-foreground mt-0.5 leading-snug font-medium">{item.description}</div>
+                  <div class="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5 leading-snug font-medium">{item.description}</div>
                 </div>
               </a>
             );
@@ -156,13 +156,13 @@ const vpsItems = [
         </div>
 
         {/* VPS Marketplace Spotlight Side Card */}
-        <div class="rounded-2xl bg-gradient-to-b from-purple-500/20 via-purple-500/10 to-zinc-900 border border-purple-500/30 p-5 flex flex-col justify-between text-left relative overflow-hidden shadow-inner">
+        <div class="rounded-2xl bg-gradient-to-b from-purple-500/20 via-purple-500/10 to-zinc-100 dark:to-zinc-900 border border-purple-500/30 p-5 flex flex-col justify-between text-left relative overflow-hidden shadow-inner">
           <div>
-            <span class="text-[10px] font-black uppercase tracking-wider bg-purple-500 text-white px-2.5 py-1 rounded-full inline-block mb-3 shadow-md">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-purple-600 text-white px-2.5 py-1 rounded-full inline-block mb-3 shadow-md">
               🚀 1-Click Market
             </span>
-            <h4 class="text-sm font-extrabold text-foreground mb-1.5 leading-tight">39+ VPS Applications</h4>
-            <p class="text-[11px] text-muted-foreground leading-relaxed mb-4">Deploy Dokploy, Open WebUI, Supabase, WireGuard, and WordPress in &lt; 60 seconds.</p>
+            <h4 class="text-sm font-extrabold text-zinc-900 dark:text-white mb-1.5 leading-tight">39+ VPS Applications</h4>
+            <p class="text-[11px] text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">Deploy Dokploy, Open WebUI, Supabase, WireGuard, and WordPress in &lt; 60 seconds.</p>
           </div>
           <a href="/vps/apps" class="w-full py-2.5 px-4 rounded-xl bg-purple-600 text-white font-bold text-xs flex items-center justify-between hover:bg-purple-700 transition-all shadow-md shadow-purple-600/20 group/btn">
             <span>Launch VPS App</span>
@@ -174,49 +174,53 @@ const vpsItems = [
     </div>
   </div>
 
-  <a href="/reseller" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors hover:text-primary text-foreground/80 font-bold">Reseller</a>
-  <a href="/domain" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors hover:text-primary text-foreground/80 font-bold">Domain</a>
-  <a href="/pricing" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors hover:text-primary text-foreground/80 font-bold">Pricing</a>
+  <a href="/ai-website-builder" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors hover:text-blue-400 text-blue-400 font-extrabold flex items-center gap-1 bg-blue-500/10 rounded-lg border border-blue-500/20">
+    <Sparkles class="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+    <span>AI Web Builder</span>
+  </a>
+  <a href="/reseller" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors text-white/90 hover:text-white font-bold">Reseller</a>
+  <a href="/domain" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors text-white/90 hover:text-white font-bold">Domain</a>
+  <a href="/pricing" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors text-white/90 hover:text-white font-bold">Pricing</a>
   
   {/* Resources & Support Mega Menu */}
-  <div class="group relative px-3 py-2 text-foreground/80 cursor-pointer">
-    <span class="flex items-center gap-1 group-hover:text-primary transition-colors uppercase tracking-wider text-xs font-bold">
+  <div class="group relative px-3 py-2 text-white/90 hover:text-white cursor-pointer">
+    <span class="flex items-center gap-1 transition-colors uppercase tracking-wider text-xs font-bold">
       Resources
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
     </span>
     
     <div class="absolute top-full right-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-4 w-[300px] flex flex-col gap-1.5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10">
+      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-4 w-[300px] flex flex-col gap-1.5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
         <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-500 via-primary to-blue-500"></div>
 
         <a href="/showcase" class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 transition-colors flex items-center justify-between group border border-transparent hover:border-primary/20">
-          <span class="font-extrabold text-xs text-foreground group-hover:text-primary transition-colors">Client Showcase</span>
+          <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors">Client Showcase</span>
           <span class="text-[10px] text-primary font-bold bg-primary/10 px-2 py-0.5 rounded">Portfolios</span>
         </a>
 
         <a href="/blog" class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 transition-colors flex items-center justify-between group border border-transparent hover:border-primary/20">
-          <span class="font-extrabold text-xs text-foreground group-hover:text-primary transition-colors">Engineering Blog</span>
-          <span class="text-[10px] text-muted-foreground font-bold bg-muted px-2 py-0.5 rounded">Articles</span>
+          <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors">Engineering Blog</span>
+          <span class="text-[10px] text-zinc-600 dark:text-zinc-400 font-bold bg-zinc-200 dark:bg-zinc-800 px-2 py-0.5 rounded">Articles</span>
         </a>
 
         <a href="/knowledgebase" class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 transition-colors flex items-center justify-between group border border-transparent hover:border-primary/20">
-          <span class="font-extrabold text-xs text-foreground group-hover:text-primary transition-colors">Knowledgebase</span>
-          <span class="text-[10px] text-muted-foreground font-bold bg-muted px-2 py-0.5 rounded">Guides</span>
+          <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors">Knowledgebase</span>
+          <span class="text-[10px] text-zinc-600 dark:text-zinc-400 font-bold bg-zinc-200 dark:bg-zinc-800 px-2 py-0.5 rounded">Guides</span>
         </a>
 
         <a href="/network-status" class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 transition-colors flex items-center justify-between group border border-transparent hover:border-primary/20">
-          <span class="font-extrabold text-xs text-foreground group-hover:text-primary transition-colors">Network Status</span>
-          <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">🟢 99.99%</span>
+          <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors">Network Status</span>
+          <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">🟢 99.99%</span>
         </a>
 
         <a href="/affiliates" class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 transition-colors flex items-center justify-between group border border-transparent hover:border-primary/20">
-          <span class="font-extrabold text-xs text-foreground group-hover:text-primary transition-colors">Affiliate Program</span>
-          <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Earn $50</span>
+          <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors">Affiliate Program</span>
+          <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Earn $50</span>
         </a>
 
         <a href="/about" class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 transition-colors flex items-center justify-between group border border-transparent hover:border-primary/20">
-          <span class="font-extrabold text-xs text-foreground group-hover:text-primary transition-colors">About HostingSpell</span>
-          <span class="text-[10px] text-muted-foreground font-bold bg-muted px-2 py-0.5 rounded">Our Story</span>
+          <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-primary transition-colors">About HostingSpell</span>
+          <span class="text-[10px] text-zinc-600 dark:text-zinc-400 font-bold bg-zinc-200 dark:bg-zinc-800 px-2 py-0.5 rounded">Our Story</span>
         </a>
 
         <a href="/contact" class="p-2.5 rounded-xl bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground transition-all flex items-center justify-between group mt-1 font-bold border border-primary/30">
