@@ -10,7 +10,7 @@ import {
 } from "./dropdown-menu"
 
 export function ThemeToggle() {
-  const [theme, setThemeState] = React.useState<"theme-light" | "dark" | "light" | "system">("theme-light")
+  const [theme, setThemeState] = React.useState<"init" | "light" | "dark" | "system">("init")
 
   React.useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | "system" | null;
@@ -22,14 +22,20 @@ export function ThemeToggle() {
   }, [])
 
   React.useEffect(() => {
-    if (theme === "theme-light") return; // initial state
+    if (theme === "init") return;
     
+    const root = document.documentElement;
     const isDark =
       theme === "dark" ||
       (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    if (isDark) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+
     localStorage.setItem("theme", theme);
   }, [theme])
 

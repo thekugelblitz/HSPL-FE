@@ -45,24 +45,25 @@
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
+  /* True AMOLED Pure Pitch Black (#000000) */
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 0%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 100%;
   
   --primary: 217.2 91.2% 59.8%;
   --primary-foreground: 222.2 47.4% 11.2%;
   
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
+  --secondary: 0 0% 7%;
+  --secondary-foreground: 0 0% 100%;
   
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
+  --muted: 0 0% 8%;
+  --muted-foreground: 0 0% 70%;
   
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
+  --accent: 0 0% 9%;
+  --accent-foreground: 0 0% 100%;
   
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
@@ -72,8 +73,8 @@
   --warning: 38 92% 30%;
   --warning-foreground: 38 92% 90%;
   
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
   --ring: 224.3 76.3% 48%;
 }
 
@@ -120,7 +121,7 @@
 
 /* Glassmorphism & Modern Vercel Design Utilities */
 .glass-card {
-  @apply bg-background/80 backdrop-blur-xl border border-white/10 shadow-xl dark:border-white/10 dark:bg-zinc-950/60;
+  @apply bg-background/80 backdrop-blur-xl border border-white/10 shadow-xl dark:border-zinc-800 dark:bg-black/90;
 }
 
 .glow-card {

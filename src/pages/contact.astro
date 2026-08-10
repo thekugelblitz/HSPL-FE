@@ -141,26 +141,29 @@ const departments = [
     <section class="py-16 border-b border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {departments.map((dept) => (
-            <div class="glass-card rounded-2xl p-6 glow-card flex flex-col justify-between">
-              <div>
-                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  <dept.icon class="w-5 h-5" />
+          {departments.map((dept) => {
+            const DeptIcon = dept.icon;
+            return (
+              <div class="glass-card rounded-2xl p-6 glow-card flex flex-col justify-between">
+                <div>
+                  <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                    <DeptIcon class="w-5 h-5" />
+                  </div>
+                  <h3 class="font-bold text-lg mb-1">{dept.title}</h3>
+                  <p class="text-xs text-emerald-400 font-medium mb-3">{dept.availability}</p>
+                  <p class="text-xs text-muted-foreground font-mono mb-4">{dept.email}</p>
                 </div>
-                <h3 class="font-bold text-lg mb-1">{dept.title}</h3>
-                <p class="text-xs text-emerald-400 font-medium mb-3">{dept.availability}</p>
-                <p class="text-xs text-muted-foreground font-mono mb-4">{dept.email}</p>
+                <a 
+                  href={dept.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground text-xs font-semibold transition-all border border-border"
+                >
+                  <span>Submit Ticket</span>
+                </a>
               </div>
-              <a 
-                href={dept.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground text-xs font-semibold transition-all border border-border"
-              >
-                <span>Submit Ticket</span>
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Contact Form & Info Grid */}

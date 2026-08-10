@@ -1,28 +1,73 @@
 ---
 // src/components/blocks/FeatureCard.astro
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Server, Shield, Zap, RefreshCw } from "lucide-react";
+import { 
+  Server, Shield, Zap, RefreshCw, Rocket, Database, Layout, ShoppingCart, 
+  Layers, TrendingUp, Package, Sliders, Globe, Cpu, HardDrive, Check, Lock, 
+  Activity, TrendingDown, ShieldCheck, Users, Mail, Headphones, MessageSquare, 
+  Phone, CreditCard, ShieldAlert, Sparkles, Code, MonitorSmartphone, Terminal, 
+  BookOpen, HelpCircle 
+} from "lucide-react";
 
 interface Props {
   title: string;
   description: string;
-  iconName: 'Server' | 'Shield' | 'Zap' | 'RefreshCw';
+  iconName?: string;
+  icon?: string;
 }
 
-const { title, description, iconName } = Astro.props;
+const { title, description, iconName, icon } = Astro.props;
 
-const Icon = {
-  Server,
-  Shield,
-  Zap,
-  RefreshCw
-}[iconName];
+const rawKey = (iconName || icon || 'Server').trim();
+
+const iconMap: Record<string, any> = {
+  Server, Shield, Zap, RefreshCw, Rocket, Database, Layout, ShoppingCart,
+  Layers, TrendingUp, Package, Sliders, Globe, Cpu, HardDrive, Check, Lock,
+  Activity, TrendingDown, ShieldCheck, Users, Mail, Headphones, MessageSquare,
+  Phone, CreditCard, ShieldAlert, Sparkles, Code, MonitorSmartphone, Terminal,
+  BookOpen, HelpCircle,
+  'server': Server,
+  'shield': Shield,
+  'zap': Zap,
+  'refresh-cw': RefreshCw,
+  'rocket': Rocket,
+  'database': Database,
+  'layout': Layout,
+  'shopping-cart': ShoppingCart,
+  'layers': Layers,
+  'trending-up': TrendingUp,
+  'package': Package,
+  'sliders': Sliders,
+  'globe': Globe,
+  'cpu': Cpu,
+  'hard-drive': HardDrive,
+  'check': Check,
+  'lock': Lock,
+  'activity': Activity,
+  'trending-down': TrendingDown,
+  'shield-check': ShieldCheck,
+  'users': Users,
+  'mail': Mail,
+  'headphones': Headphones,
+  'message-square': MessageSquare,
+  'phone': Phone,
+  'credit-card': CreditCard,
+  'shield-alert': ShieldAlert,
+  'sparkles': Sparkles,
+  'code': Code,
+  'monitor-smartphone': MonitorSmartphone,
+  'terminal': Terminal,
+  'book-open': BookOpen,
+  'help-circle': HelpCircle
+};
+
+const Icon = iconMap[rawKey] || Server;
 ---
 
 <Card className="border-border shadow-sm hover:shadow-md transition-shadow">
   <CardHeader>
     <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-      {Icon && <Icon className="h-5 w-5 text-primary" />}
+      <Icon class="h-5 w-5 text-primary" />
     </div>
     <CardTitle>{title}</CardTitle>
   </CardHeader>

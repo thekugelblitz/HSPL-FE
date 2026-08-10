@@ -72,15 +72,6 @@ const {
       document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
       
       if (typeof localStorage !== 'undefined') {
-        const observer = new MutationObserver(() => {
-          const isDark = document.documentElement.classList.contains('dark');
-          const currentTheme = localStorage.getItem('theme');
-          if (currentTheme !== 'system') {
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-          }
-        });
-        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-        
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
           if (localStorage.getItem('theme') === 'system') {
             document.documentElement.classList[e.matches ? 'add' : 'remove']('dark');

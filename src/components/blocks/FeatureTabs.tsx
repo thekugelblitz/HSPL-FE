@@ -69,20 +69,23 @@ export function FeatureTabs() {
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex bg-muted/50 p-1.5 rounded-xl border border-border/50">
-            {tabsData.map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                  activeTab === tab.id
-                    ? "bg-background text-foreground shadow-sm ring-1 ring-border"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                <tab.icon className={`w-4 h-4 ${activeTab === tab.id ? "text-primary" : ""}`} />
-                {tab.label}
-              </button>
-            ))}
+            {tabsData.map(tab => {
+              const TabIcon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                    activeTab === tab.id
+                      ? "bg-background text-foreground shadow-sm ring-1 ring-border"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  <TabIcon className={`w-4 h-4 ${activeTab === tab.id ? "text-primary" : ""}`} />
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -93,7 +96,10 @@ export function FeatureTabs() {
             {/* Left Content */}
             <div className="space-y-8 z-10 relative">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-                <currentData.icon className="w-4 h-4" />
+                {(() => {
+                  const CurrentIcon = currentData.icon;
+                  return <CurrentIcon className="w-4 h-4" />;
+                })()}
                 {currentData.label} Services
               </div>
               
