@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "astro": {
+      "source": "mindrally/skills",
+      "sourceType": "github",
+      "skillPath": "astro/SKILL.md",
+      "computedHash": "39a6cfe33a7f2082977d015f343f84528190d76665604a02dde0ac3baceed1a1"
+    },
     "astro-expert": {
       "source": "smithery.ai",
       "sourceUrl": "https://smithery.ai/skills/oimiragieo/astro-expert",
@@ -20,11 +26,23 @@
       "skillPath": "astro.js/SKILL.md",
       "computedHash": "7015286a1bd7f2ebf57e4e80ae0b314b05f8a3525e2e6e714c9591c9ac32f2b1"
     },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "computedHash": "7edd436132b43ea2973710f0c28a9879c9b0910651eb89a991a7e98cb6dbbacb"
+    },
     "styling-expert": {
       "source": "oimiragieo/agent-studio",
       "sourceType": "github",
       "skillPath": ".claude/skills/styling-expert/SKILL.md",
       "computedHash": "65b7625ae4751c33f69e759a2f5e80b7c184bcdcc369d979fbf9cb67b0e440a0"
+    },
+    "tailwind-design-system": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
+      "computedHash": "992ab1e874c4f4159aa18d4ff45d1c3f86f322f0bd2a6744cc32f7d6147f9f06"
     }
   }
 }

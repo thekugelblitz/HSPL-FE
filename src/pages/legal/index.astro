@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { Scale, FileText, ShieldCheck, Lock, AlertTriangle, Eye, ArrowRight, CheckCircle2, Globe, HelpCircle } from 'lucide-react';
+
+const legalDocs = [
+  { title: "Terms of Service", href: "/terms", badge: "Primary Agreement", desc: "General terms, service-level agreements (SLAs), payment conditions, and account termination procedures." },
+  { title: "Privacy Policy", href: "/privacy", badge: "Data Protection", desc: "Comprehensive disclosure on how personal telemetry, cookies, and account credentials are collected and protected under GDPR and CCPA." },
+  { title: "Acceptable Use Policy (AUP)", href: "/acceptable-use", badge: "Network Security", desc: "Explicit guidelines regarding prohibited server content, spam restrictions, and anti-abuse enforcement." },
+  { title: "Report Abuse & DMCA", href: "/report-abuse", badge: "24/7 Response", desc: "Dedicated portal for copyright holders, law enforcement, and security researchers to submit DMCA and malware complaints." },
+  { title: "Accessibility Statement", href: "/accessibility", badge: "WCAG 2.1 AAA", desc: "Our commitment to digital accessibility, screen-reader semantics, and high-contrast usability across all interfaces." },
+  { title: "Do Not Sell My Personal Info", href: "/do-not-sell", badge: "CCPA / CPRA", desc: "Privacy preference controls allowing residents to opt out of third-party telemetry and cross-context data sharing." },
+  { title: "WHOIS Data Requests", href: "/data-requests", badge: "Domain Compliance", desc: "Guidelines for law enforcement and legal entities requesting nonpublic WHOIS registrant disclosures." },
+  { title: "Refund & Guarantee Policy", href: "/refund", badge: "30-Day Guarantee", desc: "Terms governing our 30-day money-back guarantee, refund eligibility, and cancellation timelines." }
+];
+---
+
+<Layout 
+  title="Legal & Compliance Center | HostingSpell Policies" 
+  description="Central Legal & Compliance Center for HostingSpell. Access Terms of Service, Privacy Policy, DMCA Abuse Portal, Accessibility Statement, and Data Requests."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Scale class="w-4 h-4" />
+          <span>Legal & Compliance Center</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Legal Policies & Customer Agreements
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          HostingSpell is committed to radical transparency, strict data privacy, and clear service-level commitments. Access all legal agreements below.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {legalDocs.map(doc => (
+            <a href={doc.href} class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-blue-500/40 transition block space-y-4 group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+                  {doc.badge}
+                </span>
+                <ArrowRight class="w-5 h-5 text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-transform" />
+              </div>
+              <h3 class="text-2xl font-extrabold text-white group-hover:text-blue-400 transition">{doc.title}</h3>
+              <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed font-medium">{doc.desc}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

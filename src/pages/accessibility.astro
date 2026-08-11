@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Eye, CheckCircle2, ShieldCheck, Heart, Sparkles, MessageSquare } from 'lucide-react';
+
+const standards = [
+  { title: "Full Keyboard Navigation", desc: "All interactive controls, mega menus, modal builder dialogs, and pricing tabs are accessible via standard Tab, Shift+Tab, and Enter keyboard commands." },
+  { title: "Semantic ARIA Structure", desc: "Proper HTML5 sectioning elements (<header>, <main>, <nav>, <footer>) combined with screen-reader tested ARIA landmarks and dynamic live region alerts." },
+  { title: "High-Contrast Color Tokens", desc: "All typography and interactive states strictly enforce a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large display headlines." },
+  { title: "Scalable Typography & Layout", desc: "Interfaces adapt seamlessly when browser text zoom levels are increased up to 200% without overlapping elements or broken containers." }
+];
+---
+
+<Layout 
+  title="Digital Accessibility Commitment | HostingSpell WCAG 2.1 AAA" 
+  description="HostingSpell is committed to digital accessibility and WCAG 2.1 AAA standards across all web hosting portals, AI builders, and customer dashboards."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Eye class="w-4 h-4" />
+          <span>Digital Accessibility Commitment</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Accessibility For Everyone. <br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent">WCAG 2.1 AAA Compliance.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          We believe the web should be accessible to everyone regardless of physical, sensory, or cognitive ability. Our digital platform is designed to meet WCAG 2.1 Level AAA standards.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {standards.map(s => (
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-3">
+              <div class="p-3 rounded-xl bg-blue-500/15 text-blue-400 w-fit">
+                <CheckCircle2 class="w-6 h-6" />
+              </div>
+              <h3 class="text-xl font-extrabold text-white">{s.title}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Feedback Section */}
+        <div class="p-8 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800 text-center space-y-4 max-w-screen-md mx-auto">
+          <MessageSquare class="w-8 h-8 text-blue-400 mx-auto" />
+          <h3 class="text-2xl font-extrabold text-white">Accessibility Feedback & Assistance</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-lg mx-auto font-medium">
+            If you encounter any accessibility barriers while using our website or cloud portals, please contact our dedicated accessibility officer so we can assist you promptly.
+          </p>
+          <a href="mailto:accessibility@hostingspell.com" class="inline-block font-extrabold text-blue-400 hover:underline text-sm">
+            accessibility@hostingspell.com &rarr;
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

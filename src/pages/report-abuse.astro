@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Button } from '../components/ui/button';
+import { AlertTriangle, ShieldCheck, Mail, Send, FileText, CheckCircle2, Clock } from 'lucide-react';
+
+const abuseTypes = [
+  { title: "DMCA Copyright Infringement", sla: "< 4 Hours Response", desc: "For copyright owners or authorized agents reporting unauthorized distribution of copyrighted works on HostingSpell servers." },
+  { title: "Phishing & Fraudulent Sites", sla: "< 1 Hour Response", desc: "For security researchers or organizations reporting deceptive websites impersonating financial or corporate brands." },
+  { title: "Malware & Command Control", sla: "< 2 Hours Response", desc: "For reporting malicious software payloads, botnet controllers, or compromised web directories." },
+  { title: "Email Spam & Bulk Abuse", sla: "< 6 Hours Response", desc: "For reporting unsolicited commercial email (UCE), open relays, or SPF/DKIM policy violations." }
+];
+---
+
+<Layout 
+  title="Report Abuse & DMCA Takedown Portal | HostingSpell Compliance" 
+  description="Submit 24/7 security abuse reports for copyright infringement (DMCA), malware, phishing, spam, or network abuse. Rapid response times guaranteed."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-red-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <AlertTriangle class="w-4 h-4" />
+          <span>24/7 Abuse & Security Response</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Report Network Abuse or <br />
+          <span class="bg-gradient-to-r from-red-400 via-rose-400 to-amber-300 bg-clip-text text-transparent">Copyright Infringement.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          HostingSpell maintains a zero-tolerance policy for phishing, malware, spam, and copyright infringement. Our abuse investigation team operates 24 hours a day, 365 days a year.
+        </p>
+      </div>
+    </section>
+
+    {/* Abuse Categories & Response SLAs */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl space-y-16">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Response Timelines By Category</h2>
+          <p class="text-zinc-400 text-base font-medium">We prioritize high-severity malicious threats to ensure rapid mitigation.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {abuseTypes.map(at => (
+            <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-3 flex flex-col justify-between">
+              <div class="space-y-3">
+                <span class="text-[11px] font-black uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2.5 py-0.5 rounded-md border border-rose-500/20 flex items-center gap-1 w-fit">
+                  <Clock class="w-3 h-3" /> {at.sla}
+                </span>
+                <h3 class="text-lg font-extrabold text-white">{at.title}</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed font-medium">{at.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    {/* Abuse Submission Form */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-md">
+        
+        <div class="p-8 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-6 shadow-2xl">
+          <div class="space-y-2 text-center">
+            <h2 class="text-2xl font-extrabold text-white">Submit Abuse Investigation Ticket</h2>
+            <p class="text-xs text-zinc-400 font-medium">Please provide exact URLs and logs to accelerate investigation.</p>
+          </div>
+          
+          <form class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-zinc-300 mb-1">Abuse Category</label>
+              <select class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-red-500">
+                <option value="phishing">Phishing / Malicious Website</option>
+                <option value="dmca">DMCA Copyright Infringement</option>
+                <option value="malware">Malware / Botnet Command Server</option>
+                <option value="spam">Email Spam / Unsolicited Bulk Email</option>
+                <option value="other">Other Network Abuse</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-zinc-300 mb-1">Target Infringing URL / IP Address</label>
+              <input type="text" placeholder="https://example.com/bad-path or 192.168.1.1" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-red-500" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-zinc-300 mb-1">Evidence & Raw Log Header Details</label>
+              <textarea rows="5" placeholder="Include full HTTP URL, raw email headers, or copyright registration number..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-red-500"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-zinc-300 mb-1">Reporter Contact Email</label>
+              <input type="email" placeholder="compliance@yourcompany.com" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-red-500" />
+            </div>
+
+            <Button className="w-full py-4 bg-red-600 hover:bg-red-500 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-red-500/20">
+              Submit Abuse Report For Investigation &rarr;
+            </Button>
+          </form>
+
+          <div class="text-[11px] text-zinc-500 text-center pt-2">
+            You can also email formal DMCA notices directly to <a href="mailto:abuse@hostingspell.com" class="text-blue-400 underline font-bold">abuse@hostingspell.com</a>.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

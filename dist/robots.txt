@@ -1,10 +1,5 @@
 # HostingSpell — Robots.txt
-# https://hostingspell.com
+# Block all crawlers — site is in testing, old site is still live
 
 User-agent: *
-Allow: /
-Disallow: /api/
-Disallow: /_astro/
-
-# Sitemap
-Sitemap: https://hostingspell.com/sitemap-index.xml
+Disallow: /

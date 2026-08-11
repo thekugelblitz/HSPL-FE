@@ -183,6 +183,16 @@ export default function AiWebDevHero() {
   const [refinementBadge, setRefinementBadge] = useState<string | null>(null);
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<any>(null);
+
+  // Clean up any running stream timer on unmount
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -197,22 +207,32 @@ export default function AiWebDevHero() {
   };
 
   const triggerGeneration = (typeId: string, customText?: string) => {
+    // Clear any active running simulation timer first to prevent race conditions
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
     setIsGenerating(true);
     setRefinementBadge(null);
     const simulation = CHAT_SIMULATIONS[typeId] || CHAT_SIMULATIONS.saas;
     
-    // Set user message first
+    // Set initial user prompt message safely
     const initialUserMsg = { role: 'user' as const, text: customText || promptInput };
     setChatMessages([initialUserMsg]);
 
-    // Stream simulated AI messages
+    // Stream simulated AI response messages safely
     let index = 1;
-    const interval = setInterval(() => {
-      if (index < simulation.length) {
-        setChatMessages(prev => [...prev, simulation[index]]);
+    timerRef.current = setInterval(() => {
+      if (index < simulation.length && simulation[index]) {
+        const nextMsg = simulation[index];
+        setChatMessages(prev => [...prev.filter(Boolean), nextMsg]);
         index++;
       } else {
-        clearInterval(interval);
+        if (timerRef.current) {
+          clearInterval(timerRef.current);
+          timerRef.current = null;
+        }
         setIsGenerating(false);
       }
     }, 600);
@@ -419,7 +439,7 @@ export default function AiWebDevHero() {
 
               {/* Scrollable Chat Message History */}
               <div ref={chatContainerRef} class="flex-1 overflow-y-auto max-h-[380px] space-y-3.5 pr-2 mb-4 scrollbar-thin">
-                {chatMessages.map((msg, index) => (
+                {chatMessages.filter(msg => msg && msg.role).map((msg, index) => (
                   <div
                     key={index}
                     class={`flex gap-2.5 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}

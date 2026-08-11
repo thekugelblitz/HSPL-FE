@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import TrustProofBar from '../components/blocks/TrustProofBar.astro';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import { Button } from '../components/ui/button';
+import { Leaf, Sun, Wind, Recycle, ShieldCheck, CheckCircle2, Award, Zap, Download, ArrowRight, BarChart3, Globe } from 'lucide-react';
+
+const ecoStats = [
+  { metric: "100%", label: "Renewable Energy Match", desc: "Matched with wind & solar Renewable Energy Certificates (RECs)." },
+  { metric: "1.12", label: "Datacenter PUE Rating", desc: "Industry-leading Power Usage Effectiveness vs 1.58 industry average." },
+  { metric: "14.2 kg", label: "CO2 Saved Per Site / Year", desc: "Estimated reduction in greenhouse gas emissions compared to legacy hosting." },
+  { metric: "Zero", label: "Landfill E-Waste", desc: "Certified R2-compliant component recycling for decommissioned hardware." }
+];
+---
+
+<Layout 
+  title="100% Renewable Green Hosting | Zero-Carbon Cloud | HostingSpell" 
+  description="HostingSpell operates 100% eco-friendly datacenters powered by wind and solar energy matches. PUE 1.12 rating, zero-carbon NVMe web hosting, and eco badge verification."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-emerald-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Leaf class="w-4 h-4" />
+          <span>100% Eco-Friendly Web Infrastructure</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Web Hosting Powered By <br />
+          <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-300 bg-clip-text text-transparent">100% Renewable Energy.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          Every website hosted on HostingSpell operates on green infrastructure matched with 100% wind and solar power certificates. Reduce your digital carbon footprint without compromising on raw speed.
+        </p>
+
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="/pricing">
+            <Button size="lg" className="h-13 px-8 bg-emerald-600 hover:bg-emerald-500 text-zinc-950 font-extrabold text-base rounded-xl shadow-xl shadow-emerald-500/25">
+              Get Started with Green Hosting &rarr;
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <TrustProofBar />
+
+    {/* Metric Grid */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {ecoStats.map(s => (
+            <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 text-center space-y-2">
+              <div class="text-4xl sm:text-5xl font-black text-emerald-400">{s.metric}</div>
+              <div class="text-sm font-extrabold text-white">{s.label}</div>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* 3 Pillars */}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          
+          <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4">
+            <div class="p-3.5 rounded-2xl bg-emerald-500/15 text-emerald-400 w-fit">
+              <Wind class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-extrabold text-white">100% Wind & Solar Match</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed font-medium">
+              We purchase Renewable Energy Certificates (RECs) matching 100% of the electricity used by our server racks, cooling infrastructure, and edge routing equipment.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4">
+            <div class="p-3.5 rounded-2xl bg-teal-500/15 text-teal-400 w-fit">
+              <Sun class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-extrabold text-white">Low PUE 1.12 Cooling</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed font-medium">
+              Advanced evaporative cooling technology and optimized air containment reduce our Power Usage Effectiveness (PUE) rating to 1.12 (vs 1.58 industry average).
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4">
+            <div class="p-3.5 rounded-2xl bg-green-500/15 text-green-400 w-fit">
+              <Recycle class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-extrabold text-white">R2 E-Waste Recycling</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed font-medium">
+              Decommissioned server CPUs, RAM modules, and storage drives undergo certified R2-compliant hardware refurbishing and recycling, eliminating landfill e-waste.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    {/* Green Badges Showcase Section */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80 text-center">
+      <div class="container mx-auto px-4 max-w-screen-xl space-y-16">
+        
+        <div class="max-w-3xl mx-auto space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+            🌱 Green Certified Website Badges
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Showcase Your Green Commitment</h2>
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-xl mx-auto font-medium">
+            Hosting your site on HostingSpell qualifies your domain to display our official "100% Green Hosted" verification badges. Choose your favorite design variant below:
+          </p>
+        </div>
+
+        {/* 3 Badge Variants */}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          
+          {/* Variant 1 */}
+          <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-emerald-500/40 transition space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/20">
+                  Variant 1: Emerald Shield
+                </span>
+              </div>
+
+              {/* Badge Preview */}
+              <div class="p-6 rounded-2xl bg-black border border-zinc-800 flex items-center justify-center min-h-[120px]">
+                <img src="/badges/green-hosted-badge-1.svg" alt="100% Green Hosted Badge Variant 1" class="w-full max-w-[280px] h-auto" />
+              </div>
+
+              <p class="text-xs text-zinc-400 font-medium">Emerald dark badge with HostingSpell logo mark, leaf emblem, and green verification text. Perfect for dark footers.</p>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider">HTML Embed Code:</label>
+              <div class="p-3 rounded-xl bg-black border border-zinc-800 text-[11px] font-mono text-emerald-400 overflow-x-auto select-all">
+                <code>&lt;a href="https://hostingspell.com/green-hosting" target="_blank"&gt;&lt;img src="https://hostingspell.com/badges/green-hosted-badge-1.svg" alt="100% Green Hosted" /&gt;&lt;/a&gt;</code>
+              </div>
+            </div>
+          </div>
+
+          {/* Variant 2 */}
+          <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-emerald-500/40 transition space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-teal-400 bg-teal-500/10 px-2.5 py-0.5 rounded-md border border-teal-500/20">
+                  Variant 2: Circular Seal
+                </span>
+              </div>
+
+              {/* Badge Preview */}
+              <div class="p-6 rounded-2xl bg-black border border-zinc-800 flex items-center justify-center min-h-[120px]">
+                <img src="/badges/green-hosted-badge-2.svg" alt="100% Green Hosted Badge Variant 2" class="w-full max-w-[280px] h-auto" />
+              </div>
+
+              <p class="text-xs text-zinc-400 font-medium">Dark certification seal with circular HostingSpell logo stamp and zero-carbon messaging. Great for neutral backgrounds.</p>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider">HTML Embed Code:</label>
+              <div class="p-3 rounded-xl bg-black border border-zinc-800 text-[11px] font-mono text-emerald-400 overflow-x-auto select-all">
+                <code>&lt;a href="https://hostingspell.com/green-hosting" target="_blank"&gt;&lt;img src="https://hostingspell.com/badges/green-hosted-badge-2.svg" alt="100% Green Hosted" /&gt;&lt;/a&gt;</code>
+              </div>
+            </div>
+          </div>
+
+          {/* Variant 3 */}
+          <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-emerald-500/40 transition space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-md border border-sky-500/20">
+                  Variant 3: Light Mode
+                </span>
+              </div>
+
+              {/* Badge Preview */}
+              <div class="p-6 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center min-h-[120px]">
+                <img src="/badges/green-hosted-badge-3.svg" alt="100% Green Hosted Badge Variant 3" class="w-full max-w-[280px] h-auto" />
+              </div>
+
+              <p class="text-xs text-zinc-400 font-medium">Light-themed eco badge with green HostingSpell logo stamp. Designed for white or light-colored website footers.</p>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider">HTML Embed Code:</label>
+              <div class="p-3 rounded-xl bg-black border border-zinc-800 text-[11px] font-mono text-emerald-400 overflow-x-auto select-all">
+                <code>&lt;a href="https://hostingspell.com/green-hosting" target="_blank"&gt;&lt;img src="https://hostingspell.com/badges/green-hosted-badge-3.svg" alt="100% Green Hosted" /&gt;&lt;/a&gt;</code>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <MigrationBanner />
+
+  </main>
+
+  <Footer />
+</Layout>

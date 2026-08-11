@@ -55,6 +55,13 @@ const vpsItems = [
     badge: "ROOT SSH"
   },
   {
+    title: "Bare-Metal Dedicated",
+    description: "100% Dedicated AMD EPYC & Xeon bare-metal servers.",
+    href: "/dedicated-servers",
+    icon: Cpu,
+    badge: "10Gbps RAW"
+  },
+  {
     title: "1-Click VPS Apps",
     description: "Dokploy, Open WebUI, Supabase, WordPress & 39+ Apps.",
     href: "/vps/apps",
@@ -73,8 +80,8 @@ const vpsItems = [
     </span>
     
     <div class="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      {/* Dropdown Container: Light = White bg + Dark Text, Dark = Pitch Black bg + White Text */}
-      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[680px] grid grid-cols-3 gap-5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
+      {/* Dropdown Container */}
+      <div class="bg-white dark:bg-[#0A0A0A] border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[680px] grid grid-cols-3 gap-5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
         <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-primary to-indigo-500"></div>
 
         {/* Left 2 Columns: Product Links */}
@@ -82,7 +89,7 @@ const vpsItems = [
           {hostingItems.map(item => {
             const ItemIcon = item.icon;
             return (
-              <a href={item.href} class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all group/item border border-zinc-200/50 dark:border-zinc-800/50 hover:border-primary/40">
+              <a href={item.href} class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all group/item border border-zinc-200/60 dark:border-zinc-800/50 hover:border-primary/40">
                 <div class="bg-primary/15 text-primary p-2.5 rounded-xl group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors shrink-0 mt-0.5 shadow-sm">
                   <ItemIcon class="w-4 h-4" />
                 </div>
@@ -130,14 +137,14 @@ const vpsItems = [
     </span>
     
     <div class="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[560px] grid grid-cols-2 gap-4 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
+      <div class="bg-white dark:bg-[#0A0A0A] border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[560px] grid grid-cols-2 gap-4 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
         <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-primary"></div>
 
         <div class="flex flex-col gap-2.5">
           {vpsItems.map(item => {
             const ItemIcon = item.icon;
             return (
-              <a href={item.href} class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 transition-all group/item border border-zinc-200/50 dark:border-zinc-800/50 hover:border-purple-500/40">
+              <a href={item.href} class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 transition-all group/item border border-zinc-200/60 dark:border-zinc-800/50 hover:border-purple-500/40">
                 <div class="bg-purple-500/15 text-purple-600 dark:text-purple-400 p-2.5 rounded-xl group-hover/item:bg-purple-500 group-hover/item:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
                   <ItemIcon class="w-4 h-4" />
                 </div>
@@ -190,7 +197,7 @@ const vpsItems = [
     </span>
     
     <div class="absolute top-full right-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-4 w-[300px] flex flex-col gap-1.5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
+      <div class="bg-white dark:bg-[#0A0A0A] border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-4 w-[300px] flex flex-col gap-1.5 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
         <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-500 via-primary to-blue-500"></div>
 
         <a href="/showcase" class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-primary/10 transition-colors flex items-center justify-between group border border-transparent hover:border-primary/20">
@@ -231,3 +238,4 @@ const vpsItems = [
     </div>
   </div>
 </div>
+

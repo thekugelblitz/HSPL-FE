@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Lock, ShieldCheck, FileText, CheckCircle2, Scale } from 'lucide-react';
+
+const guidelines = [
+  { step: "01", title: "Lawful Basis Verification", desc: "Requests must state the specific legal basis under GDPR Article 6(1) or ICANN Temp Spec justifying the disclosure of nonpublic domain registrant data." },
+  { step: "02", title: "Official Agency Documentation", desc: "Submissions from law enforcement agencies must include formal court orders, subpoenas, or official letterhead signed by an authorized officer." },
+  { step: "03", title: "Proportionality & Scope", desc: "Requests must specify exact domain names and be strictly limited in scope. Generic or fishing expedition requests will be denied." },
+  { step: "04", title: "Secure Response Channel", desc: "Approved WHOIS disclosures are transmitted securely via encrypted channels to verified requesting authorities." }
+];
+---
+
+<Layout 
+  title="Nonpublic Registration Data Requests (WHOIS) | HostingSpell Legal" 
+  description="Guidelines for law enforcement agencies and third parties seeking disclosure of nonpublic domain registration WHOIS data under GDPR and ICANN policies."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Lock class="w-4 h-4" />
+          <span>Domain Privacy & Legal Compliance</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Nonpublic Domain Data <br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent">Disclosure Policy (WHOIS).</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          HostingSpell protects domain registrant privacy under ICANN requirements and GDPR. This policy outlines the lawful procedure for law enforcement and legal counsel seeking disclosure of redacted WHOIS data.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl space-y-16">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {guidelines.map(g => (
+            <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-3 relative">
+              <div class="text-3xl font-black text-blue-500/40">{g.step}</div>
+              <h3 class="text-lg font-extrabold text-white">{g.title}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{g.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Official Legal Contact Box */}
+        <div class="p-8 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4 max-w-screen-md mx-auto text-center">
+          <Scale class="w-8 h-8 text-blue-400 mx-auto" />
+          <h3 class="text-2xl font-extrabold text-white">Submitting Legal Requests</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-md mx-auto font-medium">
+            All legal process documents, court orders, and law enforcement requests must be submitted directly to our legal department.
+          </p>
+          <a href="mailto:legal@hostingspell.com" class="inline-block font-extrabold text-blue-400 hover:underline text-sm">
+            legal@hostingspell.com &rarr;
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

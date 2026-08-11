@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import TrustProofBar from '../components/blocks/TrustProofBar.astro';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import { Button } from '../components/ui/button';
+import { 
+  Zap, Cpu, ShieldCheck, HardDrive, Globe, Server, CheckCircle2, ArrowRight, Layers, Lock, Sparkles, Terminal, Activity, RefreshCw, Radio, Check, X, Database, Sliders, FileCode
+} from 'lucide-react';
+
+const techCategories = [
+  {
+    category: "Compute & Virtualization",
+    icon: Cpu,
+    color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+    features: [
+      { name: "AMD EPYC™ & Intel® Xeon® Scalable CPUs", desc: "Latest-generation high-core density processors delivering maximum single-thread and multi-thread performance." },
+      { name: "100% KVM Hypervisor Isolation", desc: "Dedicated CPU cycles and isolated memory space for VPS instances with zero noisy-neighbor performance degradation." },
+      { name: "Bare-Metal Single-Tenant Access", desc: "Direct physical hardware control with zero hypervisor overhead for mission-critical enterprise workloads." }
+    ]
+  },
+  {
+    category: "Storage Architecture",
+    icon: HardDrive,
+    color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+    features: [
+      { name: "100% NVMe SSD RAID 10 Storage", desc: "Enterprise PCIe Gen4 NVMe arrays delivering up to 7,000 MB/s read/write speeds and 850,000 IOPS." },
+      { name: "Automated JetBackup Snapshots", desc: "Daily incremental off-site backups with 30-day retention and 1-click file/database restoration." },
+      { name: "Self-Healing Ceph Storage Clusters", desc: "Distributed storage replication ensuring zero data loss even in the event of double physical disk failure." }
+    ]
+  },
+  {
+    category: "Security & DDoS Defense",
+    icon: ShieldCheck,
+    color: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+    features: [
+      { name: "2Tbps+ Volumetric DDoS Shield", desc: "Automated L3/L4/L7 attack scrubbing at the edge. Mitigates SYN floods, UDP amplification, and HTTP floods in <1s." },
+      { name: "Imunify360 Proactive Security", desc: "Real-time AI malware scanning, Web Application Firewall (WAF), automated patch management, and brute-force protection." },
+      { name: "Free Automated SSL Certificates", desc: "Instant Let's Encrypt SSL provisioning for all primary domains, subdomains, and addon domains with auto-renewal." }
+    ]
+  },
+  {
+    category: "Web Server & Caching",
+    icon: Zap,
+    color: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    features: [
+      { name: "LiteSpeed Enterprise Web Server", desc: "Drop-in Apache replacement handling up to 10x more concurrent web connections with minimal CPU overhead." },
+      { name: "LSCache & Redis Acceleration", desc: "Server-level object and page caching built natively for WordPress, WooCommerce, Magento, and Node.js." },
+      { name: "HTTP/3 & QUIC Protocol", desc: "Next-gen multiplexed transport protocol reducing mobile connection handshake latency by up to 50%." }
+    ]
+  },
+  {
+    category: "Global Network & Anycast",
+    icon: Globe,
+    color: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+    features: [
+      { name: "10Gbps Unmetered Network Uplinks", desc: "High-throughput redundant uplinks connected directly to Tier-1 transit providers (Lumen, Telia, Cogent, NTT)." },
+      { name: "Global Anycast DNS Network", desc: "Sub-10ms DNS lookup latency served from 25+ global edge locations with 100% SLA uptime." },
+      { name: "BGP / BYOIP Routing Support", desc: "Announce your own IPv4 subnets (/24 or larger) and custom BGP sessions for enterprise hybrid clouds." }
+    ]
+  },
+  {
+    category: "Developer Tools & AI",
+    icon: Sparkles,
+    color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
+    features: [
+      { name: "HostingSpell AI Co-Pilot Builder", desc: "Generate complete responsive websites from a single prompt and refine layout tokens live via natural language chat." },
+      { name: "Multi-Runtime Support (Node, Python, Go)", desc: "1-Click application selector for Node.js 20+, Python 3.12 (WSGI/ASGI), Ruby, Go, and PHP 8.3." },
+      { name: "Git Integration & CI/CD Webhooks", desc: "Automatic deployment pipelines from GitHub and GitLab repositories upon code commit." }
+    ]
+  }
+];
+
+const comparisonMatrix = [
+  { feature: "Storage Technology", hostingspell: "100% NVMe Gen4 RAID 10", generic: "Legacy SATA / Mechanical HDD" },
+  { feature: "Web Server Architecture", hostingspell: "LiteSpeed Enterprise + HTTP/3", generic: "Standard Apache / Nginx Basic" },
+  { feature: "DDoS Mitigation Capacity", hostingspell: "2Tbps+ Automated Edge Shield", generic: "Basic 10Gbps or None" },
+  { feature: "Security Suite", hostingspell: "Imunify360 AI + Hardened WAF", generic: "Basic ModSecurity" },
+  { feature: "Backup Frequency", hostingspell: "Automated Daily Off-Site Snapshots", generic: "Weekly or Paid Add-On" },
+  { feature: "Database Caching", hostingspell: "Redis & Memcached Included", generic: "Not Available" },
+  { feature: "AI Site Co-Pilot", hostingspell: "Included (One Prompt & Chat)", generic: "Not Available" },
+  { feature: "Network Port Speed", hostingspell: "10Gbps Redundant Uplinks", generic: "1Gbps Shared" }
+];
+---
+
+<Layout 
+  title="Platform Features & Enterprise Technology Matrix | HostingSpell" 
+  description="Deep-dive technical specification matrix for HostingSpell NVMe Cloud, LiteSpeed Enterprise caching, 2Tbps+ DDoS protection, AI Co-Pilot, and 10Gbps network infrastructure."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-white border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Layers class="w-4 h-4" />
+          <span>Enterprise Technology Matrix</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Engineered for Extreme <br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent">Speed, Resiliency & Intelligence.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          Every HostingSpell account is powered by a high-performance stack built without compromise: 100% NVMe SSD RAID 10 storage, LiteSpeed Enterprise web servers, Imunify360 AI security, and automated 2Tbps+ DDoS mitigation.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+          <a href="/pricing">
+            <Button size="lg" className="h-13 px-8 bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-base rounded-xl shadow-xl shadow-blue-500/25">
+              Explore Hosting Plans &rarr;
+            </Button>
+          </a>
+          <a href="#comparison">
+            <Button size="lg" variant="outline" className="h-13 px-8 border-zinc-800 bg-zinc-900/80 hover:bg-zinc-800 text-white font-extrabold text-base rounded-xl">
+              Compare vs Legacy Hosts
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <TrustProofBar />
+
+    {/* Technical Category Sections */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-2xl space-y-20">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Full Stack Architecture Overview</h2>
+          <p class="text-zinc-400 text-base font-medium">Detailed breakdown of the hardware, software, security, and network layers powering our infrastructure.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {techCategories.map(cat => (
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition flex flex-col justify-between space-y-6">
+              <div>
+                <div class="flex items-center gap-3 mb-6">
+                  <div class={`p-3.5 rounded-2xl ${cat.color}`}>
+                    <cat.icon class="w-6 h-6" />
+                  </div>
+                  <h3 class="text-xl font-extrabold text-white">{cat.category}</h3>
+                </div>
+
+                <div class="space-y-5">
+                  {cat.features.map(f => (
+                    <div class="space-y-1">
+                      <div class="text-sm font-extrabold text-white flex items-center gap-2">
+                        <CheckCircle2 class="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span>{f.name}</span>
+                      </div>
+                      <p class="text-xs text-zinc-400 leading-relaxed pl-6 font-medium">{f.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    {/* Detailed Comparison Table vs Legacy Hosts */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80" id="comparison">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <span class="text-xs font-black uppercase tracking-wider text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+            Performance Matrix
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">HostingSpell vs. Legacy Hosting</h2>
+          <p class="text-zinc-400 text-base font-medium">See why 135,000+ site owners choose our next-generation cloud stack over traditional shared hosts.</p>
+        </div>
+
+        <div class="rounded-3xl border border-zinc-800 bg-zinc-950 overflow-hidden shadow-2xl">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-zinc-900/90 border-b border-zinc-800 text-xs uppercase tracking-wider font-extrabold text-zinc-400">
+                  <th class="p-5 sm:p-6">Infrastructure Feature</th>
+                  <th class="p-5 sm:p-6 text-blue-400 bg-blue-500/10 border-x border-blue-500/20">⚡ HostingSpell Cloud</th>
+                  <th class="p-5 sm:p-6 text-zinc-400">Generic Shared Hosting</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-zinc-800/80 text-sm font-medium">
+                {comparisonMatrix.map((row, idx) => (
+                  <tr class={idx % 2 === 0 ? 'bg-black/40' : 'bg-zinc-950'}>
+                    <td class="p-5 sm:p-6 font-bold text-white flex items-center gap-2">
+                      <Zap class="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>{row.feature}</span>
+                    </td>
+                    <td class="p-5 sm:p-6 font-black text-emerald-400 bg-blue-500/5 border-x border-blue-500/20 flex items-center gap-2">
+                      <Check class="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>{row.hostingspell}</span>
+                    </td>
+                    <td class="p-5 sm:p-6 text-zinc-400 flex items-center gap-2">
+                      <X class="w-4 h-4 text-rose-500 shrink-0" />
+                      <span>{row.generic}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <MigrationBanner />
+
+  </main>
+
+  <Footer />
+</Layout>

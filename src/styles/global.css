@@ -5,80 +5,76 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  /* Crisp Light Theme Palette */
+  --background: 210 40% 98%; /* Soft off-white #F8FAFC */
+  --foreground: 222 47% 11%;  /* Deep Slate #0F172A */
+  --card: 0 0% 100%;          /* Pure White #FFFFFF */
+  --card-foreground: 222 47% 11%;
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 222 47% 11%;
   
   /* DreamHost Royal Blue Accent (#0073EC) */
-  --primary: 212 100% 46%;
-  --primary-foreground: 210 40% 98%;
+  --primary: 211 100% 46%;
+  --primary-foreground: 0 0% 100%;
   
   --secondary: 210 40% 96.1%;
   --secondary-foreground: 222.2 47.4% 11.2%;
   
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 214 32% 91%;
+  --muted-foreground: 215 16% 47%;
   
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent: 211 100% 96%;
+  --accent-foreground: 211 100% 46%;
   
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   
-  /* DreamHost Vivid Purple & Emerald */
-  --dh-purple: 262.1 83.3% 57.8%;
-  --dh-green: 142.1 76.2% 36.3%;
-  --success: 142.1 76.2% 36.3%;
-  --success-foreground: 355.7 100% 97.3%;
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 100%;
   --warning: 38 92% 50%;
-  --warning-foreground: 48 96% 89%;
+  --warning-foreground: 0 0% 100%;
   
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 212 100% 46%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 211 100% 46%;
   
-  --radius: 0.75rem;
-  --header-height: 4rem;
+  --radius: 1rem;
+  --header-height: 4.25rem;
 }
 
 .dark {
-  /* DreamHost Pitch Black & Neutral Charcoal Gray (#000000 & #161619) */
-  --background: 0 0% 0%;
-  --foreground: 0 0% 98%;
-  --card: 240 5% 9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 5% 9%;
-  --popover-foreground: 0 0% 98%;
+  /* Pitch Black Theme Palette (#000000) */
+  --background: 0 0% 0%;       /* Pure Pitch Black #000000 */
+  --foreground: 210 40% 98%;   /* Pure White Text #F8FAFC */
+  --card: 0 0% 4%;             /* Deep Pitch Card #0A0A0A */
+  --card-foreground: 210 40% 98%;
+  --popover: 0 0% 0%;          /* Pure Pitch Black #000000 */
+  --popover-foreground: 210 40% 98%;
   
-  /* DreamHost Electric Blue (#0073EC) */
-  --primary: 212 100% 46%;
+  /* DreamHost Electric Royal Blue Accent (#0073EC) */
+  --primary: 211 100% 46%;
   --primary-foreground: 0 0% 100%;
   
-  --secondary: 240 3.7% 14%;
-  --secondary-foreground: 0 0% 98%;
+  --secondary: 0 0% 8%;
+  --secondary-foreground: 210 40% 98%;
   
-  --muted: 240 3.7% 12%;
-  --muted-foreground: 240 5% 65%;
+  --muted: 0 0% 8%;
+  --muted-foreground: 215 14% 65%;
   
-  --accent: 240 3.7% 14%;
-  --accent-foreground: 0 0% 98%;
+  --accent: 0 0% 10%;
+  --accent-foreground: 210 40% 98%;
   
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   
-  --dh-purple: 263.4 70% 50.4%;
-  --dh-green: 142.1 70% 45.3%;
-  --success: 142.1 70% 45.3%;
-  --success-foreground: 149 61% 90%;
+  --success: 142 70% 45%;
+  --success-foreground: 0 0% 100%;
   --warning: 38 92% 50%;
-  --warning-foreground: 38 92% 90%;
+  --warning-foreground: 0 0% 100%;
   
-  --border: 240 3.7% 16%;
-  --input: 240 3.7% 16%;
-  --ring: 212 100% 46%;
+  --border: 0 0% 14%;          /* Crisp Subtle Dark Border */
+  --input: 0 0% 14%;
+  --ring: 211 100% 46%;
 }
 
 @theme inline {
@@ -107,10 +103,10 @@
   --color-ring: hsl(var(--ring));
   
   --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 8px);
   
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 @layer base {
@@ -118,13 +114,13 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary tracking-tight;
   }
 }
 
-/* DreamHost Aesthetic Utilities */
+/* DreamHost Elevated Aesthetic Utilities */
 .dh-card {
-  @apply bg-card border border-border/80 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-300;
+  @apply bg-card border border-border/80 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300;
 }
 
 .dh-badge {
@@ -132,16 +128,16 @@
 }
 
 .dh-button-primary {
-  @apply bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold rounded-xl px-6 py-3.5 text-sm shadow-lg shadow-blue-500/25 transition-transform hover:scale-[1.02] active:scale-100 flex items-center justify-center gap-2;
+  @apply bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold rounded-2xl px-6 py-3.5 text-sm shadow-lg shadow-blue-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-100 flex items-center justify-center gap-2;
 }
 
 .glass-card {
-  @apply bg-background/80 backdrop-blur-xl border border-white/10 shadow-xl dark:border-zinc-800 dark:bg-black/90;
+  @apply bg-card/90 backdrop-blur-xl border border-border/80 shadow-lg dark:bg-card/70 dark:border-zinc-800/80;
 }
 
 .glow-card {
   position: relative;
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
 .glow-card::before {
@@ -150,7 +146,7 @@
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(to bottom right, rgba(0, 115, 236, 0.25), rgba(255,255,255,0.02));
+  background: linear-gradient(to bottom right, rgba(0, 115, 236, 0.2), rgba(255, 255, 255, 0.02));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -158,25 +154,21 @@
 }
 
 .bg-grid-pattern {
-  background-size: 32px 32px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 .bg-grid-pattern-light {
-  background-size: 32px 32px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-}
-
-.text-gradient {
-  @apply bg-gradient-to-r from-foreground via-foreground/90 to-foreground/60 bg-clip-text text-transparent;
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
 }
 
 .text-gradient-primary {
-  @apply bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-[#0073EC] via-blue-600 to-indigo-600 dark:from-blue-400 dark:via-indigo-400 dark:to-sky-400 bg-clip-text text-transparent;
 }
 
 @keyframes shimmer {

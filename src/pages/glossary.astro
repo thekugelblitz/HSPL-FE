@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { BookOpen, Search, HelpCircle, ArrowRight, Zap, Code, ShieldCheck, Server, Globe } from 'lucide-react';
+
+const alphabet = ["All", "A", "B", "C", "D", "E", "H", "I", "K", "L", "M", "N", "R", "S", "T", "V", "W", "Z"];
+
+const glossaryItems = [
+  { letter: "A", term: "Anycast DNS", category: "Network", def: "A network routing technique where a single IP address is shared across multiple geographic datacenters, resolving DNS queries from the nearest edge server with sub-10ms latency." },
+  { letter: "A", term: "API Gateway", category: "Developer", def: "A server management interface that acts as an entry point for programmatic cloud provisioning, DNS management, and billing automation." },
+  { letter: "B", term: "Bare-Metal Dedicated Server", category: "Hardware", def: "A single-tenant physical server where 100% of the hardware resources (CPU, ECC RAM, PCIe NVMe storage) are assigned exclusively to one client with zero hypervisor overhead." },
+  { letter: "B", term: "BGP Routing (Border Gateway Protocol)", category: "Network", def: "The standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS) on the Internet." },
+  { letter: "C", term: "cPanel & WHM", category: "Control Panel", def: "Industry-standard Linux graphical web hosting control panel used to manage domain names, MySQL databases, email accounts, SSL certificates, and file directories." },
+  { letter: "C", term: "Ceph Distributed Storage", category: "Storage", def: "An open-source, software-defined storage platform that provides object, block, and file storage from a single computer cluster with zero single points of failure." },
+  { letter: "D", term: "DDoS Mitigation (2Tbps+ Shield)", category: "Security", def: "Automated L3/L4/L7 volumetric attack scrubbing at the network edge. Intercepts SYN floods, UDP amplification, and HTTP floods in under 1 second." },
+  { letter: "D", term: "DKIM (DomainKeys Identified Mail)", category: "Security", def: "An email authentication method designed to detect forge email sender addresses (email spoofing) using cryptographic public key signatures." },
+  { letter: "E", term: "ECC RAM (Error-Correcting Code)", category: "Hardware", def: "Specialized server memory hardware that automatically detects and corrects single-bit memory corruption to prevent server crashes and blue screens." },
+  { letter: "H", term: "HTTP/3 & QUIC Protocol", category: "Network", def: "The third major version of the Hypertext Transfer Protocol built on QUIC, reducing connection handshake times and eliminating head-of-line blocking." },
+  { letter: "I", term: "IPMI / KVM Out-of-Band Access", category: "Hardware", def: "Direct physical hardware console access allowing server administrators to remotely power cycle, reboot, or mount custom OS ISOs regardless of OS state." },
+  { letter: "I", term: "Imunify360 AI Security", category: "Security", def: "An automated security solution for Linux web servers that uses machine learning to detect zero-day malware attacks, brute force attempts, and WAF exploits." },
+  { letter: "K", term: "KVM (Kernel-based Virtual Machine)", category: "Virtualization", def: "A full-virtualization hypervisor built directly into the Linux kernel, providing strict hardware resource isolation for Virtual Private Servers (VPS)." },
+  { letter: "L", term: "LiteSpeed Enterprise Web Server", category: "Web Server", def: "A high-performance enterprise web server compatible with Apache .htaccess rules, offering built-in server-level caching for fast WordPress & PHP execution." },
+  { letter: "L", term: "LSCache (LiteSpeed Cache)", category: "Caching", def: "An all-in-one site acceleration plugin and server module built specifically for LiteSpeed Web Server to deliver dynamic page caching and database optimization." },
+  { letter: "M", term: "Memcached", category: "Caching", def: "A high-performance, distributed memory object caching system intended for use in speeding up dynamic web applications by alleviating database load." },
+  { letter: "N", term: "NVMe SSD (PCIe Gen4)", category: "Storage", def: "Non-Volatile Memory Express storage protocol using PCIe bus connectivity to achieve up to 7,000 MB/s read/write speeds and over 850,000 IOPS." },
+  { letter: "N", term: "Node.js WSGI / PM2 Runtime", category: "Developer", def: "An asynchronous event-driven JavaScript runtime managed by process managers to keep Node apps running continuously with zero downtime." },
+  { letter: "R", term: "Redis Cache Engine", category: "Caching", def: "An open-source in-memory data structure store used as a database, cache, and message broker to speed up SQL queries and session states." },
+  { letter: "R", term: "Reverse Proxy", category: "Network", def: "A proxy server that retrieves resources on behalf of a client from one or more servers, caching responses and hiding backend origin IP addresses." },
+  { letter: "S", term: "SSL / TLS Encryption Certificate", category: "Security", def: "A digital certificate that authenticates a website's identity and enables an encrypted HTTPS connection between browser and server." },
+  { letter: "S", term: "SSH Root Key Access", category: "Security", def: "A cryptographic authentication method providing secure command-line shell access to remote servers without vulnerable plain-text passwords." },
+  { letter: "T", term: "TTFB (Time to First Byte)", category: "Performance", def: "The duration from the browser making an HTTP request to receiving the first byte of data from the web server. HostingSpell targets <100ms TTFB." },
+  { letter: "V", term: "VLAN (Virtual Local Area Network)", category: "Network", def: "A custom logical subnetwork that groups together collections of dedicated servers and VPS instances in isolated private networks." },
+  { letter: "W", term: "WAF (Web Application Firewall)", category: "Security", def: "A security filter that monitors, filters, and blocks HTTP traffic to and from a web application, shielding against SQL injection and XSS." },
+  { letter: "Z", term: "Zero-Day Vulnerability Shield", category: "Security", def: "Proactive security rules and patch automation that block exploits targeting previously unknown software vulnerabilities before vendors release patches." }
+];
+---
+
+<Layout 
+  title="Web Hosting & Cloud Technology Glossary (A-Z) | HostingSpell Dictionary" 
+  description="Comprehensive Web Hosting, Cloud Infrastructure, and Server Technology Glossary. 30+ detailed definitions for Anycast, Bare-Metal, cPanel, DDoS, KVM, NVMe, LiteSpeed, and SSL."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    <section class="py-20 bg-[#000000] border-b border-zinc-800/80 text-center">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <BookOpen class="w-4 h-4" />
+          <span>Cloud Infrastructure Dictionary</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+          Web Hosting & Cloud Glossary
+        </h1>
+
+        <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Demystifying server hardware terms, virtualization jargon, network routing protocols, and enterprise security standards.
+        </p>
+
+        {/* Alphabet Jump Bar */}
+        <div class="mt-10 flex flex-wrap justify-center gap-1.5 max-w-3xl mx-auto">
+          {alphabet.map(letter => (
+            <a
+              href={`#letter-${letter}`}
+              class="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-blue-500 hover:bg-blue-600 text-xs font-extrabold text-zinc-300 hover:text-white flex items-center justify-center transition"
+            >
+              {letter}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Glossary Dictionary Items */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl space-y-16">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {glossaryItems.map(item => (
+            <div id={`letter-${item.letter}`} class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition space-y-3 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-black uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-md border border-blue-500/20">
+                    {item.category}
+                  </span>
+                  <span class="text-xs font-mono font-bold text-zinc-500">[{item.letter}]</span>
+                </div>
+                <h3 class="text-xl font-extrabold text-white flex items-center gap-2">
+                  <span>{item.term}</span>
+                </h3>
+                <p class="text-xs text-zinc-400 leading-relaxed font-medium">{item.def}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    {/* Bottom CTA Section */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80 text-center">
+      <div class="container mx-auto px-4 max-w-screen-md space-y-6">
+        <div class="p-8 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4 shadow-2xl">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Ready to Experience High-Speed NVMe Cloud?</h2>
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-md mx-auto font-medium">
+            Deploy your website on HostingSpell's enterprise LiteSpeed & NVMe architecture with 24/7 expert support and 30-day money-back guarantee.
+          </p>
+          <a href="/pricing" class="inline-block">
+            <button class="px-8 py-3.5 bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg shadow-blue-500/25">
+              Explore All Hosting Plans &rarr;
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Button } from '../components/ui/button';
+import { Download, Newspaper, Mail, Image, ShieldCheck } from 'lucide-react';
+---
+
+<Layout 
+  title="Press Releases & Brand Media Kit | HostingSpell Pressroom" 
+  description="Official HostingSpell press releases, media kit, downloadable high-res logos, brand assets, and press contact inquiries."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    <section class="py-20 bg-[#000000] text-center border-b border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-extrabold uppercase tracking-wider mb-6">
+          <Newspaper class="w-3.5 h-3.5" />
+          <span>Media & Press Hub</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
+          Press Releases & Brand Kit
+        </h1>
+
+        <p class="text-zinc-400 text-base max-w-xl mx-auto">
+          Download high-resolution HostingSpell brand assets, logos, product screenshots, and press release materials.
+        </p>
+
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="/press/brand-kit.zip" download>
+            <Button size="lg" className="h-13 px-8 bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold rounded-xl shadow-lg shadow-blue-500/25 flex items-center gap-2">
+              <Download class="w-4 h-4" />
+              <span>Download Brand Kit (.ZIP)</span>
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-md text-center space-y-6">
+        <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4">
+          <Mail class="w-8 h-8 text-blue-400 mx-auto" />
+          <h3 class="text-2xl font-extrabold text-white">Media & Press Inquiries</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-md mx-auto">
+            Journalists and media representatives can reach our communications team directly for interviews, executive quotes, or data insights.
+          </p>
+          <a href="mailto:press@hostingspell.com" class="inline-block font-extrabold text-blue-400 hover:underline text-sm">
+            press@hostingspell.com &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

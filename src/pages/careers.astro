@@ -1,0 +1,230 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Button } from '../components/ui/button';
+import { 
+  Briefcase, MapPin, Clock, Globe, Zap, Heart, Award, ArrowRight, CheckCircle2, DollarSign, Laptop, Plane, ShieldCheck, Sparkles, Users
+} from 'lucide-react';
+
+const values = [
+  {
+    title: "Extreme Speed Obsession",
+    desc: "We measure latency in milliseconds and optimization in IOPS. Every system we build must be blazingly fast."
+  },
+  {
+    title: "100% Remote Freedom",
+    desc: "Work from anywhere in the world. We value synchronous focus time, high autonomy, and async documentation over rigid hours."
+  },
+  {
+    title: "Radical Transparency",
+    desc: "Open roadmaps, transparent pricing, and public status reports. We communicate openly within the team and with our customers."
+  },
+  {
+    title: "AI-First Infrastructure",
+    desc: "We integrate state-of-the-art AI automation into our Web Co-Pilot engine, customer support routing, and datacenter monitoring."
+  }
+];
+
+const benefits = [
+  { icon: DollarSign, title: "Competitive Global Salary", desc: "Top 10% market compensation benchmarks with performance bonuses." },
+  { icon: Laptop, title: "Custom Gear Budget", desc: "$3,500 tech stipend for your choice of MacBook Pro, Linux workstation, or dual 4K monitors." },
+  { icon: Heart, title: "Comprehensive Health", desc: "100% company-paid medical, dental, vision, and mental health therapy coverage." },
+  { icon: Clock, title: "Unlimited Paid Time Off", desc: "Minimum 25 days recommended annual PTO plus local national holidays." },
+  { icon: Plane, title: "Annual Team Retreats", desc: "All-expenses-paid yearly company retreat (previous locations: Bali, Tokyo, Lisbon)." },
+  { icon: Sparkles, title: "Learning Allowance", desc: "$1,500 annual budget for conferences, certifications, books, and courses." }
+];
+
+const hiringSteps = [
+  { step: "01", title: "Application Review", desc: "We review your GitHub repositories, code samples, and past technical achievements." },
+  { step: "02", title: "Technical Screen", desc: "A 45-minute conversation with an engineering manager focusing on system design & culture fit." },
+  { step: "03", title: "Architecture Challenge", desc: "A paid 3-hour practical exercise building or debugging a real-world cloud infrastructure component." },
+  { step: "04", title: "Official Offer", desc: "We present a competitive salary, benefits package, and welcome you to the HostingSpell team!" }
+];
+
+const jobs = [
+  {
+    title: "Senior Linux Systems Engineer (DevOps & Bare-Metal)",
+    department: "Infrastructure & Security",
+    location: "Remote (Global)",
+    type: "Full-Time",
+    salary: "$120,000 - $160,000 USD",
+    desc: "Architect and maintain multi-region KVM virtualization clusters, Anycast BGP routing, automated PXE bare-metal deployment tools, and 2Tbps+ DDoS scrubbing systems.",
+    reqs: ["5+ years experience managing production Linux kernel/KVM infrastructure", "Strong proficiency in Ansible, Terraform, and Python/Bash scripting", "Hands-on experience with Anycast BGP routing and Linux networking (eBPF/XDP)"]
+  },
+  {
+    title: "Senior Full-Stack Developer (Astro / React / TypeScript)",
+    department: "Engineering",
+    location: "Remote (Global)",
+    type: "Full-Time",
+    salary: "$110,000 - $150,000 USD",
+    desc: "Build next-generation customer portals, AI website generator interfaces, real-time server management dashboards, and high-speed web apps.",
+    reqs: ["4+ years building production applications with React, TypeScript, and Node.js", "Experience with Astro framework, SolidJS, or Vite web applications", "Deep understanding of web performance metrics, TTFB, and Tailwind CSS v4"]
+  },
+  {
+    title: "24/7 Cloud Support Engineer (L2/L3 Specialist)",
+    department: "Customer Success",
+    location: "Remote (Global)",
+    type: "Full-Time / Rotating Shifts",
+    salary: "$65,000 - $90,000 USD",
+    desc: "Provide world-class technical support for cPanel/WHM migration, DNS resolution, LiteSpeed LSCache optimization, and dedicated server configurations.",
+    reqs: ["cPanel & Linux Administrator Certification (cPCA/cPTE or RHCSA preferred)", "2+ years experience in a web hosting or cloud provider technical support role", "Flawless written communication skills and passion for helping developers"]
+  }
+];
+---
+
+<Layout 
+  title="Careers at HostingSpell | Join Our 100% Remote Global Team" 
+  description="Build the future of high-speed NVMe cloud hosting and AI website generation. Explore remote job opportunities in Systems Engineering, Full-Stack Development, and Technical Support."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Briefcase class="w-4 h-4" />
+          <span>Work With Us • 100% Remote</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Build the Next Era of <br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent">High-Speed Cloud Infrastructure.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          We are a global team of engineers, creators, and sysadmins powering 135,000+ websites worldwide. Join us in building extreme performance hosting tools and AI website automation.
+        </p>
+
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="#positions">
+            <Button size="lg" className="h-13 px-8 bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-base rounded-xl shadow-xl shadow-blue-500/25">
+              View Open Positions ({jobs.length}) &rarr;
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Core Values */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Our Core Culture & Values</h2>
+          <p class="text-zinc-400 text-base font-medium">The operating principles that guide how we engineer software and support our team.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map(v => (
+            <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-3">
+              <h3 class="text-xl font-extrabold text-white">{v.title}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Benefits & Perks */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Benefits & Remote Perks</h2>
+          <p class="text-zinc-400 text-base font-medium">We take care of our team so everyone can do the best work of their careers.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {benefits.map(b => (
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4">
+              <div class="p-3.5 rounded-2xl bg-blue-500/15 text-blue-400 w-fit">
+                <b.icon class="w-6 h-6" />
+              </div>
+              <h3 class="text-xl font-extrabold text-white">{b.title}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Hiring Process */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Simple 4-Step Hiring Process</h2>
+          <p class="text-zinc-400 text-xs sm:text-sm font-medium">Fair, transparent, and respectful of your time. No 8-round interview loops.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {hiringSteps.map(step => (
+            <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-3 relative">
+              <div class="text-3xl font-black text-blue-500/40">{step.step}</div>
+              <h3 class="text-lg font-extrabold text-white">{step.title}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Open Positions List */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80" id="positions">
+      <div class="container mx-auto px-4 max-w-screen-lg space-y-8">
+        
+        <div class="text-center space-y-2">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Current Job Openings</h2>
+          <p class="text-sm text-zinc-400 font-medium">Join our team of high-performing remote engineers and creators.</p>
+        </div>
+
+        <div class="space-y-6">
+          {jobs.map(j => (
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-blue-500/40 transition space-y-6">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-800/80 pb-6">
+                <div>
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-md border border-blue-500/20">
+                      {j.department}
+                    </span>
+                    <span class="text-xs text-zinc-400 flex items-center gap-1">
+                      <MapPin class="w-3 h-3" /> {j.location}
+                    </span>
+                  </div>
+                  <h3 class="text-2xl font-extrabold text-white">{j.title}</h3>
+                  <div class="text-xs font-extrabold text-emerald-400 mt-1">{j.salary} • {j.type}</div>
+                </div>
+
+                <a href={`mailto:careers@hostingspell.com?subject=Application%20for%20${encodeURIComponent(j.title)}`}>
+                  <Button className="bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-xs px-6 py-3 rounded-xl shrink-0">
+                    Apply For Position &rarr;
+                  </Button>
+                </a>
+              </div>
+
+              <p class="text-xs text-zinc-300 leading-relaxed font-medium">{j.desc}</p>
+
+              <div class="space-y-2">
+                <div class="text-xs font-extrabold text-white uppercase tracking-wider text-[11px]">Key Qualifications & Requirements:</div>
+                <div class="space-y-1.5 text-xs text-zinc-400">
+                  {j.reqs.map(req => (
+                    <div class="flex items-center gap-2">
+                      <CheckCircle2 class="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span>{req}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

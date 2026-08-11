@@ -1,8 +1,8 @@
 import * as React from "react"
 import { createPortal } from "react-dom"
 import { 
-  Menu, X, Server, Cloud, Globe, MonitorSmartphone, Code, Cpu, 
-  Sparkles, User, ChevronRight, ChevronDown, Layers, BookOpen, PhoneCall
+  Server, Cloud, Globe, MonitorSmartphone, Code, Cpu, 
+  Sparkles, User, ChevronRight, ChevronDown, Layers, BookOpen, PhoneCall, ArrowRight
 } from "lucide-react"
 
 interface NavItem {
@@ -66,6 +66,13 @@ const navGroups: NavGroup[] = [
         href: "/python-hosting",
         icon: Cpu,
         color: "text-amber-400 bg-amber-500/10 border-amber-500/20"
+      },
+      {
+        title: "Reseller WHM Hosting",
+        desc: "White-label cPanel accounts",
+        href: "/reseller",
+        icon: Layers,
+        color: "text-rose-400 bg-rose-500/10 border-rose-500/20"
       }
     ]
   },
@@ -81,19 +88,20 @@ const navGroups: NavGroup[] = [
         color: "text-purple-400 bg-purple-500/10 border-purple-500/20"
       },
       {
+        title: "Bare-Metal Dedicated",
+        desc: "100% Dedicated AMD EPYC & Xeon",
+        href: "/dedicated-servers",
+        icon: Cpu,
+        badge: "BARE-METAL",
+        color: "text-blue-400 bg-blue-500/10 border-blue-500/20"
+      },
+      {
         title: "1-Click VPS Apps",
         desc: "Dokploy, Open WebUI, Supabase",
         href: "/vps/apps",
         icon: Sparkles,
         badge: "39+ APPS",
         color: "text-fuchsia-400 bg-fuchsia-500/10 border-fuchsia-500/20"
-      },
-      {
-        title: "Reseller WHM Hosting",
-        desc: "White-label cPanel accounts",
-        href: "/reseller",
-        icon: Layers,
-        color: "text-rose-400 bg-rose-500/10 border-rose-500/20"
       }
     ]
   }
@@ -103,12 +111,34 @@ export function MobileMenu() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [mounted, setMounted] = React.useState(false)
   const [openAccordion, setOpenAccordion] = React.useState<string | null>("hosting")
+  const [headerBottom, setHeaderBottom] = React.useState(64)
 
   React.useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Lock body scroll when overlay is active
+  // Dynamically calculate exact bottom edge of header navbar (eliminates all gaps seamlessly)
+  React.useEffect(() => {
+    const updateHeaderBottom = () => {
+      const headerEl = document.querySelector('header')
+      if (headerEl) {
+        setHeaderBottom(headerEl.getBoundingClientRect().bottom)
+      }
+    }
+
+    if (isOpen) {
+      updateHeaderBottom()
+      window.addEventListener('scroll', updateHeaderBottom, { passive: true })
+      window.addEventListener('resize', updateHeaderBottom, { passive: true })
+    }
+
+    return () => {
+      window.removeEventListener('scroll', updateHeaderBottom)
+      window.removeEventListener('resize', updateHeaderBottom)
+    }
+  }, [isOpen])
+
+  // Lock body scroll when overlay is active (matching DreamHost.com)
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"
@@ -125,28 +155,22 @@ export function MobileMenu() {
   }
 
   const menuOverlay = (
-    <div className="fixed inset-0 z-[99999] bg-[#08090B] text-white flex flex-col font-sans animate-in fade-in duration-200">
-      
-      {/* Pristine Mobile Header Bar */}
-      <div className="h-16 px-5 border-b border-zinc-800/80 bg-[#0C0D10] flex items-center justify-between shrink-0 shadow-lg">
-        <a href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
-          <img src="/logo-light.png" alt="HostingSpell" className="h-6 object-contain" />
-        </a>
+    <div 
+      style={{ top: `${headerBottom}px` }}
+      className={`fixed inset-x-0 bottom-0 z-[49] bg-[#000000] text-white flex flex-col font-sans transition-all duration-300 ease-in-out ${
+        isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+      }`}
+    >
+      {/* Dynamic Sub-Header Info Bar */}
+      <div className="px-5 py-2.5 bg-zinc-950 border-b border-zinc-800/80 flex items-center justify-between shrink-0">
+        <span className="text-[11px] font-extrabold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          99.99% Enterprise Uptime SLA
+        </span>
 
-        <div className="flex items-center gap-3">
-          <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-            99.99% SLA
-          </span>
-
-          <button
-            onClick={() => setIsOpen(false)}
-            className="w-10 h-10 rounded-full bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white flex items-center justify-center transition-all focus:outline-none cursor-pointer"
-            aria-label="Close menu"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
+        <span className="text-[11px] font-extrabold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
+          75% OFF Flash Sale
+        </span>
       </div>
 
       {/* Scrollable Content Body */}
@@ -156,16 +180,16 @@ export function MobileMenu() {
         {navGroups.map((group) => {
           const isExpanded = openAccordion === group.id
           return (
-            <div key={group.id} className="rounded-2xl border border-zinc-800/80 bg-[#0F1115] overflow-hidden transition-colors">
+            <div key={group.id} className="rounded-2xl border border-zinc-800/80 bg-[#0A0A0C] overflow-hidden transition-colors">
               <button
                 onClick={() => toggleAccordion(group.id)}
-                className="w-full px-4 py-3.5 flex items-center justify-between text-left font-extrabold text-sm text-zinc-200 hover:text-white transition-colors bg-zinc-900/60 cursor-pointer"
+                className="w-full px-4 py-3.5 flex items-center justify-between text-left font-extrabold text-sm text-zinc-100 hover:text-white transition-colors bg-zinc-900/60 cursor-pointer"
               >
                 <span>{group.title}</span>
-                <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform duration-200 ${isExpanded ? "rotate-180 text-blue-400" : ""}`} />
+                <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform duration-300 ${isExpanded ? "rotate-180 text-blue-400" : ""}`} />
               </button>
 
-              {isExpanded && (
+              <div className={`transition-all duration-300 ease-in-out ${isExpanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
                 <div className="p-2 space-y-1.5 border-t border-zinc-800/60">
                   {group.items.map((item) => {
                     const IconComponent = item.icon
@@ -199,14 +223,32 @@ export function MobileMenu() {
                     )
                   })}
                 </div>
-              )}
+              </div>
             </div>
           )
         })}
 
-        {/* Quick Services Grid (Domains & Resources) */}
+        {/* Remixer AI Builder Featured Link */}
+        <a 
+          href="/ai-website-builder" 
+          onClick={() => setIsOpen(false)}
+          className="p-4 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-500/15 via-indigo-500/10 to-transparent flex items-center justify-between group shadow-md"
+        >
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-500/30">
+              <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" />
+            </div>
+            <div>
+              <div className="text-xs font-extrabold text-white group-hover:text-blue-400 transition-colors">Remixer AI Website Builder</div>
+              <div className="text-[11px] text-zinc-400">Generate full websites in &lt; 60 seconds</div>
+            </div>
+          </div>
+          <ArrowRight className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" />
+        </a>
+
+        {/* Quick Services Grid */}
         <div className="grid grid-cols-2 gap-3 pt-1">
-          <div className="p-4 rounded-2xl border border-zinc-800/80 bg-[#0F1115] space-y-3">
+          <div className="p-4 rounded-2xl border border-zinc-800/80 bg-[#0A0A0C] space-y-3">
             <div className="text-[11px] font-black uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5 text-blue-400" />
               <span>Domains</span>
@@ -217,7 +259,7 @@ export function MobileMenu() {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl border border-zinc-800/80 bg-[#0F1115] space-y-3">
+          <div className="p-4 rounded-2xl border border-zinc-800/80 bg-[#0A0A0C] space-y-3">
             <div className="text-[11px] font-black uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5 text-purple-400" />
               <span>Resources</span>
@@ -233,10 +275,10 @@ export function MobileMenu() {
 
       </div>
 
-      {/* Pro Sticky Bottom CTAs */}
-      <div className="p-4 border-t border-zinc-800/80 bg-[#0C0D10] shrink-0 space-y-3 shadow-2xl">
+      {/* DreamHost Pro Sticky Bottom Action Bar */}
+      <div className="p-4 border-t border-zinc-800/80 bg-[#000000] shrink-0 space-y-3 shadow-2xl">
         <a href="/pricing" onClick={() => setIsOpen(false)} className="block w-full">
-          <button className="w-full bg-gradient-to-r from-[#0073EC] via-blue-600 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-extrabold text-xs py-3.5 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer">
+          <button className="w-full bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-xs py-3.5 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer">
             <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
             <span>Claim 75% OFF Cloud Offer</span>
           </button>
@@ -264,15 +306,37 @@ export function MobileMenu() {
 
   return (
     <div className="lg:hidden">
+      {/* DreamHost.com Iconic In-Place Morphing Hamburger-to-X Button */}
       <button
-        onClick={() => setIsOpen(true)}
-        className="p-2 rounded-xl text-white hover:bg-zinc-800/80 transition-colors flex items-center justify-center focus:outline-none cursor-pointer"
-        aria-label="Open Navigation Menu"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/15 text-white flex items-center justify-center transition-colors focus:outline-none cursor-pointer z-[100] relative"
+        aria-label={isOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
       >
-        <Menu className="h-6 w-6 text-white" />
+        <div className="w-5 h-5 relative flex items-center justify-center">
+          {/* Top Line -> rotates 45deg on open */}
+          <span 
+            className={`absolute h-0.5 w-5 bg-white rounded-full transition-all duration-300 ease-in-out ${
+              isOpen ? "rotate-45 translate-y-0" : "-translate-y-1.5"
+            }`} 
+          />
+          {/* Middle Line -> scales to 0 & fades out on open */}
+          <span 
+            className={`absolute h-0.5 w-5 bg-white rounded-full transition-all duration-200 ease-in-out ${
+              isOpen ? "scale-0 opacity-0" : "scale-100 opacity-100"
+            }`} 
+          />
+          {/* Bottom Line -> rotates -45deg on open */}
+          <span 
+            className={`absolute h-0.5 w-5 bg-white rounded-full transition-all duration-300 ease-in-out ${
+              isOpen ? "-rotate-45 translate-y-0" : "translate-y-1.5"
+            }`} 
+          />
+        </div>
       </button>
 
-      {isOpen && mounted && createPortal(menuOverlay, document.body)}
+      {mounted && createPortal(menuOverlay, document.body)}
     </div>
   )
 }
+
+

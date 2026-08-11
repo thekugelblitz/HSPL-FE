@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import TrustProofBar from '../components/blocks/TrustProofBar.astro';
+import { BusinessNameGenerator as GeneratorWidget } from '../components/blocks/BusinessNameGenerator';
+import { Sparkles, Globe, ShieldCheck, Zap, CheckCircle2, Search, ArrowRight } from 'lucide-react';
+
+const namingTips = [
+  { title: "Keep It Short & Memorable", desc: "Choose names with 2 to 3 syllables. Short brand names are easier to type, remember, and share on social media." },
+  { title: "Check TLD Availability Early", desc: "Don't fall in love with a brand name before verifying that the .COM, .IO, or .AI domain extension is available." },
+  { title: "Avoid Hyphens & Numbers", desc: "Hyphens and numbers create verbal confusion when telling clients your website domain out loud." },
+  { title: "Brandable Over Exact-Match", desc: "Creative, abstract brand names (like Spotify or Shopify) build stronger long-term brand equity than generic keyword names." }
+];
+
+const faqs = [
+  { q: "Is this AI Business Name Generator 100% free?", a: "Yes! Our AI Business Name & Domain Generator is 100% free to use with unlimited searches and zero registration requirements." },
+  { q: "How does the instant domain check work?", a: "When the AI generates brand ideas, our tool queries live global domain registries via Anycast DNS to check real-time availability for .COM, .IO, .AI, and other popular TLD extensions." },
+  { q: "Can I register my domain immediately?", a: "Yes! Once you find a name you love, click 'Register Domain' to lock in your domain name instantly with free Privacy Protection, Anycast DNS management, and SSL." }
+];
+---
+
+<Layout 
+  title="Free AI Business Name Generator & Instant Domain Lookup | HostingSpell" 
+  description="Generate catchy, brandable business names with AI for tech startups, SaaS apps, e-commerce stores, and design agencies. Check real-time .COM, .IO, and .AI domain availability."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Sparkles class="w-4 h-4" />
+          <span>100% Free AI Generator Tool</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Free AI Business Name <br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent">& Instant Domain Generator.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          Enter your seed keyword or select an industry to generate brandable startup names with 1-click .COM, .IO, and .AI domain registration lookup.
+        </p>
+      </div>
+    </section>
+
+    <TrustProofBar />
+
+    {/* Interactive Generator Widget */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <GeneratorWidget client:idle />
+      </div>
+    </section>
+
+    {/* Naming Best Practices */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">4 Golden Rules For Naming Your Startup</h2>
+          <p class="text-zinc-400 text-base font-medium">Expert advice on choosing a brandable, memorable domain name.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {namingTips.map(tip => (
+            <div class="p-7 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-3">
+              <h3 class="text-lg font-extrabold text-white">{tip.title}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{tip.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-md space-y-12">
+        <div class="text-center space-y-3">
+          <h2 class="text-3xl font-extrabold text-white">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4 text-left">
+          {faqs.map(faq => (
+            <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-2">
+              <h3 class="font-extrabold text-base text-white">{faq.q}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

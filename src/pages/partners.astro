@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Button } from '../components/ui/button';
+import { Handshake, ShieldCheck, Globe, Cpu, Server, CheckCircle2, ArrowRight, DollarSign, Layers, Users, Sparkles } from 'lucide-react';
+
+const techPartners = [
+  { name: "AMD EPYC™ Silicon", role: "Processor Infrastructure Partner", desc: "Powers our high-density single-tenant bare-metal dedicated servers and KVM VPS clusters." },
+  { name: "Intel® Xeon® Scalable", role: "Enterprise Hardware Partner", desc: "Provides high-frequency multi-socket hardware for enterprise mission-critical workloads." },
+  { name: "LiteSpeed Technologies", role: "Web Server Partner", desc: "Built-in server-level cache acceleration for all Cloud & WordPress hosting accounts." },
+  { name: "cPanel & WHM", role: "Control Panel Integration", desc: "Official partner for managed WHM reseller hosting and automated cPanel licensing." },
+  { name: "Imunify360 Security", role: "AI Defense Partner", desc: "Real-time AI malware scanning, proactive firewall protection, and Web Application Firewall." },
+  { name: "Cloudflare Edge", role: "Global Anycast Partner", desc: "Integrated DNS resolution, railgun acceleration, and edge DDoS mitigation." }
+];
+
+const partnerTracks = [
+  {
+    title: "Agency & Managed Resellers",
+    desc: "Scale your web agency with 100% white-label cPanel/WHM accounts, custom nameservers, and automated WHMCS billing integrations.",
+    badge: "Recurring Revenue",
+    perks: ["Up to 40% volume margin discount", "100% White-label client management", "Dedicated Tier-3 senior support manager"]
+  },
+  {
+    title: "Technology & Integration Partners",
+    desc: "Build integrations, custom plugins, or SaaS tools directly on top of HostingSpell's cloud APIs and infrastructure.",
+    badge: "API & Cloud Stack",
+    perks: ["Developer sandbox environment", "Joint co-marketing & press announcements", "Direct access to engineering team"]
+  },
+  {
+    title: "Affiliate & Referral Network",
+    desc: "Earn up to $150 per qualified hosting referral with instant payouts, custom tracking links, and high-converting banners.",
+    badge: "Instant Payouts",
+    perks: ["Up to $150 CPA per referral", "60-day cookie tracking window", "Dedicated affiliate account manager"]
+  }
+];
+---
+
+<Layout 
+  title="HostingSpell Partner Network | Agency & Technology Ecosystem" 
+  description="Partner with HostingSpell. Explore Technology Integrations with AMD, Intel, LiteSpeed, cPanel, and Cloudflare, plus Agency Reseller & Affiliate programs."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Handshake class="w-4 h-4" />
+          <span>Global Partner Ecosystem</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Grow Your Business with Our <br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent">Global Partner Network.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          Whether you are a web agency, software vendor, or developer, HostingSpell provides the infrastructure, tools, and revenue-sharing programs to accelerate your growth.
+        </p>
+
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="#apply">
+            <Button size="lg" className="h-13 px-8 bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-base rounded-xl shadow-xl shadow-blue-500/25">
+              Apply For Partnership &rarr;
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* 3 Partner Tracks */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Three Ways to Partner</h2>
+          <p class="text-zinc-400 text-base font-medium">Choose the partner program tailored to your business model.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          {partnerTracks.map(track => (
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-6 flex flex-col justify-between">
+              <div class="space-y-4">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-md border border-blue-500/20">
+                  {track.badge}
+                </span>
+                <h3 class="text-2xl font-extrabold text-white">{track.title}</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed font-medium">{track.desc}</p>
+                
+                <div class="space-y-2 pt-2 text-xs text-zinc-300">
+                  {track.perks.map(perk => (
+                    <div class="flex items-center gap-2">
+                      <CheckCircle2 class="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>{perk}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    {/* Technology Partners Grid */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Core Technology Partners</h2>
+          <p class="text-zinc-400 text-base font-medium">We team up with industry leaders in silicon, software, and security.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {techPartners.map(p => (
+            <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-3">
+              <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-md border border-blue-500/20">
+                {p.role}
+              </span>
+              <h3 class="text-xl font-extrabold text-white">{p.name}</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed font-medium">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    {/* Application Form Section */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80" id="apply">
+      <div class="container mx-auto px-4 max-w-screen-md">
+        
+        <div class="p-8 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-6">
+          <div class="text-center space-y-2">
+            <h2 class="text-2xl font-extrabold text-white">Partner Application</h2>
+            <p class="text-xs text-zinc-400 font-medium">Fill out the form below and our partner team will respond within 24 hours.</p>
+          </div>
+
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-zinc-300 mb-1">Company Name</label>
+                <input type="text" placeholder="Acme Agency Inc" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-blue-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-zinc-300 mb-1">Work Email</label>
+                <input type="email" placeholder="partners@acme.com" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-blue-500" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-zinc-300 mb-1">Program Track</label>
+              <select class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-blue-500">
+                <option>Agency & Managed Resellers</option>
+                <option>Technology & Integration Partner</option>
+                <option>Affiliate & Referral Network</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-zinc-300 mb-1">Brief Proposal</label>
+              <textarea rows="3" placeholder="Tell us about your agency size, client volume, or integration plan..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+
+            <Button className="w-full py-3.5 bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-xs rounded-xl shadow-lg shadow-blue-500/20">
+              Submit Partner Application &rarr;
+            </Button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

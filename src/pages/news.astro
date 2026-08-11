@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import { Button } from '../components/ui/button';
+import { Newspaper, Calendar, ArrowRight, Tag, Mail, Sparkles } from 'lucide-react';
+
+const newsItems = [
+  {
+    title: "HostingSpell Unveils Bare-Metal Dedicated Servers with 10Gbps Network Uplinks",
+    date: "August 10, 2026",
+    category: "Product Launch",
+    excerpt: "Introducing high-density single-tenant AMD EPYC™ and Intel® Xeon® Scalable physical servers with zero hypervisor overhead, Enterprise NVMe Gen4 RAID arrays, and out-of-band IPMI KVM management.",
+    quote: "Our clients required raw physical compute power without any hypervisor throttling. Bare-Metal Dedicated Servers give them 100% hardware isolation backed by 10Gbps unmetered network ports."
+  },
+  {
+    title: "HostingSpell AI Web Engine v4.2 Released with One-Prompt Conversational Editing",
+    date: "July 28, 2026",
+    category: "AI Technology",
+    excerpt: "Our multi-model AI Web Co-Pilot now supports real-time conversational UI adjustments, automated Tailwind CSS generation, instant live code inspector, and 1-click cloud publishing.",
+    quote: "Building a production-grade site used to take weeks. With AI Co-Pilot v4.2, creators describe their vision once and iterate naturally in real-time chat."
+  },
+  {
+    title: "Global Network Expansion: New Datacenter PoP Live in Frankfurt & Singapore",
+    date: "June 15, 2026",
+    category: "Infrastructure",
+    excerpt: "Expanding our Anycast DNS and high-speed NVMe routing network to lower latency across European and Asia-Pacific markets, serving sub-15ms TTFB to over 3.5 billion Internet users.",
+    quote: "Low latency is non-negotiable for modern web applications. The new Frankfurt and Singapore facilities strengthen our global edge backbone."
+  },
+  {
+    title: "HostingSpell Achieves ISO 27001 & SOC-2 Type II Security Certification",
+    date: "May 02, 2026",
+    category: "Corporate & Security",
+    excerpt: "Independent third-party audits verify that HostingSpell datacenters and cloud infrastructure meet international standards for physical security, access control, and operational resilience.",
+    quote: "Security certification is proof of our uncompromising commitment to protecting enterprise customer telemetry and operational workloads."
+  }
+];
+---
+
+<Layout 
+  title="Newsroom & Corporate Press Releases | HostingSpell News" 
+  description="Official newsroom for HostingSpell: Product launches, Bare-Metal announcements, AI Web Engine releases, and global datacenter expansions."
+>
+  <Navbar />
+
+  <main class="flex-1 bg-[#000000] text-white">
+    
+    {/* Hero Section */}
+    <section class="relative py-24 bg-[#000000] text-center border-b border-zinc-800/80 overflow-hidden">
+      <div class="absolute inset-0 bg-blue-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-6">
+          <Newspaper class="w-4 h-4" />
+          <span>HostingSpell Newsroom</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Latest Corporate News & <br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent">Product Release Announcements.</span>
+        </h1>
+
+        <p class="text-zinc-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          Stay up to date with official corporate releases, platform updates, AI innovations, and global datacenter expansion milestones.
+        </p>
+      </div>
+    </section>
+
+    {/* Press Releases List */}
+    <section class="py-24 bg-[#000000]">
+      <div class="container mx-auto px-4 max-w-screen-lg space-y-8">
+        {newsItems.map(item => (
+          <article class="p-8 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4 hover:border-blue-500/40 transition">
+            <div class="flex items-center gap-3 text-xs">
+              <span class="font-bold text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-md border border-blue-500/20">
+                {item.category}
+              </span>
+              <span class="text-zinc-500 flex items-center gap-1">
+                <Calendar class="w-3.5 h-3.5" /> {item.date}
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">{item.title}</h2>
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-medium">{item.excerpt}</p>
+            
+            <div class="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800 text-xs italic text-zinc-400 border-l-4 border-l-blue-500">
+              "{item.quote}"
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {/* Press Newsletter Signup */}
+    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
+      <div class="container mx-auto px-4 max-w-screen-md text-center">
+        <div class="p-8 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800 space-y-4 shadow-2xl">
+          <Mail class="w-8 h-8 text-blue-400 mx-auto" />
+          <h3 class="text-2xl font-extrabold text-white">Subscribe to Press Announcements</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-md mx-auto font-medium">
+            Get major product launches and security updates delivered directly to your inbox.
+          </p>
+
+          <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
+            <input type="email" placeholder="enter your email..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-blue-500" />
+            <Button className="py-3 px-6 bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-xs rounded-xl shrink-0">
+              Subscribe
+            </Button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
