@@ -75,10 +75,15 @@ export function HostingQuizModal() {
     <>
       <button 
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-extrabold text-xs shadow-lg shadow-indigo-500/25 hover:opacity-95 transition-all cursor-pointer w-full sm:w-auto h-13"
+        className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white/90 dark:bg-zinc-900/90 hover:bg-zinc-50 dark:hover:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 font-extrabold text-sm sm:text-base border border-zinc-200 dark:border-zinc-800/90 hover:border-blue-500/40 dark:hover:border-blue-400/40 shadow-sm hover:shadow-md transition-all cursor-pointer w-full sm:w-auto h-13 group"
       >
-        <Sparkles className="w-4 h-4" />
-        <span>Find My Ideal Plan (15-Sec Quiz)</span>
+        <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:rotate-12 transition-transform shrink-0" />
+        <span className="flex items-center gap-1.5">
+          <span>Find My Ideal Plan</span>
+          <span className="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 shrink-0">
+            15-Sec Quiz
+          </span>
+        </span>
       </button>
 
       {isOpen && (

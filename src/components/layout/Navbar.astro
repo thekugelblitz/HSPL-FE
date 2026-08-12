@@ -43,14 +43,15 @@ import { PhoneCall, Sparkles, User, ArrowRight, ShieldCheck, Headphones } from '
   </div>
 </div>
 
-{/* Persistent Pitch Black Header Navigation Bar */}
-<header class="sticky top-0 z-50 w-full bg-[#000000] text-white backdrop-blur-xl border-b border-zinc-800/80 transition-colors">
+{/* Persistent Adaptive Header Navigation Bar */}
+<header class="sticky top-0 z-50 w-full bg-white/90 dark:bg-[#000000]/90 text-zinc-900 dark:text-white backdrop-blur-xl border-b border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
   <div class="container flex h-16 max-w-screen-2xl items-center justify-between mx-auto px-4 sm:px-8">
     
     {/* Left Logo & Brand Navigation */}
     <div class="flex items-center gap-4 lg:gap-8">
       <a href="/" class="flex items-center gap-2 group transition-transform hover:scale-[1.02]">
-        <img src="/logo-light.png" alt="HostingSpell" class="h-6 sm:h-6.5 object-contain transition-all" width="150" height="26" decoding="async" />
+        <img src="/logo.png" alt="HostingSpell" class="h-6 sm:h-6.5 object-contain transition-all dark:hidden" width="150" height="26" decoding="async" />
+        <img src="/logo-light.png" alt="HostingSpell" class="h-6 sm:h-6.5 object-contain transition-all hidden dark:block" width="150" height="26" decoding="async" />
       </a>
       
       {/* Clean Mega Menu */}

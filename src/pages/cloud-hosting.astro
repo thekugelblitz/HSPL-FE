@@ -8,6 +8,7 @@ import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { cloudPlans, faqs } from '../lib/data';
+import CpanelShowcase from '../components/blocks/CpanelShowcase.astro';
 import { Check, Zap, Server, Shield, HardDrive, Cpu, Activity, ArrowRight } from 'lucide-react';
 
 const features = [
@@ -152,6 +153,8 @@ const features = [
         </div>
       </div>
     </section>
+
+    <CpanelShowcase />
 
     {/* Pricing Section */}
     <section class="py-24" id="plans">

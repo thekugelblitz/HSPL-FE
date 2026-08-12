@@ -8,6 +8,7 @@ import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { wordpressPlans, faqs } from '../lib/data';
+import CpanelShowcase from '../components/blocks/CpanelShowcase.astro';
 import { Check, MonitorSmartphone, Zap, Shield, Database, ArrowRight, Sparkles } from 'lucide-react';
 
 const features = [
@@ -178,6 +179,8 @@ const features = [
         </div>
       </div>
     </section>
+
+    <CpanelShowcase />
 
     {/* Pricing Section */}
     <section id="plans" class="py-24 bg-background border-y border-border/40">
