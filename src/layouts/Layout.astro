@@ -20,8 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -96,7 +95,7 @@ const {
       ]
     })} />
     
-    <ClientRouter />
+    <ClientRouter fallback="swap" />
     
     <script is:inline>
       const getThemePreference = () => {
@@ -137,6 +136,7 @@ const {
           theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
         document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
+        window.scrollTo({ top: 0, behavior: 'instant' });
       });
     </script>
   </body>

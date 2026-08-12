@@ -10,8 +10,8 @@ export default defineConfig({
   compressHTML: true,
   
   prefetch: {
-    prefetchAll: false,
-    defaultStrategy: 'viewport',
+    prefetchAll: true,
+    defaultStrategy: 'hover',
   },
   
   vite: {
