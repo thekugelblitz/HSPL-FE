@@ -157,12 +157,12 @@ export function MobileMenu() {
   const menuOverlay = (
     <div 
       style={{ top: `${headerBottom}px` }}
-      className={`fixed inset-x-0 bottom-0 z-[49] bg-white dark:bg-[#000000] text-zinc-900 dark:text-white flex flex-col font-sans transition-all duration-300 ease-in-out ${
+      className={`fixed inset-x-0 bottom-0 z-[49] bg-white/85 dark:bg-[#161617]/90 text-zinc-900 dark:text-white backdrop-blur-[25px] backdrop-saturate-[180%] flex flex-col font-sans transition-all duration-300 ease-in-out ${
         isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
       }`}
     >
       {/* Dynamic Sub-Header Info Bar */}
-      <div className="px-5 py-2.5 bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800/80 flex items-center justify-between shrink-0">
+      <div className="px-5 py-2.5 bg-zinc-100/70 dark:bg-zinc-900/70 backdrop-blur-md border-b border-black/[0.06] dark:border-white/[0.08] flex items-center justify-between shrink-0">
         <span className="text-[11px] font-extrabold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span>
           99.99% Enterprise Uptime SLA
@@ -276,7 +276,7 @@ export function MobileMenu() {
       </div>
 
       {/* DreamHost Pro Sticky Bottom Action Bar */}
-      <div className="p-4 border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#000000] shrink-0 space-y-3 shadow-2xl">
+      <div className="p-4 border-t border-black/[0.08] dark:border-white/[0.1] bg-white/90 dark:bg-[#161617]/95 backdrop-blur-[20px] shrink-0 space-y-3 shadow-2xl">
         <a href="/pricing" onClick={() => setIsOpen(false)} className="block w-full">
           <button className="w-full bg-[#0073EC] hover:bg-[#005bb5] text-white font-extrabold text-xs py-3.5 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer">
             <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
