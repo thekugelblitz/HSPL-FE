@@ -1,0 +1,81 @@
+{
+    "id": "appwrite",
+    "slug": "appwrite",
+    "name": "Appwrite",
+    "category": "development",
+    "icon": "/img/apps/appwrite.png",
+    "shortDescription": "Production-Ready Open-Source Backend Server for Secure & Scalable App Development",
+    "about": "Appwrite is a powerful open-source backend platform designed to help developers build secure, scalable web and mobile applications faster. When deployed on your VPS, Appwrite gives you full control over your backend infrastructure including authentication, databases, file storage, and serverless functions without depending on third-party cloud providers. Hosting Appwrite on a VPS ensures better performance, predictable costs, and complete ownership of your data.",
+    "minRam": 8,
+    "recommendedRam": 8,
+    "features": [
+        {
+            "label": "Advanced Authentication & User Roles"
+        },
+        {
+            "label": "High-Performance Databases with Indexing"
+        },
+        {
+            "label": "Secure File & Object Storage"
+        },
+        {
+            "label": "Serverless Functions (Node.js, Python, etc.)"
+        },
+        {
+            "label": "REST & Realtime APIs"
+        },
+        {
+            "label": "Granular Security & Access Control"
+        }
+    ],
+    "useCases": "Ideal for startups, SaaS founders, agencies, and full-stack developers building production-ready applications. Appwrite removes backend complexity so teams can focus on shipping features instead of managing infrastructure.",
+    "performance": "For optimal performance, Appwrite runs best on an 8GB or higher VPS with dedicated CPU resources. This ensures smooth database queries, reliable function execution, and stable API performance under load.",
+    "whyDeploy": [
+        {
+            "title": "1. Complete Data Ownership",
+            "description": "Self-hosting Appwrite on your VPS means your user's data stays fully under your control no vendor lock-in and no external data sharing."
+        },
+        {
+            "title": "2. Predictable Monthly Costs",
+            "description": "Avoid per-request or per-user billing models. A VPS gives you fixed pricing and unlimited backend usage."
+        },
+        {
+            "title": "3. Better Performance & Low Latency",
+            "description": "Deploy Appwrite close to your target audience and deliver faster API responses compared to shared cloud platforms."
+        },
+        {
+            "title": "4. Scalable Infrastructure",
+            "description": "Start with 8GB RAM and scale vertically as your application grows without migrating to another provider."
+        }
+    ],
+    "whoShouldHost": "Developers building SaaS products, internal company tools, marketplaces, mobile apps, or client projects who need a secure and flexible backend solution.",
+    "deploymentType": "Docker-based (recommended) or manual installation on Ubuntu VPS.",
+    "bestForVpsPlans": [
+        "8GB VPS",
+        "16GB VPS",
+        "32GB VPS"
+    ],
+    "github": "https://github.com/appwrite/appwrite",
+    "website": "https://appwrite.io",
+    "docs": "https://appwrite.io/docs",
+    "seo": {
+        "title": "Appwrite VPS Hosting - Open-Source Backend Server | HostingSpell",
+        "description": "Deploy Appwrite on HostingSpell VPS for secure, scalable app development. Features: authentication, databases, file storage, serverless functions. Full control over your backend infrastructure.",
+        "keywords": [
+            "appwrite vps",
+            "appwrite hosting",
+            "appwrite self-hosted",
+            "open-source backend",
+            "backend as a service vps",
+            "appwrite deployment",
+            "secure backend server"
+        ],
+        "tags": [
+            "backend",
+            "development",
+            "self-hosted",
+            "api",
+            "authentication"
+        ]
+    }
+}

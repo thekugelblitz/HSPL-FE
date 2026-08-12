@@ -1,0 +1,51 @@
+{
+    "id": "wordpress",
+    "slug": "wordpress",
+    "name": "WordPress",
+    "category": "development",
+    "icon": "/img/apps/wordpress.png",
+    "shortDescription": "The world's most popular content management system.",
+    "about": "WordPress is a free and open-source content management system powering over 40% of all websites on the internet. It offers thousands of themes and plugins for building any type of website.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "60,000+ plugins"
+        },
+        {
+            "label": "Thousands of themes"
+        },
+        {
+            "label": "Gutenberg block editor"
+        }
+    ],
+    "useCases": "Building blogs, business websites, eCommerce stores, portfolios, and virtually any type of web presence.",
+    "whyDeploy": [
+        {
+            "title": "Unlimited Potential",
+            "description": "Run the world's most popular CMS on your own VPS for maximum performance and control."
+        }
+    ],
+    "github": "https://github.com/WordPress/WordPress",
+    "website": "https://wordpress.org",
+    "docs": "https://developer.wordpress.org",
+    "seo": {
+        "title": "WordPress VPS Hosting - World's Most Popular CMS | HostingSpell",
+        "description": "Deploy WordPress on HostingSpell VPS for the world's most popular CMS. Features: 60,000+ plugins, thousands of themes, Gutenberg editor. Build any type of website with maximum control.",
+        "keywords": [
+            "wordpress vps",
+            "wordpress hosting",
+            "wordpress self-hosted",
+            "content management system",
+            "cms hosting vps",
+            "website builder",
+            "blog platform"
+        ],
+        "tags": [
+            "development",
+            "cms",
+            "website",
+            "self-hosted",
+            "blog"
+        ]
+    }
+}

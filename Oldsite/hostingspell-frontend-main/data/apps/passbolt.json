@@ -1,0 +1,51 @@
+{
+    "id": "passbolt",
+    "slug": "passbolt",
+    "name": "Passbolt",
+    "category": "devops",
+    "icon": "/img/apps/passbolt.png",
+    "shortDescription": "Open-source team password manager.",
+    "about": "Passbolt is an open-source password manager designed for teams. It allows you to securely store, share, and manage credentials with end-to-end encryption.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "End-to-end encryption"
+        },
+        {
+            "label": "Team sharing & permissions"
+        },
+        {
+            "label": "Browser extensions"
+        }
+    ],
+    "useCases": "Perfect for DevOps teams, agencies, and businesses needing secure, shared credential management.",
+    "whyDeploy": [
+        {
+            "title": "Secure Credentials",
+            "description": "Keep team passwords encrypted and under your control on your own 4GB VPS infrastructure."
+        }
+    ],
+    "github": "https://github.com/passbolt/passbolt_api",
+    "website": "https://www.passbolt.com",
+    "docs": "https://help.passbolt.com",
+    "seo": {
+        "title": "Passbolt VPS Hosting - Open-Source Password Manager | HostingSpell",
+        "description": "Deploy Passbolt on HostingSpell VPS for open-source password management. Features: end-to-end encryption, team sharing & permissions, browser extensions. Secure shared credential management.",
+        "keywords": [
+            "passbolt vps",
+            "passbolt hosting",
+            "passbolt self-hosted",
+            "password manager",
+            "team password vps",
+            "secure password storage",
+            "credential management"
+        ],
+        "tags": [
+            "devops",
+            "password",
+            "security",
+            "self-hosted",
+            "credentials"
+        ]
+    }
+}

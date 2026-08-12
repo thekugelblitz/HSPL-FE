@@ -1,0 +1,73 @@
+{
+    "id": "openwebui",
+    "slug": "openwebui",
+    "name": "Open WebUI",
+    "category": "ai",
+    "icon": "/img/apps/open-webui.png",
+    "shortDescription": "Self-Hosted ChatGPT-Style Interface for Private AI & LLM Deployment",
+    "about": "Open WebUI provides a clean, professional interface for running open-source language models on your VPS. Whether connected to Ollama or external LLM providers, it enables private AI chat systems for teams and businesses. Hosting Open WebUI ensures complete control over conversations, API integrations, and AI workflows.",
+    "minRam": 4,
+    "recommendedRam": 8,
+    "features": [
+        {
+            "label": "Multi-Model Support"
+        },
+        {
+            "label": "Team & User Management"
+        },
+        {
+            "label": "Conversation History"
+        },
+        {
+            "label": "API Access"
+        },
+        {
+            "label": "Secure Authentication"
+        }
+    ],
+    "useCases": "AI startups, agencies, research teams, and businesses building internal AI assistants or client-facing AI tools.",
+    "performance": "Requires 8GB+ VPS when connecting to external APIs. For local LLM hosting, 16GB–32GB is recommended.",
+    "whyDeploy": [
+        {
+            "title": "1. Private AI Environment",
+            "description": "Host your own AI system without exposing sensitive prompts to third parties."
+        },
+        {
+            "title": "2. Custom AI Integrations",
+            "description": "Integrate AI into internal tools, CRMs, or SaaS platforms."
+        },
+        {
+            "title": "3. Scalable AI Infrastructure",
+            "description": "Increase RAM and CPU resources as model usage grows."
+        }
+    ],
+    "bestForVpsPlans": [
+        "8GB VPS",
+        "16GB VPS",
+        "32GB VPS"
+    ],
+    "disclaimer": "Important: Users must bring their own API keys for LLM services (OpenAI, Anthropic, etc.). LLM models cannot be installed on lower RAM configurations - GPU acceleration is required for optimal performance. For 64GB+ RAM VPS plans, CPU-only inference is possible but significantly slower than GPU. Review hardware requirements before purchasing to ensure compatibility with your intended use case.",
+    "github": "https://github.com/open-webui/open-webui",
+    "website": "https://openwebui.com",
+    "docs": "https://docs.openwebui.com",
+    "seo": {
+        "title": "Open WebUI VPS Hosting - Self-Hosted AI Chat Interface | HostingSpell",
+        "description": "Deploy Open WebUI on HostingSpell VPS for private AI chat. Features: multi-model support, team management, conversation history, API access, secure auth. Run ChatGPT-style AI locally.",
+        "keywords": [
+            "open webui vps",
+            "open webui hosting",
+            "open webui self-hosted",
+            "private ai chat",
+            "chatgpt alternative vps",
+            "llm deployment",
+            "ai interface"
+        ],
+        "tags": [
+            "ai",
+            "chat",
+            "llm",
+            "self-hosted",
+            "private-ai"
+        ]
+    }
+}

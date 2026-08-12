@@ -1,0 +1,51 @@
+{
+    "id": "focalboard",
+    "slug": "focalboard",
+    "name": "Focalboard",
+    "category": "management",
+    "icon": "/img/apps/focalboard.png",
+    "shortDescription": "Open source Trello, Notion, and Asana alternative.",
+    "about": "Focalboard is an open source, multilingual, self-hosted project management tool for organizing, tracking and managing your work.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Kanban views"
+        },
+        {
+            "label": "Tables & Galeries"
+        },
+        {
+            "label": "Customizable Cards"
+        }
+    ],
+    "useCases": "For individuals or small groups looking for lightweight visual task coordination.",
+    "whyDeploy": [
+        {
+            "title": "Lightweight",
+            "description": "Incredibly efficient and works easily even on constrained hardware like a 2GB VPS."
+        }
+    ],
+    "github": "https://github.com/mattermost/focalboard",
+    "website": "https://www.focalboard.com",
+    "docs": "https://www.focalboard.com/guide/user/",
+    "seo": {
+        "title": "Focalboard VPS Hosting - Open-Source Project Management | HostingSpell",
+        "description": "Deploy Focalboard on HostingSpell VPS for open-source project management. Features: kanban views, tables & galleries, customizable cards. Trello, Notion, and Asana alternative.",
+        "keywords": [
+            "focalboard vps",
+            "focalboard hosting",
+            "focalboard self-hosted",
+            "project management tool",
+            "trello alternative vps",
+            "notion alternative",
+            "asana alternative"
+        ],
+        "tags": [
+            "management",
+            "project",
+            "kanban",
+            "self-hosted",
+            "productivity"
+        ]
+    }
+}

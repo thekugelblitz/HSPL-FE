@@ -1,0 +1,51 @@
+{
+    "id": "odoo",
+    "slug": "odoo",
+    "name": "Odoo",
+    "category": "ecommerce",
+    "icon": "/img/apps/odoo.png",
+    "shortDescription": "All-in-one business management suite.",
+    "about": "Odoo is a suite of open-source business apps covering CRM, eCommerce, accounting, inventory, point of sale, project management, and more in a single integrated platform.",
+    "minRam": 8,
+    "features": [
+        {
+            "label": "30+ integrated business apps"
+        },
+        {
+            "label": "Website builder & eCommerce"
+        },
+        {
+            "label": "CRM & sales pipeline"
+        }
+    ],
+    "useCases": "Comprehensive solution for businesses needing integrated CRM, eCommerce, accounting, and operations management.",
+    "whyDeploy": [
+        {
+            "title": "All-in-One Business",
+            "description": "Replace dozens of SaaS subscriptions with one integrated platform on your own 8GB+ VPS."
+        }
+    ],
+    "github": "https://github.com/odoo/odoo",
+    "website": "https://www.odoo.com",
+    "docs": "https://www.odoo.com/documentation",
+    "seo": {
+        "title": "Odoo VPS Hosting - All-in-One Business Management | HostingSpell",
+        "description": "Deploy Odoo on HostingSpell VPS for all-in-one business management. Features: 30+ integrated apps, website builder & eCommerce, CRM & sales pipeline. Replace SaaS with one integrated platform.",
+        "keywords": [
+            "odoo vps",
+            "odoo hosting",
+            "odoo self-hosted",
+            "business management",
+            "erp platform vps",
+            "crm software",
+            "eCommerce suite"
+        ],
+        "tags": [
+            "ecommerce",
+            "business",
+            "erp",
+            "self-hosted",
+            "crm"
+        ]
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "id": "dokploy",
+    "slug": "dokploy",
+    "name": "Dokploy",
+    "category": "devops",
+    "icon": "/img/apps/dokploy.png",
+    "shortDescription": "Modern Docker-Based Application Deployment Platform for VPS Hosting",
+    "about": "Dokploy simplifies deploying and managing Docker applications on your VPS. It provides a clean interface for managing services, domains, and SSL certificates while giving you full control of your server environment.",
+    "minRam": 4,
+    "recommendedRam": 4,
+    "features": [
+        {
+            "label": "Docker App Management"
+        },
+        {
+            "label": "Automatic SSL"
+        },
+        {
+            "label": "Domain Management"
+        },
+        {
+            "label": "Multi-App Hosting"
+        },
+        {
+            "label": "Server Monitoring"
+        }
+    ],
+    "useCases": "Startups and developers managing multiple containerized applications on a single VPS.",
+    "performance": "Optimized for 4GB VPS. 8GB recommended for high-traffic applications.",
+    "whyDeploy": [
+        {
+            "title": "1. Centralized Deployment Control",
+            "description": "Manage all Docker apps from one dashboard."
+        },
+        {
+            "title": "2. Cost-Effective Scaling",
+            "description": "Scale resources vertically without migrating infrastructure."
+        },
+        {
+            "title": "3. Improved Reliability",
+            "description": "Dedicated VPS resources ensure consistent uptime and performance."
+        }
+    ],
+    "bestForVpsPlans": [
+        "4GB VPS",
+        "8GB VPS",
+        "16GB VPS"
+    ],
+    "github": "https://github.com/Dokploy/dokploy",
+    "website": "https://dokploy.com",
+    "docs": "https://docs.dokploy.com",
+    "seo": {
+        "title": "Dokploy VPS Hosting - Docker Application Deployment Platform | HostingSpell",
+        "description": "Deploy Dokploy on HostingSpell VPS for easy Docker application management. Features: Docker app management, automatic SSL, domain management, multi-app hosting. Perfect for startups and developers.",
+        "keywords": [
+            "dokploy vps",
+            "dokploy hosting",
+            "docker deployment vps",
+            "dokploy self-hosted",
+            "vps app management",
+            "docker control panel",
+            "docker orchestration"
+        ],
+        "tags": [
+            "docker",
+            "deployment",
+            "devops",
+            "self-hosted",
+            "control-panel"
+        ]
+    }
+}

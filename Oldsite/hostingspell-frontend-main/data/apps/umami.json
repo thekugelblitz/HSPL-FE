@@ -1,0 +1,51 @@
+{
+    "id": "umami",
+    "slug": "umami",
+    "name": "Umami",
+    "category": "analytics",
+    "icon": "/img/apps/umami.png",
+    "shortDescription": "Privacy-focused Google Analytics alternative.",
+    "about": "Umami is an open-source, privacy-focused alternative to Google Analytics. It is simple to use, doesn't use cookies, and tracks users securely.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Cookie-less analytics"
+        },
+        {
+            "label": "GDPR Compliant"
+        },
+        {
+            "label": "Real-time visitors list"
+        }
+    ],
+    "useCases": "Monitoring SaaS platforms, blogs or commercial sites without sacrificing your visitors' privacy constraints.",
+    "whyDeploy": [
+        {
+            "title": "Privacy Adherence",
+            "description": "Run fully compliant analytics cleanly on an economical 2GB environment."
+        }
+    ],
+    "github": "https://github.com/umami-software/umami",
+    "website": "https://umami.is",
+    "docs": "https://umami.is/docs",
+    "seo": {
+        "title": "Umami VPS Hosting - Privacy-Focused Analytics | HostingSpell",
+        "description": "Deploy Umami on HostingSpell VPS for privacy-focused analytics. Features: cookie-less analytics, GDPR compliant, real-time visitors. Google Analytics alternative without compromising privacy.",
+        "keywords": [
+            "umami vps",
+            "umami hosting",
+            "umami self-hosted",
+            "privacy analytics",
+            "google analytics alternative vps",
+            "gdpr compliant analytics",
+            "web analytics server"
+        ],
+        "tags": [
+            "analytics",
+            "privacy",
+            "gdpr",
+            "self-hosted",
+            "web-analytics"
+        ]
+    }
+}

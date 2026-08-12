@@ -1,0 +1,51 @@
+{
+    "id": "paymenter",
+    "slug": "paymenter",
+    "name": "Paymenter",
+    "category": "ecommerce",
+    "icon": "/img/apps/paymenter.png",
+    "shortDescription": "Open-source hosting billing and client management.",
+    "about": "Paymenter is an open-source billing panel for hosting companies. It provides client management, automated provisioning, invoicing, and payment processing.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Automated billing & invoicing"
+        },
+        {
+            "label": "Payment gateway integrations"
+        },
+        {
+            "label": "Client portal"
+        }
+    ],
+    "useCases": "Designed for web hosting providers and resellers needing automated billing and client management.",
+    "whyDeploy": [
+        {
+            "title": "Hosting Billing",
+            "description": "Automate your hosting business billing and client management on a reliable 4GB VPS."
+        }
+    ],
+    "github": "https://github.com/paymenter/paymenter",
+    "website": "https://paymenter.org",
+    "docs": "https://paymenter.org/docs/getting-started/introduction",
+    "seo": {
+        "title": "Paymenter VPS Hosting - Open-Source Billing Platform | HostingSpell",
+        "description": "Deploy Paymenter on HostingSpell VPS for open-source billing. Features: automated billing & invoicing, payment gateway integrations, client portal. Hosting business billing and client management.",
+        "keywords": [
+            "paymenter vps",
+            "paymenter hosting",
+            "paymenter self-hosted",
+            "billing platform",
+            "hosting billing vps",
+            "client management",
+            "payment processing"
+        ],
+        "tags": [
+            "ecommerce",
+            "billing",
+            "hosting",
+            "self-hosted",
+            "payments"
+        ]
+    }
+}

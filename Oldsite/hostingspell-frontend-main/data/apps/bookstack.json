@@ -1,0 +1,51 @@
+{
+    "id": "bookstack",
+    "slug": "bookstack",
+    "name": "BookStack",
+    "category": "knowledge",
+    "icon": "/img/apps/bookstack.png",
+    "shortDescription": "Simple and free Wiki system.",
+    "about": "BookStack is a simple, self-hosted, easy-to-use platform for organizing and storing information. Content is organized like books and chapters.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Built-in Diagrams.net"
+        },
+        {
+            "label": "Page revisions"
+        },
+        {
+            "label": "Search & cross-linking"
+        }
+    ],
+    "useCases": "Ideal for hobbyists, guilds, and small-businesses for structured knowledge keeping.",
+    "whyDeploy": [
+        {
+            "title": "Structured Knowledge",
+            "description": "A very lightweight system handling knowledge meticulously on just 2GB of RAM."
+        }
+    ],
+    "github": "https://github.com/BookStackApp/BookStack",
+    "website": "https://www.bookstackapp.com",
+    "docs": "https://www.bookstackapp.com/docs",
+    "seo": {
+        "title": "BookStack VPS Hosting - Self-Hosted Wiki System | HostingSpell",
+        "description": "Deploy BookStack on HostingSpell VPS for self-hosted wiki. Features: built-in diagrams, page revisions, search & cross-linking. Simple platform for organizing and storing information.",
+        "keywords": [
+            "bookstack vps",
+            "bookstack hosting",
+            "bookstack self-hosted",
+            "wiki system",
+            "knowledge base vps",
+            "self-hosted wiki",
+            "documentation platform"
+        ],
+        "tags": [
+            "knowledge",
+            "wiki",
+            "documentation",
+            "self-hosted",
+            "books"
+        ]
+    }
+}

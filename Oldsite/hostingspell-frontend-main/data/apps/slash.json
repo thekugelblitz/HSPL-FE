@@ -1,0 +1,51 @@
+{
+    "id": "slash",
+    "slug": "slash",
+    "name": "Slash",
+    "category": "knowledge",
+    "icon": "/img/apps/slash.png",
+    "shortDescription": "Open-source link shortening and sharing platform.",
+    "about": "Slash is an open-source, self-hosted bookmarks and link sharing platform. It allows you to organize, tag, and share links with shortcut-based access.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Link shortening & management"
+        },
+        {
+            "label": "Tags & collections"
+        },
+        {
+            "label": "Browser extension"
+        }
+    ],
+    "useCases": "Great for teams and individuals wanting to organize and quickly access frequently used links and resources.",
+    "whyDeploy": [
+        {
+            "title": "Quick Links",
+            "description": "Organize and access all your important links from a lightweight 2GB VPS."
+        }
+    ],
+    "github": "https://github.com/yourselfhosted/slash",
+    "website": "https://github.com/yourselfhosted/slash",
+    "docs": "https://github.com/yourselfhosted/slash#readme",
+    "seo": {
+        "title": "Slash VPS Hosting - Open-Source Link Platform | HostingSpell",
+        "description": "Deploy Slash on HostingSpell VPS for open-source link management. Features: link shortening & management, tags & collections, browser extension. Organize and share bookmarks.",
+        "keywords": [
+            "slash vps",
+            "slash hosting",
+            "slash self-hosted",
+            "link shortening",
+            "bookmark platform vps",
+            "link sharing",
+            "url manager"
+        ],
+        "tags": [
+            "knowledge",
+            "links",
+            "bookmarks",
+            "self-hosted",
+            "sharing"
+        ]
+    }
+}

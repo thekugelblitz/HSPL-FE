@@ -1,0 +1,55 @@
+{
+    "id": "argilla",
+    "slug": "argilla",
+    "name": "Argilla",
+    "category": "ai",
+    "icon": "/img/apps/argilla.png",
+    "shortDescription": "Collaborative platform for AI engineers to build high-quality datasets",
+    "about": "Argilla is a collaborative, open-source platform that enables AI engineers, domain experts, and annotators to build high-quality datasets for training, evaluating, and fine-tuning AI models.",
+    "minRam": 8,
+    "features": [
+        {
+            "label": "Human-in-the-loop annotations"
+        },
+        {
+            "label": "Data quality management"
+        },
+        {
+            "label": "Built-in integration with Hugging Face"
+        }
+    ],
+    "useCases": "Data science teams use Argilla to create fine-tuning datasets for LLMs.",
+    "whyDeploy": [
+        {
+            "title": "1. Total Control",
+            "description": "Host it yourself and keep your sensitive training data secure."
+        },
+        {
+            "title": "2. Scale with VPS",
+            "description": "Scale your instance up as your annotation teams grow."
+        }
+    ],
+    "github": "https://github.com/argilla-io/argilla",
+    "website": "https://argilla.io",
+    "docs": "https://docs.argilla.io",
+    "seo": {
+        "title": "Argilla VPS Hosting - AI Dataset Platform | HostingSpell",
+        "description": "Deploy Argilla on HostingSpell VPS for AI dataset creation. Features: human-in-the-loop annotations, data quality management, Hugging Face integration. Build high-quality datasets for LLMs.",
+        "keywords": [
+            "argilla vps",
+            "argilla hosting",
+            "argilla self-hosted",
+            "ai dataset platform",
+            "llm training data",
+            "annotation platform",
+            "hugging face integration"
+        ],
+        "tags": [
+            "ai",
+            "datasets",
+            "llm",
+            "annotation",
+            "data-quality"
+        ]
+    }
+}

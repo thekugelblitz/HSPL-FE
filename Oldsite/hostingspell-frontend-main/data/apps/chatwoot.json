@@ -1,0 +1,51 @@
+{
+    "id": "chatwoot",
+    "slug": "chatwoot",
+    "name": "Chatwoot",
+    "category": "communication",
+    "icon": "/img/apps/chatwoot.png",
+    "shortDescription": "Open-source customer engagement platform and live chat.",
+    "about": "Chatwoot is an open-source customer engagement suite providing live chat, email, social media, and messaging platform integrations for managing customer conversations from a single dashboard.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Omnichannel inbox"
+        },
+        {
+            "label": "Canned responses & automations"
+        },
+        {
+            "label": "Team collaboration"
+        }
+    ],
+    "useCases": "Perfect for businesses managing customer support across multiple channels including website chat, WhatsApp, Facebook, and email.",
+    "whyDeploy": [
+        {
+            "title": "Unified Support",
+            "description": "Manage all customer conversations from one place while keeping full control of your data on a 4GB VPS."
+        }
+    ],
+    "github": "https://github.com/chatwoot/chatwoot",
+    "website": "https://www.chatwoot.com",
+    "docs": "https://www.chatwoot.com/docs/self-hosted",
+    "seo": {
+        "title": "Chatwoot VPS Hosting - Open-Source Customer Engagement Platform | HostingSpell",
+        "description": "Deploy Chatwoot on HostingSpell VPS for open-source customer support. Features: omnichannel inbox, canned responses, team collaboration. Manage all customer conversations from one place.",
+        "keywords": [
+            "chatwoot vps",
+            "chatwoot hosting",
+            "chatwoot self-hosted",
+            "customer support platform",
+            "live chat server",
+            "omnichannel inbox",
+            "customer engagement"
+        ],
+        "tags": [
+            "communication",
+            "customer-support",
+            "live-chat",
+            "omnichannel",
+            "engagement"
+        ]
+    }
+}

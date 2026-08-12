@@ -1,0 +1,65 @@
+{
+    "id": "rocketchat",
+    "slug": "rocketchat",
+    "name": "Rocket.Chat",
+    "category": "communication",
+    "icon": "/img/apps/rocketchat.png",
+    "shortDescription": "Secure Self-Hosted Team Messaging Platform",
+    "about": "Rocket.Chat is a powerful Slack alternative designed for businesses that require secure, private communication. Hosting Rocket.Chat on your VPS gives you full control over messages, integrations, and team data.",
+    "minRam": 4,
+    "recommendedRam": 8,
+    "features": [
+        {
+            "label": "Team Messaging & Channels"
+        },
+        {
+            "label": "Video Conferencing"
+        },
+        {
+            "label": "File Sharing"
+        },
+        {
+            "label": "SSO & LDAP Integration"
+        }
+    ],
+    "useCases": "Used by companies, educational institutions, and remote teams needing secure internal communication.",
+    "performance": "4GB for small teams. 8GB+ recommended for larger organizations.",
+    "whyDeploy": [
+        {
+            "title": "1. Enterprise-Level Security",
+            "description": "Maintain complete control over internal conversations."
+        },
+        {
+            "title": "2. Unlimited Users",
+            "description": "Scale team communication without per-user costs."
+        }
+    ],
+    "bestForVpsPlans": [
+        "4GB VPS",
+        "8GB VPS",
+        "16GB VPS"
+    ],
+    "github": "https://github.com/RocketChat/Rocket.Chat",
+    "website": "https://www.rocket.chat",
+    "docs": "https://docs.rocket.chat",
+    "seo": {
+        "title": "Rocket.Chat VPS Hosting - Secure Team Messaging Platform | HostingSpell",
+        "description": "Deploy Rocket.Chat on HostingSpell VPS for secure team communication. Features: team messaging, video conferencing, file sharing, SSO/LDAP. Enterprise-level security with unlimited users.",
+        "keywords": [
+            "rocketchat vps",
+            "rocketchat hosting",
+            "rocketchat self-hosted",
+            "team messaging platform",
+            "slack alternative vps",
+            "secure chat server",
+            "enterprise messaging"
+        ],
+        "tags": [
+            "communication",
+            "messaging",
+            "team",
+            "enterprise",
+            "security"
+        ]
+    }
+}

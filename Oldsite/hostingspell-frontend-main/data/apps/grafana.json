@@ -1,0 +1,65 @@
+{
+    "id": "grafana",
+    "slug": "grafana",
+    "name": "Grafana",
+    "category": "monitoring",
+    "icon": "/img/apps/grafana.png",
+    "shortDescription": "Advanced Monitoring & Analytics Dashboard Platform",
+    "about": "Grafana enables businesses to monitor infrastructure, applications, and services through powerful dashboards and real-time metrics. Deploying Grafana on your VPS ensures full monitoring visibility and performance tracking.",
+    "minRam": 4,
+    "recommendedRam": 8,
+    "features": [
+        {
+            "label": "Real-Time Dashboards"
+        },
+        {
+            "label": "Alerting & Notifications"
+        },
+        {
+            "label": "Multiple Data Source Support"
+        },
+        {
+            "label": "Custom Visualizations"
+        }
+    ],
+    "useCases": "Perfect for DevOps teams, SaaS platforms, hosting providers, and system administrators.",
+    "performance": "Runs on 4GB VPS. 8GB+ recommended for heavy monitoring workloads.",
+    "whyDeploy": [
+        {
+            "title": "1. Full Infrastructure Visibility",
+            "description": "Monitor servers, databases, and applications from one dashboard."
+        },
+        {
+            "title": "2. Improve Uptime & Stability",
+            "description": "Set alerts and proactively resolve performance issues."
+        }
+    ],
+    "bestForVpsPlans": [
+        "4GB VPS",
+        "8GB VPS",
+        "16GB VPS"
+    ],
+    "github": "https://github.com/grafana/grafana",
+    "website": "https://grafana.com",
+    "docs": "https://grafana.com/docs/grafana/latest/",
+    "seo": {
+        "title": "Grafana VPS Hosting - Monitoring & Analytics Dashboard | HostingSpell",
+        "description": "Deploy Grafana on HostingSpell VPS for advanced monitoring and analytics. Features: real-time dashboards, alerting, multiple data sources, custom visualizations. Full infrastructure visibility.",
+        "keywords": [
+            "grafana vps",
+            "grafana hosting",
+            "grafana self-hosted",
+            "monitoring dashboard vps",
+            "analytics platform",
+            "infrastructure monitoring",
+            "metrics visualization"
+        ],
+        "tags": [
+            "monitoring",
+            "analytics",
+            "dashboard",
+            "metrics",
+            "visualization"
+        ]
+    }
+}

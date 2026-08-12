@@ -1,0 +1,72 @@
+{
+    "id": "nextcloud",
+    "slug": "nextcloud",
+    "name": "Nextcloud",
+    "category": "productivity",
+    "icon": "/img/apps/nextcloud.png",
+    "shortDescription": "Self-Hosted Cloud Storage & Collaboration Platform",
+    "about": "Nextcloud is a powerful self-hosted alternative to Google Drive and Dropbox. It allows businesses to securely store, sync, and share files while maintaining full data ownership. Hosting Nextcloud on your VPS ensures complete privacy, better compliance, and predictable costs without per-user storage fees.",
+    "minRam": 4,
+    "recommendedRam": 8,
+    "features": [
+        {
+            "label": "File Sync & Sharing"
+        },
+        {
+            "label": "User & Group Management"
+        },
+        {
+            "label": "Collaboration Tools"
+        },
+        {
+            "label": "Calendar & Contacts"
+        },
+        {
+            "label": "End-to-End Encryption"
+        }
+    ],
+    "useCases": "Ideal for businesses, remote teams, agencies, and organizations that need private cloud storage and collaboration tools.",
+    "performance": "Runs on 4GB VPS for small teams. 8GB+ recommended for larger storage usage and concurrent users.",
+    "whyDeploy": [
+        {
+            "title": "1. Complete Data Privacy",
+            "description": "All files stay on your own VPS infrastructure."
+        },
+        {
+            "title": "2. No Per-User Fees",
+            "description": "Add unlimited users without increasing subscription costs."
+        },
+        {
+            "title": "3. Scalable Storage",
+            "description": "Upgrade disk space and RAM as your organization grows."
+        }
+    ],
+    "bestForVpsPlans": [
+        "4GB VPS",
+        "8GB VPS",
+        "16GB VPS"
+    ],
+    "github": "https://github.com/nextcloud/server",
+    "website": "https://nextcloud.com",
+    "docs": "https://docs.nextcloud.com",
+    "seo": {
+        "title": "Nextcloud VPS Hosting - Self-Hosted Cloud Storage | HostingSpell",
+        "description": "Deploy Nextcloud on HostingSpell VPS for private cloud storage and collaboration. Features: file sync, sharing, calendar, contacts, end-to-end encryption. Full data ownership.",
+        "keywords": [
+            "nextcloud vps",
+            "nextcloud hosting",
+            "nextcloud self-hosted",
+            "private cloud storage",
+            "nextcloud deployment",
+            "cloud storage vps",
+            "file sharing server"
+        ],
+        "tags": [
+            "cloud",
+            "storage",
+            "productivity",
+            "self-hosted",
+            "collaboration"
+        ]
+    }
+}

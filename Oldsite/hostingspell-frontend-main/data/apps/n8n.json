@@ -1,0 +1,72 @@
+{
+    "id": "n8n",
+    "slug": "n8n",
+    "name": "n8n",
+    "category": "automation",
+    "icon": "/img/apps/n8n.png",
+    "shortDescription": "Self-Hosted Workflow Automation Platform – Powerful Zapier Alternative",
+    "about": "n8n is a powerful workflow automation platform that allows businesses to connect apps, automate repetitive tasks, and build complex integrations. Hosting n8n on your VPS gives you unlimited workflows, full data privacy, and zero per-task fees. It is ideal for agencies, SaaS founders, and growing businesses looking to automate operations without recurring automation costs.",
+    "minRam": 4,
+    "recommendedRam": 4,
+    "features": [
+        {
+            "label": "Visual Workflow Builder"
+        },
+        {
+            "label": "400+ App Integrations"
+        },
+        {
+            "label": "Webhook & API Support"
+        },
+        {
+            "label": "Custom Code Execution"
+        },
+        {
+            "label": "Cron & Scheduled Jobs"
+        }
+    ],
+    "useCases": "Automate email marketing, CRM updates, payment notifications, AI pipelines, lead generation systems, and internal business processes.",
+    "performance": "Runs smoothly on a 4GB VPS for moderate workflows. 8GB recommended for heavy automation usage.",
+    "whyDeploy": [
+        {
+            "title": "1. Unlimited Automations",
+            "description": "Run as many workflows as you need without paying per execution."
+        },
+        {
+            "title": "2. Complete Data Privacy",
+            "description": "Keep sensitive business data inside your own VPS environment."
+        },
+        {
+            "title": "3. Cost-Effective Scaling",
+            "description": "Upgrade VPS resources as automation demands grow."
+        }
+    ],
+    "bestForVpsPlans": [
+        "4GB VPS",
+        "8GB VPS",
+        "16GB VPS"
+    ],
+    "github": "https://github.com/n8n-io/n8n",
+    "website": "https://n8n.io",
+    "docs": "https://docs.n8n.io",
+    "seo": {
+        "title": "n8n VPS Hosting - Self-Hosted Workflow Automation Platform | HostingSpell",
+        "description": "Deploy n8n on HostingSpell VPS for workflow automation. Features: visual workflow builder, 400+ integrations, webhook support, custom code, scheduled jobs. Unlimited automations with zero per-task fees.",
+        "keywords": [
+            "n8n vps",
+            "n8n hosting",
+            "n8n self-hosted",
+            "workflow automation",
+            "zapier alternative vps",
+            "automation platform",
+            "business automation"
+        ],
+        "tags": [
+            "automation",
+            "workflow",
+            "integration",
+            "zapier-alternative",
+            "self-hosted"
+        ]
+    }
+}

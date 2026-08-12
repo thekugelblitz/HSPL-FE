@@ -1,0 +1,51 @@
+{
+    "id": "immich",
+    "slug": "immich",
+    "name": "Immich",
+    "category": "storage",
+    "icon": "/img/apps/immich.png",
+    "shortDescription": "Self-hosted Google Photos alternative with AI features.",
+    "about": "Immich is a high-performance, self-hosted photo and video management solution with mobile apps, AI-powered search, facial recognition, and automatic backups.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Mobile app with auto backup"
+        },
+        {
+            "label": "AI-powered search & tagging"
+        },
+        {
+            "label": "Facial recognition"
+        }
+    ],
+    "useCases": "Ideal for families and photographers wanting a private Google Photos experience with full data ownership.",
+    "whyDeploy": [
+        {
+            "title": "Photo Privacy",
+            "description": "Keep your memories private with AI-powered photo management on your own VPS infrastructure."
+        }
+    ],
+    "github": "https://github.com/immich-app/immich",
+    "website": "https://immich.app",
+    "docs": "https://immich.app/docs/overview/introduction",
+    "seo": {
+        "title": "Immich VPS Hosting - Self-Hosted Photo Management | HostingSpell",
+        "description": "Deploy Immich on HostingSpell VPS for self-hosted photo management. Features: mobile app with auto backup, AI-powered search & tagging, facial recognition. Private Google Photos alternative.",
+        "keywords": [
+            "immich vps",
+            "immich hosting",
+            "immich self-hosted",
+            "photo management",
+            "google photos alternative vps",
+            "ai photo search",
+            "video backup"
+        ],
+        "tags": [
+            "storage",
+            "photos",
+            "video",
+            "self-hosted",
+            "ai"
+        ]
+    }
+}

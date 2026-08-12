@@ -1,0 +1,51 @@
+{
+    "id": "kimai",
+    "slug": "kimai",
+    "name": "Kimai",
+    "category": "management",
+    "icon": "/img/apps/kimai.png",
+    "shortDescription": "Open-source time tracking application.",
+    "about": "Kimai is a free, open-source time-tracking application focused on simplicity and extensibility. It tracks work hours and generates reports for invoicing and payroll.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Time tracking with stopwatch"
+        },
+        {
+            "label": "Invoicing & export"
+        },
+        {
+            "label": "Multi-user & teams"
+        }
+    ],
+    "useCases": "Perfect for freelancers, agencies, and companies that need accurate time tracking, reporting, and invoicing.",
+    "whyDeploy": [
+        {
+            "title": "Time is Money",
+            "description": "Accurately track billable hours and generate invoices, running efficiently on just 2GB RAM."
+        }
+    ],
+    "github": "https://github.com/kimai/kimai",
+    "website": "https://www.kimai.org",
+    "docs": "https://www.kimai.org/documentation/",
+    "seo": {
+        "title": "Kimai VPS Hosting - Open-Source Time Tracking | HostingSpell",
+        "description": "Deploy Kimai on HostingSpell VPS for open-source time tracking. Features: time tracking with stopwatch, invoicing & export, multi-user & teams. Track billable hours and generate invoices.",
+        "keywords": [
+            "kimai vps",
+            "kimai hosting",
+            "kimai self-hosted",
+            "time tracking app",
+            "time tracker vps",
+            "invoicing software",
+            "work hours tracker"
+        ],
+        "tags": [
+            "management",
+            "time-tracking",
+            "billing",
+            "self-hosted",
+            "invoicing"
+        ]
+    }
+}

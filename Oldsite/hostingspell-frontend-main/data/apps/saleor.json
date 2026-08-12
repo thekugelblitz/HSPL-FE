@@ -1,0 +1,51 @@
+{
+    "id": "saleor",
+    "slug": "saleor",
+    "name": "Saleor",
+    "category": "ecommerce",
+    "icon": "/img/apps/saleor.png",
+    "shortDescription": "GraphQL-first e-commerce engine.",
+    "about": "Saleor is an open-source, GraphQL-first e-commerce platform that delivers ultra-fast, dynamic, and personalized shopping experiences.",
+    "minRam": 8,
+    "features": [
+        {
+            "label": "GraphQL API"
+        },
+        {
+            "label": "Omnichannel capability"
+        },
+        {
+            "label": "Extensible core"
+        }
+    ],
+    "useCases": "Ideal for omnichannel enterprise integrations where native mobile and web frontends hit a single GraphQL endpoint.",
+    "whyDeploy": [
+        {
+            "title": "High-end Commerce",
+            "description": "Perfect backend processing demanding 8-16GB VPS for large-scale enterprise deployments."
+        }
+    ],
+    "github": "https://github.com/saleor/saleor",
+    "website": "https://saleor.io",
+    "docs": "https://docs.saleor.io",
+    "seo": {
+        "title": "Saleor VPS Hosting - GraphQL-First E-Commerce Engine | HostingSpell",
+        "description": "Deploy Saleor on HostingSpell VPS for GraphQL-first e-commerce. Features: GraphQL API, omnichannel capability, extensible core. Ultra-fast, dynamic shopping experiences for enterprise.",
+        "keywords": [
+            "saleor vps",
+            "saleor hosting",
+            "saleor self-hosted",
+            "ecommerce engine",
+            "graphql commerce vps",
+            "enterprise ecommerce",
+            "headless commerce"
+        ],
+        "tags": [
+            "ecommerce",
+            "graphql",
+            "enterprise",
+            "self-hosted",
+            "headless"
+        ]
+    }
+}

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { createPortal } from "react-dom"
+import { ThemeToggle, MobileThemeSegment } from "../ui/ThemeToggle"
 import { 
   Server, Cloud, Globe, MonitorSmartphone, Code, Cpu, 
   Sparkles, User, ChevronRight, ChevronDown, Layers, BookOpen, PhoneCall, ArrowRight
@@ -168,9 +169,12 @@ export function MobileMenu() {
           99.99% Enterprise Uptime SLA
         </span>
 
-        <span className="text-[11px] font-extrabold text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
-          75% OFF Flash Sale
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-extrabold text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
+            75% OFF Flash Sale
+          </span>
+          <ThemeToggle />
+        </div>
       </div>
 
       {/* Scrollable Content Body */}
@@ -245,6 +249,9 @@ export function MobileMenu() {
           </div>
           <ArrowRight className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform" />
         </a>
+
+        {/* Dedicated Prominent Theme Mode Segment */}
+        <MobileThemeSegment />
 
         {/* Quick Services Grid */}
         <div className="grid grid-cols-2 gap-3 pt-1">

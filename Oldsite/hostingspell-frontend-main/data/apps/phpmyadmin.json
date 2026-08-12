@@ -1,0 +1,51 @@
+{
+    "id": "phpmyadmin",
+    "slug": "phpmyadmin",
+    "name": "phpMyAdmin",
+    "category": "database",
+    "icon": "/img/apps/phpmyadmin.png",
+    "shortDescription": "Web-based MySQL/MariaDB database administration tool.",
+    "about": "phpMyAdmin is a free, open-source administration tool for MySQL and MariaDB. It provides broad functionality via a web interface for creating and managing databases, tables, users, and SQL queries.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Web-based SQL editor"
+        },
+        {
+            "label": "Database import/export"
+        },
+        {
+            "label": "User & privilege management"
+        }
+    ],
+    "useCases": "Essential for developers and DBAs managing MySQL/MariaDB databases who need a visual interface for administration.",
+    "whyDeploy": [
+        {
+            "title": "Database At Your Fingertips",
+            "description": "Manage your databases visually from any browser, running on just 2GB RAM."
+        }
+    ],
+    "github": "https://github.com/phpmyadmin/phpmyadmin",
+    "website": "https://www.phpmyadmin.net",
+    "docs": "https://docs.phpmyadmin.net",
+    "seo": {
+        "title": "phpMyAdmin VPS Hosting - MySQL Database Management | HostingSpell",
+        "description": "Deploy phpMyAdmin on HostingSpell VPS for MySQL database management. Features: web-based SQL editor, database import/export, user & privilege management. Visual administration for MySQL/MariaDB.",
+        "keywords": [
+            "phpmyadmin vps",
+            "phpmyadmin hosting",
+            "phpmyadmin self-hosted",
+            "mysql administration",
+            "database management vps",
+            "sql editor",
+            "mariadb admin"
+        ],
+        "tags": [
+            "database",
+            "mysql",
+            "sql",
+            "self-hosted",
+            "administration"
+        ]
+    }
+}

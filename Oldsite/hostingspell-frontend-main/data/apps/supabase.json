@@ -1,0 +1,51 @@
+{
+    "id": "supabase",
+    "slug": "supabase",
+    "name": "Supabase",
+    "category": "development",
+    "icon": "/img/apps/supabase.png",
+    "shortDescription": "The open-source Firebase alternative.",
+    "about": "Supabase is an open source Firebase alternative. Build secure, performant, and scalable applications with a real-time Postgres database, Authentication, and Storage.",
+    "minRam": 8,
+    "features": [
+        {
+            "label": "PostgreSQL Database"
+        },
+        {
+            "label": "Realtime Subscriptions"
+        },
+        {
+            "label": "Auth and Storage"
+        }
+    ],
+    "useCases": "Suitable for startups and full-stack projects migrating from Firebase looking for SQL robustness.",
+    "whyDeploy": [
+        {
+            "title": "Complete Backend",
+            "description": "An 8GB+ VPS allows it to run smoothly, housing your database, APIs, auth, and logic in one platform."
+        }
+    ],
+    "github": "https://github.com/supabase/supabase",
+    "website": "https://supabase.com",
+    "docs": "https://supabase.com/docs",
+    "seo": {
+        "title": "Supabase VPS Hosting - Open-Source Firebase Alternative | HostingSpell",
+        "description": "Deploy Supabase on HostingSpell VPS for open-source backend. Features: PostgreSQL database, realtime subscriptions, auth and storage. Full Firebase alternative with SQL robustness.",
+        "keywords": [
+            "supabase vps",
+            "supabase hosting",
+            "supabase self-hosted",
+            "firebase alternative vps",
+            "open-source backend",
+            "postgres database vps",
+            "realtime backend"
+        ],
+        "tags": [
+            "backend",
+            "database",
+            "firebase-alternative",
+            "self-hosted",
+            "realtime"
+        ]
+    }
+}

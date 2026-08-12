@@ -11,6 +11,9 @@ import { ResellerRoiCalculator } from '../components/blocks/ResellerRoiCalculato
 import { resellerPlans, faqs } from '../lib/data';
 import WhmShowcase from '../components/blocks/WhmShowcase.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
+import { PLANS_RESELLER_HOSTING } from '../lib/pricing/resellerPlans';
+import { RESELLER_PROVIDER_LOCATIONS, GLOBAL_BILLING_CYCLES } from '../lib/pricing/constants';
 import { Check, Shield, Server, Zap, RefreshCw, ArrowRight, Layers, Users } from 'lucide-react';
 
 const features = [
@@ -160,16 +163,20 @@ const features = [
     <section class="py-24" id="plans">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-4">Plans That Adapt to Your Budget</h2>
-          <p class="text-muted-foreground">Choose the perfect plan for your needs</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {resellerPlans.map(plan => (
-            <PricingCard {...plan} />
-          ))}
+          <h2 class="text-3xl font-bold mb-4">Reseller WHM Hosting Plans</h2>
+          <p class="text-muted-foreground">Select your target region (India, USA, UK, Singapore, Netherlands) and billing cycle.</p>
         </div>
 
-        <ResellerRoiCalculator client:visible />
+        <InteractivePricingGrid
+          client:load
+          plans={PLANS_RESELLER_HOSTING}
+          locations={RESELLER_PROVIDER_LOCATIONS}
+          billingCycles={GLOBAL_BILLING_CYCLES.resellerhosting}
+        />
+
+        <div className="mt-16">
+          <ResellerRoiCalculator client:visible />
+        </div>
       </div>
     </section>
 

@@ -1,0 +1,59 @@
+# Dependencies (reinstalled inside the image)
+node_modules
+.pnp
+.pnp.*
+
+# Next.js build output (will be rebuilt)
+.next
+out
+.turbo
+
+# Local env files — inject these at runtime via Dokploy env vars
+.env
+.env.*
+.env.local
+.env.*.local
+
+# Dev / tooling artifacts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+.eslintcache
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Editor / OS
+.DS_Store
+*.pem
+.vscode
+.idea
+.editorconfig
+
+# Docker files themselves (no need to copy into image)
+Dockerfile
+.dockerignore
+dokploy.yml
+docker-compose.yml
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.circleci
+
+# Testing
+coverage
+.nyc_output
+jest.config.js
+
+# Misc
+README.md
+LICENSE
+CHANGELOG.md
+TODO.md
+DESIGN.md
+AGENTS.md

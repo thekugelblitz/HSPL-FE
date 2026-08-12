@@ -1,0 +1,51 @@
+{
+    "id": "rustdesk",
+    "slug": "rustdesk",
+    "name": "RustDesk",
+    "category": "devops",
+    "icon": "/img/apps/rustdesk.png",
+    "shortDescription": "Self-hosted remote desktop alternative to TeamViewer.",
+    "about": "RustDesk is an open-source remote desktop software that lets you remotely access and control computers. Self-host the server for full privacy and low-latency connections.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Cross-platform support"
+        },
+        {
+            "label": "End-to-end encryption"
+        },
+        {
+            "label": "File transfer"
+        }
+    ],
+    "useCases": "Perfect for IT teams needing secure, private remote desktop access without third-party service dependencies.",
+    "whyDeploy": [
+        {
+            "title": "Private Remote Access",
+            "description": "Run your own remote desktop relay server for secure, fast connections on just 2GB RAM."
+        }
+    ],
+    "github": "https://github.com/rustdesk/rustdesk",
+    "website": "https://rustdesk.com",
+    "docs": "https://rustdesk.com/docs",
+    "seo": {
+        "title": "RustDesk VPS Hosting - Self-Hosted Remote Desktop | HostingSpell",
+        "description": "Deploy RustDesk on HostingSpell VPS for self-hosted remote desktop. Features: cross-platform support, end-to-end encryption, file transfer. Secure alternative to TeamViewer with full privacy.",
+        "keywords": [
+            "rustdesk vps",
+            "rustdesk hosting",
+            "rustdesk self-hosted",
+            "remote desktop",
+            "teamviewer alternative vps",
+            "secure remote access",
+            "remote control server"
+        ],
+        "tags": [
+            "devops",
+            "remote",
+            "desktop",
+            "self-hosted",
+            "security"
+        ]
+    }
+}

@@ -8,7 +8,20 @@ import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { SavingsCalculator } from '../components/blocks/SavingsCalculator';
-import { cloudPlans, premiumPlans, vpsPlans, resellerPlans, comboPlans, faqs } from '../lib/data';
+import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
+import { InteractiveComparisonTable } from '../components/pricing/InteractiveComparisonTable';
+import { PLANS_CLOUD_HOSTING } from '../lib/pricing/cloudPlans';
+import { PLANS_PREMIUM_HOSTING } from '../lib/pricing/premiumPlans';
+import { PLANS_VPS_HOSTING } from '../lib/pricing/vpsPlans';
+import { PLANS_RESELLER_HOSTING } from '../lib/pricing/resellerPlans';
+import {
+  CLOUD_PROVIDER_LOCATIONS,
+  PREMIUM_PROVIDER_LOCATIONS,
+  VPS_PROVIDER_LOCATIONS,
+  RESELLER_PROVIDER_LOCATIONS,
+  GLOBAL_BILLING_CYCLES
+} from '../lib/pricing/constants';
+import { faqs } from '../lib/data';
 import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'lucide-react';
 ---
 
@@ -133,9 +146,12 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
             </div>
             <a href="/cloud-hosting" class="text-xs font-semibold text-primary hover:underline">View detailed Cloud specs &rarr;</a>
           </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {cloudPlans.map((plan, idx) => <PricingCard {...plan} isPopular={idx === 1} />)}
-          </div>
+          <InteractivePricingGrid
+            client:load
+            plans={PLANS_CLOUD_HOSTING}
+            locations={CLOUD_PROVIDER_LOCATIONS}
+            billingCycles={GLOBAL_BILLING_CYCLES.cloudhosting}
+          />
         </div>
 
         {/* Premium Hosting Section */}
@@ -148,9 +164,12 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
             </div>
             <a href="/premium-hosting" class="text-xs font-semibold text-primary hover:underline">View detailed Premium specs &rarr;</a>
           </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {premiumPlans.map((plan, idx) => <PricingCard {...plan} isPopular={idx === 1} />)}
-          </div>
+          <InteractivePricingGrid
+            client:load
+            plans={PLANS_PREMIUM_HOSTING}
+            locations={PREMIUM_PROVIDER_LOCATIONS}
+            billingCycles={GLOBAL_BILLING_CYCLES.premiumhosting}
+          />
         </div>
 
         {/* VPS Hosting Section */}
@@ -163,9 +182,12 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
             </div>
             <a href="/vps" class="text-xs font-semibold text-primary hover:underline">View detailed VPS specs &rarr;</a>
           </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {vpsPlans.map((plan, idx) => <PricingCard {...plan} isPopular={idx === 1} />)}
-          </div>
+          <InteractivePricingGrid
+            client:load
+            plans={PLANS_VPS_HOSTING}
+            locations={VPS_PROVIDER_LOCATIONS}
+            billingCycles={GLOBAL_BILLING_CYCLES.vpshosting}
+          />
         </div>
 
         {/* Reseller Hosting Section */}
@@ -178,9 +200,22 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
             </div>
             <a href="/reseller" class="text-xs font-semibold text-primary hover:underline">View detailed Reseller specs &rarr;</a>
           </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {resellerPlans.map((plan, idx) => <PricingCard {...plan} isPopular={idx === 1} />)}
-          </div>
+          <InteractivePricingGrid
+            client:load
+            plans={PLANS_RESELLER_HOSTING}
+            locations={RESELLER_PROVIDER_LOCATIONS}
+            billingCycles={GLOBAL_BILLING_CYCLES.resellerhosting}
+          />
+        </div>
+
+        {/* Detailed Spec Matrix Table */}
+        <div class="pt-8 border-t border-border/40">
+          <InteractiveComparisonTable
+            client:load
+            plans={PLANS_CLOUD_HOSTING}
+            locations={CLOUD_PROVIDER_LOCATIONS}
+            categoryName="Cloud Web Hosting"
+          />
         </div>
       </div>
     </section>

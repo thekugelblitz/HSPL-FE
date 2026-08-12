@@ -1,0 +1,10 @@
+NEXT_PUBLIC_WORDPRESS_API_URL=https://blog.hostingspell.com/wp-json/wp/v2
+HOSTINGSPELL_API_TOKEN=your-api-token-here
+
+# Redis configuration
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=YourRedisPasswordHere   # omit if Redis has no password
+
+NEXT_PUBLIC_POSTHOG_KEY=
+NEXT_PUBLIC_POSTHOG_HOST=https://posthog.2hs.in

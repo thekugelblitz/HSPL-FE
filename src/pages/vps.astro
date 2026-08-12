@@ -12,6 +12,9 @@ import { vpsPlans, faqs } from '../lib/data';
 import VpsDashboardShowcase from '../components/blocks/VpsDashboardShowcase.astro';
 import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
+import { PLANS_VPS_HOSTING } from '../lib/pricing/vpsPlans';
+import { VPS_PROVIDER_LOCATIONS, GLOBAL_BILLING_CYCLES } from '../lib/pricing/constants';
 import { Check, Terminal, Server, Shield, Cpu, Zap, ArrowRight, HardDrive } from 'lucide-react';
 
 const features = [
@@ -170,11 +173,12 @@ const features = [
           <h2 class="text-3xl font-extrabold text-white mb-4">Choose the perfect plan for your needs</h2>
           <p class="text-zinc-400">Easily evaluate features, pricing, and benefits across all VPS hosting plans.</p>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {vpsPlans.map(plan => (
-            <PricingCard {...plan} />
-          ))}
-        </div>
+        <InteractivePricingGrid
+          client:load
+          plans={PLANS_VPS_HOSTING}
+          locations={VPS_PROVIDER_LOCATIONS}
+          billingCycles={GLOBAL_BILLING_CYCLES.vpshosting}
+        />
       </div>
     </section>
 

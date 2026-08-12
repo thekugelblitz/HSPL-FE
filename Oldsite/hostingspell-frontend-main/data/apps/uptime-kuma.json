@@ -1,0 +1,51 @@
+{
+    "id": "uptime-kuma",
+    "slug": "uptime-kuma",
+    "name": "Uptime Kuma",
+    "category": "analytics",
+    "icon": "/img/apps/uptime-kuma.png",
+    "shortDescription": "Self-hosted monitoring tool like Uptime Robot.",
+    "about": "Uptime Kuma is a self-hosted monitoring tool like Uptime Robot. It supports monitoring via HTTP(s), TCP, DNS, Docker, and more with beautiful status pages and notifications.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "20+ notification channels"
+        },
+        {
+            "label": "Status pages"
+        },
+        {
+            "label": "Multi-language support"
+        }
+    ],
+    "useCases": "Essential for DevOps teams and website owners who need to monitor uptime and get alerted for outages.",
+    "whyDeploy": [
+        {
+            "title": "Always Watching",
+            "description": "Monitor all your services and get instant alerts on downtime, running on just 2GB RAM."
+        }
+    ],
+    "github": "https://github.com/louislam/uptime-kuma",
+    "website": "https://uptime.kuma.pet",
+    "docs": "https://github.com/louislam/uptime-kuma/wiki",
+    "seo": {
+        "title": "Uptime Kuma VPS - Self-Hosted Monitoring Tool | HostingSpell",
+        "description": "Deploy Uptime Kuma on HostingSpell VPS for self-hosted monitoring. Features: 20+ notification channels, status pages, multi-language support. Monitor all your services with beautiful dashboards.",
+        "keywords": [
+            "uptime kuma vps",
+            "uptime kuma hosting",
+            "uptime kuma self-hosted",
+            "monitoring tool vps",
+            "uptime monitoring",
+            "status page server",
+            "service monitoring"
+        ],
+        "tags": [
+            "monitoring",
+            "uptime",
+            "analytics",
+            "status-page",
+            "notifications"
+        ]
+    }
+}

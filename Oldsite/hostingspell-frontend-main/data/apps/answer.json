@@ -1,0 +1,51 @@
+{
+    "id": "answer",
+    "slug": "answer",
+    "name": "Answer",
+    "category": "knowledge",
+    "icon": "/img/apps/answer.png",
+    "shortDescription": "Open-source Q&A platform for teams and communities.",
+    "about": "Answer is an open-source knowledge-based community software. You can use it to quickly build your Q&A platform for product technical support, customer support, user communication, and more.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Q&A with voting"
+        },
+        {
+            "label": "Tags & categories"
+        },
+        {
+            "label": "Plugin ecosystem"
+        }
+    ],
+    "useCases": "Great for building internal knowledge bases, community forums, or customer support Q&A platforms.",
+    "whyDeploy": [
+        {
+            "title": "Community Knowledge",
+            "description": "Build a Stack Overflow-like platform for your team or community on a lightweight 2GB VPS."
+        }
+    ],
+    "github": "https://github.com/apache/incubator-answer",
+    "website": "https://answer.apache.org",
+    "docs": "https://answer.apache.org/docs",
+    "seo": {
+        "title": "Answer VPS Hosting - Open-Source Q&A Platform | HostingSpell",
+        "description": "Deploy Answer on HostingSpell VPS for open-source Q&A platform. Features: Q&A with voting, tags & categories, plugin ecosystem. Build Stack Overflow-like communities.",
+        "keywords": [
+            "answer vps",
+            "answer hosting",
+            "answer self-hosted",
+            "qa platform",
+            "q&a community vps",
+            "stack overflow alternative",
+            "knowledge platform"
+        ],
+        "tags": [
+            "knowledge",
+            "qa",
+            "community",
+            "self-hosted",
+            "forum"
+        ]
+    }
+}

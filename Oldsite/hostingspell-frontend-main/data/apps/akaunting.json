@@ -1,0 +1,51 @@
+{
+    "id": "akaunting",
+    "slug": "akaunting",
+    "name": "Akaunting",
+    "category": "ecommerce",
+    "icon": "/img/apps/akaunting.png",
+    "shortDescription": "Free and online accounting software for small businesses.",
+    "about": "Akaunting is a free, open-source, and online accounting software designed for small businesses and freelancers. It provides invoicing, expense tracking, and financial reporting.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Invoicing & billing"
+        },
+        {
+            "label": "Expense tracking"
+        },
+        {
+            "label": "Financial reports & dashboards"
+        }
+    ],
+    "useCases": "Perfect for freelancers and small businesses needing a self-hosted accounting system with full control over financial data.",
+    "whyDeploy": [
+        {
+            "title": "Financial Sovereignty",
+            "description": "Keep your financial data private and secure on your own VPS, with no SaaS subscription fees."
+        }
+    ],
+    "github": "https://github.com/akaunting/akaunting",
+    "website": "https://akaunting.com",
+    "docs": "https://akaunting.com/docs",
+    "seo": {
+        "title": "Akaunting VPS Hosting - Open-Source Accounting Software | HostingSpell",
+        "description": "Deploy Akaunting on HostingSpell VPS for open-source accounting. Features: invoicing & billing, expense tracking, financial reports & dashboards. Self-hosted accounting for small businesses.",
+        "keywords": [
+            "akaunting vps",
+            "akaunting hosting",
+            "akaunting self-hosted",
+            "accounting software",
+            "small business accounting vps",
+            "invoicing software",
+            "financial reporting"
+        ],
+        "tags": [
+            "ecommerce",
+            "accounting",
+            "billing",
+            "self-hosted",
+            "finance"
+        ]
+    }
+}

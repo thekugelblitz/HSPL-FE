@@ -1,0 +1,51 @@
+{
+    "id": "erpnext",
+    "slug": "erpnext",
+    "name": "ERPNext",
+    "category": "ecommerce",
+    "icon": "/img/apps/erpnext.png",
+    "shortDescription": "Full-featured open-source ERP system.",
+    "about": "ERPNext is a free, open-source, modern ERP system covering accounting, inventory, manufacturing, CRM, sales, purchasing, project management, and HR modules.",
+    "minRam": 8,
+    "features": [
+        {
+            "label": "Full accounting suite"
+        },
+        {
+            "label": "Inventory & manufacturing"
+        },
+        {
+            "label": "HR & payroll"
+        }
+    ],
+    "useCases": "Comprehensive business management for SMEs needing an all-in-one ERP without expensive licensing fees.",
+    "whyDeploy": [
+        {
+            "title": "Enterprise ERP",
+            "description": "Run a full enterprise ERP system on your own 8GB+ VPS, replacing expensive SAP or Oracle licenses."
+        }
+    ],
+    "github": "https://github.com/frappe/erpnext",
+    "website": "https://erpnext.com",
+    "docs": "https://docs.erpnext.com",
+    "seo": {
+        "title": "ERPNext VPS Hosting - Open-Source ERP System | HostingSpell",
+        "description": "Deploy ERPNext on HostingSpell VPS for open-source ERP. Features: accounting suite, inventory & manufacturing, HR & payroll. Complete business management without expensive licensing.",
+        "keywords": [
+            "erpnext vps",
+            "erpnext hosting",
+            "erpnext self-hosted",
+            "open-source erp",
+            "business management system",
+            "erp software vps",
+            "accounting erp"
+        ],
+        "tags": [
+            "erp",
+            "business",
+            "accounting",
+            "inventory",
+            "self-hosted"
+        ]
+    }
+}

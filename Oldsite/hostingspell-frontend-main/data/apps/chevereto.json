@@ -1,0 +1,51 @@
+{
+    "id": "chevereto",
+    "slug": "chevereto",
+    "name": "Chevereto",
+    "category": "storage",
+    "icon": "/img/apps/chevereto.png",
+    "shortDescription": "Self-hosted image hosting and sharing solution.",
+    "about": "Chevereto is a powerful, self-hosted image hosting script that allows you to create an image hosting website with full control over your content and privacy.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Multi-user support"
+        },
+        {
+            "label": "Album management"
+        },
+        {
+            "label": "External storage support"
+        }
+    ],
+    "useCases": "Great for photographers, designers, and businesses needing a private image hosting platform.",
+    "whyDeploy": [
+        {
+            "title": "Image Sovereignty",
+            "description": "Host unlimited images on your own VPS without platform restrictions or privacy concerns."
+        }
+    ],
+    "github": "https://github.com/chevereto/chevereto",
+    "website": "https://chevereto.com",
+    "docs": "https://v4-docs.chevereto.com",
+    "seo": {
+        "title": "Chevereto VPS Hosting - Self-Hosted Image Platform | HostingSpell",
+        "description": "Deploy Chevereto on HostingSpell VPS for self-hosted image hosting. Features: multi-user support, album management, external storage. Create your own private image hosting platform.",
+        "keywords": [
+            "chevereto vps",
+            "chevereto hosting",
+            "chevereto self-hosted",
+            "image hosting platform",
+            "photo hosting vps",
+            "private image hosting",
+            "image sharing server"
+        ],
+        "tags": [
+            "storage",
+            "images",
+            "photo",
+            "self-hosted",
+            "sharing"
+        ]
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "id": "drawio",
+    "slug": "drawio",
+    "name": "Draw.io",
+    "category": "productivity",
+    "icon": "/img/apps/drawio.png",
+    "shortDescription": "Free online diagramming and whiteboarding tool.",
+    "about": "Draw.io (diagrams.net) is a free, open-source diagramming application for creating flowcharts, process diagrams, org charts, UML, ER diagrams, and network diagrams.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "Drag-and-drop editor"
+        },
+        {
+            "label": "Hundreds of shape libraries"
+        },
+        {
+            "label": "Export to multiple formats"
+        }
+    ],
+    "useCases": "Essential for engineering teams, architects, and anyone needing professional diagramming capabilities without SaaS dependencies.",
+    "whyDeploy": [
+        {
+            "title": "Private Diagramming",
+            "description": "Keep sensitive architecture and design diagrams private on your own server, running on just 2GB RAM."
+        }
+    ],
+    "github": "https://github.com/jgraph/drawio",
+    "website": "https://www.drawio.com",
+    "docs": "https://www.drawio.com/doc",
+    "seo": {
+        "title": "Draw.io VPS Hosting - Open-Source Diagramming Tool | HostingSpell",
+        "description": "Deploy Draw.io on HostingSpell VPS for open-source diagramming. Features: drag-and-drop editor, hundreds of shape libraries, export to multiple formats. Create professional diagrams privately.",
+        "keywords": [
+            "drawio vps",
+            "drawio hosting",
+            "drawio self-hosted",
+            "diagramming tool",
+            "flowchart software vps",
+            "whiteboard platform",
+            "diagrams.net"
+        ],
+        "tags": [
+            "productivity",
+            "diagrams",
+            "flowchart",
+            "self-hosted",
+            "whiteboard"
+        ]
+    }
+}

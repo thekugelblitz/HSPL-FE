@@ -1,0 +1,51 @@
+{
+    "id": "habitica",
+    "slug": "habitica",
+    "name": "Habitica",
+    "category": "productivity",
+    "icon": "/img/apps/habitica.png",
+    "shortDescription": "Gamified habit tracker and task manager.",
+    "about": "Habitica is a free habit and productivity app that treats your real life like a game. With in-game rewards and punishments, it motivates you to achieve your goals.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "RPG-style habit tracking"
+        },
+        {
+            "label": "Daily tasks & to-dos"
+        },
+        {
+            "label": "Social features & guilds"
+        }
+    ],
+    "useCases": "Perfect for teams and individuals who want a fun, gamified approach to productivity and habit building.",
+    "whyDeploy": [
+        {
+            "title": "Gamified Productivity",
+            "description": "Host your own habit tracking community with full control over data and customization."
+        }
+    ],
+    "github": "https://github.com/HabitRPG/habitica",
+    "website": "https://habitica.com",
+    "docs": "https://habitica.fandom.com/wiki/Habitica_Wiki",
+    "seo": {
+        "title": "Habitica VPS Hosting - Gamified Productivity Platform | HostingSpell",
+        "description": "Deploy Habitica on HostingSpell VPS for gamified productivity. Features: RPG-style tracking, daily tasks, social features & guilds. Make productivity fun with game mechanics.",
+        "keywords": [
+            "habitica vps",
+            "habitica hosting",
+            "habitica self-hosted",
+            "gamified productivity",
+            "habit tracker vps",
+            "task manager game",
+            "productivity platform"
+        ],
+        "tags": [
+            "productivity",
+            "habit",
+            "gamified",
+            "self-hosted",
+            "tasks"
+        ]
+    }
+}

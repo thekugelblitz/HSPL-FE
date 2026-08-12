@@ -9,6 +9,9 @@ import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { comboPlans, faqs } from '../lib/data';
 import CpanelShowcase from '../components/blocks/CpanelShowcase.astro';
+import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
+import { PLANS_COMBO_HOSTING } from '../lib/pricing/comboPlans';
+import { COMBO_PROVIDER_LOCATIONS, GLOBAL_BILLING_CYCLES } from '../lib/pricing/constants';
 import { Check, Globe, Zap, Shield, ArrowRight, Gift } from 'lucide-react';
 
 const features = [
@@ -158,14 +161,16 @@ const features = [
     <section class="py-24" id="plans">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-4">Plans That Adapt to Your Budget</h2>
-          <p class="text-muted-foreground">Choose the perfect combo plan for your needs</p>
+          <h2 class="text-3xl font-bold mb-4">Combo Hosting Plans</h2>
+          <p class="text-muted-foreground">Select your datacenter region (India, USA, UK, Singapore, Netherlands) and billing cycle.</p>
         </div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {comboPlans.map(plan => (
-            <PricingCard {...plan} />
-          ))}
-        </div>
+
+        <InteractivePricingGrid
+          client:load
+          plans={PLANS_COMBO_HOSTING}
+          locations={COMBO_PROVIDER_LOCATIONS}
+          billingCycles={GLOBAL_BILLING_CYCLES.combohosting}
+        />
       </div>
     </section>
 

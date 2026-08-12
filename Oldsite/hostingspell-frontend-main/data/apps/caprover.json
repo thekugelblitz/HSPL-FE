@@ -1,0 +1,51 @@
+{
+    "id": "caprover",
+    "slug": "caprover",
+    "name": "CapRover",
+    "category": "devops",
+    "icon": "https://caprover.com/img/logo.png",
+    "shortDescription": "Lightweight PaaS for deploying complex microservices in minutes.",
+    "about": "CapRover is an extremely easy to use app/database deployment & web server manager for your NodeJS, Python, PHP, ASP.NET, Ruby, MySQL, MongoDB, Postgres, WordPress (and etc...) applications!",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "One-Click Apps"
+        },
+        {
+            "label": "Clustering Server"
+        },
+        {
+            "label": "Web GUI"
+        }
+    ],
+    "useCases": "Perfect for deploying multiple distinct dockerized microservices efficiently on a resource-constrained VPS.",
+    "whyDeploy": [
+        {
+            "title": "Simplicity",
+            "description": "Abstracts the complexity of Docker Swarm while keeping it highly performant."
+        }
+    ],
+    "github": "https://github.com/caprover/caprover",
+    "website": "https://caprover.com",
+    "docs": "https://caprover.com/docs/get-started.html",
+    "seo": {
+        "title": "CapRover VPS Hosting - Lightweight PaaS Platform | HostingSpell",
+        "description": "Deploy CapRover on HostingSpell VPS for lightweight PaaS. Features: one-click apps, clustering server, web GUI. Deploy microservices and web applications with ease.",
+        "keywords": [
+            "caprover vps",
+            "caprover hosting",
+            "caprover self-hosted",
+            "paas platform",
+            "microservices deployment",
+            "docker deployment vps",
+            "web server manager"
+        ],
+        "tags": [
+            "devops",
+            "paas",
+            "docker",
+            "microservices",
+            "self-hosted"
+        ]
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "id": "directus",
+    "slug": "directus",
+    "name": "Directus",
+    "category": "database",
+    "icon": "/img/apps/directus.png",
+    "shortDescription": "Headless CMS and API for your SQL database.",
+    "about": "Directus instantly turns your SQL database into a robust REST and GraphQL API, accompanied by a beautiful, intuitive no-code Data Studio.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Dynamic API generation"
+        },
+        {
+            "label": "Intuitive Admin App"
+        },
+        {
+            "label": "Granular Permissions"
+        }
+    ],
+    "useCases": "Often used for rapidly building backends for mobile apps or complex dynamic marketing sites.",
+    "whyDeploy": [
+        {
+            "title": "No Vendor Lock-in",
+            "description": "Brings modern APIs to standard robust SQL databases. Runs perfectly on a 4GB VPS."
+        }
+    ],
+    "github": "https://github.com/directus/directus",
+    "website": "https://directus.io",
+    "docs": "https://docs.directus.io",
+    "seo": {
+        "title": "Directus VPS Hosting - Headless CMS & API Platform | HostingSpell",
+        "description": "Deploy Directus on HostingSpell VPS for headless CMS and API. Features: dynamic API generation, intuitive admin app, granular permissions. Turn your SQL database into a powerful API.",
+        "keywords": [
+            "directus vps",
+            "directus hosting",
+            "directus self-hosted",
+            "headless cms",
+            "api platform vps",
+            "sql database api",
+            "no-code cms"
+        ],
+        "tags": [
+            "database",
+            "cms",
+            "api",
+            "headless",
+            "self-hosted"
+        ]
+    }
+}

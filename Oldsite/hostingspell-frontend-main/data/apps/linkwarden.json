@@ -1,0 +1,51 @@
+{
+    "id": "linkwarden",
+    "slug": "linkwarden",
+    "name": "Linkwarden",
+    "category": "knowledge",
+    "icon": "/img/apps/linkwarden.png",
+    "shortDescription": "Collaborative bookmark manager to collect and organize links.",
+    "about": "Linkwarden is a collaborative bookmark manager to collect, organize, and preserve webpages. It automatically archives bookmarked pages and supports tags, collections, and collaboration.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Automatic webpage archiving"
+        },
+        {
+            "label": "Tags & collections"
+        },
+        {
+            "label": "Collaborative sharing"
+        }
+    ],
+    "useCases": "Great for research teams, content curators, and anyone who wants to organize and preserve web content.",
+    "whyDeploy": [
+        {
+            "title": "Knowledge Preservation",
+            "description": "Never lose important web content again with automatic archiving on your own 4GB VPS."
+        }
+    ],
+    "github": "https://github.com/linkwarden/linkwarden",
+    "website": "https://linkwarden.app",
+    "docs": "https://docs.linkwarden.app",
+    "seo": {
+        "title": "Linkwarden VPS Hosting - Collaborative Bookmark Manager | HostingSpell",
+        "description": "Deploy Linkwarden on HostingSpell VPS for collaborative bookmark management. Features: automatic webpage archiving, tags & collections, collaborative sharing. Organize and preserve web content.",
+        "keywords": [
+            "linkwarden vps",
+            "linkwarden hosting",
+            "linkwarden self-hosted",
+            "bookmark manager",
+            "collaborative bookmarks vps",
+            "web archiving",
+            "link organization"
+        ],
+        "tags": [
+            "knowledge",
+            "bookmarks",
+            "collaboration",
+            "self-hosted",
+            "archiving"
+        ]
+    }
+}

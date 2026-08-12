@@ -1,0 +1,64 @@
+{
+    "id": "outline",
+    "slug": "outline",
+    "name": "Outline",
+    "category": "knowledge-base",
+    "icon": "/img/apps/outline.png",
+    "shortDescription": "Beautiful Self-Hosted Knowledge Base & Team Wiki",
+    "about": "Outline is a modern knowledge base platform designed to help teams document processes, share internal knowledge, and collaborate efficiently. Hosting Outline on your VPS keeps company documentation secure and accessible.",
+    "minRam": 4,
+    "recommendedRam": 8,
+    "features": [
+        {
+            "label": "Rich Text Editor"
+        },
+        {
+            "label": "Team Collaboration"
+        },
+        {
+            "label": "Access Controls"
+        },
+        {
+            "label": "Search & Organization"
+        }
+    ],
+    "useCases": "Ideal for startups, SaaS companies, and agencies building internal documentation systems.",
+    "performance": "4GB sufficient for small teams. 8GB recommended for high document volume.",
+    "whyDeploy": [
+        {
+            "title": "1. Secure Documentation Hosting",
+            "description": "Keep internal knowledge private and protected."
+        },
+        {
+            "title": "2. Scalable for Growing Teams",
+            "description": "Upgrade resources as documentation expands."
+        }
+    ],
+    "bestForVpsPlans": [
+        "4GB VPS",
+        "8GB VPS"
+    ],
+    "github": "https://github.com/outline/outline",
+    "website": "https://www.getoutline.com",
+    "docs": "https://www.getoutline.com/developers",
+    "seo": {
+        "title": "Outline VPS Hosting - Self-Hosted Knowledge Base | HostingSpell",
+        "description": "Deploy Outline on HostingSpell VPS for self-hosted knowledge base. Features: rich text editor, team collaboration, access controls, search & organization. Secure internal documentation.",
+        "keywords": [
+            "outline vps",
+            "outline hosting",
+            "outline self-hosted",
+            "knowledge base platform",
+            "team wiki vps",
+            "documentation system",
+            "internal knowledge base"
+        ],
+        "tags": [
+            "knowledge-base",
+            "documentation",
+            "wiki",
+            "collaboration",
+            "self-hosted"
+        ]
+    }
+}

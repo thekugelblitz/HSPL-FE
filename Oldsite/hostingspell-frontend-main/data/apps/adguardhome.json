@@ -1,0 +1,51 @@
+{
+    "id": "adguardhome",
+    "slug": "adguardhome",
+    "name": "AdGuard Home",
+    "category": "analytics",
+    "icon": "/img/apps/adguardhome.png",
+    "shortDescription": "Network-wide ad and tracker blocking DNS server.",
+    "about": "AdGuard Home is a network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a 'black hole,' preventing your devices from connecting to those servers.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "DNS-level ad blocking"
+        },
+        {
+            "label": "Custom filtering rules"
+        },
+        {
+            "label": "DHCP server built-in"
+        }
+    ],
+    "useCases": "Ideal for network administrators and privacy-conscious users who want to block ads and trackers at the DNS level across all devices.",
+    "whyDeploy": [
+        {
+            "title": "Network-Wide Protection",
+            "description": "Block ads on all connected devices without installing any client-side software, running efficiently on just 2GB RAM."
+        }
+    ],
+    "github": "https://github.com/AdguardTeam/AdGuardHome",
+    "website": "https://adguard.com/adguard-home.html",
+    "docs": "https://github.com/AdguardTeam/AdGuardHome/wiki",
+    "seo": {
+        "title": "AdGuard Home VPS - Network-wide Ad Blocking DNS Server | HostingSpell",
+        "description": "Deploy AdGuard Home on HostingSpell VPS for network-wide ad and tracker blocking. Block ads on all devices with DNS-level filtering. 2GB RAM efficient.",
+        "keywords": [
+            "adguard home vps",
+            "adguard home hosting",
+            "dns ad blocking",
+            "network-wide ad blocker",
+            "adguard home self-hosted",
+            "dns filtering vps",
+            "privacy dns server"
+        ],
+        "tags": [
+            "ad-blocking",
+            "dns",
+            "privacy",
+            "network-security",
+            "tracker-blocking"
+        ]
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "id": "appflowy",
+    "slug": "appflowy",
+    "name": "AppFlowy",
+    "category": "productivity",
+    "icon": "/img/apps/appflowy.png",
+    "shortDescription": "Open-source Notion alternative for wikis and project management.",
+    "about": "AppFlowy is an AI-powered open-source alternative to Notion. It brings project management, wikis, and document collaboration to your own server with full data control.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Rich document editor"
+        },
+        {
+            "label": "Kanban boards"
+        },
+        {
+            "label": "AI-powered content generation"
+        }
+    ],
+    "useCases": "Ideal for teams wanting a Notion-like experience with full data sovereignty and customization capabilities.",
+    "whyDeploy": [
+        {
+            "title": "Data Ownership",
+            "description": "Get a premium Notion-like experience while keeping all data on your own infrastructure."
+        }
+    ],
+    "github": "https://github.com/AppFlowy-IO/AppFlowy",
+    "website": "https://appflowy.io",
+    "docs": "https://docs.appflowy.io",
+    "seo": {
+        "title": "AppFlowy VPS Hosting - Open-Source Notion Alternative | HostingSpell",
+        "description": "Deploy AppFlowy on HostingSpell VPS for open-source productivity. Features: rich document editor, kanban boards, AI-powered content generation. Notion alternative with full data control.",
+        "keywords": [
+            "appflowy vps",
+            "appflowy hosting",
+            "appflowy self-hosted",
+            "notion alternative",
+            "productivity platform vps",
+            "wiki platform",
+            "project management"
+        ],
+        "tags": [
+            "productivity",
+            "notion",
+            "wiki",
+            "self-hosted",
+            "project-management"
+        ]
+    }
+}

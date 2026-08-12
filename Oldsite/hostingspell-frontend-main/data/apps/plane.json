@@ -1,0 +1,64 @@
+{
+    "id": "plane",
+    "slug": "plane",
+    "name": "Plane",
+    "category": "project-management",
+    "icon": "/icons/plane.svg",
+    "shortDescription": "Modern Open-Source Project Management Tool",
+    "about": "Plane is a powerful open-source alternative to Linear and Jira that helps teams manage projects, sprints, and issues efficiently. Deploying Plane on your VPS ensures reliable performance and complete ownership of your project data.",
+    "minRam": 4,
+    "recommendedRam": 8,
+    "features": [
+        {
+            "label": "Sprint & Issue Tracking"
+        },
+        {
+            "label": "Kanban Boards"
+        },
+        {
+            "label": "Team Collaboration"
+        },
+        {
+            "label": "Role-Based Access"
+        }
+    ],
+    "useCases": "Perfect for startups, development teams, agencies, and product teams managing agile workflows.",
+    "performance": "4GB works for small teams. 8GB recommended for production environments.",
+    "whyDeploy": [
+        {
+            "title": "1. Private Project Data",
+            "description": "Keep product roadmaps and internal tasks secure."
+        },
+        {
+            "title": "2. Cost-Effective for Growing Teams",
+            "description": "Avoid expensive per-seat SaaS pricing."
+        }
+    ],
+    "bestForVpsPlans": [
+        "4GB VPS",
+        "8GB VPS"
+    ],
+    "github": "https://github.com/makeplane/plane",
+    "website": "https://plane.so",
+    "docs": "https://docs.plane.so",
+    "seo": {
+        "title": "Plane VPS Hosting - Open-Source Project Management | HostingSpell",
+        "description": "Deploy Plane on HostingSpell VPS for open-source project management. Features: sprint & issue tracking, kanban boards, team collaboration, role-based access. Linear and Jira alternative.",
+        "keywords": [
+            "plane vps",
+            "plane hosting",
+            "plane self-hosted",
+            "project management",
+            "linear alternative vps",
+            "jira alternative",
+            "agile project management"
+        ],
+        "tags": [
+            "project-management",
+            "agile",
+            "kanban",
+            "self-hosted",
+            "linear-alternative"
+        ]
+    }
+}

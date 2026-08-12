@@ -1,0 +1,51 @@
+{
+    "id": "strapi",
+    "slug": "strapi",
+    "name": "Strapi",
+    "category": "database",
+    "icon": "/img/apps/strapi.png",
+    "shortDescription": "Leading open-source headless CMS for building APIs.",
+    "about": "Strapi is the leading open-source headless CMS. It's 100% JavaScript/TypeScript, fully customizable, and developer-first. It enables content-rich experiences to be created and managed easily.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "RESTful & GraphQL APIs"
+        },
+        {
+            "label": "Customizable admin panel"
+        },
+        {
+            "label": "Role-based access control"
+        }
+    ],
+    "useCases": "Perfect for building content APIs for websites, mobile apps, and IoT devices with a developer-friendly content management interface.",
+    "whyDeploy": [
+        {
+            "title": "API-First CMS",
+            "description": "Build headless content APIs easily with a visual admin panel, running smoothly on 4GB RAM."
+        }
+    ],
+    "github": "https://github.com/strapi/strapi",
+    "website": "https://strapi.io",
+    "docs": "https://docs.strapi.io",
+    "seo": {
+        "title": "Strapi VPS Hosting - Open-Source Headless CMS | HostingSpell",
+        "description": "Deploy Strapi on HostingSpell VPS for open-source headless CMS. Features: RESTful & GraphQL APIs, customizable admin panel, role-based access control. Build content APIs for any device.",
+        "keywords": [
+            "strapi vps",
+            "strapi hosting",
+            "strapi self-hosted",
+            "headless cms",
+            "api cms vps",
+            "content management platform",
+            "javascript cms"
+        ],
+        "tags": [
+            "database",
+            "cms",
+            "api",
+            "headless",
+            "self-hosted"
+        ]
+    }
+}

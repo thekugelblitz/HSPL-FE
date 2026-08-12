@@ -1,0 +1,51 @@
+{
+    "id": "roundcube",
+    "slug": "roundcube",
+    "name": "Roundcube",
+    "category": "communication",
+    "icon": "/img/apps/roundcube.png",
+    "shortDescription": "Free and open-source webmail client.",
+    "about": "Roundcube is a browser-based, multilingual IMAP client with a full-featured and intuitive user interface. It provides full functionality expected from an email client including MIME support, address book, and spell checking.",
+    "minRam": 2,
+    "features": [
+        {
+            "label": "IMAP/SMTP support"
+        },
+        {
+            "label": "Drag-and-drop UI"
+        },
+        {
+            "label": "Plugin system"
+        }
+    ],
+    "useCases": "Ideal for organizations wanting self-hosted webmail access with a modern interface and full email client capabilities.",
+    "whyDeploy": [
+        {
+            "title": "Self-Hosted Email",
+            "description": "Access your email from any browser with a lightweight, privacy-friendly webmail client on 2GB RAM."
+        }
+    ],
+    "github": "https://github.com/roundcube/roundcubemail",
+    "website": "https://roundcube.net",
+    "docs": "https://github.com/roundcube/roundcubemail/wiki",
+    "seo": {
+        "title": "Roundcube VPS Hosting - Open-Source Webmail Client | HostingSpell",
+        "description": "Deploy Roundcube on HostingSpell VPS for open-source webmail. Features: IMAP/SMTP support, drag-and-drop UI, plugin system. Full-featured email client with modern interface.",
+        "keywords": [
+            "roundcube vps",
+            "roundcube hosting",
+            "roundcube self-hosted",
+            "webmail client",
+            "email server vps",
+            "imap client",
+            "open-source email"
+        ],
+        "tags": [
+            "communication",
+            "email",
+            "webmail",
+            "self-hosted",
+            "imap"
+        ]
+    }
+}

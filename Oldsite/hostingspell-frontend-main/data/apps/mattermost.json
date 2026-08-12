@@ -1,0 +1,51 @@
+{
+    "id": "mattermost",
+    "slug": "mattermost",
+    "name": "Mattermost",
+    "category": "communication",
+    "icon": "/img/apps/mattermost.png",
+    "shortDescription": "Open source enterprise Slack alternative.",
+    "about": "Mattermost is a secure, open-source collaboration platform purpose-built for technical and operational teams.",
+    "minRam": 4,
+    "features": [
+        {
+            "label": "Playbooks"
+        },
+        {
+            "label": "Channel-based messaging"
+        },
+        {
+            "label": "Integrates deeply into developer workflows"
+        }
+    ],
+    "useCases": "For incident response logic and technical collaboration environments.",
+    "whyDeploy": [
+        {
+            "title": "Integration Density",
+            "description": "Can replace costly enterprise communication platforms, running well when deployed on 4GB+ VPS."
+        }
+    ],
+    "github": "https://github.com/mattermost/mattermost",
+    "website": "https://mattermost.com",
+    "docs": "https://docs.mattermost.com",
+    "seo": {
+        "title": "Mattermost VPS Hosting - Open-Source Enterprise Slack | HostingSpell",
+        "description": "Deploy Mattermost on HostingSpell VPS for open-source enterprise collaboration. Features: playbooks, channel-based messaging, developer integrations. Secure Slack alternative for technical teams.",
+        "keywords": [
+            "mattermost vps",
+            "mattermost hosting",
+            "mattermost self-hosted",
+            "enterprise slack",
+            "team messaging vps",
+            "developer collaboration",
+            "open-source chat"
+        ],
+        "tags": [
+            "communication",
+            "messaging",
+            "enterprise",
+            "self-hosted",
+            "slack-alternative"
+        ]
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "id": "elasticsearch",
+    "slug": "elasticsearch",
+    "name": "Elasticsearch",
+    "category": "database",
+    "icon": "/img/apps/elasticsearch.png",
+    "shortDescription": "Distributed search and analytics engine.",
+    "about": "Elasticsearch is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases. It centrally stores your data for lightning fast search and fine‑tuned relevancy.",
+    "minRam": 8,
+    "features": [
+        {
+            "label": "Full-text search"
+        },
+        {
+            "label": "Real-time analytics"
+        },
+        {
+            "label": "RESTful API"
+        }
+    ],
+    "useCases": "Powering search functionality for applications, log analytics, security intelligence, and business analytics.",
+    "whyDeploy": [
+        {
+            "title": "Search at Scale",
+            "description": "Run a powerful search engine on your own 8GB+ VPS for application search, log analysis, and real-time analytics."
+        }
+    ],
+    "github": "https://github.com/elastic/elasticsearch",
+    "website": "https://www.elastic.co/elasticsearch",
+    "docs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html",
+    "seo": {
+        "title": "Elasticsearch VPS Hosting - Distributed Search Engine | HostingSpell",
+        "description": "Deploy Elasticsearch on HostingSpell VPS for distributed search. Features: full-text search, real-time analytics, RESTful API. Lightning-fast search and analytics at scale.",
+        "keywords": [
+            "elasticsearch vps",
+            "elasticsearch hosting",
+            "elasticsearch self-hosted",
+            "search engine",
+            "analytics platform vps",
+            "full-text search",
+            "distributed database"
+        ],
+        "tags": [
+            "database",
+            "search",
+            "analytics",
+            "self-hosted",
+            "distributed"
+        ]
+    }
+}

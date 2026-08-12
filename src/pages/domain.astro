@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { Button } from "@/components/ui/button";
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { DomainSearchCardGrid } from '../components/pricing/DomainSearchCardGrid';
 import { domainPricing, faqs } from '../lib/data';
 import { Search, Shield, Globe, Lock, ArrowRight, CheckCircle2, Check, Zap } from 'lucide-react';
 
@@ -150,6 +151,10 @@ const features = [
     {/* Full Domain Pricing Matrix */}
     <section class="py-24 border-b border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="mb-16">
+          <DomainSearchCardGrid client:load />
+        </div>
+
         <div class="text-center mb-16 max-w-2xl mx-auto">
           <h2 class="text-3xl font-extrabold tracking-tight mb-4">Transparent Domain Pricing Matrix</h2>
           <p class="text-muted-foreground">Clear registration, renewal, and transfer pricing with zero hidden fees.</p>
