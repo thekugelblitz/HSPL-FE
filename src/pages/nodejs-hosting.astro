@@ -8,6 +8,8 @@ import FeatureCard from '../components/blocks/FeatureCard.astro';
 import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { nodejsPlans, faqs } from '../lib/data';
+import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import { Check, Code, Zap, Server, Terminal, ArrowRight } from 'lucide-react';
 
 const features = [
@@ -162,6 +164,12 @@ const features = [
       </div>
     </section>
 
+    <section class="py-12 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <InteractiveSpeedTest client:visible />
+      </div>
+    </section>
+
     {/* Features Section */}
     <section class="py-20 bg-muted/30">
       <div class="container mx-auto px-4 max-w-screen-xl">
@@ -177,6 +185,8 @@ const features = [
         </div>
       </div>
     </section>
+
+    <MigrationBanner />
 
     {/* Pricing Section */}
     <section id="plans" class="py-24 bg-background border-y border-border/40">

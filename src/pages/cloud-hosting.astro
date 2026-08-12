@@ -9,6 +9,8 @@ import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { cloudPlans, faqs } from '../lib/data';
 import CpanelShowcase from '../components/blocks/CpanelShowcase.astro';
+import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import { Check, Zap, Server, Shield, HardDrive, Cpu, Activity, ArrowRight } from 'lucide-react';
 
 const features = [
@@ -156,6 +158,12 @@ const features = [
 
     <CpanelShowcase />
 
+    <section class="py-12 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <InteractiveSpeedTest client:visible />
+      </div>
+    </section>
+
     {/* Pricing Section */}
     <section class="py-24" id="plans">
       <div class="container mx-auto px-4 max-w-screen-xl">
@@ -187,6 +195,8 @@ const features = [
         </div>
       </div>
     </section>
+
+    <MigrationBanner />
 
     {/* FAQ Section */}
     <section class="py-24">

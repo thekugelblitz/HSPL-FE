@@ -10,6 +10,8 @@ import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { vpsPlans, faqs } from '../lib/data';
 import VpsDashboardShowcase from '../components/blocks/VpsDashboardShowcase.astro';
+import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import { Check, Terminal, Server, Shield, Cpu, Zap, ArrowRight, HardDrive } from 'lucide-react';
 
 const features = [
@@ -156,6 +158,12 @@ const features = [
 
     <VpsDashboardShowcase />
 
+    <section class="py-12 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <InteractiveSpeedTest client:visible />
+      </div>
+    </section>
+
     <section class="py-24 bg-[#000000]" id="plans">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
@@ -174,6 +182,7 @@ const features = [
 
     <DatacenterMap />
 
+    {/* VPS Features */}
     <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
@@ -187,6 +196,8 @@ const features = [
         </div>
       </div>
     </section>
+
+    <MigrationBanner />
     
     <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
       <div class="container mx-auto px-4 max-w-3xl">

@@ -9,6 +9,8 @@ import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { wordpressPlans, faqs } from '../lib/data';
 import CpanelShowcase from '../components/blocks/CpanelShowcase.astro';
+import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import { Check, MonitorSmartphone, Zap, Shield, Database, ArrowRight, Sparkles } from 'lucide-react';
 
 const features = [
@@ -165,22 +167,29 @@ const features = [
     </section>
 
     {/* Features Section */}
-    <section class="py-20 bg-muted/30">
+    <section class="py-24 bg-muted/30">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose HostingSpell for WordPress?</h2>
-          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">From blazing-fast servers to rock-solid security, our hosting stack is purpose-built to make WordPress fly.</p>
+          <h2 class="text-3xl font-bold mb-4">Why Choose HostingSpell Managed WordPress?</h2>
+          <p class="text-muted-foreground">Speed, security, and developer tools out of the box.</p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
             <FeatureCard {...feature} />
           ))}
         </div>
       </div>
     </section>
 
+    <MigrationBanner />
+
     <CpanelShowcase />
+
+    <section class="py-12 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <InteractiveSpeedTest client:visible />
+      </div>
+    </section>
 
     {/* Pricing Section */}
     <section id="plans" class="py-24 bg-background border-y border-border/40">
