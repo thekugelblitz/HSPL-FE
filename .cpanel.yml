@@ -2,6 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/hostingspell/hsplfe.hostingspell.net
-    - /bin/cp -R dist/* $DEPLOYPATH 2>/dev/null || true
-    - export DEPLOYPATH2=/home/hostingspell/public_html
-    - /bin/cp -R dist/* $DEPLOYPATH2 2>/dev/null || true
+    # Copy the Astro SSR build output
+    - /bin/cp -R dist/ $DEPLOYPATH/dist/
+    # Copy the Passenger entry point
+    - /bin/cp app.js $DEPLOYPATH/app.js
+    # Copy package.json for node_modules reference
+    - /bin/cp package.json $DEPLOYPATH/package.json
+    # Install production dependencies on the server
+    - cd $DEPLOYPATH && npm install --omit=dev 2>/dev/null || true
