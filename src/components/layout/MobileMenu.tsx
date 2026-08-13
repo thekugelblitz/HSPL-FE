@@ -69,12 +69,34 @@ const navGroups: NavGroup[] = [
         color: "text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20"
       },
       {
-        title: "Reseller WHM Hosting",
-        desc: "White-label cPanel accounts",
+        title: "Webuzo Shared Hosting",
+        desc: "Apache/Nginx & MultiPHP modern panel",
+        href: "/webuzo",
+        icon: Server,
+        badge: "AFFORDABLE",
+        color: "text-teal-600 dark:text-teal-400 bg-teal-500/10 border-teal-500/20"
+      },
+    ]
+  },
+  {
+    id: "reseller",
+    title: "Reseller & Agency",
+    items: [
+      {
+        title: "cPanel Reseller (WHM)",
+        desc: "White-label WHM/cPanel accounts",
         href: "/reseller",
         icon: Layers,
-        color: "text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/20"
-      }
+        color: "text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 border-indigo-500/20"
+      },
+      {
+        title: "Webuzo Reseller",
+        desc: "White-label Webuzo admin — 25% cheaper",
+        href: "/webuzo-reseller",
+        icon: Layers,
+        badge: "NEW",
+        color: "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+      },
     ]
   },
   {

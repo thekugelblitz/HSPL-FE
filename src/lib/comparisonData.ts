@@ -870,5 +870,189 @@ export const comparisonData: Record<string, ServiceComparison> = {
         ]
       }
     ]
+  },
+  webuzo: {
+    title: "Webuzo Shared Web Hosting",
+    subtitle: "Compare our Venus, Mars, Saturn, and Jupiter Webuzo shared tiers side-by-side.",
+    plans: [
+      {
+        name: "VENUS",
+        tagline: "BEST FOR STARTERS!",
+        price: "$0.89",
+        originalPrice: "$2.99",
+        discount: "SAVE 70%",
+        billingCycle: "/mo",
+        isPopular: false,
+        link: "https://manage.hostingspell.com/store/webuzo-shared-hosting/venus?currency=1"
+      },
+      {
+        name: "MARS",
+        tagline: "BEST FOR SMALL SITES!",
+        price: "$1.39",
+        originalPrice: "$4.99",
+        discount: "SAVE 72%",
+        billingCycle: "/mo",
+        isPopular: true,
+        link: "https://manage.hostingspell.com/store/webuzo-shared-hosting/mars?currency=1"
+      },
+      {
+        name: "SATURN",
+        tagline: "BEST FOR GROWING SITES!",
+        price: "$1.79",
+        originalPrice: "$6.99",
+        discount: "SAVE 74%",
+        billingCycle: "/mo",
+        isPopular: false,
+        link: "https://manage.hostingspell.com/store/webuzo-shared-hosting/saturn?currency=1"
+      },
+      {
+        name: "JUPITER",
+        tagline: "BEST FOR BUSINESSES!",
+        price: "$2.39",
+        originalPrice: "$8.99",
+        discount: "SAVE 73%",
+        billingCycle: "/mo",
+        isPopular: false,
+        link: "https://manage.hostingspell.com/store/webuzo-shared-hosting/jupiter?currency=1"
+      }
+    ],
+    categories: [
+      {
+        name: "Core Limits & Resources",
+        features: [
+          {
+            name: "Websites Hosted",
+            description: "The total number of separate websites/domains you can host on this account.",
+            values: { VENUS: "1 Website", MARS: "3 Websites", SATURN: "10 Websites", JUPITER: "Unlimited Websites" }
+          },
+          {
+            name: "Pure NVMe SSD Storage",
+            description: "Ultra-fast NVMe storage limits for database files and site media.",
+            values: { VENUS: "10 GB NVMe", MARS: "25 GB NVMe", SATURN: "50 GB NVMe", JUPITER: "Unlimited Storage" }
+          },
+          {
+            name: "Monthly Bandwidth",
+            description: "The amount of network traffic allowed for your sites per month.",
+            values: { VENUS: "Unlimited Bandwidth", MARS: "Unlimited Bandwidth", SATURN: "Unlimited Bandwidth", JUPITER: "Unlimited Bandwidth" }
+          },
+          {
+            name: "Control Panel",
+            description: "Modern control panel for account and website management.",
+            values: { VENUS: "Webuzo Panel", MARS: "Webuzo Panel", SATURN: "Webuzo Panel", JUPITER: "Webuzo Panel" }
+          },
+          {
+            name: "Web Server Stack",
+            description: "Web server engine powering request execution.",
+            values: { VENUS: "Apache + Nginx Dual Stack", MARS: "Apache + Nginx Dual Stack", SATURN: "Apache + Nginx Dual Stack", JUPITER: "Apache + Nginx Dual Stack" }
+          },
+          {
+            name: "PHP Runtime Versions",
+            description: "MultiPHP version selection per domain.",
+            values: { VENUS: "PHP 5.6 - 8.3+", MARS: "PHP 5.6 - 8.3+", SATURN: "PHP 5.6 - 8.3+", JUPITER: "PHP 5.6 - 8.3+" }
+          },
+          {
+            name: "Softaculous 1-Click Apps",
+            description: "One-click application installer for WordPress, Laravel, Joomla, etc.",
+            values: { VENUS: "350+ Apps", MARS: "350+ Apps", SATURN: "350+ Apps", JUPITER: "350+ Apps" }
+          },
+          {
+            name: "MySQL/PostgreSQL Databases",
+            description: "Maximum number of databases you can create.",
+            values: { VENUS: "5 Databases", MARS: "15 Databases", SATURN: "Unlimited", JUPITER: "Unlimited" }
+          },
+          {
+            name: "Email & FTP Accounts",
+            description: "Maximum professional mailbox and FTP accounts.",
+            values: { VENUS: "5 Accounts", MARS: "15 Accounts", SATURN: "Unlimited", JUPITER: "Unlimited" }
+          },
+          {
+            name: "Free Auto SSL & Backups",
+            values: { VENUS: true, MARS: true, SATURN: true, JUPITER: true }
+          }
+        ]
+      }
+    ]
+  },
+  webuzoreseller: {
+    title: "Webuzo Reseller Hosting",
+    subtitle: "Compare our Webuzo Reseller tiers with white-label features and admin controls.",
+    plans: [
+      {
+        name: "HS INITIATIVE",
+        tagline: "ENTRY LEVEL RESELLER",
+        price: "$9.99",
+        originalPrice: "$14.99",
+        discount: "SAVE 33%",
+        billingCycle: "/mo",
+        isPopular: false,
+        link: "https://manage.hostingspell.com/store/webuzo-reseller-hosting/hs-initiative?currency=1"
+      },
+      {
+        name: "HS EARLDOM",
+        tagline: "MID TIER RESELLER",
+        price: "$19.99",
+        originalPrice: "$29.99",
+        discount: "SAVE 33%",
+        billingCycle: "/mo",
+        isPopular: true,
+        link: "https://manage.hostingspell.com/store/webuzo-reseller-hosting/hs-earldom?currency=1"
+      },
+      {
+        name: "HS DUKEDOM",
+        tagline: "HIGH PERFORMANCE",
+        price: "$39.99",
+        originalPrice: "$54.99",
+        discount: "SAVE 27%",
+        billingCycle: "/mo",
+        isPopular: false,
+        link: "https://manage.hostingspell.com/store/webuzo-reseller-hosting/hs-dukedom?currency=1"
+      },
+      {
+        name: "HS KINGDOM",
+        tagline: "ULTRA PERFORMANCE",
+        price: "$59.99",
+        originalPrice: "$79.99",
+        discount: "SAVE 25%",
+        billingCycle: "/mo",
+        isPopular: false,
+        link: "https://manage.hostingspell.com/store/webuzo-reseller-hosting/hs-kingdom?currency=1"
+      }
+    ],
+    categories: [
+      {
+        name: "Reseller Infrastructure",
+        features: [
+          {
+            name: "End-User Accounts Limit",
+            description: "Number of independent Webuzo hosting accounts you can provision for clients.",
+            values: { "HS INITIATIVE": "25 Accounts", "HS EARLDOM": "50 Accounts", "HS DUKEDOM": "100 Accounts", "HS KINGDOM": "150 Accounts" }
+          },
+          {
+            name: "100% White-Label Panel",
+            description: "Rebrand logo, colors, links, and nameservers (ns1/ns2.yourbrand.com).",
+            values: { "HS INITIATIVE": true, "HS EARLDOM": true, "HS DUKEDOM": true, "HS KINGDOM": true }
+          },
+          {
+            name: "WHMCS Automation",
+            description: "Automate billing, ordering, ticketing, and user creation with WHMCS.",
+            values: { "HS INITIATIVE": true, "HS EARLDOM": true, "HS DUKEDOM": true, "HS KINGDOM": true }
+          },
+          {
+            name: "Web Server Stack",
+            description: "Dual-stack performance for client accounts.",
+            values: { "HS INITIATIVE": "Apache + Nginx", "HS EARLDOM": "Apache + Nginx", "HS DUKEDOM": "Apache + Nginx", "HS KINGDOM": "Apache + Nginx" }
+          },
+          {
+            name: "cPanel Migration Importer",
+            description: "Import client cPanel/Plesk accounts directly into Webuzo.",
+            values: { "HS INITIATIVE": true, "HS EARLDOM": true, "HS DUKEDOM": true, "HS KINGDOM": true }
+          },
+          {
+            name: "Free SSL & Daily Backups",
+            values: { "HS INITIATIVE": true, "HS EARLDOM": true, "HS DUKEDOM": true, "HS KINGDOM": true }
+          }
+        ]
+      }
+    ]
   }
 };

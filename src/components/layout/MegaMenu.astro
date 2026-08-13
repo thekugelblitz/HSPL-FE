@@ -44,6 +44,13 @@ const hostingItems = [
     icon: Cpu,
     badge: "PYTHON 3.12"
   },
+  {
+    title: "Webuzo Shared Hosting",
+    description: "Apache/Nginx & MultiPHP modern cPanel alternative.",
+    href: "/webuzo",
+    icon: Server,
+    badge: "NEW"
+  },
 ];
 
 const vpsItems = [
@@ -185,7 +192,86 @@ const vpsItems = [
     <Sparkles class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 animate-pulse" />
     <span>AI Web Builder</span>
   </a>
-  <a href="/reseller" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors text-zinc-700 hover:text-zinc-900 dark:text-white/90 dark:hover:text-white font-bold">Reseller</a>
+  {/* Reseller & Agency Mega Menu */}
+  <div class="group relative px-3 py-2 text-zinc-700 hover:text-zinc-900 dark:text-white/90 dark:hover:text-white cursor-pointer">
+    <span class="flex items-center gap-1 transition-colors uppercase tracking-wider text-xs font-bold">
+      Reseller
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+    </span>
+    
+    <div class="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div class="bg-white dark:bg-[#0A0A0A] border border-zinc-200 dark:border-zinc-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-3xl p-6 w-[560px] grid grid-cols-2 gap-4 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10 text-left">
+        <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-indigo-500 via-teal-500 to-emerald-500"></div>
+
+        <div class="flex flex-col gap-2.5">
+          {/* cPanel Reseller */}
+          <a href="/reseller" class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-indigo-500/10 dark:hover:bg-indigo-500/20 transition-all group/item border border-zinc-200/60 dark:border-zinc-800/50 hover:border-indigo-500/40">
+            <div class="bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 p-2.5 rounded-xl group-hover/item:bg-indigo-500 group-hover/item:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+              <Layers class="w-4 h-4" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover/item:text-indigo-600 dark:group-hover/item:text-indigo-400 transition-colors">cPanel Reseller</span>
+                <span class="text-[9px] font-black uppercase tracking-wider bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-1.5 py-0.5 rounded border border-indigo-500/20">
+                  WHM
+                </span>
+              </div>
+              <div class="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5 leading-snug font-medium">White-label WHM/cPanel reseller hosting</div>
+            </div>
+          </a>
+
+          {/* Webuzo Reseller */}
+          <a href="/webuzo-reseller" class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-teal-500/10 dark:hover:bg-teal-500/20 transition-all group/item border border-zinc-200/60 dark:border-zinc-800/50 hover:border-teal-500/40">
+            <div class="bg-teal-500/15 text-teal-600 dark:text-teal-400 p-2.5 rounded-xl group-hover/item:bg-teal-500 group-hover/item:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+              <Layers class="w-4 h-4" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition-colors">Webuzo Reseller</span>
+                <span class="text-[9px] font-black uppercase tracking-wider bg-teal-500/10 text-teal-600 dark:text-teal-400 px-1.5 py-0.5 rounded border border-teal-500/20">
+                  NEW
+                </span>
+              </div>
+              <div class="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5 leading-snug font-medium">White-label Webuzo reseller — 25% cheaper</div>
+            </div>
+          </a>
+
+          {/* Webuzo Hosting */}
+          <a href="/webuzo" class="flex items-start gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 hover:bg-teal-500/10 dark:hover:bg-teal-500/20 transition-all group/item border border-zinc-200/60 dark:border-zinc-800/50 hover:border-teal-500/40">
+            <div class="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 p-2.5 rounded-xl group-hover/item:bg-emerald-500 group-hover/item:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+              <Server class="w-4 h-4" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition-colors">Webuzo Hosting</span>
+                <span class="text-[9px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                  AFFORDABLE
+                </span>
+              </div>
+              <div class="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5 leading-snug font-medium">Modern cPanel alternative with 350+ apps</div>
+            </div>
+          </a>
+        </div>
+
+        {/* Reseller Promo Side Card */}
+        <div class="rounded-2xl bg-gradient-to-b from-teal-500/20 via-teal-500/10 to-zinc-100 dark:to-zinc-900 border border-teal-500/30 p-5 flex flex-col justify-between text-left relative overflow-hidden shadow-inner">
+          <div class="absolute -right-6 -top-6 w-24 h-24 bg-teal-500/30 rounded-full blur-2xl pointer-events-none"></div>
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider bg-teal-600 text-white px-2.5 py-1 rounded-full inline-block mb-3 shadow-md">
+              💰 Save 25% vs cPanel
+            </span>
+            <h4 class="text-sm font-extrabold text-zinc-900 dark:text-white mb-1.5 leading-tight">Webuzo Reseller Hosting</h4>
+            <p class="text-[11px] text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">Start your hosting business from $9.99/mo with Webuzo — the affordable cPanel alternative.</p>
+          </div>
+          <a href="/webuzo-reseller" class="w-full py-2.5 px-4 rounded-xl bg-teal-600 text-white font-bold text-xs flex items-center justify-between hover:bg-teal-700 transition-all shadow-md shadow-teal-600/20 group/btn">
+            <span>View Webuzo Plans</span>
+            <ArrowRight class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
   <a href="/domain" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors text-zinc-700 hover:text-zinc-900 dark:text-white/90 dark:hover:text-white font-bold">Domain</a>
   <a href="/pricing" class="px-3 py-2 uppercase tracking-wider text-xs transition-colors text-zinc-700 hover:text-zinc-900 dark:text-white/90 dark:hover:text-white font-bold">Pricing</a>
   

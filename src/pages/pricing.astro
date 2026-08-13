@@ -14,11 +14,14 @@ import { PLANS_CLOUD_HOSTING } from '../lib/pricing/cloudPlans';
 import { PLANS_PREMIUM_HOSTING } from '../lib/pricing/premiumPlans';
 import { PLANS_VPS_HOSTING } from '../lib/pricing/vpsPlans';
 import { PLANS_RESELLER_HOSTING } from '../lib/pricing/resellerPlans';
+import { PLANS_WEBUZO_HOSTING } from '../lib/pricing/webuzoPlans';
+import { PLANS_WEBUZO_RESELLER } from '../lib/pricing/webuzoResellerPlans';
 import {
   CLOUD_PROVIDER_LOCATIONS,
   PREMIUM_PROVIDER_LOCATIONS,
   VPS_PROVIDER_LOCATIONS,
   RESELLER_PROVIDER_LOCATIONS,
+  WEBUZO_PROVIDER_LOCATIONS,
   GLOBAL_BILLING_CYCLES
 } from '../lib/pricing/constants';
 import { faqs } from '../lib/data';
@@ -27,7 +30,7 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
 
 <Layout 
   title="Pricing Plans & Full Matrix | HostingSpell"
-  description="Explore transparent hosting prices across Cloud NVMe, Premium cPanel, KVM VPS, and Reseller hosting plans."
+  description="Explore transparent hosting prices across Cloud NVMe, Premium cPanel, KVM VPS, Reseller, and Webuzo hosting plans."
 >
   <Navbar />
   <main class="flex-1 bg-background overflow-hidden">
@@ -195,7 +198,7 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
           <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
             <div>
               <div class="inline-block text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">Start Hosting Business</div>
-              <h2 class="text-3xl font-bold">Reseller WHM Hosting</h2>
+              <h2 class="text-3xl font-bold">cPanel Reseller (WHM) Hosting</h2>
               <p class="text-muted-foreground text-sm mt-1">Create and manage your own customer cPanel accounts with WHM access.</p>
             </div>
             <a href="/reseller" class="text-xs font-semibold text-primary hover:underline">View detailed Reseller specs &rarr;</a>
@@ -208,13 +211,63 @@ import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'luci
           />
         </div>
 
+        {/* Webuzo Hosting Section */}
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
+            <div>
+              <div class="inline-block text-xs font-bold text-teal-400 uppercase tracking-wider mb-1">cPanel Alternative</div>
+              <h2 class="text-3xl font-bold">Webuzo Hosting</h2>
+              <p class="text-muted-foreground text-sm mt-1">Modern multi-user control panel with Apache/Nginx, MultiPHP, and 350+ Softaculous apps.</p>
+            </div>
+            <a href="/webuzo" class="text-xs font-semibold text-teal-400 hover:underline">View detailed Webuzo specs &rarr;</a>
+          </div>
+          <InteractivePricingGrid
+            client:load
+            plans={PLANS_WEBUZO_HOSTING}
+            locations={WEBUZO_PROVIDER_LOCATIONS}
+            billingCycles={GLOBAL_BILLING_CYCLES.webuzohosting}
+          />
+        </div>
+
+        {/* Webuzo Reseller Section */}
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
+            <div>
+              <div class="inline-block text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Affordable Reseller</div>
+              <h2 class="text-3xl font-bold">Webuzo Reseller Hosting</h2>
+              <p class="text-muted-foreground text-sm mt-1">White-label Webuzo admin panel with WHMCS integration — 25% cheaper than cPanel reseller.</p>
+            </div>
+            <a href="/webuzo-reseller" class="text-xs font-semibold text-teal-400 hover:underline">View detailed Webuzo Reseller specs &rarr;</a>
+          </div>
+          <InteractivePricingGrid
+            client:load
+            plans={PLANS_WEBUZO_RESELLER}
+            locations={WEBUZO_PROVIDER_LOCATIONS}
+            billingCycles={GLOBAL_BILLING_CYCLES.webuzoreseller}
+          />
+        </div>
+
         {/* Detailed Spec Matrix Table */}
-        <div class="pt-8 border-t border-border/40">
+        <div class="pt-8 border-t border-border/40 space-y-16">
           <InteractiveComparisonTable
             client:load
             plans={PLANS_CLOUD_HOSTING}
             locations={CLOUD_PROVIDER_LOCATIONS}
-            categoryName="Cloud Web Hosting"
+            categoryName="Cloud Web Hosting Specs"
+          />
+
+          <InteractiveComparisonTable
+            client:load
+            plans={PLANS_WEBUZO_HOSTING}
+            locations={WEBUZO_PROVIDER_LOCATIONS}
+            categoryName="Webuzo Shared Hosting Specs"
+          />
+
+          <InteractiveComparisonTable
+            client:load
+            plans={PLANS_WEBUZO_RESELLER}
+            locations={WEBUZO_PROVIDER_LOCATIONS}
+            categoryName="Webuzo Reseller Hosting Specs"
           />
         </div>
       </div>

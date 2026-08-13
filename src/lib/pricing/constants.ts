@@ -61,6 +61,14 @@ export const RESELLER_PROVIDER_LOCATIONS: LocationOption[] = [
   { value: "singapore", label: "Singapore", code: "SGP", iso: "sg", flag: "🇸🇬" },
 ];
 
+export const WEBUZO_PROVIDER_LOCATIONS: LocationOption[] = [
+  { value: "india", label: "India", code: "IND", iso: "in", flag: "🇮🇳" },
+  { value: "netherlands", label: "Netherlands", code: "NET", iso: "nl", flag: "🇳🇱" },
+  { value: "usa", label: "United States", code: "USA", iso: "us", flag: "🇺🇸" },
+  { value: "uk", label: "United Kingdom", code: "UK", iso: "gb", flag: "🇬🇧" },
+  { value: "singapore", label: "Singapore", code: "SGP", iso: "sg", flag: "🇸🇬" },
+];
+
 export const SUPPORTED_CURRENCIES = [
   { label: "INR ₹", value: "INR" as Currency, symbol: "₹" },
   { label: "USD $", value: "USD" as Currency, symbol: "$" }
@@ -100,6 +108,16 @@ export const GLOBAL_BILLING_CYCLES: Record<string, BillingCycleOption[]> = {
   resellerhosting: [
     { value: "monthly", label: "1 Month" },
     { value: "annual", label: "12 Months", discountBadge: "20% OFF", isBestValue: true },
+  ],
+  webuzohosting: [
+    { value: "monthly", label: "1 Month" },
+    { value: "annual", label: "12 Months", discountBadge: "17% OFF" },
+    { value: "biannual", label: "24 Months", discountBadge: "24% OFF" },
+    { value: "triannual", label: "36 Months", discountBadge: "30% OFF", isBestValue: true },
+  ],
+  webuzoreseller: [
+    { value: "monthly", label: "1 Month" },
+    { value: "annual", label: "12 Months", discountBadge: "18% OFF", isBestValue: true },
   ],
   default: [
     { value: "annual", label: "12 Months", discountBadge: "16% OFF" },

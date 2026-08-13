@@ -21,9 +21,9 @@ interface PlanComparisonTableProps {
   /**
    * Optional service key to lock the table to a single comparison.
    * If not provided, a tabbed switcher will be rendered.
-   * Options: 'cloud' | 'premium' | 'vps' | 'reseller' | 'wordpress' | 'nodejs' | 'combo'
+   * Options: 'cloud' | 'premium' | 'vps' | 'reseller' | 'webuzo' | 'webuzoreseller' | 'wordpress' | 'nodejs' | 'combo'
    */
-  service?: 'cloud' | 'premium' | 'vps' | 'reseller' | 'wordpress' | 'nodejs' | 'combo';
+  service?: 'cloud' | 'premium' | 'vps' | 'reseller' | 'webuzo' | 'webuzoreseller' | 'wordpress' | 'nodejs' | 'combo';
 }
 
 export const PlanComparisonTable: React.FC<PlanComparisonTableProps> = ({ service }) => {
@@ -33,8 +33,10 @@ export const PlanComparisonTable: React.FC<PlanComparisonTableProps> = ({ servic
   const serviceTabs = [
     { key: 'cloud', label: 'Cloud NVMe', icon: Server },
     { key: 'premium', label: 'Premium cPanel', icon: Sparkles },
-    { key: 'vps', label: 'KVM VPS', icon: Sliders },
+    { key: 'webuzo', label: 'Webuzo Shared', icon: Zap },
     { key: 'reseller', label: 'Reseller WHM', icon: ShieldCheck },
+    { key: 'webuzoreseller', label: 'Webuzo Reseller', icon: ShieldCheck },
+    { key: 'vps', label: 'KVM VPS', icon: Sliders },
     { key: 'wordpress', label: 'WordPress', icon: Zap },
     { key: 'nodejs', label: 'Node.js', icon: ArrowRight },
     { key: 'combo', label: 'Free Domain Combo', icon: HelpCircle },

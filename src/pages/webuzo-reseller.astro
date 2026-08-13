@@ -1,0 +1,481 @@
+---
+import { Button } from "@/components/ui/button";
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import FeatureCard from '../components/blocks/FeatureCard.astro';
+import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { ResellerRoiCalculator } from '../components/blocks/ResellerRoiCalculator';
+import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
+import { PLANS_WEBUZO_RESELLER } from '../lib/pricing/webuzoResellerPlans';
+import { WEBUZO_PROVIDER_LOCATIONS, GLOBAL_BILLING_CYCLES } from '../lib/pricing/constants';
+import { Check, Shield, Server, Zap, RefreshCw, ArrowRight, Layers, Users, Globe, Settings, Code, ExternalLink } from 'lucide-react';
+
+const features = [
+  {
+    title: "100% White Labeled",
+    description: "Rebrand the Webuzo panel with your own logo, links, and custom nameservers. Your clients never see HostingSpell.",
+    icon: "Shield" as const
+  },
+  {
+    title: "WHMCS Integration",
+    description: "Automate billing, provisioning, and client management with full WHMCS integration for your hosting business.",
+    icon: "Server" as const
+  },
+  {
+    title: "25% Lower Cost",
+    description: "Webuzo licensing costs a fraction of cPanel. Pass the savings to your clients or increase your profit margins.",
+    icon: "Zap" as const
+  },
+  {
+    title: "Automated Backups",
+    description: "Daily automated backups keep your and your clients' data safe with easy 1-click restore functionality.",
+    icon: "RefreshCw" as const
+  }
+];
+
+const webuzoResellerFaqs = [
+  {
+    question: "What is Webuzo Reseller Hosting?",
+    answer: "Webuzo Reseller Hosting allows you to start your own web hosting business using Webuzo's multi-user control panel. You get Admin-level access to create and manage Reseller and End-User accounts for your clients — all under your own brand with custom nameservers."
+  },
+  {
+    question: "How is Webuzo Reseller different from cPanel Reseller?",
+    answer: "The core concept is the same — you create and manage hosting accounts for your clients. The difference is the control panel: Webuzo uses its own modern interface instead of cPanel/WHM. Webuzo is significantly more affordable (no expensive cPanel licensing fees), supports both Apache and Nginx, and includes native migration tools from cPanel."
+  },
+  {
+    question: "Can my clients migrate from cPanel to Webuzo?",
+    answer: "Yes! Webuzo includes built-in importers for cPanel, Plesk, DirectAdmin, CWP, Vesta, InterWorx, and ISPConfig. Your clients can seamlessly transition their websites, databases, emails, and configurations."
+  },
+  {
+    question: "Does Webuzo Reseller include WHMCS?",
+    answer: "Yes, our reseller plans integrate with WHMCS for automated billing, client provisioning, and support ticket management. This allows you to run a fully professional hosting business with automated workflows."
+  },
+  {
+    question: "Can I white-label the Webuzo panel?",
+    answer: "Absolutely. Webuzo supports full white-labeling — you can customize the panel with your logo, brand colors, custom links, and set up private nameservers (ns1/ns2.yourbrand.com) so your hosting business looks completely independent."
+  },
+  {
+    question: "What web servers are supported?",
+    answer: "Webuzo supports both Apache and Nginx, including running them together as a reverse proxy. Combined with MultiPHP support (PHP 5.6 — 8.3+), your clients get maximum flexibility and performance."
+  },
+  {
+    question: "Is Softaculous included?",
+    answer: "Yes, Softaculous is integrated into all Webuzo reseller plans. Your clients can 1-click install WordPress, WooCommerce, Joomla, Laravel, and 350+ other applications directly from their control panel."
+  },
+  {
+    question: "How do I upgrade my reseller plan?",
+    answer: "You can upgrade your reseller plan at any time through your client portal. The upgrade is prorated, so you only pay the difference for the remaining billing period."
+  }
+];
+---
+
+<Layout 
+  title="Webuzo Reseller Hosting Plans | Affordable cPanel Alternative Reseller | HostingSpell"
+  description="Start your hosting business with Webuzo reseller hosting. White-label control panel, WHMCS integration, 350+ apps, and 25% lower cost than cPanel reseller."
+>
+  <Navbar />
+  <main class="flex-1">
+    {/* Page Hero - 2-Column Split Hero Layout */}
+    <section class="relative bg-background pt-20 pb-24 border-b border-border/40 overflow-hidden">
+      <div class="absolute inset-0 bg-teal-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center rounded-full border border-teal-500/30 bg-teal-500/10 px-3.5 py-1 text-xs font-bold text-teal-400">
+              <span class="flex h-2 w-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span> White-Label Webuzo Reseller Infrastructure
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Reseller Hosting with <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">Webuzo Panel</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              Launch your hosting business with Webuzo — the affordable cPanel alternative. White-label admin panel, WHMCS integration, and 25% lower costs than cPanel reseller hosting.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>100% White-Labeled Webuzo Admin / Reseller / Enduser Panels</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>WHMCS Integration for automated billing & provisioning</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Apache/Nginx + MultiPHP + Free SSL + 350+ Softaculous Apps</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+              <a href="#plans" class="w-full sm:w-auto">
+                <Button size="lg" className="w-full h-13 px-8 text-base bg-teal-600 hover:bg-teal-500 text-white font-extrabold shadow-xl shadow-teal-500/25 flex items-center justify-center gap-2">
+                  <span>View Reseller Plans</span>
+                  <ArrowRight class="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="/reseller" class="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full h-13 px-8 text-base font-extrabold hover:bg-teal-500/10 hover:text-teal-400 border-border/80">
+                  Compare cPanel Reseller
+                </Button>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - Webuzo Admin Dashboard Visual Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-teal-500/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-xl bg-teal-500/20 text-teal-400">
+                    <Layers class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">Webuzo Admin Panel</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 White-Label Active</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-teal-500/20 text-teal-400 border border-teal-500/30 px-2.5 py-1 rounded-full">
+                  WEBUZO RESELLER
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Users class="w-3.5 h-3.5 text-teal-400" /> Client Accounts
+                  </div>
+                  <div class="text-lg font-black text-foreground">Unlimited</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Shield class="w-3.5 h-3.5 text-emerald-400" /> Private DNS
+                  </div>
+                  <div class="text-xs font-black text-emerald-400">ns1.yourbrand.com</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2 mb-5">
+                <div class="p-2.5 rounded-xl bg-muted/40 border border-border/60 text-center">
+                  <div class="text-[9px] font-bold text-muted-foreground mb-0.5">Admin</div>
+                  <div class="text-[10px] font-black text-teal-400">Full Access</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-muted/40 border border-border/60 text-center">
+                  <div class="text-[9px] font-bold text-muted-foreground mb-0.5">Reseller</div>
+                  <div class="text-[10px] font-black text-teal-400">Multi-tier</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-muted/40 border border-border/60 text-center">
+                  <div class="text-[9px] font-bold text-muted-foreground mb-0.5">Enduser</div>
+                  <div class="text-[10px] font-black text-teal-400">White-Label</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-teal-500/15 via-teal-500/5 to-transparent border border-teal-500/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Webuzo Reseller Bundle</div>
+                  <div class="text-[11px] text-muted-foreground">WHMCS + Unlimited Accounts</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-lg font-black text-teal-400">$9.99<span class="text-[10px] font-bold text-muted-foreground">/mo</span></div>
+                  <span class="text-[9px] font-black uppercase bg-teal-500/20 text-teal-400 px-2 py-0.5 rounded">WHITE-LABEL</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    {/* Webuzo Admin Panel Showcase */}
+    <section class="py-20 bg-background relative overflow-hidden border-t border-border/40">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-teal-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-xs font-bold text-teal-400 backdrop-blur-sm">
+            <Layers class="w-3.5 h-3.5 text-teal-400" />
+            <span>100% White-Label Reseller Management</span>
+          </div>
+          
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+            Complete Reseller Control with <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400">
+              Webuzo Admin Panel
+            </span>
+          </h2>
+          
+          <p class="text-base sm:text-lg text-muted-foreground font-medium">
+            Create, manage, and scale independent end-user hosting accounts for your clients. Set custom package limits, brand your control panel, and automate billing effortlessly with WHMCS.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Feature Column (5 cols) */}
+          <div class="lg:col-span-5 space-y-6">
+            <div class="p-5 rounded-2xl bg-card border border-border/80 hover:border-teal-500/40 transition-all shadow-md group">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-teal-500/10 text-teal-500 dark:text-teal-400 border border-teal-500/20 group-hover:scale-105 transition-transform shrink-0">
+                  <Shield class="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-foreground group-hover:text-teal-500 transition-colors">100% White-Label Branding</h3>
+                  <p class="text-xs text-muted-foreground mt-1 leading-relaxed">Customize logos, panel links, and nameservers (ns1/ns2.yourbrand.com) so HostingSpell remains completely invisible to your clients.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-card border border-border/80 hover:border-teal-500/40 transition-all shadow-md group">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 border border-emerald-500/20 group-hover:scale-105 transition-transform shrink-0">
+                  <Users class="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-foreground group-hover:text-teal-500 transition-colors">Multi-User Provisioning</h3>
+                  <p class="text-xs text-muted-foreground mt-1 leading-relaxed">Create, modify, suspend, or terminate client accounts instantly from your Webuzo Admin dashboard with 3-tier access levels.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-card border border-border/80 hover:border-teal-500/40 transition-all shadow-md group">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 border border-cyan-500/20 group-hover:scale-105 transition-transform shrink-0">
+                  <Settings class="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-foreground group-hover:text-teal-500 transition-colors">Custom Hosting Packages</h3>
+                  <p class="text-xs text-muted-foreground mt-1 leading-relaxed">Define custom disk space, bandwidth, email quota, PHP limits, and database counts for your agency's hosting tiers.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-card border border-border/80 hover:border-teal-500/40 transition-all shadow-md group">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform shrink-0">
+                  <Server class="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 class="text-base font-extrabold text-foreground group-hover:text-teal-500 transition-colors">WHMCS Billing Integration</h3>
+                  <p class="text-xs text-muted-foreground mt-1 leading-relaxed">Automate client orders, invoicing, support ticketing, and account creation seamlessly with WHMCS automation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Screenshot Showcase Column (7 cols) */}
+          <div class="lg:col-span-7 relative">
+            <div class="absolute -inset-1 bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-400 rounded-3xl opacity-30 blur-xl"></div>
+            
+            <div class="relative rounded-2xl bg-zinc-950 border border-zinc-800 shadow-2xl overflow-hidden">
+              
+              <div class="px-4 py-3 bg-zinc-900/90 border-b border-zinc-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                  <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                  <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                </div>
+                
+                <div class="flex items-center gap-2 px-3 py-1 rounded-lg bg-zinc-950/80 border border-zinc-800 text-[11px] font-mono text-zinc-400 max-w-sm w-full truncate">
+                  <span class="text-emerald-400">https://</span>
+                  <span class="text-zinc-200 truncate">admin.youragencybrand.com:2002</span>
+                </div>
+
+                <div class="text-[10px] font-extrabold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20 shrink-0">
+                  WEBUZO ADMIN
+                </div>
+              </div>
+
+              <div class="relative bg-zinc-950 p-2 sm:p-3 overflow-hidden group">
+                <img 
+                  src="/dashboards/webuzo-admin-dashboard.png" 
+                  alt="Webuzo Admin Panel — Users & Reseller Management Dashboard"
+                  class="w-full h-auto rounded-xl object-cover shadow-lg border border-zinc-800/80 group-hover:scale-[1.01] transition-transform duration-300"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <div class="absolute top-6 left-6 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/90 border border-teal-500/30 text-xs font-bold text-teal-400 shadow-xl backdrop-blur-md">
+                  <Shield class="w-3.5 h-3.5 text-teal-400" />
+                  <span>100% White-Label Panel</span>
+                </div>
+
+                <div class="absolute bottom-6 right-6 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/90 border border-emerald-500/30 text-xs font-bold text-emerald-400 shadow-xl backdrop-blur-md">
+                  <Users class="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Unlimited End-User Accounts</span>
+                </div>
+              </div>
+
+              <div class="px-5 py-3 bg-zinc-900/90 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400 font-medium">
+                <span>Webuzo Admin — Reseller Dashboard</span>
+                <span class="text-teal-400 font-extrabold flex items-center gap-1">
+                  <span>WHMCS Automated Provisioning</span>
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24" id="plans">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Webuzo Reseller Hosting Plans</h2>
+          <p class="text-muted-foreground">Select your target region and billing cycle. All plans include Webuzo Admin panel, white-labeling, and WHMCS integration.</p>
+        </div>
+
+        <InteractivePricingGrid
+          client:load
+          plans={PLANS_WEBUZO_RESELLER}
+          locations={WEBUZO_PROVIDER_LOCATIONS}
+          billingCycles={GLOBAL_BILLING_CYCLES.webuzoreseller}
+        />
+
+        <div class="mt-16">
+          <ResellerRoiCalculator client:visible />
+        </div>
+      </div>
+    </section>
+
+    <PlanComparisonTable service="webuzoreseller" client:visible />
+
+    {/* cPanel vs Webuzo Reseller Comparison */}
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-xs font-bold text-teal-400 backdrop-blur-sm mb-4">
+            <Zap class="w-3.5 h-3.5" />
+            <span>Reseller Comparison</span>
+          </div>
+          <h2 class="text-3xl font-bold mb-4">Webuzo Reseller vs cPanel Reseller</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">Both offer full reseller hosting capabilities. Choose the panel that best fits your business and budget.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="overflow-hidden rounded-2xl border border-border/80 bg-card shadow-lg">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-muted/50 border-b border-border/60">
+                  <th class="text-left px-6 py-4 font-extrabold text-foreground">Feature</th>
+                  <th class="text-center px-6 py-4 font-extrabold text-teal-500">
+                    <div class="flex flex-col items-center gap-1">
+                      <span>Webuzo Reseller</span>
+                      <span class="text-[10px] font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full">25% CHEAPER</span>
+                    </div>
+                  </th>
+                  <th class="text-center px-6 py-4 font-extrabold text-indigo-500">
+                    <div class="flex flex-col items-center gap-1">
+                      <span>cPanel Reseller</span>
+                      <span class="text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full">INDUSTRY STANDARD</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/40">
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">Control Panel</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">Webuzo Admin</td>
+                  <td class="px-6 py-3.5 text-center text-indigo-500 font-bold">WHM / cPanel</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">White-Label</td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-teal-500 mx-auto" /></td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-indigo-500 mx-auto" /></td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">WHMCS Integration</td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-teal-500 mx-auto" /></td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-indigo-500 mx-auto" /></td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">Web Server</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">Apache + Nginx</td>
+                  <td class="px-6 py-3.5 text-center text-indigo-500 font-bold">LiteSpeed + Apache</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">Access Levels</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">Admin / Reseller / Enduser</td>
+                  <td class="px-6 py-3.5 text-center text-indigo-500 font-bold">WHM / cPanel</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">1-Click Apps</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">350+ (Softaculous)</td>
+                  <td class="px-6 py-3.5 text-center text-indigo-500 font-bold">400+ (Softaculous)</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">cPanel Migration</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">Built-in Importers</td>
+                  <td class="px-6 py-3.5 text-center text-muted-foreground">Native (same panel)</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors bg-teal-500/5">
+                  <td class="px-6 py-3.5 font-extrabold">Starting Price</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-black text-base">$9.99/mo</td>
+                  <td class="px-6 py-3.5 text-center text-indigo-500 font-bold">$12.99/mo</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-6 text-center">
+            <a href="/reseller" class="inline-flex items-center gap-2 text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+              <span>View cPanel Reseller Plans</span>
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Why Choose Webuzo Reseller?</h2>
+          <p class="text-muted-foreground">Everything you need to run a successful hosting business at lower costs.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <MigrationBanner />
+    
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p class="text-muted-foreground">Everything you need to know about Webuzo Reseller Hosting at HostingSpell.</p>
+        </div>
+        <FaqAccordion items={webuzoResellerFaqs} client:visible />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

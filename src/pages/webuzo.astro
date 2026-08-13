@@ -1,0 +1,329 @@
+---
+import { Button } from "@/components/ui/button";
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import FeatureCard from '../components/blocks/FeatureCard.astro';
+import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
+import WebuzoShowcase from '../components/blocks/WebuzoShowcase.astro';
+import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
+import { PLANS_WEBUZO_HOSTING } from '../lib/pricing/webuzoPlans';
+import { WEBUZO_PROVIDER_LOCATIONS, GLOBAL_BILLING_CYCLES } from '../lib/pricing/constants';
+import { Check, Shield, Server, Zap, Globe, ArrowRight, Code, RefreshCw, HardDrive, Lock } from 'lucide-react';
+
+const features = [
+  {
+    title: "Apache & Nginx Dual Stack",
+    description: "Enjoy the speed of Nginx coupled with the compatibility of Apache. Run your website on an optimized stack for peak performance.",
+    icon: "Server" as const
+  },
+  {
+    title: "MultiPHP Manager",
+    description: "Switch seamlessly between PHP 5.6 to PHP 8.3+ per domain with built-in php.ini editor, Composer, and PECL modules.",
+    icon: "Zap" as const
+  },
+  {
+    title: "Softaculous 350+ 1-Click Apps",
+    description: "Deploy WordPress, WooCommerce, Laravel, Joomla, Drupal, and over 350+ open-source applications in seconds.",
+    icon: "Shield" as const
+  },
+  {
+    title: "Automated Backups & SSL",
+    description: "Keep your data safe with daily automated backups and free Let's Encrypt SSL certificates automatically installed for all domains.",
+    icon: "RefreshCw" as const
+  }
+];
+
+const webuzoSharedFaqs = [
+  {
+    question: "What is Webuzo Shared Hosting?",
+    answer: "Webuzo Shared Hosting is a high-performance web hosting service where your websites are powered by the Webuzo control panel. It gives you a clean, intuitive dashboard to manage files, MySQL databases, domain DNS, email accounts, SSL certificates, and 1-click app installations."
+  },
+  {
+    question: "How does Webuzo compare to cPanel for hosting websites?",
+    answer: "Webuzo provides a very similar end-user experience to cPanel — managing files, emails, databases, and SSL — but operates with lighter server overhead and significantly lower licensing costs. It also natively supports Apache + Nginx dual stack for faster site load speeds."
+  },
+  {
+    question: "Can I host multiple websites on one Webuzo Shared Hosting plan?",
+    answer: "Yes! Depending on your chosen plan, you can host 1 website (Venus), 3 websites (Mars), 10 websites (Saturn), or Unlimited websites (Jupiter) with individual domain management in your Webuzo panel."
+  },
+  {
+    question: "Can HostingSpell help me migrate my site from cPanel to Webuzo?",
+    answer: "Absolutely! We provide 100% free migration assistance. Webuzo includes automated cPanel import tools, and our migration engineers will handle the entire transition with zero downtime."
+  },
+  {
+    question: "Is WordPress supported on Webuzo Shared Hosting?",
+    answer: "Yes! Webuzo includes the Softaculous 1-click installer, allowing you to install, update, clone, and backup WordPress or WooCommerce sites with a single click."
+  },
+  {
+    question: "Do I get free SSL certificates?",
+    answer: "Yes, every domain and subdomain hosted on our Webuzo Shared Hosting comes with free, automatic Let's Encrypt SSL certificates that auto-renew."
+  }
+];
+---
+
+<Layout 
+  title="Webuzo Shared Hosting Plans | Fast & Affordable cPanel Alternative | HostingSpell"
+  description="Host your websites on high-speed NVMe infrastructure with Webuzo Control Panel. Apache/Nginx, MultiPHP, 350+ Softaculous apps, free SSL & free migration."
+>
+  <Navbar />
+  <main class="flex-1">
+    {/* Page Hero - 2-Column Split Hero Layout */}
+    <section class="relative bg-background pt-20 pb-24 border-b border-border/40 overflow-hidden">
+      <div class="absolute inset-0 bg-teal-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+      
+      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+          
+          {/* Left Column (7 cols) */}
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center rounded-full border border-teal-500/30 bg-teal-500/10 px-3.5 py-1 text-xs font-bold text-teal-400">
+              <span class="flex h-2 w-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span> Ultra-Fast Webuzo Shared Cloud Infrastructure
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Blazing Fast NVMe <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">Webuzo Web Hosting</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
+              Host your websites, blogs, and online stores on high-speed NVMe servers powered by Webuzo. Enjoy Apache/Nginx speed, MultiPHP, 350+ Softaculous apps, and free SSL at unbeatable rates.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Apache + Nginx Dual-Stack Web Server for Peak Performance</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Softaculous 1-Click Installer (WordPress, Laravel, 350+ Apps)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="p-1 rounded-full bg-teal-500/15 text-teal-400 border border-teal-500/30">
+                  <Check class="w-3.5 h-3.5" />
+                </div>
+                <span>Free SSL Certificates, Imunify360 Security & 100% Free cPanel Migration</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+              <a href="#plans" class="w-full sm:w-auto">
+                <Button size="lg" className="w-full h-13 px-8 text-base bg-teal-600 hover:bg-teal-500 text-white font-extrabold shadow-xl shadow-teal-500/25 flex items-center justify-center gap-2">
+                  <span>View Webuzo Plans</span>
+                  <ArrowRight class="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="/contact" class="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full h-13 px-8 text-base font-extrabold hover:bg-teal-500/10 hover:text-teal-400 border-border/80">
+                  Contact Sales
+                </Button>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols) - Visual Webuzo Shared Server Card */}
+          <div class="lg:col-span-5 relative">
+            <div class="glass-card rounded-3xl p-7 border border-teal-500/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+                  </div>
+                  <div>
+                    <div class="text-xs font-black text-foreground">Webuzo Node #NVME-WB01</div>
+                    <div class="text-[10px] text-emerald-400 font-bold">🟢 100% Operational Uptime</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider bg-teal-500/20 text-teal-400 border border-teal-500/30 px-2.5 py-1 rounded-full">
+                  WEBUZO NVMe
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Zap class="w-3.5 h-3.5 text-teal-400" /> TTFB Speed
+                  </div>
+                  <div class="text-lg font-black text-foreground">32 ms</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <HardDrive class="w-3.5 h-3.5 text-emerald-400" /> Storage
+                  </div>
+                  <div class="text-lg font-black text-foreground">Pure NVMe</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Server class="w-3.5 h-3.5 text-cyan-400" /> Web Stack
+                  </div>
+                  <div class="text-xs font-black text-foreground">Apache + Nginx</div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
+                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
+                    <Shield class="w-3.5 h-3.5 text-teal-400" /> Security
+                  </div>
+                  <div class="text-xs font-black text-emerald-400">Imunify360</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-teal-500/15 via-teal-500/5 to-transparent border border-teal-500/30 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-extrabold text-foreground">Webuzo Shared Venus</div>
+                  <div class="text-[11px] text-muted-foreground">1 Website + Free SSL + 350+ Apps</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-lg font-black text-teal-400">$0.89<span class="text-[10px] font-bold text-muted-foreground">/mo</span></div>
+                  <span class="text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">BEST VALUE</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    {/* Showcase Dashboard Block */}
+    <WebuzoShowcase />
+
+    {/* Interactive Pricing Grid */}
+    <section class="py-24" id="plans">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Webuzo Shared Web Hosting Plans</h2>
+          <p class="text-muted-foreground">Select your datacenter location and billing cycle. All plans include Webuzo Control Panel, free SSL, and Softaculous.</p>
+        </div>
+
+        <InteractivePricingGrid
+          client:load
+          plans={PLANS_WEBUZO_HOSTING}
+          locations={WEBUZO_PROVIDER_LOCATIONS}
+          billingCycles={GLOBAL_BILLING_CYCLES.webuzohosting}
+        />
+      </div>
+    </section>
+
+    <PlanComparisonTable service="webuzo" client:visible />
+
+    {/* Webuzo vs cPanel Shared Hosting Comparison */}
+    <section class="py-24 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-xs font-bold text-teal-400 backdrop-blur-sm mb-4">
+            <Zap class="w-3.5 h-3.5" />
+            <span>Shared Hosting Comparison</span>
+          </div>
+          <h2 class="text-3xl font-bold mb-4">Webuzo Shared vs cPanel Shared Hosting</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">See how Webuzo Shared Hosting compares to traditional cPanel Shared Hosting side-by-side.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="overflow-hidden rounded-2xl border border-border/80 bg-card shadow-lg">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-muted/50 border-b border-border/60">
+                  <th class="text-left px-6 py-4 font-extrabold text-foreground">Feature</th>
+                  <th class="text-center px-6 py-4 font-extrabold text-teal-500">
+                    <div class="flex flex-col items-center gap-1">
+                      <span>Webuzo Shared</span>
+                      <span class="text-[10px] font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full">HIGH VALUE</span>
+                    </div>
+                  </th>
+                  <th class="text-center px-6 py-4 font-extrabold text-muted-foreground">
+                    <div class="flex flex-col items-center gap-1">
+                      <span>cPanel Shared</span>
+                      <span class="text-[10px] font-bold text-muted-foreground bg-muted px-2 py-0.5 rounded-full">STANDARD</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/40">
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">Web Server Stack</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">Apache + Nginx Dual Stack</td>
+                  <td class="px-6 py-3.5 text-center text-muted-foreground">LiteSpeed Enterprise</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">PHP Version Selection</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">MultiPHP (5.6 - 8.3+)</td>
+                  <td class="px-6 py-3.5 text-center text-muted-foreground">MultiPHP (5.6 - 8.3+)</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">1-Click App Installer</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">350+ Softaculous Apps</td>
+                  <td class="px-6 py-3.5 text-center text-muted-foreground">400+ Softaculous Apps</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">Free Auto SSL</td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-teal-500 mx-auto" /></td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-muted-foreground mx-auto" /></td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">Imunify360 Anti-Virus</td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-teal-500 mx-auto" /></td>
+                  <td class="px-6 py-3.5 text-center"><Check class="w-4 h-4 text-muted-foreground mx-auto" /></td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors">
+                  <td class="px-6 py-3.5 font-semibold">Free cPanel Migration</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-bold">100% Free Managed Migration</td>
+                  <td class="px-6 py-3.5 text-center text-muted-foreground">100% Free Managed Migration</td>
+                </tr>
+                <tr class="hover:bg-muted/20 transition-colors bg-teal-500/5">
+                  <td class="px-6 py-3.5 font-extrabold">Starting Price</td>
+                  <td class="px-6 py-3.5 text-center text-teal-500 font-black text-base">$0.89/mo (₹69)</td>
+                  <td class="px-6 py-3.5 text-center text-muted-foreground font-bold">$1.29/mo (₹99)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Features Grid */}
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Why Choose Webuzo Shared Hosting?</h2>
+          <p class="text-muted-foreground">All the performance, security, and developer tools you need to build and scale your website.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Migration Banner */}
+    <MigrationBanner />
+    
+    {/* FAQs Section */}
+    <section class="py-24">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p class="text-muted-foreground">Got questions about Webuzo Shared Web Hosting? We've got answers.</p>
+        </div>
+        <FaqAccordion items={webuzoSharedFaqs} client:visible />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
