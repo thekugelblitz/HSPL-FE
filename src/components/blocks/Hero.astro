@@ -4,6 +4,7 @@ import { cloudPlans, premiumPlans, vpsPlans } from '../../lib/data';
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Server, Cpu, Cloud, Sparkles, Activity, Lock, Globe, HardDrive, Check } from 'lucide-react';
 import { HostingQuizModal } from './HostingQuizModal';
 import TrustProofBar from './TrustProofBar.astro';
+import { DynamicPrice } from '../pricing/DynamicPrice';
 
 const startingCloud = cloudPlans[0];
 const startingPremium = premiumPlans[0];
@@ -77,7 +78,7 @@ const startingVps = vpsPlans[0];
 
         {/* Price Anchor */}
         <div class="flex items-center gap-2 text-xs font-semibold text-muted-foreground dark:text-zinc-400 pt-1">
-          <span class="text-foreground dark:text-white font-black">Starting at $1.29/mo</span>
+          <DynamicPrice client:load usd="0.89" inr="69" prefix="Starting at " suffix="/mo" className="text-foreground dark:text-white font-black" />
           <span>•</span>
           <span class="text-emerald-600 dark:text-emerald-400 font-bold">100% Uptime Guarantee & 30-Day Money-Back</span>
         </div>
@@ -101,7 +102,7 @@ const startingVps = vpsPlans[0];
               </div>
             </div>
             <span class="text-[10px] font-black uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 px-2.5 py-1 rounded-full">
-              LITESPEED
+              LITESPEED & WEBUZO
             </span>
           </div>
 
@@ -139,12 +140,12 @@ const startingVps = vpsPlans[0];
           {/* Special Flash Deal Spotlight */}
           <div class="p-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-transparent border border-primary/30 flex items-center justify-between">
             <div>
-              <div class="text-xs font-extrabold text-foreground">Cloud NVMe Deal</div>
-              <div class="text-[11px] text-muted-foreground">Free Domain + LiteSpeed + SSL</div>
+              <div class="text-xs font-extrabold text-foreground">Webuzo Shared Deal</div>
+              <div class="text-[11px] text-muted-foreground">Apache/Nginx + MultiPHP + SSL</div>
             </div>
             <div class="text-right">
-              <div class="text-lg font-black text-primary">$1.29<span class="text-[10px] font-bold text-muted-foreground">/mo</span></div>
-              <span class="text-[9px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">SAVE 74%</span>
+              <DynamicPrice client:load usd="0.89" inr="69" suffix="/mo" className="text-lg font-black text-primary block" />
+              <span class="text-[9px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">SAVE 70%</span>
             </div>
           </div>
 
@@ -168,13 +169,52 @@ const startingVps = vpsPlans[0];
     </div>
 
     {/* Featured Plan Cards Grid */}
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto text-left" id="plans">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto text-left" id="plans">
       
-      {/* Cloud Hosting Card */}
-      <div class="glass-card rounded-3xl p-7 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-blue-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
+      {/* Webuzo Hosting Card */}
+      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-teal-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
         <div>
           <div class="flex items-center justify-between mb-4">
-            <div class="p-3.5 bg-blue-500/15 rounded-2xl text-blue-400 border border-blue-500/30">
+            <div class="p-3 bg-teal-500/15 rounded-2xl text-teal-400 border border-teal-500/30">
+              <Server class="w-6 h-6" />
+            </div>
+            <span class="text-[11px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30">
+              SAVE 70%
+            </span>
+          </div>
+
+          <h3 class="text-xl font-extrabold mb-1 text-foreground">Webuzo Hosting</h3>
+          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">Modern cPanel alternative with Apache/Nginx & MultiPHP.</p>
+          
+          <div class="mb-5 pt-3 border-t border-border/60">
+            <div class="flex items-baseline gap-2">
+              <DynamicPrice client:load usd="0.89" inr="69" className="text-3xl font-black text-foreground" />
+              <span class="text-xs text-muted-foreground font-bold">/mo</span>
+            </div>
+            <div class="text-xs text-muted-foreground mt-1 font-medium">
+              Regular <DynamicPrice client:load usd="2.99" inr="229" className="line-through" />
+            </div>
+          </div>
+
+          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">1 Website & 10GB NVMe</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Apache + Nginx Dual Stack</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Softaculous 350+ 1-Click Apps</span></li>
+          </ul>
+        </div>
+
+        <a href="/webuzo" class="w-full">
+          <Button variant="outline" className="w-full font-bold text-xs py-4 rounded-xl hover:bg-teal-600 hover:text-white border-border/80 shadow-sm">
+            View Webuzo Plans
+          </Button>
+        </a>
+      </div>
+
+      {/* Cloud Hosting Card */}
+      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-blue-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="p-3 bg-blue-500/15 rounded-2xl text-blue-400 border border-blue-500/30">
               <Cloud class="w-6 h-6" />
             </div>
             <span class="text-[11px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30">
@@ -182,95 +222,95 @@ const startingVps = vpsPlans[0];
             </span>
           </div>
 
-          <h3 class="text-2xl font-extrabold mb-1 text-foreground">Cloud Hosting</h3>
-          <p class="text-xs text-muted-foreground mb-5 leading-relaxed font-medium">High-speed NVMe cloud hosting designed for blogs & business sites.</p>
+          <h3 class="text-xl font-extrabold mb-1 text-foreground">Cloud Hosting</h3>
+          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">High-speed NVMe cloud hosting designed for blogs & business sites.</p>
           
-          <div class="mb-6 pt-4 border-t border-border/60">
+          <div class="mb-5 pt-3 border-t border-border/60">
             <div class="flex items-baseline gap-2">
-              <span class="text-4xl font-black text-foreground">{startingCloud.price}</span>
+              <DynamicPrice client:load usd="1.29" inr="99" className="text-3xl font-black text-foreground" />
               <span class="text-xs text-muted-foreground font-bold">{startingCloud.billingCycle}</span>
             </div>
             {startingCloud.originalPrice && (
               <div class="text-xs text-muted-foreground mt-1 font-medium">
-                Regular <span class="line-through">{startingCloud.originalPrice}</span>
+                Regular <DynamicPrice client:load usd="4.99" inr="399" className="line-through" />
               </div>
             )}
           </div>
 
-          <ul class="space-y-2.5 text-xs text-muted-foreground mb-8 font-semibold">
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">1 Website & 1GB NVMe SSD</span></li>
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">LiteSpeed Enterprise + Free SSL</span></li>
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">Free Zero-Downtime Migration</span></li>
+          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">1 Website & 1GB NVMe SSD</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">LiteSpeed Enterprise + Free SSL</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Free Zero-Downtime Migration</span></li>
           </ul>
         </div>
 
         <a href="/cloud-hosting" class="w-full">
-          <Button variant="outline" className="w-full font-bold text-xs py-5 rounded-xl hover:bg-primary hover:text-primary-foreground border-border/80 shadow-sm">
+          <Button variant="outline" className="w-full font-bold text-xs py-4 rounded-xl hover:bg-primary hover:text-primary-foreground border-border/80 shadow-sm">
             View Cloud Plans
           </Button>
         </a>
       </div>
 
       {/* Premium Hosting Card - Featured Spotlight Center Stage */}
-      <div class="glass-card rounded-3xl p-7 glow-card flex flex-col justify-between border-2 border-primary bg-gradient-to-b from-primary/20 via-card to-card shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2 transform lg:-translate-y-3">
+      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between border-2 border-primary bg-gradient-to-b from-primary/20 via-card to-card shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2">
         <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-blue-400 via-primary to-indigo-500"></div>
         <div>
           <div class="flex items-center justify-between mb-4">
-            <div class="p-3.5 bg-primary text-primary-foreground rounded-2xl shadow-lg shadow-primary/30">
+            <div class="p-3 bg-primary text-primary-foreground rounded-2xl shadow-lg shadow-primary/30">
               <Zap class="w-6 h-6" />
             </div>
             <span class="text-[11px] font-black uppercase tracking-wider bg-primary text-primary-foreground px-3.5 py-1 rounded-full shadow-md">
-              🔥 Most Popular
+              🔥 Popular
             </span>
           </div>
 
-          <h3 class="text-2xl font-extrabold mb-1 text-foreground">Premium Hosting</h3>
-          <p class="text-xs text-muted-foreground mb-5 leading-relaxed font-medium">Dedicated RAM & CPU resources for high-traffic stores & apps.</p>
+          <h3 class="text-xl font-extrabold mb-1 text-foreground">Premium Hosting</h3>
+          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">Dedicated RAM & CPU for high-traffic stores & apps.</p>
           
-          <div class="mb-6 pt-4 border-t border-border/60">
+          <div class="mb-5 pt-3 border-t border-border/60">
             <div class="flex items-baseline gap-2">
-              <span class="text-4xl font-black text-foreground">{startingPremium.price}</span>
+              <DynamicPrice client:load usd="1.99" inr="149" className="text-3xl font-black text-foreground" />
               <span class="text-xs text-muted-foreground font-bold">{startingPremium.billingCycle}</span>
             </div>
             {startingPremium.originalPrice && (
               <div class="text-xs text-muted-foreground mt-1 font-medium">
-                Regular <span class="line-through">{startingPremium.originalPrice}</span>
+                Regular <DynamicPrice client:load usd="5.99" inr="499" className="line-through" />
               </div>
             )}
           </div>
 
-          <ul class="space-y-2.5 text-xs text-muted-foreground mb-8 font-semibold">
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">2 CPU & 2GB Dedicated RAM</span></li>
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">Unlimited SSD & Bandwidth</span></li>
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">Linode & DigitalOcean Cloud Nodes</span></li>
+          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">2 CPU & 2GB Dedicated RAM</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Unlimited SSD & Bandwidth</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Linode & DigitalOcean Cloud</span></li>
           </ul>
         </div>
 
         <a href="/premium-hosting" class="w-full">
-          <Button className="w-full font-extrabold text-xs py-5 rounded-xl bg-primary text-primary-foreground hover:opacity-90 shadow-xl shadow-primary/30">
+          <Button className="w-full font-extrabold text-xs py-4 rounded-xl bg-primary text-primary-foreground hover:opacity-90 shadow-xl shadow-primary/30">
             Get Premium Plan
           </Button>
         </a>
       </div>
 
       {/* KVM VPS Hosting Card */}
-      <div class="glass-card rounded-3xl p-7 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-purple-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
+      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-purple-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
         <div>
           <div class="flex items-center justify-between mb-4">
-            <div class="p-3.5 bg-purple-500/15 rounded-2xl text-purple-400 border border-purple-500/30">
+            <div class="p-3 bg-purple-500/15 rounded-2xl text-purple-400 border border-purple-500/30">
               <Server class="w-6 h-6" />
             </div>
             <span class="text-[11px] font-black uppercase tracking-wider bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full border border-purple-500/30">
-              FULL ROOT SSH
+              FULL ROOT
             </span>
           </div>
 
-          <h3 class="text-2xl font-extrabold mb-1 text-foreground">KVM VPS Hosting</h3>
-          <p class="text-xs text-muted-foreground mb-5 leading-relaxed font-medium">Virtualizor KVM hypervisor with isolated CPU, RAM & Root Access.</p>
+          <h3 class="text-xl font-extrabold mb-1 text-foreground">KVM VPS Hosting</h3>
+          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">Virtualizor KVM hypervisor with isolated CPU & Root Access.</p>
           
-          <div class="mb-6 pt-4 border-t border-border/60">
+          <div class="mb-5 pt-3 border-t border-border/60">
             <div class="flex items-baseline gap-2">
-              <span class="text-4xl font-black text-foreground">{startingVps.price}</span>
+              <DynamicPrice client:load usd="10" inr="749" className="text-3xl font-black text-foreground" />
               <span class="text-xs text-muted-foreground font-bold">{startingVps.billingCycle}</span>
             </div>
             <div class="text-xs text-muted-foreground mt-1 font-medium">
@@ -278,15 +318,15 @@ const startingVps = vpsPlans[0];
             </div>
           </div>
 
-          <ul class="space-y-2.5 text-xs text-muted-foreground mb-8 font-semibold">
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">1 CPU Core & 4GB Dedicated RAM</span></li>
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">40GB NVMe & 1TB Bandwidth</span></li>
-            <li class="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> <span class="text-foreground">Virtualizor 1-Click App Marketplace</span></li>
+          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">1 CPU Core & 4GB Dedicated RAM</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">40GB NVMe & 1TB Bandwidth</span></li>
+            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Virtualizor 1-Click App Market</span></li>
           </ul>
         </div>
 
         <a href="/vps" class="w-full">
-          <Button variant="outline" className="w-full font-bold text-xs py-5 rounded-xl hover:bg-primary hover:text-primary-foreground border-border/80 shadow-sm">
+          <Button variant="outline" className="w-full font-bold text-xs py-4 rounded-xl hover:bg-primary hover:text-primary-foreground border-border/80 shadow-sm">
             View VPS Plans
           </Button>
         </a>

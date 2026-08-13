@@ -1,12 +1,15 @@
 ---
 // src/components/blocks/PricingCard.astro
 import { Check, Zap, ArrowRight, ShieldCheck } from "lucide-react";
+import { DynamicPriceWithOriginal } from "../pricing/DynamicPrice";
 
 interface Props {
   name: string;
   tagline?: string;
   price: string;
+  inrPrice?: string;
   originalPrice?: string;
+  inrOriginal?: string;
   discount?: string;
   billingCycle?: string;
   features: string[];
@@ -18,8 +21,10 @@ interface Props {
 const { 
   name, 
   tagline,
-  price, 
+  price,
+  inrPrice,
   originalPrice,
+  inrOriginal,
   discount,
   billingCycle = "/mo",
   features, 
@@ -27,6 +32,11 @@ const {
   link = "https://manage.hostingspell.com",
   ctaText = "Get Started Now"
 } = Astro.props;
+
+const cleanUsdPrice = price.replace(/[^0-9.]/g, '');
+const cleanInrPrice = inrPrice ? inrPrice.replace(/[^0-9.]/g, '') : Math.round(Number(cleanUsdPrice) * 75).toString();
+const cleanUsdOriginal = originalPrice ? originalPrice.replace(/[^0-9.]/g, '') : undefined;
+const cleanInrOriginal = inrOriginal ? inrOriginal.replace(/[^0-9.]/g, '') : (cleanUsdOriginal ? Math.round(Number(cleanUsdOriginal) * 75).toString() : undefined);
 ---
 
 <div class={`relative flex flex-col p-6 sm:p-8 rounded-3xl transition-all duration-300 ${
@@ -54,16 +64,14 @@ const {
   </div>
   
   <div class="mb-6 border-b border-border/60 pb-6">
-    <div class="flex items-baseline gap-2">
-      <span class="text-4xl sm:text-5xl font-black tracking-tight text-foreground">{price}</span>
-      <span class="text-xs font-semibold text-muted-foreground">{billingCycle}</span>
-    </div>
-    {originalPrice && (
-      <div class="text-xs text-muted-foreground mt-1 flex items-center justify-between">
-        <span>Regular price <span class="line-through opacity-70">{originalPrice}</span></span>
-        <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">Fixed Renewal Rate</span>
-      </div>
-    )}
+    <DynamicPriceWithOriginal 
+      client:load 
+      usdPrice={cleanUsdPrice}
+      inrPrice={cleanInrPrice}
+      usdOriginal={cleanUsdOriginal}
+      inrOriginal={cleanInrOriginal}
+      billingCycle={billingCycle}
+    />
   </div>
 
   {/* Included Free Value Stack Badge */}
@@ -103,4 +111,3 @@ const {
     </div>
   </div>
 </div>
-

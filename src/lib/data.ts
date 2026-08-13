@@ -1,11 +1,62 @@
-// src/lib/data.ts
+export const webuzoPlans = [
+  {
+    name: "VENUS",
+    tagline: "BEST FOR STARTERS!",
+    price: "$0.89",
+    inrPrice: "₹69",
+    originalPrice: "$2.99",
+    inrOriginal: "₹229",
+    discount: "SAVE 70%",
+    billingCycle: "/mo",
+    features: [
+      "Host 1 Website",
+      "5 Sub-Domains & 1 Alias Domain",
+      "5 MySQL/PostgreSQL Databases",
+      "5 Email & 5 FTP Accounts",
+      "10GB Pure NVMe SSD Storage",
+      "Unlimited Bandwidth",
+      "Webuzo Control Panel",
+      "Apache + Nginx Dual Stack",
+      "Softaculous 1-Click (350+ Apps)",
+      "Free SSL & Imunify360 Security"
+    ],
+    isPopular: false,
+    link: "https://manage.hostingspell.com/store/webuzo-shared-hosting/venus?currency=1"
+  },
+  {
+    name: "MARS",
+    tagline: "BEST FOR SMALL SITES!",
+    price: "$1.39",
+    inrPrice: "₹119",
+    originalPrice: "$4.99",
+    inrOriginal: "₹399",
+    discount: "SAVE 72%",
+    billingCycle: "/mo",
+    features: [
+      "Host 3 Websites",
+      "15 Sub-Domains & 3 Alias Domains",
+      "15 MySQL/PostgreSQL Databases",
+      "15 Email & 15 FTP Accounts",
+      "25GB Pure NVMe SSD Storage",
+      "Unlimited Bandwidth",
+      "Webuzo Control Panel",
+      "Apache + Nginx Dual Stack",
+      "Softaculous 1-Click (350+ Apps)",
+      "Free SSL & Imunify360 Security"
+    ],
+    isPopular: true,
+    link: "https://manage.hostingspell.com/store/webuzo-shared-hosting/mars?currency=1"
+  }
+];
 
 export const cloudPlans = [
   {
     name: "VENUS",
     tagline: "BEST FOR STARTERS!",
     price: "$1.29",
+    inrPrice: "₹99",
     originalPrice: "$4.99",
+    inrOriginal: "₹399",
     discount: "SAVE 74%",
     billingCycle: "/mo",
     features: [
@@ -27,7 +78,9 @@ export const cloudPlans = [
     name: "MARS",
     tagline: "BEST FOR SMALL BUSINESSES!",
     price: "$1.69",
+    inrPrice: "₹149",
     originalPrice: "$5.99",
+    inrOriginal: "₹499",
     discount: "SAVE 72%",
     billingCycle: "/mo",
     features: [
@@ -49,7 +102,9 @@ export const cloudPlans = [
     name: "SATURN",
     tagline: "BEST FOR GROWING WEBSITES!",
     price: "$1.99",
+    inrPrice: "₹169",
     originalPrice: "$7.99",
+    inrOriginal: "₹599",
     discount: "SAVE 75%",
     billingCycle: "/mo",
     features: [
@@ -71,7 +126,9 @@ export const cloudPlans = [
     name: "JUPITER",
     tagline: "BEST FOR LARGE BUSINESSES!",
     price: "$2.99",
+    inrPrice: "₹249",
     originalPrice: "$9.99",
+    inrOriginal: "₹799",
     discount: "SAVE 70%",
     billingCycle: "/mo",
     features: [

@@ -18,7 +18,7 @@ import { FaqAccordion } from '../components/blocks/FaqAccordion';
 import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
 import { StickyMobileBuyBar } from '../components/blocks/StickyMobileBuyBar';
 import AiWebDevHero from '../components/blocks/AiWebDevHero';
-import { cloudPlans, premiumPlans, vpsPlans, faqs } from '../lib/data';
+import { webuzoPlans, cloudPlans, premiumPlans, vpsPlans, faqs } from '../lib/data';
 
 const features = [
   {
@@ -37,17 +37,18 @@ const features = [
     icon: "Shield" as const
   },
   {
-    title: "LiteSpeed Enterprise Server",
-    description: "Blazing fast 10x HTTP/3 performance with LiteSpeed web server and native LSCache plugin integration.",
+    title: "LiteSpeed & Apache Enterprise",
+    description: "Blazing fast 10x HTTP/3 performance with LiteSpeed web server and Apache + Nginx dual stack.",
     icon: "Zap" as const
   }
 ];
 
+const popularWebuzo = webuzoPlans.find(p => p.name === 'MARS') || webuzoPlans[1];
 const popularCloud = cloudPlans.find(p => p.name === 'MARS') || cloudPlans[1];
 const popularPremium = premiumPlans.find(p => p.name === 'PREMIUM 2') || premiumPlans[1];
 const popularVps = vpsPlans.find(p => p.name === 'CONSOLUS MODEL') || vpsPlans[1];
 
-const popularPlans = [popularCloud, popularPremium, popularVps];
+const popularPlans = [popularWebuzo, popularCloud, popularPremium, popularVps];
 ---
 
 <Layout title="HostingSpell | Next-Gen Ultra-Fast NVMe Cloud Hosting">
@@ -65,9 +66,9 @@ const popularPlans = [popularCloud, popularPremium, popularVps];
           <p class="text-muted-foreground text-base max-w-2xl mx-auto">High-performance cloud hosting engineered for developers, businesses, and agency portfolios.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {popularPlans.map((plan, index) => (
-            <PricingCard {...plan} isPopular={index === 1} ctaText={index === 1 ? "Get Premium Plan" : "Get Started"} />
+            <PricingCard {...plan} isPopular={index === 2} ctaText={index === 2 ? "Get Premium Plan" : "Get Started"} />
           ))}
         </div>
 
