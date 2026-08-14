@@ -1,0 +1,50 @@
+---
+// src/components/pricing/StaticPriceWithOriginal.astro
+// Zero-JS High-Performance Pricing Display with Regular/Original Price Anchor
+interface Props {
+  usdPrice: string | number;
+  inrPrice: string | number;
+  usdOriginal?: string | number;
+  inrOriginal?: string | number;
+  billingCycle?: string;
+  className?: string;
+}
+
+const {
+  usdPrice,
+  inrPrice,
+  usdOriginal,
+  inrOriginal,
+  billingCycle = "/mo",
+  className = "",
+} = Astro.props;
+---
+
+<div class={className}>
+  <div class="flex items-baseline gap-1.5">
+    <span
+      class="hs-price text-4xl sm:text-5xl font-black tracking-tight text-foreground"
+      data-usd={usdPrice}
+      data-inr={inrPrice}
+      data-prefix=""
+      data-suffix=""
+    >${usdPrice}</span>
+    <span class="text-xs font-semibold text-muted-foreground">{billingCycle}</span>
+  </div>
+  {usdOriginal && (
+    <div class="text-xs text-muted-foreground mt-1 flex items-center justify-between">
+      <span>
+        Regular price <span
+          class="hs-price line-through opacity-70"
+          data-usd={usdOriginal}
+          data-inr={inrOriginal || Math.round(Number(usdOriginal) * 75).toString()}
+          data-prefix=""
+          data-suffix=""
+        >${usdOriginal}</span>
+      </span>
+      <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+        Fixed Renewal Rate
+      </span>
+    </div>
+  )}
+</div>

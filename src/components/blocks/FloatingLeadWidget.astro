@@ -1,0 +1,157 @@
+---
+// src/components/blocks/FloatingLeadWidget.astro
+// Zero-Hydration Ultra-Fast Floating Lead Widget (Pure HTML/CSS/Vanilla JS)
+---
+
+<div id="floating-lead-root" class="fixed bottom-6 right-6 z-50">
+  {/* Lead Capture Popup Modal */}
+  <div id="lead-popup" class="hidden mb-4 w-[340px] sm:w-[380px] bg-zinc-950 border border-white/15 rounded-2xl p-5 shadow-2xl backdrop-blur-2xl text-white animate-in slide-in-from-bottom-5 duration-300">
+    <div class="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+          <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm leading-tight">Instant Lead & Sales Assistance</h4>
+          <p class="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Advisor Online (Avg &lt; 5m response)
+          </p>
+        </div>
+      </div>
+      <button 
+        type="button"
+        id="close-lead-popup"
+        class="text-zinc-400 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors cursor-pointer"
+        aria-label="Close"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div id="lead-submitted-state" class="hidden py-8 text-center space-y-3">
+      <svg class="w-12 h-12 text-emerald-400 mx-auto animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      <h5 class="font-bold text-base">Request Submitted!</h5>
+      <p class="text-xs text-zinc-300 leading-relaxed">
+        Our hosting migration expert will contact you via WhatsApp/Email within 5 minutes.
+      </p>
+    </div>
+
+    <form id="lead-form" class="space-y-3 text-xs">
+      <div>
+        <label class="block text-zinc-400 font-medium mb-1">Your Name</label>
+        <input 
+          type="text" 
+          name="name"
+          required 
+          placeholder="e.g. Alex" 
+          class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:border-blue-500"
+        />
+      </div>
+
+      <div>
+        <label class="block text-zinc-400 font-medium mb-1">Email or WhatsApp Number</label>
+        <input 
+          type="text" 
+          name="contact"
+          required 
+          placeholder="alex@example.com or +91..." 
+          class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:border-blue-500"
+        />
+      </div>
+
+      <div>
+        <label class="block text-zinc-400 font-medium mb-1">Hosting Interested In</label>
+        <select 
+          name="plan"
+          class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:border-blue-500"
+        >
+          <option>Cloud NVMe Hosting ($1.29/mo)</option>
+          <option>cPanel Premium Hosting ($1.99/mo)</option>
+          <option>KVM VPS Hosting ($10/mo)</option>
+          <option>Free Website Migration Inquiry</option>
+          <option>Reseller WHM Hosting</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-zinc-400 font-medium mb-1">Message / Requirements</label>
+        <textarea 
+          name="message"
+          rows="2"
+          placeholder="Tell us what you're building..." 
+          class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:border-blue-500 resize-none"
+        ></textarea>
+      </div>
+
+      <button 
+        type="submit"
+        class="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 font-bold text-xs text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 mt-2 cursor-pointer"
+      >
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span>Get Instant Quote & Migration Offer</span>
+      </button>
+
+      <p class="text-[10px] text-zinc-500 text-center pt-1">
+        🔒 100% Privacy Protection • Zero Spam Guarantee
+      </p>
+    </form>
+  </div>
+
+  {/* Trigger Button */}
+  <button
+    type="button"
+    id="toggle-lead-popup"
+    class="flex items-center gap-2 px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-2xl hover:scale-105 transition-all shadow-blue-500/30 border border-white/20 cursor-pointer"
+  >
+    <svg class="w-4 h-4 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="hidden sm:inline">24/7 Live Sales & Migration Help</span>
+    <span class="sm:hidden">Support</span>
+  </button>
+</div>
+
+<script>
+  function setupLeadWidget() {
+    const trigger = document.getElementById('toggle-lead-popup');
+    const popup = document.getElementById('lead-popup');
+    const closeBtn = document.getElementById('close-lead-popup');
+    const form = document.getElementById('lead-form') as HTMLFormElement | null;
+    const submittedState = document.getElementById('lead-submitted-state');
+
+    if (!trigger || !popup) return;
+
+    trigger.onclick = () => {
+      popup.classList.toggle('hidden');
+    };
+
+    if (closeBtn) {
+      closeBtn.onclick = () => popup.classList.add('hidden');
+    }
+
+    if (form) {
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        form.classList.add('hidden');
+        if (submittedState) submittedState.classList.remove('hidden');
+        setTimeout(() => {
+          popup.classList.add('hidden');
+          form.reset();
+          form.classList.remove('hidden');
+          if (submittedState) submittedState.classList.add('hidden');
+        }, 3000);
+      };
+    }
+  }
+
+  // Idle setup to guarantee zero impact on initial thread
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => setupLeadWidget());
+  } else {
+    setTimeout(setupLeadWidget, 200);
+  }
+  document.addEventListener('astro:after-swap', setupLeadWidget);
+</script>

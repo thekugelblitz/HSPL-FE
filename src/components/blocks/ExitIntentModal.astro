@@ -1,0 +1,125 @@
+---
+// src/components/blocks/ExitIntentModal.astro
+// Zero-Hydration Ultra-Fast Exit Intent Modal (Pure HTML/CSS/Vanilla JS)
+---
+
+<div id="exit-modal-backdrop" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
+  <div class="relative w-full max-w-lg bg-zinc-950 border border-white/20 rounded-3xl p-8 shadow-2xl text-white overflow-hidden glow-card">
+    <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <button 
+      type="button"
+      id="close-exit-modal"
+      class="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+      aria-label="Close modal"
+    >
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div id="exit-modal-claimed" class="hidden py-8 text-center space-y-4">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+        <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3 class="text-2xl font-bold">Coupon Code Activated!</h3>
+      <p class="text-sm text-zinc-300 max-w-md mx-auto">
+        Use code <strong class="text-yellow-400 font-mono text-base px-2 py-1 bg-yellow-400/10 rounded border border-yellow-400/20">EXTRA15</strong> at checkout to claim your additional 15% discount + free migration.
+      </p>
+      <a 
+        href="/pricing"
+        id="exit-modal-apply-btn"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all text-sm shadow-lg shadow-emerald-500/20"
+      >
+        <span>Apply Code & Choose Plan</span>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div id="exit-modal-initial" class="space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-bold uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        <span>Special Departure Offer</span>
+      </div>
+
+      <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+        Wait! Don't Leave Empty Handed!
+      </h3>
+
+      <p class="text-sm text-zinc-300 leading-relaxed">
+        Get an <strong>Extra 15% OFF</strong> on any hosting plan + <strong>Free Zero-Downtime Migration Assistance</strong> from our senior Linux engineers.
+      </p>
+
+      <form id="exit-modal-form" class="space-y-3">
+        <div>
+          <input 
+            type="email" 
+            name="email"
+            required
+            placeholder="Enter your email to reveal promo code..." 
+            class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-blue-500"
+          />
+        </div>
+
+        <button 
+          type="submit"
+          class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 font-bold text-sm text-white transition-all shadow-xl shadow-blue-600/30 flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <span>Claim Extra 15% OFF Discount</span>
+        </button>
+      </form>
+
+      <p class="text-[11px] text-zinc-500 text-center">
+        30-Day Money-Back Guarantee • Instant Setup • No Obligation
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupExitModal() {
+    const backdrop = document.getElementById('exit-modal-backdrop');
+    const closeBtn = document.getElementById('close-exit-modal');
+    const form = document.getElementById('exit-modal-form') as HTMLFormElement | null;
+    const claimedBox = document.getElementById('exit-modal-claimed');
+    const initialBox = document.getElementById('exit-modal-initial');
+    const applyBtn = document.getElementById('exit-modal-apply-btn');
+
+    let hasTriggered = false;
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 10 && !hasTriggered && backdrop) {
+        hasTriggered = true;
+        backdrop.classList.remove('hidden');
+        backdrop.classList.add('flex');
+      }
+    };
+
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    if (closeBtn && backdrop) {
+      closeBtn.onclick = () => {
+        backdrop.classList.add('hidden');
+        backdrop.classList.remove('flex');
+      };
+    }
+
+    if (applyBtn && backdrop) {
+      applyBtn.onclick = () => {
+        backdrop.classList.add('hidden');
+        backdrop.classList.remove('flex');
+      };
+    }
+
+    if (form && claimedBox && initialBox) {
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        initialBox.classList.add('hidden');
+        claimedBox.classList.remove('hidden');
+      };
+    }
+  }
+
+  // Defer listener so it never runs during initial paint
+  setTimeout(setupExitModal, 1500);
+  document.addEventListener('astro:after-swap', setupExitModal);
+</script>

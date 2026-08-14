@@ -2,12 +2,34 @@ import React, { useState, useRef, useEffect } from "react";
 import { useCurrency } from "@/lib/pricing/pricingStore";
 import { ChevronDown, Check } from "lucide-react";
 
+function UsFlag() {
+  return (
+    <svg className="w-4 h-3 rounded-xs shrink-0 shadow-xs" viewBox="0 0 640 480">
+      <g fillRule="evenodd">
+        <path fill="#bd3d44" d="M0 0h640v480H0z"/>
+        <path stroke="#fff" strokeWidth="37" d="M0 55.4h640M0 129.2h640M0 203h640M0 277h640M0 350.8h640M0 424.6h640"/>
+        <path fill="#192f5d" d="M0 0h296v258.5H0z"/>
+      </g>
+    </svg>
+  );
+}
+
+function InFlag() {
+  return (
+    <svg className="w-4 h-3 rounded-xs shrink-0 shadow-xs" viewBox="0 0 640 480">
+      <path fill="#ff9933" d="M0 0h640v160H0z"/>
+      <path fill="#fff" d="M0 160h640v160H0z"/>
+      <path fill="#128807" d="M0 320h640v160H0z"/>
+      <circle cx="320" cy="240" r="40" fill="none" stroke="#000080" strokeWidth="8"/>
+    </svg>
+  );
+}
+
 export function CurrencySwitcher() {
   const { currency, setCurrency } = useCurrency();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -19,11 +41,12 @@ export function CurrencySwitcher() {
   }, []);
 
   const currencies = [
-    { code: "USD", symbol: "$", label: "USD ($)", flag: "us" },
-    { code: "INR", symbol: "₹", label: "INR (₹)", flag: "in" },
+    { code: "USD", symbol: "$", label: "USD ($)", flagComponent: UsFlag },
+    { code: "INR", symbol: "₹", label: "INR (₹)", flagComponent: InFlag },
   ];
 
   const currentCurrency = currencies.find((c) => c.code === currency) || currencies[0];
+  const CurrentFlag = currentCurrency.flagComponent;
 
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
@@ -33,13 +56,7 @@ export function CurrencySwitcher() {
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-muted/80 hover:bg-muted text-foreground border border-border/80 text-xs font-extrabold shadow-sm transition-all cursor-pointer outline-none"
         title="Select Currency"
       >
-        <img
-          src={`https://flagcdn.com/w40/${currentCurrency.flag}.png`}
-          width="16"
-          height="11"
-          alt={currentCurrency.code}
-          className="rounded-xs object-cover shrink-0"
-        />
+        <CurrentFlag />
         <span>{currentCurrency.code}</span>
         <span className="font-bold opacity-75">({currentCurrency.symbol})</span>
         <ChevronDown className={`w-3.5 h-3.5 opacity-70 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -52,6 +69,7 @@ export function CurrencySwitcher() {
           </div>
           {currencies.map((c) => {
             const isSelected = c.code === currency;
+            const Flag = c.flagComponent;
             return (
               <button
                 key={c.code}
@@ -67,13 +85,7 @@ export function CurrencySwitcher() {
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <img
-                    src={`https://flagcdn.com/w40/${c.flag}.png`}
-                    width="16"
-                    height="11"
-                    alt={c.code}
-                    className="rounded-xs object-cover"
-                  />
+                  <Flag />
                   <span>{c.label}</span>
                 </div>
                 {isSelected && <Check className="w-3.5 h-3.5 text-primary-foreground shrink-0" />}

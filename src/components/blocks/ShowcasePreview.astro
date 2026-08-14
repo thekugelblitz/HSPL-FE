@@ -45,7 +45,7 @@ const previewClients = [
       {previewClients.map(client => (
         <div class="bg-card rounded-2xl border border-border/50 p-6 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
           <div class="w-full bg-white dark:bg-zinc-100 rounded-xl p-4 border border-border/20 h-28 flex items-center justify-center relative mb-4">
-            <img src={client.image} alt={client.name} class="max-h-16 w-auto object-contain" />
+            <img src={client.image} alt={client.name} width="180" height="64" loading="lazy" decoding="async" class="max-h-16 w-auto object-contain" />
           </div>
           <div class="flex items-center justify-between">
             <h3 class="font-bold">{client.name}</h3>

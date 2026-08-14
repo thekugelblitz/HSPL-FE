@@ -136,6 +136,10 @@ export function FeatureTabs() {
               <img 
                 src={currentData.image} 
                 alt={currentData.title}
+                width={600}
+                height={400}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>

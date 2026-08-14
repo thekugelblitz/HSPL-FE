@@ -1,9 +1,8 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
-import { StickyUrgencyBar } from '../components/blocks/StickyUrgencyBar';
-import { FloatingLeadWidget } from '../components/blocks/FloatingLeadWidget';
-import { ExitIntentModal } from '../components/blocks/ExitIntentModal';
+import FloatingLeadWidget from '../components/blocks/FloatingLeadWidget.astro';
+import ExitIntentModal from '../components/blocks/ExitIntentModal.astro';
 
 interface Props {
   title: string;
@@ -23,7 +22,7 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -42,8 +41,6 @@ const {
     <!-- DNS Prefetch for external domains used in nav/footer -->
     <link rel="dns-prefetch" href="https://manage.hostingspell.com" />
     <link rel="dns-prefetch" href="https://wa.me" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     
     <!-- Theme Color (matches dark nav bar) -->
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
@@ -62,19 +59,6 @@ const {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-
-    <!-- Google Fonts: Inter — Non-blocking preload pattern -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      onload="this.rel='stylesheet'"
-    />
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    </noscript>
     
     <!-- Organization Structured Data for Google Knowledge Panel -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -122,11 +106,11 @@ const {
       }
     </script>
   </head>
-  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans">
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
     <slot />
 
-    <FloatingLeadWidget client:idle />
-    <ExitIntentModal client:idle />
+    <FloatingLeadWidget />
+    <ExitIntentModal />
     
     <script>
       document.addEventListener('astro:after-swap', () => {

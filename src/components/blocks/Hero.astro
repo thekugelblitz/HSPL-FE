@@ -4,7 +4,7 @@ import { cloudPlans, premiumPlans, vpsPlans } from '../../lib/data';
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Server, Cpu, Cloud, Sparkles, Activity, Lock, Globe, HardDrive, Check } from 'lucide-react';
 import { HostingQuizModal } from './HostingQuizModal';
 import TrustProofBar from './TrustProofBar.astro';
-import { DynamicPrice } from '../pricing/DynamicPrice';
+import StaticPrice from '../pricing/StaticPrice.astro';
 
 const startingCloud = cloudPlans[0];
 const startingPremium = premiumPlans[0];
@@ -78,7 +78,7 @@ const startingVps = vpsPlans[0];
 
         {/* Price Anchor */}
         <div class="flex items-center gap-2 text-xs font-semibold text-muted-foreground dark:text-zinc-400 pt-1">
-          <DynamicPrice client:load usd="0.89" inr="69" prefix="Starting at " suffix="/mo" className="text-foreground dark:text-white font-black" />
+          <StaticPrice usd="0.89" inr="69" prefix="Starting at " suffix="/mo" className="text-foreground dark:text-white font-black" />
           <span>•</span>
           <span class="text-emerald-600 dark:text-emerald-400 font-bold">100% Uptime Guarantee & 30-Day Money-Back</span>
         </div>
@@ -144,7 +144,7 @@ const startingVps = vpsPlans[0];
               <div class="text-[11px] text-muted-foreground">Apache/Nginx + MultiPHP + SSL</div>
             </div>
             <div class="text-right">
-              <DynamicPrice client:load usd="0.89" inr="69" suffix="/mo" className="text-lg font-black text-primary block" />
+              <StaticPrice usd="0.89" inr="69" suffix="/mo" className="text-lg font-black text-primary block" />
               <span class="text-[9px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">SAVE 70%</span>
             </div>
           </div>
@@ -188,11 +188,11 @@ const startingVps = vpsPlans[0];
           
           <div class="mb-5 pt-3 border-t border-border/60">
             <div class="flex items-baseline gap-2">
-              <DynamicPrice client:load usd="0.89" inr="69" className="text-3xl font-black text-foreground" />
+              <StaticPrice usd="0.89" inr="69" className="text-3xl font-black text-foreground" />
               <span class="text-xs text-muted-foreground font-bold">/mo</span>
             </div>
             <div class="text-xs text-muted-foreground mt-1 font-medium">
-              Regular <DynamicPrice client:load usd="2.99" inr="229" className="line-through" />
+              Regular <StaticPrice usd="2.99" inr="229" className="line-through" />
             </div>
           </div>
 
@@ -227,12 +227,12 @@ const startingVps = vpsPlans[0];
           
           <div class="mb-5 pt-3 border-t border-border/60">
             <div class="flex items-baseline gap-2">
-              <DynamicPrice client:load usd="1.29" inr="99" className="text-3xl font-black text-foreground" />
+              <StaticPrice usd="1.29" inr="99" className="text-3xl font-black text-foreground" />
               <span class="text-xs text-muted-foreground font-bold">{startingCloud.billingCycle}</span>
             </div>
             {startingCloud.originalPrice && (
               <div class="text-xs text-muted-foreground mt-1 font-medium">
-                Regular <DynamicPrice client:load usd="4.99" inr="399" className="line-through" />
+                Regular <StaticPrice usd="4.99" inr="399" className="line-through" />
               </div>
             )}
           </div>
@@ -269,12 +269,12 @@ const startingVps = vpsPlans[0];
           
           <div class="mb-5 pt-3 border-t border-border/60">
             <div class="flex items-baseline gap-2">
-              <DynamicPrice client:load usd="1.99" inr="149" className="text-3xl font-black text-foreground" />
+              <StaticPrice usd="1.99" inr="149" className="text-3xl font-black text-foreground" />
               <span class="text-xs text-muted-foreground font-bold">{startingPremium.billingCycle}</span>
             </div>
             {startingPremium.originalPrice && (
               <div class="text-xs text-muted-foreground mt-1 font-medium">
-                Regular <DynamicPrice client:load usd="5.99" inr="499" className="line-through" />
+                Regular <StaticPrice usd="5.99" inr="499" className="line-through" />
               </div>
             )}
           </div>
@@ -310,7 +310,7 @@ const startingVps = vpsPlans[0];
           
           <div class="mb-5 pt-3 border-t border-border/60">
             <div class="flex items-baseline gap-2">
-              <DynamicPrice client:load usd="10" inr="749" className="text-3xl font-black text-foreground" />
+              <StaticPrice usd="10" inr="749" className="text-3xl font-black text-foreground" />
               <span class="text-xs text-muted-foreground font-bold">{startingVps.billingCycle}</span>
             </div>
             <div class="text-xs text-muted-foreground mt-1 font-medium">

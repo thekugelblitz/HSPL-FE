@@ -1,0 +1,139 @@
+---
+// src/components/blocks/AiWebDevTeaser.astro
+// High-Converting, Pure #000000 Pitch Black Studio Section for Homepage
+import { Sparkles, Wand2, ArrowRight, Bot, CheckCircle2, Zap } from 'lucide-react';
+---
+
+<section class="dark relative py-24 overflow-hidden bg-[#000000] text-white border-y border-zinc-800/90 shadow-2xl">
+  {/* Ambient Studio Lighting */}
+  <div class="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[150px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[150px] pointer-events-none"></div>
+
+  <div class="container relative mx-auto max-w-screen-xl px-4 sm:px-8 z-10">
+    
+    {/* Section Header */}
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 text-xs font-black uppercase tracking-widest mb-4 backdrop-blur-md shadow-lg shadow-blue-500/10">
+        <Sparkles class="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+        <span>Next-Gen Autonomous AI Web Studio</span>
+      </div>
+      
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.15] mb-5 text-white">
+        Describe Your Dream Site in <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">One Prompt</span>.
+        <br class="hidden sm:inline" /> Keep Chatting to Perfect It.
+      </h2>
+      
+      <p class="text-zinc-400 text-base sm:text-lg leading-relaxed font-medium">
+        Stop wrestling with complex builders. Our conversational AI web agent drafts production-ready layouts, tailors color palettes, writes high-converting copy, and deploys directly to NVMe cloud hosting.
+      </p>
+    </div>
+
+    {/* Live Simulated Prompt & Studio Showcase Grid */}
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+      
+      {/* Left Column: Conversational Feature Highlights */}
+      <div class="lg:col-span-5 space-y-4 text-left">
+        <div class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-zinc-950/90 border border-zinc-800 shadow-md hover:border-blue-500/50 transition-all">
+          <div class="p-2.5 rounded-xl bg-blue-500/15 text-blue-400 shrink-0 mt-0.5">
+            <Bot class="w-5 h-5" />
+          </div>
+          <div>
+            <h4 class="text-sm font-extrabold text-white mb-1">One-Prompt Full Stack Generation</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed font-medium">Generates semantic HTML5, modern Tailwind CSS, and optimized assets in under 30 seconds.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-zinc-950/90 border border-zinc-800 shadow-md hover:border-purple-500/50 transition-all">
+          <div class="p-2.5 rounded-xl bg-purple-500/15 text-purple-400 shrink-0 mt-0.5">
+            <Wand2 class="w-5 h-5" />
+          </div>
+          <div>
+            <h4 class="text-sm font-extrabold text-white mb-1">Keep Chatting Refinements</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed font-medium">Type "Make the hero glowing cyan" or "Add a 3-tier pricing table" and watch live updates instantly.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-zinc-950/90 border border-zinc-800 shadow-md hover:border-emerald-500/50 transition-all">
+          <div class="p-2.5 rounded-xl bg-emerald-500/15 text-emerald-400 shrink-0 mt-0.5">
+            <Zap class="w-5 h-5" />
+          </div>
+          <div>
+            <h4 class="text-sm font-extrabold text-white mb-1">100/100 Core Web Vitals Guaranteed</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed font-medium">Pre-compiled for ultra-fast NVMe cloud hosting with automatic SSL and CDN caching.</p>
+          </div>
+        </div>
+
+        <div class="pt-3">
+          <a href="/ai-website-builder" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-sm shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] active:scale-100">
+            <Sparkles class="w-4 h-4 text-amber-300" />
+            <span>Launch AI Website Studio &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Right Column: Pure Dark IDE Terminal Container */}
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl border border-zinc-800 bg-[#090B10] text-white p-5 sm:p-7 shadow-2xl relative overflow-hidden text-left ring-1 ring-white/10">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
+
+          {/* Terminal Header */}
+          <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4 mb-5">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-mono text-zinc-400 ml-2 font-bold">hostingspell-ai-studio v2.4</span>
+            </div>
+            <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">
+              ● Ready to Build
+            </span>
+          </div>
+
+          {/* Simulated Chat & Code Assembly Snippet */}
+          <div class="space-y-3.5 font-mono text-xs">
+            <div class="p-3.5 rounded-xl bg-black/80 border border-zinc-800 text-zinc-200">
+              <span class="text-blue-400 font-bold">user:~$</span> "Build a high-converting SaaS landing page for an AI Copywriting assistant with glassmorphism hero & pricing."
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-blue-950/40 border border-blue-500/30 text-blue-200 space-y-1.5">
+              <div class="flex items-center gap-2 text-emerald-400 font-bold">
+                <CheckCircle2 class="w-3.5 h-3.5 shrink-0" />
+                <span>AI Agent: Layout Tree & HSL Tokens Initialized (1.4s)</span>
+              </div>
+              <p class="text-zinc-300 text-[11px] font-sans">→ Generated Hero: "Transform Thoughts into Viral Copy in Seconds"</p>
+              <p class="text-zinc-300 text-[11px] font-sans">→ Injected 3-Tier Dynamic Pricing & Instant Booking Modal</p>
+            </div>
+
+            {/* Simulated Live Preview Box */}
+            <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 relative overflow-hidden">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] uppercase tracking-wider text-zinc-400 font-bold font-sans">Live Visual Preview (Mobile & Desktop)</span>
+                <span class="text-[9px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded font-sans">100/100 Core Web Vitals</span>
+              </div>
+              <div class="h-24 rounded-lg bg-black/70 border border-zinc-800/80 flex items-center justify-center p-4 text-center">
+                <div>
+                  <div class="text-xs font-extrabold text-white">✨ Next-Gen AI SaaS Platform</div>
+                  <div class="text-[10px] text-zinc-400 mt-0.5 font-sans">Automated Tailwind CSS • Pure NVMe Deployed • Zero Latency</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+            <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
+              <Zap class="w-3.5 h-3.5" /> 1-Click Cloud Deployment
+            </span>
+            <a href="/ai-website-builder" class="text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1">
+              <span>Open Full Interactive Studio</span>
+              <ArrowRight class="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

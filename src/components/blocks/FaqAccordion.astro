@@ -1,0 +1,41 @@
+---
+// src/components/blocks/FaqAccordion.astro
+// Zero-JS Semantic HTML5 Accordion for Instant Load & 100% SEO Accessibility
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items?: FaqItem[];
+  faqs?: FaqItem[];
+}
+
+const { items, faqs } = Astro.props;
+const faqList = items || faqs || [];
+---
+
+<div class="w-full rounded-2xl sm:rounded-3xl border border-border/80 bg-card/90 dark:bg-zinc-900/90 shadow-sm overflow-hidden backdrop-blur-sm divide-y divide-border/60">
+  {faqList.map((item) => (
+    <details class="group px-5 sm:px-7 transition-colors hover:bg-muted/40 dark:hover:bg-zinc-800/40">
+      <summary class="flex items-center justify-between font-bold text-base sm:text-lg text-foreground hover:text-primary transition-colors py-4 sm:py-5 cursor-pointer list-none select-none">
+        <span>{item.question}</span>
+        <svg 
+          class="w-4 h-4 text-muted-foreground transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4"
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </summary>
+      <div class="text-muted-foreground text-sm sm:text-base leading-relaxed pb-5 sm:pb-6 animate-in fade-in-50 duration-200">
+        {item.answer}
+      </div>
+    </details>
+  ))}
+</div>

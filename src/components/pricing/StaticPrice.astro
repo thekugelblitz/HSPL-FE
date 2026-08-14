@@ -1,0 +1,27 @@
+---
+// src/components/pricing/StaticPrice.astro
+// Zero-JS High-Performance Price Element with Instant Currency Switcher Support
+interface Props {
+  usd: string | number;
+  inr: string | number;
+  prefix?: string;
+  suffix?: string;
+  className?: string;
+}
+
+const {
+  usd,
+  inr,
+  prefix = "",
+  suffix = "",
+  className = "",
+} = Astro.props;
+---
+
+<span
+  class={`hs-price ${className}`}
+  data-usd={usd}
+  data-inr={inr}
+  data-prefix={prefix}
+  data-suffix={suffix}
+>{prefix}${usd}{suffix}</span>

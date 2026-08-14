@@ -1,7 +1,7 @@
 ---
 // src/components/blocks/PricingCard.astro
 import { Check, Zap, ArrowRight, ShieldCheck } from "lucide-react";
-import { DynamicPriceWithOriginal } from "../pricing/DynamicPrice";
+import StaticPriceWithOriginal from "../pricing/StaticPriceWithOriginal.astro";
 
 interface Props {
   name: string;
@@ -64,8 +64,7 @@ const cleanInrOriginal = inrOriginal ? inrOriginal.replace(/[^0-9.]/g, '') : (cl
   </div>
   
   <div class="mb-6 border-b border-border/60 pb-6">
-    <DynamicPriceWithOriginal 
-      client:load 
+    <StaticPriceWithOriginal 
       usdPrice={cleanUsdPrice}
       inrPrice={cleanInrPrice}
       usdOriginal={cleanUsdOriginal}

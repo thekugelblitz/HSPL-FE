@@ -1,3 +1,4 @@
+@import "@fontsource-variable/inter";
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -115,7 +116,9 @@
   }
   * {
     @apply border-border outline-ring/50;
-    transition-property: color, background-color, border-color, fill, stroke;
+  }
+  a, button, input, select, textarea, [role="button"] {
+    transition-property: color, background-color, border-color, fill, stroke, opacity, transform;
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     transition-duration: 150ms;
   }

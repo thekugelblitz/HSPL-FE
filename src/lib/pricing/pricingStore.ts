@@ -18,11 +18,29 @@ export function getStoredCurrency(): Currency {
   return globalCurrency;
 }
 
+export function updateStaticPrices(currency: Currency) {
+  if (typeof document === "undefined") return;
+  const isInr = currency === "INR";
+  const symbol = isInr ? "₹" : "$";
+  const elements = document.querySelectorAll<HTMLElement>(".hs-price");
+  elements.forEach((el) => {
+    const usd = el.dataset.usd;
+    const inr = el.dataset.inr;
+    const prefix = el.dataset.prefix || "";
+    const suffix = el.dataset.suffix || "";
+    const val = isInr ? (inr || usd) : usd;
+    if (val !== undefined) {
+      el.textContent = `${prefix}${symbol}${val}${suffix}`;
+    }
+  });
+}
+
 // Function to set global currency and notify all subscribers across islands
 export function setCurrency(currency: Currency) {
   globalCurrency = currency;
   if (typeof window !== "undefined") {
     localStorage.setItem(CURRENCY_STORAGE_KEY, currency);
+    updateStaticPrices(currency);
     window.dispatchEvent(new CustomEvent(CURRENCY_CHANGE_EVENT, { detail: currency }));
   }
 }
