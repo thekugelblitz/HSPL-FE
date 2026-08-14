@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
-import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import FaqAccordion from '../components/blocks/FaqAccordion.astro';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import WebuzoShowcase from '../components/blocks/WebuzoShowcase.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
@@ -321,7 +321,7 @@ const webuzoSharedFaqs = [
           <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
           <p class="text-muted-foreground">Got questions about Webuzo Shared Web Hosting? We've got answers.</p>
         </div>
-        <FaqAccordion items={webuzoSharedFaqs} client:visible />
+        <FaqAccordion items={webuzoSharedFaqs} />
       </div>
     </section>
   </main>

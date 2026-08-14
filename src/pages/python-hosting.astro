@@ -5,10 +5,10 @@ import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import PricingCard from '../components/blocks/PricingCard.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
-import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import FaqAccordion from '../components/blocks/FaqAccordion.astro';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { pythonPlans, faqs } from '../lib/data';
-import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import InteractiveSpeedTest from '../components/blocks/InteractiveSpeedTest.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import { Check, Cpu, Zap, Server, Terminal, ArrowRight } from 'lucide-react';
 
@@ -166,7 +166,7 @@ const features = [
 
     <section class="py-12 border-t border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
-        <InteractiveSpeedTest client:visible />
+        <InteractiveSpeedTest />
       </div>
     </section>
 
@@ -175,7 +175,7 @@ const features = [
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose HostingSpell for Python?</h2>
-          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">From Django web apps to FastAPI microservices, our cPanel Python hosting is built to deploy your apps reliably without DevOps complexity.</p>
+          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">From simple Flask APIs to complex Django applications, our cPanel Python hosting gives you the tools to deploy with confidence.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -193,10 +193,10 @@ const features = [
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">Start with Premium Hosting for Python</h2>
-          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">Every plan includes cPanel Python Manager and Phusion Passenger WSGI. Deploy Django, Flask, or FastAPI — scale to VPS when you need more.</p>
+          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">Every plan includes cPanel Python Manager and Phusion Passenger WSGI. Deploy your app, then scale to VPS when you're ready.</p>
         </div>
         
-        <div class="grid grid-cols-1 max-w-md mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8">
           {pythonPlans.map((plan) => (
             <PricingCard {...plan} />
           ))}
@@ -214,7 +214,7 @@ const features = [
           <p class="text-muted-foreground text-lg">Find answers to the most common questions about our Python hosting platform.</p>
         </div>
         
-        <FaqAccordion items={faqs} client:visible />
+        <FaqAccordion items={faqs} />
       </div>
     </section>
   </main>

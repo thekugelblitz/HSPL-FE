@@ -5,7 +5,7 @@ import Footer from '../../components/layout/Footer.astro';
 import DatacenterMap from '../../components/blocks/DatacenterMap.astro';
 import MigrationBanner from '../../components/blocks/MigrationBanner.astro';
 import { VpsAppsCatalog } from '../../components/blocks/VpsAppsCatalog';
-import { FaqAccordion } from '../../components/blocks/FaqAccordion';
+import FaqAccordion from '../../components/blocks/FaqAccordion.astro';
 import { faqs } from '../../lib/data';
 import { Zap, ArrowRight, Server, Clock, Cpu, Sparkles, ShieldCheck } from 'lucide-react';
 
@@ -119,7 +119,7 @@ const steps = [
           <h2 class="text-3xl font-bold mb-4">VPS Apps FAQs</h2>
           <p class="text-muted-foreground">Common questions about 1-Click VPS app deployments.</p>
         </div>
-        <FaqAccordion faqs={faqs} client:visible />
+        <FaqAccordion faqs={faqs} />
       </div>
     </section>
   </main>

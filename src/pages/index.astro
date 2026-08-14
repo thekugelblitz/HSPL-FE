@@ -5,7 +5,7 @@ import Footer from '../components/layout/Footer.astro';
 import Hero from '../components/blocks/Hero.astro';
 import DomainSearch from '../components/blocks/DomainSearch.astro';
 import CostComparison from '../components/blocks/CostComparison.astro';
-import { FeatureTabs } from '../components/blocks/FeatureTabs';
+import FeatureTabs from '../components/blocks/FeatureTabs.astro';
 import ShowcasePreview from '../components/blocks/ShowcasePreview.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import PricingCard from '../components/blocks/PricingCard.astro';
@@ -15,7 +15,7 @@ import TrustProofBar from '../components/blocks/TrustProofBar.astro';
 import CompetitorComparison from '../components/blocks/CompetitorComparison.astro';
 import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import FaqAccordion from '../components/blocks/FaqAccordion.astro';
-import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import InteractiveSpeedTest from '../components/blocks/InteractiveSpeedTest.astro';
 import { StickyMobileBuyBar } from '../components/blocks/StickyMobileBuyBar';
 import AiWebDevTeaser from '../components/blocks/AiWebDevTeaser.astro';
 import { webuzoPlans, cloudPlans, premiumPlans, vpsPlans, faqs } from '../lib/data';
@@ -85,7 +85,7 @@ const popularPlans = [popularWebuzo, popularCloud, popularPremium, popularVps];
 
     <section class="py-12 border-b border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
-        <InteractiveSpeedTest client:visible />
+        <InteractiveSpeedTest />
       </div>
     </section>
     
@@ -97,7 +97,7 @@ const popularPlans = [popularWebuzo, popularCloud, popularPremium, popularVps];
 
     <CompetitorComparison />
 
-    <FeatureTabs client:visible />
+    <FeatureTabs />
 
     <DatacenterMap />
 

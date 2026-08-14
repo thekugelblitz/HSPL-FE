@@ -6,11 +6,11 @@ import Footer from '../components/layout/Footer.astro';
 import PricingCard from '../components/blocks/PricingCard.astro';
 import FeatureCard from '../components/blocks/FeatureCard.astro';
 import DatacenterMap from '../components/blocks/DatacenterMap.astro';
-import { FaqAccordion } from '../components/blocks/FaqAccordion';
+import FaqAccordion from '../components/blocks/FaqAccordion.astro';
 import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
 import { vpsPlans, faqs } from '../lib/data';
 import VpsDashboardShowcase from '../components/blocks/VpsDashboardShowcase.astro';
-import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import InteractiveSpeedTest from '../components/blocks/InteractiveSpeedTest.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
 import { PLANS_VPS_HOSTING } from '../lib/pricing/vpsPlans';
@@ -163,7 +163,7 @@ const features = [
 
     <section class="py-12 border-t border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
-        <InteractiveSpeedTest client:visible />
+        <InteractiveSpeedTest />
       </div>
     </section>
 
@@ -209,7 +209,7 @@ const features = [
           <h2 class="text-3xl font-extrabold text-white mb-4">Frequently Asked Questions</h2>
           <p class="text-zinc-400">Find answers to the most common questions about HostingSpell's platform.</p>
         </div>
-        <FaqAccordion items={faqs} client:visible />
+        <FaqAccordion items={faqs} />
       </div>
     </section>
   </main>

@@ -6,8 +6,8 @@ import AiWebDevSection from '../components/blocks/AiWebDevSection.astro';
 import TrustProofBar from '../components/blocks/TrustProofBar.astro';
 import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
-import { FaqAccordion } from '../components/blocks/FaqAccordion';
-import { InteractiveSpeedTest } from '../components/blocks/InteractiveSpeedTest';
+import FaqAccordion from '../components/blocks/FaqAccordion.astro';
+import InteractiveSpeedTest from '../components/blocks/InteractiveSpeedTest.astro';
 import { StickyMobileBuyBar } from '../components/blocks/StickyMobileBuyBar';
 
 const aiFaqs = [
@@ -47,7 +47,7 @@ const aiFaqs = [
     {/* Speed Test Proof Bar */}
     <section class="py-12 border-b border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
-        <InteractiveSpeedTest client:visible />
+        <InteractiveSpeedTest />
       </div>
     </section>
 
@@ -66,7 +66,7 @@ const aiFaqs = [
         </div>
 
         <div class="max-w-3xl mx-auto">
-          <FaqAccordion client:visible faqs={aiFaqs} />
+          <FaqAccordion faqs={aiFaqs} />
         </div>
       </div>
     </section>
