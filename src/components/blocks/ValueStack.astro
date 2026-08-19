@@ -1,0 +1,27 @@
+---
+// src/components/blocks/ValueStack.astro
+// Shows the enterprise extras included free in plans — increases perceived value
+// Psychology rules: #14 (value > price), #25 (bonuses), #11 (simplicity)
+// CRO doc idea #16: "Free Enterprise SSL & Daily Backup Value Stack Breakdown"
+---
+
+<div class="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 mb-5">
+  <p class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
+    $220+ in Enterprise Extras — Included Free
+  </p>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+    <div class="flex items-center gap-2 text-muted-foreground">
+      <span class="w-1 h-1 rounded-full bg-emerald-400 shrink-0"></span>
+      <span>JetBackup Daily Snapshots <span class="text-muted-foreground/60 line-through">$60/yr</span></span>
+    </div>
+    <div class="flex items-center gap-2 text-muted-foreground">
+      <span class="w-1 h-1 rounded-full bg-emerald-400 shrink-0"></span>
+      <span>Imunify360 AI Security <span class="text-muted-foreground/60 line-through">$120/yr</span></span>
+    </div>
+    <div class="flex items-center gap-2 text-muted-foreground">
+      <span class="w-1 h-1 rounded-full bg-emerald-400 shrink-0"></span>
+      <span>Wildcard SSL Certificate <span class="text-muted-foreground/60 line-through">$40/yr</span></span>
+    </div>
+  </div>
+</div>

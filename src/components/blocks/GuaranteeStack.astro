@@ -1,0 +1,74 @@
+---
+// src/components/blocks/GuaranteeStack.astro
+// Trust-building guarantee strip near CTAs
+// Psychology rules: #6 (guarantees), #22 (handle objections), #25 (proof + urgency + bonuses + guarantees)
+import { ShieldCheck, Zap, RefreshCw, Headphones, ArrowRight } from 'lucide-react';
+---
+
+<section class="py-20 border-t border-border/40">
+  <div class="container mx-auto px-4 max-w-screen-xl">
+    
+    {/* Guarantee Badges Row */}
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mb-14">
+      
+      <div class="flex flex-col items-center text-center gap-3 p-5 rounded-2xl border border-border/50 bg-card/50 hover:border-emerald-500/30 transition-colors">
+        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-500">
+          <ShieldCheck className="w-5 h-5" />
+        </div>
+        <div>
+          <p class="font-bold text-sm text-foreground">30-Day Money-Back</p>
+          <p class="text-xs text-muted-foreground mt-0.5">No questions asked</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-3 p-5 rounded-2xl border border-border/50 bg-card/50 hover:border-emerald-500/30 transition-colors">
+        <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-500">
+          <Zap className="w-5 h-5" />
+        </div>
+        <div>
+          <p class="font-bold text-sm text-foreground">Instant Setup</p>
+          <p class="text-xs text-muted-foreground mt-0.5">Live in under 60 seconds</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-3 p-5 rounded-2xl border border-border/50 bg-card/50 hover:border-emerald-500/30 transition-colors">
+        <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-500">
+          <RefreshCw className="w-5 h-5" />
+        </div>
+        <div>
+          <p class="font-bold text-sm text-foreground">Free Migration</p>
+          <p class="text-xs text-muted-foreground mt-0.5">Zero-downtime transfer</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-3 p-5 rounded-2xl border border-border/50 bg-card/50 hover:border-emerald-500/30 transition-colors">
+        <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-500">
+          <Headphones className="w-5 h-5" />
+        </div>
+        <div>
+          <p class="font-bold text-sm text-foreground">24/7 Human Support</p>
+          <p class="text-xs text-muted-foreground mt-0.5">&lt; 5 min response SLA</p>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Closing CTA */}
+    <div class="text-center max-w-xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Ready to Launch?</h2>
+      <p class="text-muted-foreground text-sm mb-6">
+        Join thousands of businesses running on HostingSpell. Start with zero risk — 30-day money-back guarantee on every plan.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/pricing" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold text-base shadow-lg shadow-primary/25 transition-all">
+          <span>View All Plans</span>
+          <ArrowRight className="w-4 h-4" />
+        </a>
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/80 text-foreground font-semibold text-sm hover:bg-muted/50 transition-colors">
+          Talk to Sales
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

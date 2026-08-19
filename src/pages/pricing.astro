@@ -1,15 +1,20 @@
 ---
+// src/pages/pricing.astro
+// Pricing page — guided decision, not a spreadsheet
+// Tabbed categories with max plans each, quiz at top, value stack, guarantee badges
+
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
-import PricingCard from '../components/blocks/PricingCard.astro';
-import MigrationBanner from '../components/blocks/MigrationBanner.astro';
 import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
 import FaqAccordion from '../components/blocks/FaqAccordion.astro';
-import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
+import ValueStack from '../components/blocks/ValueStack.astro';
+import RenewalGuaranteeBadge from '../components/blocks/RenewalGuaranteeBadge.astro';
+import ExitIntentModal from '../components/blocks/ExitIntentModal.astro';
+import { HostingQuizModal } from '../components/blocks/HostingQuizModal';
 import { SavingsCalculator } from '../components/blocks/SavingsCalculator';
 import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
-import { InteractiveComparisonTable } from '../components/pricing/InteractiveComparisonTable';
+import { StickyMobileBuyBar } from '../components/blocks/StickyMobileBuyBar';
 import { PLANS_CLOUD_HOSTING } from '../lib/pricing/cloudPlans';
 import { PLANS_PREMIUM_HOSTING } from '../lib/pricing/premiumPlans';
 import { PLANS_VPS_HOSTING } from '../lib/pricing/vpsPlans';
@@ -25,276 +30,249 @@ import {
   GLOBAL_BILLING_CYCLES
 } from '../lib/pricing/constants';
 import { faqs } from '../lib/data';
-import { ShieldCheck, Zap, RefreshCw, Check, ArrowRight, DollarSign } from 'lucide-react';
+import { Check, ArrowRight, Shield } from 'lucide-react';
+
+// Pricing-specific FAQs (top 5)
+const pricingFaqs = faqs.slice(0, 5);
 ---
 
 <Layout 
-  title="Pricing Plans & Full Matrix | HostingSpell"
-  description="Explore transparent hosting prices across Cloud NVMe, Premium cPanel, KVM VPS, Reseller, and Webuzo hosting plans."
+  title="Pricing Plans | HostingSpell — Transparent, No Hidden Fees"
+  description="Compare all hosting plans with transparent pricing. Cloud NVMe, Premium cPanel, KVM VPS, Reseller, and Webuzo hosting. 30-day money-back guarantee."
 >
   <Navbar />
   <main class="flex-1 bg-background overflow-hidden">
-    {/* Page Hero - 2-Column Split Hero Layout */}
-    <section class="relative bg-background pt-20 pb-24 border-b border-border/40 overflow-hidden bg-grid-pattern">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    {/* ─── Hero: Simple, Honest, Confident ─── */}
+    <section class="relative bg-background pt-16 pb-16 border-b border-border/40 overflow-hidden">
+      <div class="absolute left-1/2 top-0 -translate-x-1/2 w-[700px] h-[350px] bg-primary/15 rounded-full blur-[120px] pointer-events-none"></div>
       
       <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
-          
-          {/* Left Column (7 cols) */}
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-              <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span> Transparent Pricing Matrix
+        <div class="max-w-2xl mx-auto text-center space-y-5">
+          <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+            <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Transparent Pricing
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
+            Simple, Honest Pricing.<br />
+            <span class="text-gradient-primary">Zero Hidden Fees.</span>
+          </h1>
+
+          <p class="text-base text-muted-foreground font-medium max-w-lg mx-auto">
+            Every plan includes 30-day money-back guarantee, free migration, and 24/7 human support.
+          </p>
+
+          <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-foreground">
+            <li class="flex items-center gap-1.5">
+              <Check className="w-3.5 h-3.5 text-emerald-500" />
+              <span>30-Day Money-Back</span>
+            </li>
+            <li class="flex items-center gap-1.5">
+              <Check className="w-3.5 h-3.5 text-emerald-500" />
+              <span>Free Migration</span>
+            </li>
+            <li class="flex items-center gap-1.5">
+              <Check className="w-3.5 h-3.5 text-emerald-500" />
+              <span>24/7 Human Support</span>
+            </li>
+          </ul>
+
+          {/* Plan Recommender Quiz — moved from homepage hero */}
+          <div class="pt-2">
+            <HostingQuizModal client:visible />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Value Stack ─── */}
+    <section class="py-6 bg-muted/20 border-b border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-lg">
+        <ValueStack />
+      </div>
+    </section>
+
+    {/* ─── Tabbed Pricing Categories ─── */}
+    <section class="py-16" id="plans">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+
+        {/* Tab Navigation */}
+        <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-border/40 pb-4" id="pricing-tabs">
+          <a href="#web-hosting" class="pricing-tab active px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors bg-primary text-white" data-tab="web-hosting">
+            Web Hosting
+          </a>
+          <a href="#premium-hosting" class="pricing-tab px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors bg-muted/50 text-muted-foreground hover:bg-muted" data-tab="premium-hosting">
+            Premium
+          </a>
+          <a href="#vps-servers" class="pricing-tab px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors bg-muted/50 text-muted-foreground hover:bg-muted" data-tab="vps-servers">
+            VPS & Dedicated
+          </a>
+          <a href="#reseller" class="pricing-tab px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors bg-muted/50 text-muted-foreground hover:bg-muted" data-tab="reseller">
+            Reseller
+          </a>
+        </div>
+
+        {/* Tab Content Panels */}
+        <div class="space-y-20">
+
+          {/* Web Hosting (Cloud + Webuzo combined) */}
+          <div id="web-hosting" class="pricing-panel">
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-1">Cloud NVMe Web Hosting</h2>
+              <p class="text-sm text-muted-foreground">LiteSpeed Enterprise + NVMe SSDs + cPanel. Perfect for blogs, portfolios, and business websites.</p>
             </div>
+            <InteractivePricingGrid
+              client:load
+              plans={PLANS_CLOUD_HOSTING}
+              locations={CLOUD_PROVIDER_LOCATIONS}
+              billingCycles={GLOBAL_BILLING_CYCLES.cloudhosting}
+            />
 
-            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-              Simple, Honest Pricing <br />
-              <span class="text-gradient-primary">Zero Hidden Fees</span>
-            </h1>
+            <details class="mt-10 group">
+              <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 hover:underline">
+                <span>Also available: Webuzo Hosting (Apache/Nginx alternative — from $0.89/mo)</span>
+                <svg class="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </summary>
+              <div class="mt-6">
+                <InteractivePricingGrid
+                  client:load
+                  plans={PLANS_WEBUZO_HOSTING}
+                  locations={WEBUZO_PROVIDER_LOCATIONS}
+                  billingCycles={GLOBAL_BILLING_CYCLES.webuzohosting}
+                />
+              </div>
+            </details>
+          </div>
 
-            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
-              All plans include 30-day money-back guarantee, free site migration, LiteSpeed Enterprise server, and 24/7 human support.
-            </p>
+          {/* Premium Hosting */}
+          <div id="premium-hosting" class="pricing-panel">
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-1">Premium cPanel Hosting</h2>
+              <p class="text-sm text-muted-foreground">Dedicated CPU & RAM on DigitalOcean & Linode infrastructure. For high-traffic stores and apps.</p>
+            </div>
+            <InteractivePricingGrid
+              client:load
+              plans={PLANS_PREMIUM_HOSTING}
+              locations={PREMIUM_PROVIDER_LOCATIONS}
+              billingCycles={GLOBAL_BILLING_CYCLES.premiumhosting}
+            />
+          </div>
 
-            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>30-Day Money-Back Guarantee on all hosting plans</span>
-              </li>
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>Free Zero-Downtime Migration from any web host</span>
-              </li>
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-primary/15 text-primary border border-primary/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>24/7 Human SLA Support & LiteSpeed Enterprise Server</span>
-              </li>
-            </ul>
-
-            <div class="pt-2 flex items-center gap-4">
-              <a href="#plans" class="px-8 h-13 rounded-xl bg-primary text-primary-foreground font-extrabold shadow-xl shadow-primary/25 flex items-center justify-center gap-2 hover:opacity-90 transition-all">
-                <span>Browse Pricing Matrix</span>
-                <ArrowRight class="w-4 h-4" />
+          {/* VPS & Dedicated */}
+          <div id="vps-servers" class="pricing-panel">
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-1">KVM VPS Servers</h2>
+              <p class="text-sm text-muted-foreground">Isolated KVM hypervisors with full root SSH access, Virtualizor panel, and 1-click apps.</p>
+            </div>
+            <InteractivePricingGrid
+              client:load
+              plans={PLANS_VPS_HOSTING}
+              locations={VPS_PROVIDER_LOCATIONS}
+              billingCycles={GLOBAL_BILLING_CYCLES.vpshosting}
+            />
+            <div class="mt-6 text-center">
+              <a href="/dedicated-servers" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                Need bare-metal? View Dedicated Servers →
               </a>
             </div>
           </div>
 
-          {/* Right Column (5 cols) - Transparent Price Card Visual */}
-          <div class="lg:col-span-5 relative">
-            <div class="glass-card rounded-3xl p-7 border border-primary/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
-              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
-                <div class="flex items-center gap-3">
-                  <div class="p-2 rounded-xl bg-primary/20 text-primary">
-                    <DollarSign class="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div class="text-xs font-black text-foreground">Transparent Billing SLA</div>
-                    <div class="text-[10px] text-emerald-400 font-bold">🟢 No Contract Lock-in</div>
-                  </div>
-                </div>
-                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full">
-                  GUARANTEED
-                </span>
-              </div>
-
-              <div class="grid grid-cols-2 gap-3 mb-5">
-                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                    <ShieldCheck class="w-3.5 h-3.5 text-emerald-400" /> Refund Guarantee
-                  </div>
-                  <div class="text-lg font-black text-emerald-400">30 Days</div>
-                </div>
-
-                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                    <RefreshCw class="w-3.5 h-3.5 text-blue-400" /> Migration Fee
-                  </div>
-                  <div class="text-lg font-black text-foreground">$0 FREE</div>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-transparent border border-primary/30 flex items-center justify-between">
-                <div>
-                  <div class="text-xs font-extrabold text-foreground">Starting Price</div>
-                  <div class="text-[11px] text-muted-foreground">Cloud NVMe Shared Tier</div>
-                </div>
-                <div class="text-right">
-                  <div class="text-lg font-black text-primary">$1.29<span class="text-[10px] font-bold text-muted-foreground">/mo</span></div>
-                  <span class="text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">BEST PRICE</span>
-                </div>
-              </div>
-
+          {/* Reseller */}
+          <div id="reseller" class="pricing-panel">
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-1">Reseller Hosting</h2>
+              <p class="text-sm text-muted-foreground">Launch your hosting business. White-label WHM/cPanel with your own branding.</p>
             </div>
+            <InteractivePricingGrid
+              client:load
+              plans={PLANS_RESELLER_HOSTING}
+              locations={RESELLER_PROVIDER_LOCATIONS}
+              billingCycles={GLOBAL_BILLING_CYCLES.resellerhosting}
+            />
+
+            <details class="mt-10 group">
+              <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 hover:underline">
+                <span>Also available: Webuzo Reseller (25% cheaper — from $9.99/mo)</span>
+                <svg class="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </summary>
+              <div class="mt-6">
+                <InteractivePricingGrid
+                  client:load
+                  plans={PLANS_WEBUZO_RESELLER}
+                  locations={WEBUZO_PROVIDER_LOCATIONS}
+                  billingCycles={GLOBAL_BILLING_CYCLES.webuzoreseller}
+                />
+              </div>
+            </details>
           </div>
 
         </div>
       </div>
     </section>
 
-    <section class="py-24" id="plans">
-      <div class="container mx-auto px-4 max-w-screen-xl space-y-32">
-        {/* Cloud Hosting Section */}
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
-            <div>
-              <div class="inline-block text-xs font-bold text-primary uppercase tracking-wider mb-1">Most Popular Choice</div>
-              <h2 class="text-3xl font-bold">Cloud NVMe Web Hosting</h2>
-              <p class="text-muted-foreground text-sm mt-1">Blazing fast NVMe SSD hosting with LiteSpeed Enterprise and cPanel dashboard.</p>
-            </div>
-            <a href="/cloud-hosting" class="text-xs font-semibold text-primary hover:underline">View detailed Cloud specs &rarr;</a>
-          </div>
-          <InteractivePricingGrid
-            client:load
-            plans={PLANS_CLOUD_HOSTING}
-            locations={CLOUD_PROVIDER_LOCATIONS}
-            billingCycles={GLOBAL_BILLING_CYCLES.cloudhosting}
-          />
-        </div>
-
-        {/* Premium Hosting Section */}
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
-            <div>
-              <div class="inline-block text-xs font-bold text-indigo-400 uppercase tracking-wider mb-1">High Resource Cloud</div>
-              <h2 class="text-3xl font-bold">cPanel Premium Hosting</h2>
-              <p class="text-muted-foreground text-sm mt-1">Hosted on premier DigitalOcean & Linode infrastructure with dedicated resource allocations.</p>
-            </div>
-            <a href="/premium-hosting" class="text-xs font-semibold text-primary hover:underline">View detailed Premium specs &rarr;</a>
-          </div>
-          <InteractivePricingGrid
-            client:load
-            plans={PLANS_PREMIUM_HOSTING}
-            locations={PREMIUM_PROVIDER_LOCATIONS}
-            billingCycles={GLOBAL_BILLING_CYCLES.premiumhosting}
-          />
-        </div>
-
-        {/* VPS Hosting Section */}
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
-            <div>
-              <div class="inline-block text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Full Root Control</div>
-              <h2 class="text-3xl font-bold">KVM VPS Hosting</h2>
-              <p class="text-muted-foreground text-sm mt-1">Dedicated KVM virtualization, Virtualizor panel, and full root access.</p>
-            </div>
-            <a href="/vps" class="text-xs font-semibold text-primary hover:underline">View detailed VPS specs &rarr;</a>
-          </div>
-          <InteractivePricingGrid
-            client:load
-            plans={PLANS_VPS_HOSTING}
-            locations={VPS_PROVIDER_LOCATIONS}
-            billingCycles={GLOBAL_BILLING_CYCLES.vpshosting}
-          />
-        </div>
-
-        {/* Reseller Hosting Section */}
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
-            <div>
-              <div class="inline-block text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">Start Hosting Business</div>
-              <h2 class="text-3xl font-bold">cPanel Reseller (WHM) Hosting</h2>
-              <p class="text-muted-foreground text-sm mt-1">Create and manage your own customer cPanel accounts with WHM access.</p>
-            </div>
-            <a href="/reseller" class="text-xs font-semibold text-primary hover:underline">View detailed Reseller specs &rarr;</a>
-          </div>
-          <InteractivePricingGrid
-            client:load
-            plans={PLANS_RESELLER_HOSTING}
-            locations={RESELLER_PROVIDER_LOCATIONS}
-            billingCycles={GLOBAL_BILLING_CYCLES.resellerhosting}
-          />
-        </div>
-
-        {/* Webuzo Hosting Section */}
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
-            <div>
-              <div class="inline-block text-xs font-bold text-teal-400 uppercase tracking-wider mb-1">cPanel Alternative</div>
-              <h2 class="text-3xl font-bold">Webuzo Hosting</h2>
-              <p class="text-muted-foreground text-sm mt-1">Modern multi-user control panel with Apache/Nginx, MultiPHP, and 350+ Softaculous apps.</p>
-            </div>
-            <a href="/webuzo" class="text-xs font-semibold text-teal-400 hover:underline">View detailed Webuzo specs &rarr;</a>
-          </div>
-          <InteractivePricingGrid
-            client:load
-            plans={PLANS_WEBUZO_HOSTING}
-            locations={WEBUZO_PROVIDER_LOCATIONS}
-            billingCycles={GLOBAL_BILLING_CYCLES.webuzohosting}
-          />
-        </div>
-
-        {/* Webuzo Reseller Section */}
-        <div>
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 border-b border-border/40 pb-4 gap-4">
-            <div>
-              <div class="inline-block text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Affordable Reseller</div>
-              <h2 class="text-3xl font-bold">Webuzo Reseller Hosting</h2>
-              <p class="text-muted-foreground text-sm mt-1">White-label Webuzo admin panel with WHMCS integration — 25% cheaper than cPanel reseller.</p>
-            </div>
-            <a href="/webuzo-reseller" class="text-xs font-semibold text-teal-400 hover:underline">View detailed Webuzo Reseller specs &rarr;</a>
-          </div>
-          <InteractivePricingGrid
-            client:load
-            plans={PLANS_WEBUZO_RESELLER}
-            locations={WEBUZO_PROVIDER_LOCATIONS}
-            billingCycles={GLOBAL_BILLING_CYCLES.webuzoreseller}
-          />
-        </div>
-
-        {/* Detailed Spec Matrix Table */}
-        <div class="pt-8 border-t border-border/40 space-y-16">
-          <InteractiveComparisonTable
-            client:load
-            plans={PLANS_CLOUD_HOSTING}
-            locations={CLOUD_PROVIDER_LOCATIONS}
-            categoryName="Cloud Web Hosting Specs"
-          />
-
-          <InteractiveComparisonTable
-            client:load
-            plans={PLANS_WEBUZO_HOSTING}
-            locations={WEBUZO_PROVIDER_LOCATIONS}
-            categoryName="Webuzo Shared Hosting Specs"
-          />
-
-          <InteractiveComparisonTable
-            client:load
-            plans={PLANS_WEBUZO_RESELLER}
-            locations={WEBUZO_PROVIDER_LOCATIONS}
-            categoryName="Webuzo Reseller Hosting Specs"
-          />
-        </div>
+    {/* ─── Renewal Guarantee ─── */}
+    <section class="py-6 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-md">
+        <RenewalGuaranteeBadge />
       </div>
     </section>
 
-    <div class="container mx-auto px-4 max-w-screen-xl">
-      <SavingsCalculator client:visible />
-    </div>
+    {/* ─── Savings Calculator ─── */}
+    <section class="py-16 border-t border-border/40 bg-muted/10">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <SavingsCalculator client:visible />
+      </div>
+    </section>
 
-    <PlanComparisonTable client:visible />
-
-    <MigrationBanner />
-
+    {/* ─── Guarantee ─── */}
     <FounderGuarantee />
 
-    <section class="py-24 border-t border-border/40">
+    {/* ─── Pricing FAQ ─── */}
+    <section class="py-20 border-t border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <h2 class="text-3xl font-extrabold tracking-tight mb-4">Pricing FAQs</h2>
-          <p class="text-muted-foreground">Common questions about billing and subscriptions.</p>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-3xl font-extrabold tracking-tight mb-3">Pricing Questions</h2>
+          <p class="text-muted-foreground">Common questions about billing, refunds, and plan upgrades.</p>
         </div>
-
         <div class="max-w-3xl mx-auto">
-          <FaqAccordion faqs={faqs} />
+          <FaqAccordion faqs={pricingFaqs} />
         </div>
       </div>
     </section>
+
+    {/* ─── Contextual CRO: exit intent + sticky mobile bar on pricing ─── */}
+    <ExitIntentModal />
+    <StickyMobileBuyBar client:media="(max-width: 768px)" />
   </main>
   <Footer />
 </Layout>
+
+<script>
+  // Simple tab switching for pricing categories
+  document.addEventListener('astro:page-load', () => {
+    const tabs = document.querySelectorAll('.pricing-tab');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = (tab as HTMLElement).dataset.tab;
+        if (!targetId) return;
+
+        // Update tab styles
+        tabs.forEach(t => {
+          t.classList.remove('bg-primary', 'text-white');
+          t.classList.add('bg-muted/50', 'text-muted-foreground');
+        });
+        tab.classList.remove('bg-muted/50', 'text-muted-foreground');
+        tab.classList.add('bg-primary', 'text-white');
+
+        // Scroll to the target section
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>

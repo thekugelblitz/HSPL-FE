@@ -2,7 +2,7 @@
 
 export type LocationType = "india" | "usa" | "uk" | "singapore" | "germany" | "australia" | "netherlands";
 export type BillingCycle = "monthly" | "quarterly" | "semiannually" | "annual" | "biannual" | "triannual";
-export type Currency = "INR" | "USD";
+export type Currency = "INR" | "USD" | "GBP" | "EUR" | "CAD" | "AUD";
 
 export interface LocationOption {
   value: string;
@@ -70,8 +70,12 @@ export const WEBUZO_PROVIDER_LOCATIONS: LocationOption[] = [
 ];
 
 export const SUPPORTED_CURRENCIES = [
-  { label: "INR ₹", value: "INR" as Currency, symbol: "₹" },
-  { label: "USD $", value: "USD" as Currency, symbol: "$" }
+  { label: "USD ($)", value: "USD" as Currency, symbol: "$" },
+  { label: "INR (₹)", value: "INR" as Currency, symbol: "₹" },
+  { label: "GBP (£)", value: "GBP" as Currency, symbol: "£" },
+  { label: "EUR (€)", value: "EUR" as Currency, symbol: "€" },
+  { label: "CAD (C$)", value: "CAD" as Currency, symbol: "C$" },
+  { label: "AUD (A$)", value: "AUD" as Currency, symbol: "A$" }
 ];
 
 export interface BillingCycleOption {

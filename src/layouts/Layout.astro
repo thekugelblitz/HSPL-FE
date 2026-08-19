@@ -1,25 +1,30 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
-import FloatingLeadWidget from '../components/blocks/FloatingLeadWidget.astro';
-import ExitIntentModal from '../components/blocks/ExitIntentModal.astro';
+import HybridSupportWidget from '../components/blocks/HybridSupportWidget.astro';
+import { getLocaleFromPath, getHreflangList } from '../lib/i18n/locales';
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
   canonical?: string;
+  localeCode?: string;
 }
 
 const { 
   title, 
-  description = "HostingSpell provides ultra-fast NVMe cloud web hosting with free migration and 24/7 expert support.",
+  description = "HostingSpell powers 135,000+ websites and apps with ultra-fast NVMe cloud hosting, 1-click AI deployments, free migration, and 24/7 human support.",
   image = "/og-image.png",
-  canonical = Astro.url.href
+  canonical = Astro.url.href,
+  localeCode
 } = Astro.props;
+
+const currentLocale = localeCode ? { code: localeCode } : getLocaleFromPath(Astro.url.pathname);
+const hreflangs = getHreflangList(Astro.url.pathname);
 ---
 
-<html lang="en">
+<html lang={currentLocale.code}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,15 +40,22 @@ const {
     <meta name="description" content={description} />
     <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href={canonical} />
+
+    <!-- International SEO Alternate Hreflang Tags (Hosting.com Standard) -->
+    {hreflangs.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
     
     <!-- Security -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-DNS-Prefetch-Control" content="on" />
     
-    <!-- DNS Prefetch for external domains used in nav/footer -->
+    <!-- DNS Prefetch for external domains -->
     <link rel="dns-prefetch" href="https://manage.hostingspell.com" />
     <link rel="dns-prefetch" href="https://wa.me" />
+    <link rel="dns-prefetch" href="https://embed.tawk.to" />
+    <link rel="dns-prefetch" href="https://flagcdn.com" />
     
     <!-- Theme Color (matches dark nav bar) -->
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
@@ -56,6 +68,7 @@ const {
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="HostingSpell" />
+    <meta property="og:locale" content={currentLocale.code.replace('-', '_')} />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -70,12 +83,12 @@ const {
       "name": "HostingSpell",
       "url": "https://hostingspell.com",
       "logo": "https://hostingspell.com/logo-light.png",
-      "description": "Ultra-fast NVMe cloud web hosting with free migration and 24/7 expert support.",
+      "description": "HostingSpell powers 135,000+ websites and apps with ultra-fast NVMe cloud hosting, 1-click AI deployments, free migration, and 24/7 human support.",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-94095-94000",
         "contactType": "sales",
-        "availableLanguage": ["English", "Hindi"]
+        "availableLanguage": ["English", "Hindi", "Spanish"]
       },
       "sameAs": [
         "https://twitter.com/hostingspell"
@@ -112,9 +125,36 @@ const {
   <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
     <slot />
 
-    <FloatingLeadWidget />
-    <ExitIntentModal />
+    <HybridSupportWidget />
     
+    <!-- Tawk.to Live Chat Script with async performance optimization -->
+    <script is:inline>
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      Tawk_API.onLoad = function() {
+        if (typeof Tawk_API.hideWidget === 'function') {
+          Tawk_API.hideWidget();
+        }
+      };
+      Tawk_API.onChatMinimized = function() {
+        if (typeof Tawk_API.hideWidget === 'function') {
+          Tawk_API.hideWidget();
+        }
+      };
+      Tawk_API.onChatEnded = function() {
+        if (typeof Tawk_API.hideWidget === 'function') {
+          Tawk_API.hideWidget();
+        }
+      };
+      (function(){
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/5d87b5199f6b7a4457e2fe82/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+
     <script>
       document.addEventListener('astro:after-swap', () => {
         const stored = localStorage.getItem('theme');

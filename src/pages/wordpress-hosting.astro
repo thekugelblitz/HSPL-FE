@@ -1,228 +1,101 @@
 ---
-import { Button } from "@/components/ui/button";
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/layout/Navbar.astro';
-import Footer from '../components/layout/Footer.astro';
-import PricingCard from '../components/blocks/PricingCard.astro';
-import FeatureCard from '../components/blocks/FeatureCard.astro';
-import FaqAccordion from '../components/blocks/FaqAccordion.astro';
-import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
-import { wordpressPlans, faqs } from '../lib/data';
-import CpanelShowcase from '../components/blocks/CpanelShowcase.astro';
-import InteractiveSpeedTest from '../components/blocks/InteractiveSpeedTest.astro';
-import MigrationBanner from '../components/blocks/MigrationBanner.astro';
-import { Check, MonitorSmartphone, Zap, Shield, Database, ArrowRight, Sparkles } from 'lucide-react';
+// src/pages/wordpress-hosting.astro
+// WordPress Hosting — sells the WordPress-specific outcome
 
-const features = [
-  {
-    title: "One-Click WordPress Install",
-    description: "Install WordPress in seconds via Softaculous inside cPanel. Choose your theme, set admin credentials, and you're live — no manual database setup needed.",
-    icon: "zap" as const
-  },
-  {
-    title: "LiteSpeed Cache (LSCache)",
-    description: "Our servers run LiteSpeed Web Server with the LSCache plugin for WordPress, delivering up to 10× faster page loads compared to Apache without extra configuration.",
-    icon: "rocket" as const
-  },
-  {
-    title: "Free Daily Backups",
-    description: "Every plan includes automated daily backups with one-click restore via JetBackup. Your WordPress database, files, and email are all covered.",
-    icon: "database" as const
-  },
-  {
-    title: "WordPress Manager in cPanel",
-    description: "Manage all your WordPress installations from a single dashboard. Update core, themes, and plugins, manage users, and toggle maintenance mode.",
-    icon: "layout" as const
-  },
-  {
-    title: "WooCommerce Ready",
-    description: "All plans are fully optimised for WooCommerce. Benefit from Redis object caching, unlimited MySQL databases, and resources that scale with store traffic.",
-    icon: "shopping-cart" as const
-  },
-  {
-    title: "Imunify360 + Free SSL",
-    description: "Every WordPress site is protected by Imunify360 AI malware scanning, Web Application Firewall, and a free Let's Encrypt SSL automatically renewed.",
-    icon: "shield" as const
-  }
-];
+import ProductPageTemplate from '../layouts/ProductPageTemplate.astro';
+import ValueStack from '../components/blocks/ValueStack.astro';
+import CpanelShowcase from '../components/blocks/CpanelShowcase.astro';
+import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
+import { PLANS_CLOUD_HOSTING } from '../lib/pricing/cloudPlans';
+import { CLOUD_PROVIDER_LOCATIONS, GLOBAL_BILLING_CYCLES } from '../lib/pricing/constants';
+import { faqs } from '../lib/data';
+import { Zap, Shield, Paintbrush } from 'lucide-react';
+
+const wpFaqs = faqs.slice(0, 5);
 ---
 
-<Layout 
-  title="WordPress Hosting - Fast, Secure & Managed | HostingSpell"
-  description="Supercharge your WordPress site with HostingSpell's managed WordPress hosting. LiteSpeed cache, one-click installs, daily backups, free SSL, and expert 24/7 support."
+<ProductPageTemplate
+  title="WordPress Hosting — WordPress That Actually Flies | HostingSpell"
+  description="Managed WordPress hosting with LiteSpeed LSCache auto-optimization, 1-click WordPress installer, free SSL, and 24/7 expert WordPress support."
+  heroTag="WordPress Hosting"
+  heroHeadline='WordPress That<br /><span class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">Actually Flies.</span>'
+  heroSubheadline="Your WordPress site loads in under 1 second with LiteSpeed LSCache auto-optimization. Free SSL, daily backups, and managed security — so you focus on content, not servers."
+  heroCtaText="See WordPress Plans"
+  heroCtaHref="#plans"
+  heroCheckpoints={[
+    "LiteSpeed LSCache — auto-optimized for WordPress",
+    "1-click WordPress + WooCommerce installation",
+    "Managed Imunify360 security + daily JetBackup snapshots",
+  ]}
+  heroPriceAnchor="Starting at $1.29/mo • 30-Day Money-Back Guarantee"
+  faqs={wpFaqs}
 >
-  <Navbar />
   
-  <main class="flex-1">
-    {/* Page Hero - 2-Column Split Hero Layout */}
-    <section class="relative bg-background pt-20 pb-24 border-b border-border/40 overflow-hidden">
-      <div class="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
-      <div class="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-rose-500/20 dark:bg-rose-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div class="absolute -top-[100px] right-1/4 w-[400px] h-[400px] bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-      
-      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
-          
-          {/* Left Column (7 cols) */}
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center rounded-full border border-rose-500/30 bg-rose-500/10 px-3.5 py-1 text-xs font-bold text-rose-400">
-              <span class="flex h-2 w-2 rounded-full bg-rose-500 mr-2 animate-pulse"></span> Managed WordPress Speed Engine
-            </div>
-            
-            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-              Fast, Secure & Managed <br />
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-500">WordPress Hosting</span>
-            </h1>
-            
-            <p class="text-base sm:text-lg text-muted-foreground font-medium max-w-xl">
-              Get your WordPress site running on LiteSpeed-powered infrastructure with one-click installs, free daily backups, and free SSL — all managed effortlessly through cPanel.
-            </p>
+  <section slot="outcomes" class="py-20 border-b border-border/40">
+    <div class="container mx-auto px-4 max-w-screen-xl">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-3">Built for WordPress Performance</h2>
+        <p class="text-muted-foreground">Everything your WordPress site needs to be fast, secure, and easy to manage.</p>
+      </div>
 
-            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground">
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-rose-500/15 text-rose-400 border border-rose-500/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>Pre-installed LiteSpeed LSCache Plugin (10x Page Speed)</span>
-              </li>
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-rose-500/15 text-rose-400 border border-rose-500/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>1-Click Softaculous WP Installer & Staging Environment</span>
-              </li>
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-rose-500/15 text-rose-400 border border-rose-500/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>Free Let's Encrypt SSL & Automatic Daily Backups</span>
-              </li>
-            </ul>
-
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
-              <a href="#plans" class="w-full sm:w-auto">
-                <Button size="lg" className="w-full h-13 px-8 text-base bg-gradient-to-r from-rose-500 to-indigo-600 hover:opacity-90 text-white font-extrabold shadow-xl shadow-rose-500/25 flex items-center justify-center gap-2">
-                  <span>View WordPress Plans</span>
-                  <ArrowRight class="w-4 h-4" />
-                </Button>
-              </a>
-              <a href="/vps/apps" class="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full h-13 px-8 text-base font-extrabold hover:bg-rose-500/10 hover:text-rose-400 border-border/80">
-                  1-Click WP VPS
-                </Button>
-              </a>
-            </div>
+      <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="rounded-2xl border border-border/60 bg-card/60 p-7 text-center space-y-4 hover:border-primary/40 transition-colors">
+          <div class="p-3 bg-primary/10 text-primary rounded-xl w-fit mx-auto">
+            <Zap className="w-5 h-5" />
           </div>
+          <h3 class="text-lg font-bold text-foreground">LSCache Built-In</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">LiteSpeed's native WordPress cache plugin is pre-installed and auto-configured. Zero setup needed.</p>
+        </div>
 
-          {/* Right Column (5 cols) - WordPress Performance Visual Card */}
-          <div class="lg:col-span-5 relative">
-            <div class="glass-card rounded-3xl p-7 border border-rose-500/30 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
-              <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
-                <div class="flex items-center gap-3">
-                  <div class="p-2 rounded-xl bg-rose-500/20 text-rose-400">
-                    <MonitorSmartphone class="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div class="text-xs font-black text-foreground">WordPress LSCache Node</div>
-                    <div class="text-[10px] text-emerald-400 font-bold">🟢 100% WooCommerce Optimized</div>
-                  </div>
-                </div>
-                <span class="text-[10px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2.5 py-1 rounded-full">
-                  LITESPEED
-                </span>
-              </div>
-
-              <div class="grid grid-cols-2 gap-3 mb-5">
-                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                    <Zap class="w-3.5 h-3.5 text-amber-400" /> Page Speed Score
-                  </div>
-                  <div class="text-lg font-black text-emerald-400">99 / 100</div>
-                </div>
-
-                <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-                  <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                    <Database class="w-3.5 h-3.5 text-indigo-400" /> Object Cache
-                  </div>
-                  <div class="text-lg font-black text-foreground">Redis Enabled</div>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-gradient-to-r from-rose-500/15 via-rose-500/5 to-transparent border border-rose-500/30 flex items-center justify-between">
-                <div>
-                  <div class="text-xs font-extrabold text-foreground">Managed WP Bundle</div>
-                  <div class="text-[11px] text-muted-foreground">Free SSL + LSCache + Daily Backups</div>
-                </div>
-                <div class="text-right">
-                  <div class="text-lg font-black text-rose-400">$1.99<span class="text-[10px] font-bold text-muted-foreground">/mo</span></div>
-                  <span class="text-[9px] font-black uppercase bg-rose-500/20 text-rose-400 px-2 py-0.5 rounded">SAVE 70%</span>
-                </div>
-              </div>
-
-            </div>
+        <div class="rounded-2xl border border-border/60 bg-card/60 p-7 text-center space-y-4 hover:border-primary/40 transition-colors">
+          <div class="p-3 bg-primary/10 text-primary rounded-xl w-fit mx-auto">
+            <Shield className="w-5 h-5" />
           </div>
+          <h3 class="text-lg font-bold text-foreground">Managed Security</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Imunify360 blocks WordPress-specific malware, brute-force attacks, and web defacement automatically.</p>
+        </div>
 
+        <div class="rounded-2xl border border-border/60 bg-card/60 p-7 text-center space-y-4 hover:border-primary/40 transition-colors">
+          <div class="p-3 bg-primary/10 text-primary rounded-xl w-fit mx-auto">
+            <Paintbrush className="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-foreground">1-Click Everything</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Install WordPress, WooCommerce, themes, and plugins with one click via Softaculous.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    {/* Features Section */}
-    <section class="py-24 bg-muted/30">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-4">Why Choose HostingSpell Managed WordPress?</h2>
-          <p class="text-muted-foreground">Speed, security, and developer tools out of the box.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map(feature => (
-            <FeatureCard {...feature} />
-          ))}
-        </div>
+  <section slot="pricing" class="py-20 bg-muted/10" id="plans">
+    <div class="container mx-auto px-4 max-w-screen-xl">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold mb-2">WordPress Hosting Plans</h2>
+        <p class="text-sm text-muted-foreground">All plans include cPanel, LiteSpeed Enterprise, and 1-click WordPress installer.</p>
       </div>
-    </section>
 
-    <MigrationBanner />
-
-    <CpanelShowcase />
-
-    <section class="py-12 border-t border-border/40">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <InteractiveSpeedTest />
+      <div class="max-w-screen-md mx-auto mb-6">
+        <ValueStack />
       </div>
-    </section>
 
-    {/* Pricing Section */}
-    <section id="plans" class="py-24 bg-background border-y border-border/40">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Premium Hosting Plans for WordPress</h2>
-          <p class="text-muted-foreground max-w-2xl mx-auto text-lg">LiteSpeed-powered servers on Linode & DigitalOcean infrastructure — the ideal base for any WordPress site.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-8">
-          {wordpressPlans.map((plan) => (
-            <PricingCard {...plan} />
-          ))}
-        </div>
-      </div>
-    </section>
+      <InteractivePricingGrid
+        client:load
+        plans={PLANS_CLOUD_HOSTING}
+        locations={CLOUD_PROVIDER_LOCATIONS}
+        billingCycles={GLOBAL_BILLING_CYCLES.cloudhosting}
+      />
+    </div>
+  </section>
 
-    <PlanComparisonTable service="wordpress" client:visible />
+  <section slot="details" class="py-16 border-t border-border/40">
+    <div class="container mx-auto px-4 max-w-screen-xl">
+      <details class="group">
+        <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 hover:underline py-4">
+          <span>View cPanel & WordPress Management Features</span>
+          <svg class="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <CpanelShowcase />
+      </details>
+    </div>
+  </section>
 
-    {/* FAQ Section */}
-    <section class="py-24 bg-muted/30">
-      <div class="container mx-auto px-4 max-w-3xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-          <p class="text-muted-foreground text-lg">Find answers to the most common questions about our WordPress hosting.</p>
-        </div>
-        
-        <div class="bg-background rounded-2xl border border-border shadow-sm overflow-hidden">
-          <FaqAccordion items={faqs} />
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <Footer />
-</Layout>
+</ProductPageTemplate>

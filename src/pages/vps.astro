@@ -1,217 +1,111 @@
 ---
-import { Button } from "@/components/ui/button";
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/layout/Navbar.astro';
-import Footer from '../components/layout/Footer.astro';
-import PricingCard from '../components/blocks/PricingCard.astro';
-import FeatureCard from '../components/blocks/FeatureCard.astro';
-import DatacenterMap from '../components/blocks/DatacenterMap.astro';
-import FaqAccordion from '../components/blocks/FaqAccordion.astro';
-import { PlanComparisonTable } from '../components/blocks/PlanComparisonTable';
-import { vpsPlans, faqs } from '../lib/data';
+// src/pages/vps.astro
+// VPS product page — Transformation framework
+// High-ticket page: includes FloatingLeadWidget for proactive sales (CRO doc #19)
+
+import ProductPageTemplate from '../layouts/ProductPageTemplate.astro';
+import FloatingLeadWidget from '../components/blocks/FloatingLeadWidget.astro';
 import VpsDashboardShowcase from '../components/blocks/VpsDashboardShowcase.astro';
-import InteractiveSpeedTest from '../components/blocks/InteractiveSpeedTest.astro';
-import MigrationBanner from '../components/blocks/MigrationBanner.astro';
+import ValueStack from '../components/blocks/ValueStack.astro';
 import { InteractivePricingGrid } from '../components/pricing/InteractivePricingGrid';
 import { PLANS_VPS_HOSTING } from '../lib/pricing/vpsPlans';
 import { VPS_PROVIDER_LOCATIONS, GLOBAL_BILLING_CYCLES } from '../lib/pricing/constants';
-import { Check, Terminal, Server, Shield, Cpu, Zap, ArrowRight, HardDrive } from 'lucide-react';
+import { faqs } from '../lib/data';
+import { Terminal, Shield, Cpu } from 'lucide-react';
 
-const features = [
-  {
-    title: "Dedicated Resources",
-    description: "Enjoy isolated resources with KVM virtualization for consistent and predictable performance.",
-    icon: "Server" as const
-  },
-  {
-    title: "Full Root Access",
-    description: "Total control over your hosting environment with SSH and full root permissions.",
-    icon: "Shield" as const
-  },
-  {
-    title: "NVMe Storage",
-    description: "Experience blazing fast I/O speeds with enterprise-grade NVMe solid-state drives.",
-    icon: "Zap" as const
-  },
-  {
-    title: "Instant Provisioning",
-    description: "Your server is deployed and ready for configuration within minutes of checkout.",
-    icon: "RefreshCw" as const
-  }
-];
+const vpsFaqs = faqs.slice(0, 5);
 ---
 
-<Layout 
-  title="VPS Hosting - Powerful yet Affordable VPS Hosting | HostingSpell India"
-  description="Enjoy isolated, high-performance VPS hosting solutions with dedicated resources ideal for websites and apps needing reliable control and scalability."
+<ProductPageTemplate
+  title="KVM VPS Hosting — Full Root Access, Zero Compromises | HostingSpell"
+  description="Isolated KVM VPS servers with full root SSH access, NVMe SSDs, Virtualizor panel, and 39+ 1-click apps. Starting at $10/mo."
+  heroTag="KVM VPS Servers"
+  heroHeadline='Full Root Access.<br /><span class="bg-gradient-to-r from-purple-500 via-indigo-500 to-primary dark:from-purple-400 dark:via-indigo-400 dark:to-blue-400 bg-clip-text text-transparent">Zero Compromises.</span>'
+  heroSubheadline="Your own isolated server with dedicated CPU, RAM, and NVMe storage. Full SSH root access, your choice of OS, and 39+ 1-click deployment apps."
+  heroCtaText="View VPS Plans"
+  heroCtaHref="#plans"
+  heroCheckpoints={[
+    "Isolated KVM hypervisor with dedicated resources",
+    "Full root SSH access with Virtualizor control panel",
+    "39+ 1-click apps: Dokploy, Supabase, WireGuard & more",
+  ]}
+  heroPriceAnchor="Starting at $10/mo • Instant provisioning in under 60 seconds"
+  faqs={vpsFaqs}
 >
-  <Navbar />
-  <main class="flex-1 bg-[#000000] text-white">
-    {/* Page Hero - 2-Column Split Hero Layout */}
-    <section class="relative bg-[#000000] text-white pt-20 pb-24 border-b border-zinc-800/80 overflow-hidden">
-      <div class="absolute inset-0 bg-purple-500/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
-      <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px] pointer-events-none"></div>
-      <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[110px] pointer-events-none"></div>
-      
-      <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
-          
-          {/* Left Column (7 cols) */}
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-bold text-purple-400">
-              <span class="flex h-2 w-2 rounded-full bg-purple-400 mr-2 animate-pulse"></span> Developer-Centric Infrastructure
-            </div>
-            
-            <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-              Virtual Private Servers <br />
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-emerald-400">Total SSH Control</span>
-            </h1>
-            
-            <p class="text-base sm:text-lg text-zinc-300 font-medium max-w-xl">
-              Full root access, guaranteed resources, and KVM virtualization for developers and enterprises who need unthrottled control.
-            </p>
+  
+  {/* ─── Slot: Outcomes ─── */}
+  <section slot="outcomes" class="py-20 border-b border-border/40">
+    <div class="container mx-auto px-4 max-w-screen-xl">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-3">Why Developers Choose HostingSpell VPS</h2>
+        <p class="text-muted-foreground">Isolated resources, full control, instant deployment.</p>
+      </div>
 
-            <ul class="space-y-3 text-xs sm:text-sm font-semibold text-white">
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>Dedicated KVM Hypervisors & Full Root Access</span>
-              </li>
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>10Gbps Network Uplink with Anti-DDoS Protection</span>
-              </li>
-              <li class="flex items-center gap-2.5">
-                <div class="p-1 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/30">
-                  <Check class="w-3.5 h-3.5" />
-                </div>
-                <span>1-Click OS & 39+ VPS Application Marketplace</span>
-              </li>
-            </ul>
-
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
-              <a href="#plans" class="w-full sm:w-auto">
-                <Button size="lg" className="w-full h-13 px-8 text-base bg-purple-600 hover:bg-purple-500 text-white font-extrabold shadow-xl shadow-purple-500/25 flex items-center justify-center gap-2">
-                  <span>View VPS Plans</span>
-                  <ArrowRight class="w-4 h-4" />
-                </Button>
-              </a>
-              <a href="/vps/apps" class="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full h-13 px-8 text-base font-extrabold hover:bg-purple-500/10 hover:text-purple-400 border-zinc-800 bg-[#141518] text-white">
-                  1-Click Apps Marketplace
-                </Button>
-              </a>
-            </div>
+      <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="rounded-2xl border border-border/60 bg-card/60 p-7 text-center space-y-4 hover:border-purple-500/40 transition-colors">
+          <div class="p-3 bg-purple-500/10 text-purple-500 rounded-xl w-fit mx-auto">
+            <Terminal className="w-5 h-5" />
           </div>
+          <h3 class="text-lg font-bold text-foreground">Full Root Control</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">SSH access, your choice of OS (Ubuntu, AlmaLinux, Debian), install anything you want. It's your server.</p>
+        </div>
 
-          {/* Right Column (5 cols) - Terminal & Hypervisor Visual Card */}
-          <div class="lg:col-span-5 relative">
-            <div class="rounded-3xl p-7 border border-purple-500/30 shadow-2xl relative overflow-hidden bg-[#141518]">
-              <div class="flex items-center justify-between border-b border-zinc-800 pb-4 mb-5">
-                <div class="flex items-center gap-3">
-                  <div class="p-2 rounded-xl bg-purple-500/20 text-purple-400">
-                    <Terminal class="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div class="text-xs font-black text-white">root@vps-node-01:~#</div>
-                    <div class="text-[10px] text-emerald-400 font-bold">🟢 KVM Hypervisor Online</div>
-                  </div>
-                </div>
-                <span class="text-[10px] font-black uppercase tracking-wider bg-purple-500/20 text-purple-400 border border-purple-500/30 px-2.5 py-1 rounded-full">
-                  ROOT SSH
-                </span>
-              </div>
-
-              <div class="grid grid-cols-2 gap-3 mb-5">
-                <div class="p-3.5 rounded-2xl bg-zinc-900 border border-zinc-800">
-                  <div class="flex items-center gap-1.5 text-zinc-400 text-[10px] font-bold mb-1">
-                    <Cpu class="w-3.5 h-3.5 text-purple-400" /> Virtualizor KVM
-                  </div>
-                  <div class="text-lg font-black text-white">Dedicated CPU</div>
-                </div>
-
-                <div class="p-3.5 rounded-2xl bg-zinc-900 border border-zinc-800">
-                  <div class="flex items-center gap-1.5 text-zinc-400 text-[10px] font-bold mb-1">
-                    <HardDrive class="w-3.5 h-3.5 text-indigo-400" /> NVMe Storage
-                  </div>
-                  <div class="text-lg font-black text-white">Enterprise SSD</div>
-                </div>
-              </div>
-
-              <div class="p-4 rounded-2xl bg-gradient-to-r from-purple-500/15 via-purple-500/5 to-transparent border border-purple-500/30 flex items-center justify-between">
-                <div>
-                  <div class="text-xs font-extrabold text-white">High-Perf KVM VPS</div>
-                  <div class="text-[11px] text-zinc-400">Full Root Access + Instant Deploy</div>
-                </div>
-                <div class="text-right">
-                  <div class="text-lg font-black text-purple-400">$10<span class="text-[10px] font-bold text-zinc-400">/mo</span></div>
-                  <span class="text-[9px] font-black uppercase bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded">FULL CONTROL</span>
-                </div>
-              </div>
-
-            </div>
+        <div class="rounded-2xl border border-border/60 bg-card/60 p-7 text-center space-y-4 hover:border-purple-500/40 transition-colors">
+          <div class="p-3 bg-purple-500/10 text-purple-500 rounded-xl w-fit mx-auto">
+            <Cpu className="w-5 h-5" />
           </div>
+          <h3 class="text-lg font-bold text-foreground">Guaranteed Resources</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">KVM isolation means your CPU and RAM are never shared. Consistent performance under any load.</p>
+        </div>
 
+        <div class="rounded-2xl border border-border/60 bg-card/60 p-7 text-center space-y-4 hover:border-purple-500/40 transition-colors">
+          <div class="p-3 bg-purple-500/10 text-purple-500 rounded-xl w-fit mx-auto">
+            <Shield className="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-foreground">39+ 1-Click Apps</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Deploy Dokploy, Open WebUI, Supabase, WireGuard, WordPress, and more in under 60 seconds.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <VpsDashboardShowcase />
-
-    <section class="py-12 border-t border-border/40">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <InteractiveSpeedTest />
+  {/* ─── Slot: Pricing ─── */}
+  <section slot="pricing" class="py-20 bg-muted/10" id="plans">
+    <div class="container mx-auto px-4 max-w-screen-xl">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold mb-2">VPS Server Plans</h2>
+        <p class="text-sm text-muted-foreground">Select your datacenter region and billing cycle. All plans include root SSH access.</p>
       </div>
-    </section>
 
-    <section class="py-24 bg-[#000000]" id="plans">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-extrabold text-white mb-4">Choose the perfect plan for your needs</h2>
-          <p class="text-zinc-400">Easily evaluate features, pricing, and benefits across all VPS hosting plans.</p>
-        </div>
-        <InteractivePricingGrid
-          client:load
-          plans={PLANS_VPS_HOSTING}
-          locations={VPS_PROVIDER_LOCATIONS}
-          billingCycles={GLOBAL_BILLING_CYCLES.vpshosting}
-        />
+      <InteractivePricingGrid
+        client:load
+        plans={PLANS_VPS_HOSTING}
+        locations={VPS_PROVIDER_LOCATIONS}
+        billingCycles={GLOBAL_BILLING_CYCLES.vpshosting}
+      />
+
+      <div class="mt-6 text-center">
+        <a href="/dedicated-servers" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+          Need more power? View Dedicated Servers →
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <PlanComparisonTable service="vps" client:visible />
+  {/* ─── Slot: Details ─── */}
+  <section slot="details" class="py-16 border-t border-border/40">
+    <div class="container mx-auto px-4 max-w-screen-xl">
+      <details class="group">
+        <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 hover:underline py-4">
+          <span>View Virtualizor Dashboard & Management Features</span>
+          <svg class="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <VpsDashboardShowcase />
+      </details>
+    </div>
+  </section>
 
-    <DatacenterMap />
+  {/* FloatingLeadWidget on high-ticket VPS page (CRO doc #19: proactive sales trigger) */}
+  <FloatingLeadWidget />
 
-    {/* VPS Features */}
-    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-extrabold text-white mb-4">VPS Features</h2>
-          <p class="text-zinc-400">Everything you need to build and scale your infrastructure.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map(feature => (
-            <FeatureCard {...feature} />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <MigrationBanner />
-    
-    <section class="py-24 bg-[#000000] border-t border-zinc-800/80">
-      <div class="container mx-auto px-4 max-w-3xl">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-extrabold text-white mb-4">Frequently Asked Questions</h2>
-          <p class="text-zinc-400">Find answers to the most common questions about HostingSpell's platform.</p>
-        </div>
-        <FaqAccordion items={faqs} />
-      </div>
-    </section>
-  </main>
-  <Footer />
-</Layout>
+</ProductPageTemplate>

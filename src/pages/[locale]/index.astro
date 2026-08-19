@@ -1,0 +1,194 @@
+---
+// src/pages/[locale]/index.astro
+// Dynamic Localized Homepage for International Regions (Hosting.com Architecture)
+
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
+import SocialProofBar from '../../components/blocks/SocialProofBar.astro';
+import ProblemSolutionGrid from '../../components/blocks/ProblemSolutionGrid.astro';
+import AiDemocratizationSection from '../../components/blocks/AiDemocratizationSection.astro';
+import { PlanBrowser } from '../../components/pricing/PlanBrowser';
+import { HeroDomainSearch } from '../../components/blocks/HeroDomainSearch';
+import GuaranteeStack from '../../components/blocks/GuaranteeStack.astro';
+import FaqAccordion from '../../components/blocks/FaqAccordion.astro';
+import { Button } from '@/components/ui/button';
+import { 
+  ALL_LOCALES, 
+  getLocaleBySlugOrCode, 
+  formatLocalizedPrice, 
+  type LocaleInfo 
+} from '../../lib/i18n/locales';
+import { premiumPlans, faqs } from '../../lib/data';
+import { ArrowRight, Check, Sparkles, ShieldCheck, Globe2, Award, Zap, Server, PhoneCall } from 'lucide-react';
+
+export async function getStaticPaths() {
+  const nonDefaultLocales = ALL_LOCALES.filter((loc) => loc.slug !== "");
+  return nonDefaultLocales.map((loc) => ({
+    params: { locale: loc.slug },
+    props: { locale: loc },
+  }));
+}
+
+interface Props {
+  locale: LocaleInfo;
+}
+
+const { locale } = Astro.props;
+
+const spotlightPlan = premiumPlans.find((p) => p.name === "PREMIUM 2") || premiumPlans[1];
+const homepageFaqs = faqs.slice(0, 4);
+
+const startingPrice = formatLocalizedPrice(0.89, locale.currency, 69);
+---
+
+<Layout 
+  title={`HostingSpell ${locale.shortName} | ${locale.heroHeadline}`}
+  description={locale.heroSubheadline}
+  localeCode={locale.code}
+>
+  <Navbar />
+  <main class="bg-background overflow-hidden">
+    
+    {/* ─── Localized Region Hero Section (Hosting.com Style) ─── */}
+    <section class="relative overflow-hidden bg-background pt-16 sm:pt-20 pb-20 sm:pb-24 border-b border-border/40">
+      <div class="absolute left-1/2 top-0 -z-0 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-primary/12 blur-[150px] pointer-events-none"></div>
+      <div class="absolute right-0 bottom-0 -z-0 h-[300px] w-[400px] rounded-full bg-indigo-500/8 blur-[120px] pointer-events-none"></div>
+
+      <div class="container relative mx-auto max-w-screen-xl px-4 sm:px-8 z-10">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+          
+          {/* Region Tag & Status Pill */}
+          <div class="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/8 px-4 py-1.5 text-xs font-bold text-primary backdrop-blur-sm shadow-sm">
+            <span class="text-base">{locale.flagEmoji}</span>
+            <span class="font-extrabold">{locale.country} Dedicated Cloud Store</span>
+            <span class="text-primary/40 hidden sm:inline">•</span>
+            <span class="text-emerald-500 font-bold">{locale.latencyBadge}</span>
+          </div>
+
+          {/* Regional Headline */}
+          <h1 class="font-extrabold tracking-tight text-3xl sm:text-5xl lg:text-6xl leading-[1.12] text-foreground">
+            {locale.heroHeadline}
+          </h1>
+
+          {/* Regional Subheadline */}
+          <p class="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto">
+            {locale.heroSubheadline}
+          </p>
+
+          {/* Localized USPs Matrix */}
+          <div class="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto pt-2">
+            {locale.popularFeatures.map((feat) => (
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-card border border-border text-xs font-bold text-foreground/90 shadow-2xs">
+                <Check class="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                <span>{feat}</span>
+              </span>
+            ))}
+          </div>
+
+          {/* Datacenter Latency Card */}
+          <div class="p-3.5 rounded-2xl bg-card/90 dark:bg-zinc-900/80 border border-border max-w-xl mx-auto flex items-center justify-between gap-4 text-left shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="p-2 rounded-xl bg-primary/10 text-primary border border-primary/20">
+                <Server class="w-4 h-4" />
+              </div>
+              <div>
+                <div class="text-[10px] font-black uppercase tracking-wider text-muted-foreground">Primary Region Datacenter</div>
+                <div class="text-xs font-extrabold text-foreground">{locale.datacenter}</div>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25 shrink-0">
+              100% Uptime Mark
+            </span>
+          </div>
+
+          {/* CTAs */}
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="/pricing" class="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto text-base h-13 px-8 rounded-xl bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/25 font-bold flex items-center justify-center gap-2 cursor-pointer">
+                <span>View {locale.currency} ({locale.symbol}) Plans</span>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </a>
+            <a href={`tel:${locale.phone}`} class="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto text-sm h-13 px-6 rounded-xl border-border/80 text-foreground font-bold flex items-center justify-center gap-2 hover:bg-muted/50 transition-colors cursor-pointer">
+                <PhoneCall className="w-4 h-4 text-emerald-500" />
+                <span>Call {locale.shortName} Sales</span>
+              </Button>
+            </a>
+          </div>
+
+          {/* Regional Price Anchor & Payment Badges */}
+          <div class="space-y-2 pt-2">
+            <div class="text-xs font-bold text-muted-foreground">
+              Starting at <span class="text-foreground font-black text-sm">{startingPrice.formatted}/mo</span> • Free Domain & SSL Included
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-2 text-[11px] text-zinc-400">
+              <span class="text-zinc-500">Accepted Locally:</span>
+              {locale.paymentBadges.map((badge) => (
+                <span class="px-2 py-0.5 rounded bg-muted/60 border border-border/60 font-semibold text-foreground/80">
+                  {badge}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Regional Hero Domain Search */}
+          <div class="pt-10 sm:pt-14">
+            <HeroDomainSearch 
+              client:load 
+              title={`Find Your Perfect ${locale.shortName} Domain`}
+              subtitle={`Register your brand in ${locale.country} with free WHOIS privacy, DNS management & local ${locale.currency} billing.`}
+            />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Social Proof ─── */}
+    <SocialProofBar />
+
+    {/* ─── Problem → Solution ─── */}
+    <ProblemSolutionGrid />
+
+    {/* ─── AI Studio & 1-Click Apps ─── */}
+    <AiDemocratizationSection />
+
+    {/* ─── Featured Plan Browser across all categories ─── */}
+    <section class="py-20 border-b border-border/40 bg-muted/10" id="pricing">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <PlanBrowser 
+          client:load 
+          title={`${locale.shortName} Cloud & Hosting Plan Browser`}
+          subtitle={`Explore high-performance cloud plans optimized for ${locale.country} with local ${locale.currency} (${locale.symbol}) billing.`}
+        />
+      </div>
+    </section>
+
+    {/* ─── Guarantee Stack ─── */}
+    <GuaranteeStack />
+
+    {/* ─── FAQ ─── */}
+    <section class="py-20 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h2 class="text-3xl font-extrabold tracking-tight mb-3">Frequently Asked Questions</h2>
+          <p class="text-muted-foreground">Everything you need to know about hosting your site in {locale.country}.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <FaqAccordion faqs={homepageFaqs} />
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="/contact" class="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+            Have more questions? Talk to our 24/7 {locale.shortName} team →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,220 @@
+---
+// src/components/blocks/HybridSupportWidget.astro
+// High-Converting Hybrid Support Hub (WhatsApp + Phone Call + Tawk.to Live Chat)
+// Zero external bloat, pure vanilla client-side interactivity
+---
+
+<div id="hybrid-support-root" class="fixed bottom-6 right-6 z-50 font-sans">
+  
+  {/* Popover Hub Menu */}
+  <div 
+    id="support-hub-popover" 
+    class="hidden mb-3 w-[340px] sm:w-[380px] bg-white/95 dark:bg-[#0E1015]/95 backdrop-blur-2xl border border-zinc-200/90 dark:border-zinc-800 rounded-3xl p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] text-zinc-900 dark:text-white ring-1 ring-black/5 dark:ring-white/10 animate-in fade-in slide-in-from-bottom-4 duration-200"
+    role="dialog"
+    aria-label="Contact Support Channels"
+  >
+    {/* Header */}
+    <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-zinc-200/80 dark:border-zinc-800/80">
+      <div class="flex items-center gap-2.5">
+        <div class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+        </div>
+        <div>
+          <h4 class="font-extrabold text-sm text-zinc-900 dark:text-white leading-tight">24/7 Human Support</h4>
+          <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">Senior Engineers Online • Avg &lt; 3m SLA</p>
+        </div>
+      </div>
+
+      <button 
+        type="button" 
+        id="close-support-hub"
+        class="w-7 h-7 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+        aria-label="Close Support Menu"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    {/* Support Channels List */}
+    <div class="space-y-2 text-left">
+      
+      {/* 1. Live Chat (Tawk.to) */}
+      <button
+        type="button"
+        id="trigger-tawk-chat"
+        class="w-full p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/80 hover:bg-blue-500/10 dark:hover:bg-blue-500/20 border border-zinc-200/70 dark:border-zinc-800 hover:border-blue-500/40 transition-all flex items-center justify-between group cursor-pointer text-left"
+      >
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Live Chat Online</span>
+              <span class="text-[9px] font-black uppercase bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/30">INSTANT</span>
+            </div>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium mt-0.5">Chat directly with systems engineering team</p>
+          </div>
+        </div>
+        <svg class="w-4 h-4 text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      {/* 2. WhatsApp Direct */}
+      <a
+        href="https://wa.me/919409594000?text=Hi%20HostingSpell%2C%20I%20need%20help%20with%20hosting%20plans%20and%20migration."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/80 hover:bg-emerald-500/10 dark:hover:bg-emerald-500/20 border border-zinc-200/70 dark:border-zinc-800 hover:border-emerald-500/40 transition-all flex items-center justify-between group cursor-pointer text-left"
+      >
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">WhatsApp Support</span>
+              <span class="text-[9px] font-black uppercase bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded">24/7</span>
+            </div>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium mt-0.5">+91 94095 94000 (Quick chat)</p>
+          </div>
+        </div>
+        <svg class="w-4 h-4 text-zinc-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:translate-x-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      {/* 3. Phone Call Direct */}
+      <a
+        href="tel:+919409594000"
+        class="w-full p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/80 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 border border-zinc-200/70 dark:border-zinc-800 hover:border-purple-500/40 transition-all flex items-center justify-between group cursor-pointer text-left"
+      >
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-extrabold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Phone Call Line</span>
+              <span class="text-[9px] font-black uppercase bg-purple-500/15 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded">DIRECT</span>
+            </div>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium mt-0.5">+91 94095 94000 (Toll-Free/Direct)</p>
+          </div>
+        </div>
+        <svg class="w-4 h-4 text-zinc-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      {/* 4. Zero Downtime Migration Quick Action */}
+      <a
+        href="/contact"
+        class="w-full p-2.5 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 text-primary flex items-center justify-between text-xs font-bold transition-colors"
+      >
+        <span class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+          Request Free Zero-Downtime Migration
+        </span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+    </div>
+  </div>
+
+  {/* Floating Trigger Button */}
+  <button
+    type="button"
+    id="toggle-support-hub-btn"
+    class="relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-zinc-950 dark:bg-zinc-900 text-white border border-zinc-700/80 hover:border-emerald-500/80 shadow-2xl shadow-black/50 transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
+    aria-label="Open 24/7 Support Options"
+  >
+    {/* Pulse ring animation */}
+    <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-zinc-950"></span>
+    </span>
+
+    {/* Multi-Channel Icons Stack */}
+    <div class="flex items-center -space-x-1.5">
+      <div class="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center ring-2 ring-zinc-950">
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+      </div>
+      <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center ring-2 ring-zinc-950">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+    </div>
+
+    <div class="text-left hidden sm:block">
+      <div class="text-xs font-black tracking-tight leading-none">24/7 Live Support</div>
+      <div class="text-[10px] text-emerald-400 font-semibold leading-tight mt-0.5 flex items-center gap-1">
+        <span>Chat & Call &lt; 3m</span>
+      </div>
+    </div>
+  </button>
+
+</div>
+
+<script is:inline>
+  function setupHybridSupport() {
+    const popover = document.getElementById('support-hub-popover');
+    const toggleBtn = document.getElementById('toggle-support-hub-btn');
+    const closeBtn = document.getElementById('close-support-hub');
+    const tawkBtn = document.getElementById('trigger-tawk-chat');
+
+    if (!popover || !toggleBtn) return;
+
+    const togglePopover = (e) => {
+      e?.stopPropagation();
+      popover.classList.toggle('hidden');
+    };
+
+    const closePopover = () => {
+      popover.classList.add('hidden');
+    };
+
+    toggleBtn.addEventListener('click', togglePopover);
+    closeBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closePopover();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!popover.contains(e.target) && !toggleBtn.contains(e.target)) {
+        closePopover();
+      }
+    });
+
+    // Tawk.to live chat trigger
+    tawkBtn?.addEventListener('click', () => {
+      closePopover();
+      if (typeof window !== 'undefined') {
+        if (window.Tawk_API) {
+          if (typeof window.Tawk_API.showWidget === 'function') {
+            window.Tawk_API.showWidget();
+          }
+          if (typeof window.Tawk_API.maximize === 'function') {
+            window.Tawk_API.maximize();
+          } else if (typeof window.Tawk_API.toggle === 'function') {
+            window.Tawk_API.toggle();
+          }
+        } else {
+          // Fallback if script not loaded yet
+          window.location.href = "https://wa.me/919409594000?text=Hi%20HostingSpell%2C%20I%20would%20like%20to%20chat%20with%20live%20support.";
+        }
+      }
+    });
+  }
+
+  // Support immediate execution, standard DOMContentLoaded, and Astro view-transitions
+  if (document.readyState !== 'loading') {
+    setupHybridSupport();
+  } else {
+    document.addEventListener('DOMContentLoaded', setupHybridSupport);
+  }
+  document.addEventListener('astro:page-load', setupHybridSupport);
+</script>

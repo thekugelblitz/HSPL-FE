@@ -59,7 +59,7 @@ const PRICING_PLANS = [
       'SOC2 / HIPAA Compliance Auditing',
       'Custom AI Chatbot Widget Integration',
       'Dedicated Account Manager & Direct Slack Channel',
-      '99.99% Uptime Guarantee with SLA'
+      '100% Uptime Mark'
     ],
     popular: false,
     ctaText: 'Contact Enterprise Team',

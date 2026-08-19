@@ -88,11 +88,11 @@ export function Error500Widget() {
 
             <div className="p-4 rounded-xl bg-[#0F1116] border border-zinc-800 space-y-2">
               <div className="flex items-center justify-between text-xs text-zinc-300">
-                <span className="flex items-center gap-1.5"><Activity className="w-4 h-4 text-emerald-400" /> Network SLA</span>
-                <span className="text-emerald-400 font-mono font-bold">99.99% SLA</span>
+                <span className="flex items-center gap-1.5"><Activity className="w-4 h-4 text-emerald-400" /> Uptime Mark</span>
+                <span className="text-emerald-400 font-mono font-bold">100% Uptime Mark</span>
               </div>
               <div className="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-emerald-400 h-full w-[99.99%] rounded-full"></div>
+                <div className="bg-emerald-400 h-full w-[100%] rounded-full"></div>
               </div>
             </div>
           </div>

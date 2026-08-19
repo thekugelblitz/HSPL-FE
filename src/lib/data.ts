@@ -603,7 +603,7 @@ export const datacenters = [
 export const networkStatusData = {
   overall: "Operational",
   lastUpdated: "Just now",
-  uptime: "99.99%",
+  uptime: "100% Uptime Mark",
   services: [
     { name: "Cloud Web Hosting Cluster (US-East)", status: "Operational", responseTime: "24ms" },
     { name: "Cloud Web Hosting Cluster (IN-BOM)", status: "Operational", responseTime: "12ms" },

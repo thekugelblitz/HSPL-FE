@@ -1,337 +1,115 @@
 ---
+// src/components/blocks/Hero.astro
+// Transformation-focused hero — sells outcomes, not specs
+// Highlights: 135,000+ websites & apps, 11+ Years Independently Owned, 12+ Countries across 4 Continents, AI democratization
 import { Button } from "@/components/ui/button";
-import { cloudPlans, premiumPlans, vpsPlans } from '../../lib/data';
-import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Server, Cpu, Cloud, Sparkles, Activity, Lock, Globe, HardDrive, Check } from 'lucide-react';
-import { HostingQuizModal } from './HostingQuizModal';
-import TrustProofBar from './TrustProofBar.astro';
+import { ArrowRight, Check, Sparkles, ShieldCheck, Globe2, Award } from 'lucide-react';
 import StaticPrice from '../pricing/StaticPrice.astro';
-
-const startingCloud = cloudPlans[0];
-const startingPremium = premiumPlans[0];
-const startingVps = vpsPlans[0];
+import { HeroDomainSearch } from './HeroDomainSearch';
 ---
 
-<section class="relative overflow-hidden bg-background dark:bg-[#000000] text-foreground dark:text-white pt-16 pb-24 border-b border-border/40 dark:border-zinc-800/80">
-  {/* DreamHost Energetic Ambient Lighting */}
-  <div class="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none"></div>
-  <div class="absolute left-1/2 top-0 -z-10 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-[#0073EC]/20 blur-[150px]"></div>
-  <div class="absolute right-10 top-1/4 -z-10 h-[450px] w-[450px] rounded-full bg-purple-600/15 blur-[140px]"></div>
+<section class="relative overflow-hidden bg-background pt-16 sm:pt-20 pb-20 sm:pb-24 border-b border-border/40">
+  {/* Subtle ambient background glow */}
+  <div class="absolute left-1/2 top-0 -z-0 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-primary/12 blur-[150px] pointer-events-none"></div>
+  <div class="absolute right-0 bottom-0 -z-0 h-[300px] w-[400px] rounded-full bg-indigo-500/8 blur-[120px] pointer-events-none"></div>
 
   <div class="container relative mx-auto max-w-screen-xl px-4 sm:px-8 z-10">
     
-    {/* 2-Column Split Hero Layout */}
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-16 text-left">
+    {/* Centered hero — single column for maximum clarity */}
+    <div class="max-w-3xl mx-auto text-center space-y-6">
       
-      {/* Left Column (7 cols) - High Converting Copy & CTAs */}
-      <div class="lg:col-span-7 space-y-6">
-        {/* Announcement Pill */}
-        <div class="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-4 py-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 backdrop-blur-md shadow-lg shadow-blue-500/10">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-          </span>
-          <span>Web Hosting Built for Unlimited Growth</span>
-        </div>
-        
-        <h1 class="font-extrabold tracking-tight text-4xl sm:text-6xl lg:text-6xl leading-[1.1] text-foreground dark:text-white">
-          Fast, Reliable & Secure <br />
-          Cloud Hosting for <span class="bg-gradient-to-r from-[#0073EC] via-blue-600 to-indigo-600 dark:from-blue-400 dark:via-indigo-400 dark:to-sky-400 bg-clip-text text-transparent">Everyone.</span>
-        </h1>
-        
-        <p class="text-base sm:text-lg text-muted-foreground dark:text-zinc-300 leading-relaxed font-medium max-w-xl">
-          Engineered with Pure NVMe SSDs, LiteSpeed Enterprise, Imunify360 AI protection, and 24/7 human support. Save up to 75% vs traditional hosts.
-        </p>
-
-        {/* Feature Checkpoints */}
-        <ul class="space-y-3 text-xs sm:text-sm font-semibold text-foreground dark:text-zinc-200">
-          <li class="flex items-center gap-2.5">
-            <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border border-emerald-500/30">
-              <Check className="w-3.5 h-3.5" />
-            </div>
-            <span>10x Faster LiteSpeed Enterprise + Pure NVMe SSD Storage</span>
-          </li>
-          <li class="flex items-center gap-2.5">
-            <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border border-emerald-500/30">
-              <Check className="w-3.5 h-3.5" />
-            </div>
-            <span>Free SSL Certificates, Imunify360 AI & Automatic Daily Backups</span>
-          </li>
-          <li class="flex items-center gap-2.5">
-            <div class="p-1 rounded-full bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 border border-emerald-500/30">
-              <Check className="w-3.5 h-3.5" />
-            </div>
-            <span>24/7 Expert SLA Support & Free Zero-Downtime Migration</span>
-          </li>
-        </ul>
-        
-        {/* CTA Actions */}
-        <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
-          <a href="#plans" class="w-full sm:w-auto">
-            <Button size="lg" className="w-full text-base h-13 px-8 rounded-xl bg-[#0073EC] hover:bg-[#005bb5] text-white shadow-xl shadow-blue-500/30 font-extrabold flex items-center justify-center gap-2">
-              <span>Get Started Now</span>
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </a>
-          
-          <HostingQuizModal client:visible />
-        </div>
-
-        {/* Price Anchor */}
-        <div class="flex items-center gap-2 text-xs font-semibold text-muted-foreground dark:text-zinc-400 pt-1">
-          <StaticPrice usd="0.89" inr="69" prefix="Starting at " suffix="/mo" className="text-foreground dark:text-white font-black" />
-          <span>•</span>
-          <span class="text-emerald-600 dark:text-emerald-400 font-bold">100% Uptime Guarantee & 30-Day Money-Back</span>
-        </div>
+      {/* Credibility & Announcement Pill */}
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/8 px-4 py-1.5 text-xs font-bold text-primary backdrop-blur-sm shadow-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+        </span>
+        <span class="font-extrabold">135,000+ Websites & Apps Hosted</span>
+        <span class="text-primary/40 hidden sm:inline">•</span>
+        <span class="text-foreground font-semibold hidden sm:inline">Save up to 75%</span>
       </div>
-
-      {/* Right Column (5 cols) - Interactive Server Performance Visual */}
-      <div class="lg:col-span-5 relative">
-        <div class="glass-card rounded-3xl p-6 sm:p-7 glow-card border border-border/80 shadow-2xl relative overflow-hidden bg-card/90 backdrop-blur-xl">
-          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-400 via-primary to-blue-500"></div>
-
-          {/* Live Node Header */}
-          <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-5">
-            <div class="flex items-center gap-3">
-              <div class="relative flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
-              </div>
-              <div>
-                <div class="text-xs font-black text-foreground">US-EAST Node #01</div>
-                <div class="text-[10px] text-emerald-400 font-bold">🟢 99.99% Operational</div>
-              </div>
-            </div>
-            <span class="text-[10px] font-black uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 px-2.5 py-1 rounded-full">
-              LITESPEED & WEBUZO
-            </span>
-          </div>
-
-          {/* Metrics Grid */}
-          <div class="grid grid-cols-2 gap-3 mb-5">
-            <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-              <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                <Zap class="w-3.5 h-3.5 text-amber-400" /> Response Time
-              </div>
-              <div class="text-lg font-black text-foreground">45 ms <span class="text-[10px] text-emerald-400 font-bold">⚡ 10x Faster</span></div>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-              <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                <HardDrive class="w-3.5 h-3.5 text-blue-400" /> NVMe Read Speed
-              </div>
-              <div class="text-lg font-black text-foreground">6,500 MB/s</div>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-              <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                <Lock class="w-3.5 h-3.5 text-purple-400" /> Security Shield
-              </div>
-              <div class="text-xs font-black text-emerald-400">Imunify360 AI Active</div>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-muted/40 border border-border/60">
-              <div class="flex items-center gap-1.5 text-muted-foreground text-[10px] font-bold mb-1">
-                <Globe class="w-3.5 h-3.5 text-emerald-400" /> Datacenters
-              </div>
-              <div class="text-xs font-black text-foreground">US • DE • IN • SG</div>
-            </div>
-          </div>
-
-          {/* Special Flash Deal Spotlight */}
-          <div class="p-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-transparent border border-primary/30 flex items-center justify-between">
-            <div>
-              <div class="text-xs font-extrabold text-foreground">Webuzo Shared Deal</div>
-              <div class="text-[11px] text-muted-foreground">Apache/Nginx + MultiPHP + SSL</div>
-            </div>
-            <div class="text-right">
-              <StaticPrice usd="0.89" inr="69" suffix="/mo" className="text-lg font-black text-primary block" />
-              <span class="text-[9px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">SAVE 70%</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  {/* DreamHost Full-Width Trust & Proof Bar */}
-  <div class="w-full my-12">
-    <TrustProofBar />
-  </div>
-
-  <div class="container relative mx-auto max-w-screen-xl px-4 sm:px-8 z-10">
-
-    {/* Featured Plan Cards Section Header */}
-    <div class="text-center max-w-2xl mx-auto mb-10 mt-6">
-      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">Choose Your Hosting Tier</h2>
-      <p class="text-xs sm:text-sm text-muted-foreground font-medium">All plans include 24/7 human support, free 1-click installer, and 30-day money-back guarantee.</p>
-    </div>
-
-    {/* Featured Plan Cards Grid */}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto text-left" id="plans">
       
-      {/* Webuzo Hosting Card */}
-      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-teal-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="p-3 bg-teal-500/15 rounded-2xl text-teal-400 border border-teal-500/30">
-              <Server class="w-6 h-6" />
-            </div>
-            <span class="text-[11px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30">
-              SAVE 70%
-            </span>
-          </div>
+      {/* Headline — transformation-focused */}
+      <h1 class="font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl leading-[1.12] text-foreground">
+        Your Website & AI Apps, 10× Faster —<br />
+        <span class="bg-gradient-to-r from-primary via-blue-600 to-indigo-600 dark:from-blue-400 dark:via-indigo-400 dark:to-sky-400 bg-clip-text text-transparent">Starting Today.</span>
+      </h1>
+      
+      {/* Subheadline — specific, outcome-driven with exact credibility figures */}
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto">
+        Join over <strong>135,000+ websites and apps</strong> powered by HostingSpell. High-performance cloud and VPS infrastructure engineered for speed, AI deployments, and 24/7 human reliability.
+      </p>
 
-          <h3 class="text-xl font-extrabold mb-1 text-foreground">Webuzo Hosting</h3>
-          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">Modern cPanel alternative with Apache/Nginx & MultiPHP.</p>
-          
-          <div class="mb-5 pt-3 border-t border-border/60">
-            <div class="flex items-baseline gap-2">
-              <StaticPrice usd="0.89" inr="69" className="text-3xl font-black text-foreground" />
-              <span class="text-xs text-muted-foreground font-bold">/mo</span>
-            </div>
-            <div class="text-xs text-muted-foreground mt-1 font-medium">
-              Regular <StaticPrice usd="2.99" inr="229" className="line-through" />
-            </div>
-          </div>
-
-          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">1 Website & 10GB NVMe</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Apache + Nginx Dual Stack</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Softaculous 350+ 1-Click Apps</span></li>
-          </ul>
+      {/* 3 Core Trust Badges Stack (11+ Years, 12+ Countries, 135k+ Sites) */}
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto pt-1">
+        <div class="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-card/80 dark:bg-zinc-900/80 border border-border/70 text-xs font-bold text-foreground shadow-sm">
+          <Award className="w-4 h-4 text-amber-500 shrink-0" />
+          <span>11+ Years Independently Owned</span>
         </div>
 
-        <a href="/webuzo" class="w-full">
-          <Button variant="outline" className="w-full font-bold text-xs py-4 rounded-xl hover:bg-teal-600 hover:text-white border-border/80 shadow-sm">
-            View Webuzo Plans
+        <div class="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-card/80 dark:bg-zinc-900/80 border border-border/70 text-xs font-bold text-foreground shadow-sm">
+          <Globe2 className="w-4 h-4 text-blue-500 shrink-0" />
+          <span>12+ Countries (4 Continents)</span>
+        </div>
+
+        <div class="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-card/80 dark:bg-zinc-900/80 border border-border/70 text-xs font-bold text-foreground shadow-sm">
+          <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
+          <span>135,000+ Active Sites & Apps</span>
+        </div>
+      </div>
+
+      {/* Feature Checkpoints — outcome-framed */}
+      <ul class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm font-semibold text-foreground pt-1">
+        <li class="flex items-center gap-2">
+          <div class="p-0.5 rounded-full bg-emerald-500/15 text-emerald-500">
+            <Check className="w-3.5 h-3.5" />
+          </div>
+          <span>10× Faster LiteSpeed NVMe</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <div class="p-0.5 rounded-full bg-emerald-500/15 text-emerald-500">
+            <Check className="w-3.5 h-3.5" />
+          </div>
+          <span>1-Click AI Apps & Web Builder</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <div class="p-0.5 rounded-full bg-emerald-500/15 text-emerald-500">
+            <Check className="w-3.5 h-3.5" />
+          </div>
+          <span>Free Zero-Downtime Migration</span>
+        </li>
+      </ul>
+      
+      {/* CTAs */}
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/pricing" class="w-full sm:w-auto">
+          <Button size="lg" className="w-full sm:w-auto text-base h-13 px-8 rounded-xl bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/25 font-bold flex items-center justify-center gap-2 cursor-pointer">
+            <span>See Plans & Pricing</span>
+            <ArrowRight className="w-4 h-4" />
+          </Button>
+        </a>
+        <a href="#ai-hub" class="w-full sm:w-auto">
+          <Button size="lg" variant="outline" className="w-full sm:w-auto text-sm h-13 px-6 rounded-xl border-border/80 text-foreground font-bold flex items-center justify-center gap-2 hover:bg-muted/50 transition-colors cursor-pointer">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span>Explore AI Tools</span>
           </Button>
         </a>
       </div>
 
-      {/* Cloud Hosting Card */}
-      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-blue-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="p-3 bg-blue-500/15 rounded-2xl text-blue-400 border border-blue-500/30">
-              <Cloud class="w-6 h-6" />
-            </div>
-            <span class="text-[11px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30">
-              {startingCloud.discount || "SAVE 74%"}
-            </span>
-          </div>
-
-          <h3 class="text-xl font-extrabold mb-1 text-foreground">Cloud Hosting</h3>
-          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">High-speed NVMe cloud hosting designed for blogs & business sites.</p>
-          
-          <div class="mb-5 pt-3 border-t border-border/60">
-            <div class="flex items-baseline gap-2">
-              <StaticPrice usd="1.29" inr="99" className="text-3xl font-black text-foreground" />
-              <span class="text-xs text-muted-foreground font-bold">{startingCloud.billingCycle}</span>
-            </div>
-            {startingCloud.originalPrice && (
-              <div class="text-xs text-muted-foreground mt-1 font-medium">
-                Regular <StaticPrice usd="4.99" inr="399" className="line-through" />
-              </div>
-            )}
-          </div>
-
-          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">1 Website & 1GB NVMe SSD</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">LiteSpeed Enterprise + Free SSL</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Free Zero-Downtime Migration</span></li>
-          </ul>
-        </div>
-
-        <a href="/cloud-hosting" class="w-full">
-          <Button variant="outline" className="w-full font-bold text-xs py-4 rounded-xl hover:bg-primary hover:text-primary-foreground border-border/80 shadow-sm">
-            View Cloud Plans
-          </Button>
-        </a>
+      {/* Price Anchor */}
+      <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-muted-foreground pt-1">
+        <StaticPrice usd="0.89" inr="69" prefix="Starting at " suffix="/mo" className="text-foreground font-bold" />
+        <span>•</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-semibold">30-Day Money-Back Guarantee</span>
+        <span>•</span>
+        <span class="text-foreground font-medium">Instant 60s Setup</span>
       </div>
-
-      {/* Premium Hosting Card - Featured Spotlight Center Stage */}
-      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between border-2 border-primary bg-gradient-to-b from-primary/20 via-card to-card shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2">
-        <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-blue-400 via-primary to-indigo-500"></div>
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="p-3 bg-primary text-primary-foreground rounded-2xl shadow-lg shadow-primary/30">
-              <Zap class="w-6 h-6" />
-            </div>
-            <span class="text-[11px] font-black uppercase tracking-wider bg-primary text-primary-foreground px-3.5 py-1 rounded-full shadow-md">
-              🔥 Popular
-            </span>
-          </div>
-
-          <h3 class="text-xl font-extrabold mb-1 text-foreground">Premium Hosting</h3>
-          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">Dedicated RAM & CPU for high-traffic stores & apps.</p>
-          
-          <div class="mb-5 pt-3 border-t border-border/60">
-            <div class="flex items-baseline gap-2">
-              <StaticPrice usd="1.99" inr="149" className="text-3xl font-black text-foreground" />
-              <span class="text-xs text-muted-foreground font-bold">{startingPremium.billingCycle}</span>
-            </div>
-            {startingPremium.originalPrice && (
-              <div class="text-xs text-muted-foreground mt-1 font-medium">
-                Regular <StaticPrice usd="5.99" inr="499" className="line-through" />
-              </div>
-            )}
-          </div>
-
-          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">2 CPU & 2GB Dedicated RAM</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Unlimited SSD & Bandwidth</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Linode & DigitalOcean Cloud</span></li>
-          </ul>
-        </div>
-
-        <a href="/premium-hosting" class="w-full">
-          <Button className="w-full font-extrabold text-xs py-4 rounded-xl bg-primary text-primary-foreground hover:opacity-90 shadow-xl shadow-primary/30">
-            Get Premium Plan
-          </Button>
-        </a>
-      </div>
-
-      {/* KVM VPS Hosting Card */}
-      <div class="glass-card rounded-3xl p-6 glow-card flex flex-col justify-between transition-all hover:-translate-y-2 border border-border/80 hover:border-purple-500/50 shadow-xl relative bg-card/80 backdrop-blur-xl">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="p-3 bg-purple-500/15 rounded-2xl text-purple-400 border border-purple-500/30">
-              <Server class="w-6 h-6" />
-            </div>
-            <span class="text-[11px] font-black uppercase tracking-wider bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full border border-purple-500/30">
-              FULL ROOT
-            </span>
-          </div>
-
-          <h3 class="text-xl font-extrabold mb-1 text-foreground">KVM VPS Hosting</h3>
-          <p class="text-xs text-muted-foreground mb-4 leading-relaxed font-medium">Virtualizor KVM hypervisor with isolated CPU & Root Access.</p>
-          
-          <div class="mb-5 pt-3 border-t border-border/60">
-            <div class="flex items-baseline gap-2">
-              <StaticPrice usd="10" inr="749" className="text-3xl font-black text-foreground" />
-              <span class="text-xs text-muted-foreground font-bold">{startingVps.billingCycle}</span>
-            </div>
-            <div class="text-xs text-muted-foreground mt-1 font-medium">
-              Dedicated KVM Specs
-            </div>
-          </div>
-
-          <ul class="space-y-2 text-xs text-muted-foreground mb-6 font-semibold">
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">1 CPU Core & 4GB Dedicated RAM</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">40GB NVMe & 1TB Bandwidth</span></li>
-            <li class="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" /> <span class="text-foreground">Virtualizor 1-Click App Market</span></li>
-          </ul>
-        </div>
-
-        <a href="/vps" class="w-full">
-          <Button variant="outline" className="w-full font-bold text-xs py-4 rounded-xl hover:bg-primary hover:text-primary-foreground border-border/80 shadow-sm">
-            View VPS Plans
-          </Button>
-        </a>
-      </div>
-
     </div>
+
+    {/* ─── Hero Domain Search (Competition Standard) ─── */}
+    <div class="pt-10 sm:pt-14">
+      <HeroDomainSearch client:load />
+    </div>
+
   </div>
 </section>

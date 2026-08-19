@@ -195,9 +195,9 @@ export const comparisonData: Record<string, ServiceComparison> = {
             values: { VENUS: "30-Day Period", MARS: "30-Day Period", SATURN: "30-Day Period", JUPITER: "30-Day Period" }
           },
           {
-            name: "Uptime SLA Guarantee",
-            description: "SLA network uptime commitment.",
-            values: { VENUS: "99.9% Uptime", MARS: "99.9% Uptime", SATURN: "99.9% Uptime", JUPITER: "99.9% Uptime" }
+            name: "Uptime Mark",
+            description: "Continuously monitored high availability network.",
+            values: { VENUS: "100% Uptime Mark", MARS: "100% Uptime Mark", SATURN: "100% Uptime Mark", JUPITER: "100% Uptime Mark" }
           }
         ]
       }

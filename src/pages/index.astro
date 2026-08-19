@@ -1,192 +1,89 @@
 ---
+// src/pages/index.astro
+// HostingSpell Homepage — High-Converting Revenue & AI Funnel
+// Clean funnel: Hook → Prove → Solve → AI Democratization → Price → Guarantee → Close.
+
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
+
+// Section 1: Hero (Hook with transformation)
 import Hero from '../components/blocks/Hero.astro';
-import DomainSearch from '../components/blocks/DomainSearch.astro';
-import CostComparison from '../components/blocks/CostComparison.astro';
-import FeatureTabs from '../components/blocks/FeatureTabs.astro';
-import ShowcasePreview from '../components/blocks/ShowcasePreview.astro';
-import FeatureCard from '../components/blocks/FeatureCard.astro';
-import PricingCard from '../components/blocks/PricingCard.astro';
-import DatacenterMap from '../components/blocks/DatacenterMap.astro';
-import MigrationBanner from '../components/blocks/MigrationBanner.astro';
-import TrustProofBar from '../components/blocks/TrustProofBar.astro';
-import CompetitorComparison from '../components/blocks/CompetitorComparison.astro';
-import FounderGuarantee from '../components/blocks/FounderGuarantee.astro';
+
+// Section 2: Social Proof (Build instant credibility with 135,000+ metric)
+import SocialProofBar from '../components/blocks/SocialProofBar.astro';
+
+// Section 3: Problem → Solution (Show you understand their pain)
+import ProblemSolutionGrid from '../components/blocks/ProblemSolutionGrid.astro';
+
+// Section 4: AI Democratization & 1-Click Apps Stack
+import AiDemocratizationSection from '../components/blocks/AiDemocratizationSection.astro';
+
+// Section 5: Interactive Plan Browser (All categories & plans)
+import { PlanBrowser } from '../components/pricing/PlanBrowser';
+
+// Section 6: Guarantee Stack (Remove risk, handle objections)
+import GuaranteeStack from '../components/blocks/GuaranteeStack.astro';
+
+// Section 7: FAQ (Address final objections)
 import FaqAccordion from '../components/blocks/FaqAccordion.astro';
-import InteractiveSpeedTest from '../components/blocks/InteractiveSpeedTest.astro';
-import { StickyMobileBuyBar } from '../components/blocks/StickyMobileBuyBar';
-import AiWebDevTeaser from '../components/blocks/AiWebDevTeaser.astro';
-import { webuzoPlans, cloudPlans, premiumPlans, vpsPlans, faqs } from '../lib/data';
 
-const features = [
-  {
-    title: "100% Uptime Mark",
-    description: "Our cloud infrastructure guarantees maximum uptime so your website is always online.",
-    icon: "Server" as const
-  },
-  {
-    title: "Daily Automated Backups",
-    description: "JetBackup 5 automated daily snapshots ensure your data is safe and easily restorable in 1-click.",
-    icon: "RefreshCw" as const
-  },
-  {
-    title: "Imunify360 AI Security",
-    description: "Proactive AI defense layer blocking malware, DDoS attacks, web defacement, and brute force logins.",
-    icon: "Shield" as const
-  },
-  {
-    title: "LiteSpeed & Apache Enterprise",
-    description: "Blazing fast 10x HTTP/3 performance with LiteSpeed web server and Apache + Nginx dual stack.",
-    icon: "Zap" as const
-  }
-];
+import { premiumPlans, faqs } from '../lib/data';
+import { ArrowRight } from 'lucide-react';
 
-const popularWebuzo = webuzoPlans.find(p => p.name === 'MARS') || webuzoPlans[1];
-const popularCloud = cloudPlans.find(p => p.name === 'MARS') || cloudPlans[1];
-const popularPremium = premiumPlans.find(p => p.name === 'PREMIUM 2') || premiumPlans[1];
-const popularVps = vpsPlans.find(p => p.name === 'CONSOLUS MODEL') || vpsPlans[1];
+// Show only the best-value plan on homepage
+const spotlightPlan = premiumPlans.find(p => p.name === 'PREMIUM 2') || premiumPlans[1];
 
-const popularPlans = [popularWebuzo, popularCloud, popularPremium, popularVps];
+// Only top 3 FAQ items for homepage — keep it tight
+const homepageFaqs = faqs.slice(0, 3);
 ---
 
-<Layout title="HostingSpell | Next-Gen Ultra-Fast NVMe Cloud Hosting">
+<Layout title="HostingSpell | Ultra-Fast NVMe Cloud & AI Hosting — 135,000+ Sites Powered">
   <Navbar />
   <main class="bg-background overflow-hidden">
+
+    {/* ─── Section 1: Transformation Hero ─── */}
     <Hero />
 
-    <section class="py-24" id="pricing">
+    {/* ─── Section 2: Social Proof Strip (135k+ sites, 11+ years, 12+ countries) ─── */}
+    <SocialProofBar />
+
+    {/* ─── Section 3: Problem → Solution ─── */}
+    <ProblemSolutionGrid />
+
+    {/* ─── Section 4: AI Democratization (AI Studio + 1-Click AI Apps Stack) ─── */}
+    <AiDemocratizationSection />
+
+    {/* ─── Section 5: Plan Browser (All Categories & Plans) ─── */}
+    <section class="py-20 border-b border-border/40 bg-muted/10" id="pricing">
       <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center mb-16">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
-            🔥 Flash Deals - Up to 75% OFF
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Transparent Pricing for Every Project</h2>
-          <p class="text-muted-foreground text-base max-w-2xl mx-auto">High-performance cloud hosting engineered for developers, businesses, and agency portfolios.</p>
+        <PlanBrowser client:load />
+      </div>
+    </section>
+
+    {/* ─── Section 6: Guarantee Stack ─── */}
+    <GuaranteeStack />
+
+    {/* ─── Section 7: FAQ (Top 3 Only) ─── */}
+    <section class="py-20 border-t border-border/40">
+      <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h2 class="text-3xl font-extrabold tracking-tight mb-3">Quick Answers</h2>
+          <p class="text-muted-foreground">Common questions before you get started.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {popularPlans.map((plan, index) => (
-            <PricingCard {...plan} isPopular={index === 2} ctaText={index === 2 ? "Get Premium Plan" : "Get Started"} />
-          ))}
+        <div class="max-w-3xl mx-auto">
+          <FaqAccordion faqs={homepageFaqs} />
         </div>
 
-        <div class="mt-12 text-center">
-          <a href="/pricing" class="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-sm">
-            <span>Explore all plans & complete feature comparison matrix &rarr;</span>
+        <div class="mt-8 text-center">
+          <a href="/contact" class="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+            Have more questions? Talk to our 24/7 team →
           </a>
         </div>
       </div>
     </section>
 
-    {/* AI-Powered Website Development Section */}
-    <AiWebDevTeaser />
-
-    <section class="py-12 border-b border-border/40">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <InteractiveSpeedTest />
-      </div>
-    </section>
-    
-    <DomainSearch />
-
-    <MigrationBanner />
-
-    <CostComparison />
-
-    <CompetitorComparison />
-
-    <FeatureTabs />
-
-    <DatacenterMap />
-
-    <section class="py-24 bg-muted/20 border-t border-border/40">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-4">Everything You Need to Succeed</h2>
-          <p class="text-muted-foreground max-w-xl mx-auto">Our cloud web hosting platform is packed with enterprise-grade features at no extra cost.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map(feature => (
-            <FeatureCard {...feature} />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <FounderGuarantee />
-
-    <ShowcasePreview />
-
-    {/* Frequently Asked Questions */}
-    <section class="py-24 border-t border-border/40">
-      <div class="container mx-auto px-4 max-w-screen-xl">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <h2 class="text-3xl font-extrabold tracking-tight mb-4">Got Questions? We Have Answers.</h2>
-          <p class="text-muted-foreground">Find answers to common questions about HostingSpell cloud hosting.</p>
-        </div>
-
-        <div class="max-w-3xl mx-auto">
-          <FaqAccordion faqs={faqs} />
-        </div>
-      </div>
-    </section>
-
-    {/* Tech Partners Trust Badges */}
-    <section class="py-14 border-t border-border/40 bg-background">
-      <div class="container mx-auto px-4 max-w-screen-2xl text-center">
-        <p class="text-xs font-extrabold text-muted-foreground/80 tracking-widest uppercase mb-8">Backed by World-Class Tech Partners</p>
-        <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 opacity-85 hover:opacity-100 transition-opacity text-xs sm:text-sm">
-          <div class="flex items-center gap-2">
-            <img src="/brands/cpanel-color.svg" alt="cPanel" class="h-5 sm:h-6 w-auto object-contain" width="24" height="24" loading="lazy" decoding="async" />
-            <span class="font-extrabold text-foreground whitespace-nowrap">cPanel®</span>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <img src="/brands/digitalocean-color.svg" alt="DigitalOcean" class="h-5 sm:h-6 w-auto object-contain" width="24" height="24" loading="lazy" decoding="async" />
-            <span class="font-extrabold text-foreground whitespace-nowrap">DigitalOcean</span>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <img src="/brands/linode.svg" alt="Linode" class="h-5 sm:h-6 w-auto object-contain brightness-0 dark:brightness-100" width="24" height="24" loading="lazy" decoding="async" />
-            <span class="font-extrabold text-foreground whitespace-nowrap">Linode</span>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <img src="/brands/cloudflare.svg" alt="Cloudflare" class="h-5 sm:h-6 w-auto object-contain" width="24" height="24" loading="lazy" decoding="async" />
-            <span class="font-extrabold text-foreground whitespace-nowrap">Cloudflare</span>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <img src="/brands/almalinux.svg" alt="AlmaLinux" class="h-5 sm:h-6 w-auto object-contain dark:invert" width="24" height="24" loading="lazy" decoding="async" />
-            <span class="font-extrabold text-foreground whitespace-nowrap">AlmaLinux</span>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <img src="/brands/ubuntu.svg" alt="Ubuntu" class="h-5 sm:h-6 w-auto object-contain" width="24" height="24" loading="lazy" decoding="async" />
-            <span class="font-extrabold text-foreground whitespace-nowrap">Ubuntu</span>
-          </div>
-
-          <div class="flex items-center gap-2 whitespace-nowrap">
-            <svg class="h-5 w-auto text-amber-500 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 22h20L12 2zm0 3.99L18.66 19H5.34L12 5.99z"/>
-              <path d="M12 9l1.1 2.3 2.5.4-1.8 1.8.4 2.5-2.2-1.2-2.2 1.2.4-2.5-1.8-1.8 2.5-.4L12 9z"/>
-            </svg>
-            <span class="font-extrabold text-foreground">HostAdvice Top 10 (2021-2026)</span>
-          </div>
-
-          <div class="flex items-center gap-2 whitespace-nowrap">
-            <svg class="h-5 w-auto text-emerald-400 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2c-3.86 0-7 3.14-7 7 0 2.24 1.05 4.22 2.69 5.5l-1.69 5.5 6-3 6 3-1.69-5.5C17.95 13.22 19 11.24 19 9c0-3.86-3.14-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
-            </svg>
-            <span class="font-extrabold text-foreground">HostAdvice Recommended (2021-2026)</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <StickyMobileBuyBar client:media="(max-width: 768px)" />
   </main>
   <Footer />
 </Layout>
