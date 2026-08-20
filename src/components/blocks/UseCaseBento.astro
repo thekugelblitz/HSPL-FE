@@ -1,0 +1,534 @@
+---
+// src/components/blocks/UseCaseBento.astro
+// HostingSpell Tailored Infrastructure Stacks — Perfectly Balanced Bento Grid
+import { 
+  Globe, 
+  Sparkles, 
+  Store, 
+  Building2, 
+  ShieldCheck, 
+  Server, 
+  Check, 
+  ArrowRight, 
+  Zap, 
+  Cpu,
+  Database,
+  Terminal,
+  Rocket
+} from 'lucide-react';
+---
+
+<section class="py-16 md:py-24 bg-background relative overflow-hidden border-b border-border/40" id="use-cases">
+  {/* Ambient Subtle Glow */}
+  <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/10 rounded-full blur-[140px]"></div>
+
+  <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+    
+    {/* Section Header */}
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-extrabold rounded-full bg-primary/10 border border-primary/20 text-primary uppercase tracking-wider mb-3">
+        <Zap class="w-3.5 h-3.5 text-primary" />
+        <span>Tailored Infrastructure</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-foreground leading-tight">
+        Hosting Engineered for How You Build & Scale
+      </h2>
+    </div>
+
+    {/* Tab Switcher Pills */}
+    <div class="flex items-center justify-center gap-2 sm:gap-3 mb-10 flex-wrap">
+      <div class="inline-flex p-1.5 rounded-2xl bg-muted/80 dark:bg-card border border-border/80 shadow-inner" id="usecase-tabs">
+        <button
+          type="button"
+          data-tab="creators"
+          class="usecase-tab-btn active-tab flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition-all duration-200 cursor-pointer bg-[#0073EC] text-white shadow-md shadow-blue-500/20 scale-[1.02]"
+        >
+          <Rocket class="w-4 h-4" />
+          <span>Launch & Create</span>
+        </button>
+        <button
+          type="button"
+          data-tab="business"
+          class="usecase-tab-btn flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition-all duration-200 cursor-pointer text-muted-foreground hover:text-foreground hover:bg-muted/50"
+        >
+          <Store class="w-4 h-4" />
+          <span>Scale & E-Commerce</span>
+        </button>
+        <button
+          type="button"
+          data-tab="agencies"
+          class="usecase-tab-btn flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition-all duration-200 cursor-pointer text-muted-foreground hover:text-foreground hover:bg-muted/50"
+        >
+          <Terminal class="w-4 h-4" />
+          <span>Devs & Agencies</span>
+        </button>
+      </div>
+    </div>
+
+    {/* ─── TAB 1: LAUNCH & CREATE ─── */}
+    <div id="tab-panel-creators" class="usecase-panel block">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        {/* Left Column: Big Feature Bento Card (6 Cols) */}
+        <div class="lg:col-span-6 flex flex-col h-full rounded-3xl overflow-hidden border border-border/80 shadow-md bg-gradient-to-b from-slate-900 to-slate-950 text-white">
+          <div class="p-6 sm:p-8 relative overflow-hidden bg-gradient-to-br from-[#0073EC]/30 via-indigo-950/60 to-slate-950 flex items-center justify-center">
+            {/* Floating Glassmorphic Status Card */}
+            <div class="w-full max-w-md bg-white/95 dark:bg-zinc-900/95 text-zinc-900 dark:text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-white/40 dark:border-zinc-700/80 relative z-10 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/50 pb-2.5 mb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider text-primary">INSTANT PROVISIONING</span>
+                <span class="text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                  Ready in 60s
+                </span>
+              </div>
+
+              <div class="mb-3">
+                <div class="text-base sm:text-lg font-black text-foreground tracking-tight">
+                  Everything Sorted on Day One
+                </div>
+              </div>
+
+              <div class="grid grid-cols-4 gap-2 pt-2.5 border-t border-border/50 text-center mb-3">
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Storage</div>
+                  <div class="text-xs font-black text-foreground">NVMe Gen4</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Panel</div>
+                  <div class="text-xs font-black text-foreground">cPanel®</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Security</div>
+                  <div class="text-xs font-black text-emerald-500">Imunify360</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">SSL</div>
+                  <div class="text-xs font-black text-blue-500">AutoFree</div>
+                </div>
+              </div>
+
+              <p class="text-[10px] text-muted-foreground font-medium">
+                24/7 Human engineers ready to assist. No technical bottlenecks.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 bg-slate-950 flex-1 flex flex-col justify-between">
+            <div>
+              <a href="/cloud-hosting" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 hover:text-blue-300 uppercase tracking-wider mb-2 transition-colors">
+                <Globe class="w-3.5 h-3.5" />
+                <span>Cloud NVMe Hosting &rarr;</span>
+              </a>
+              <h3 class="text-xl sm:text-2xl font-black text-white mb-2">
+                Zero Setup Friction. Instant Deployment.
+              </h3>
+              <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+                Get online with enterprise-grade NVMe SSDs and LiteSpeed web acceleration. Build your site, configure business emails, and secure your visitors in just a few clicks.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-blue-300 font-semibold">
+              <span>Plans from only $0.89/month</span>
+              <a href="/cloud-hosting" class="text-white hover:underline flex items-center gap-1 font-bold">
+                Get Started <ArrowRight class="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Two Stacked Bento Cards (6 Cols - Perfectly Flex Stretched) */}
+        <div class="lg:col-span-6 flex flex-col gap-6 h-full justify-between">
+          
+          {/* Card 2: AI Web Studio */}
+          <div class="flex-1 rounded-3xl border border-border/80 shadow-md bg-card p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden hover:border-primary/40 transition-all">
+            <div class="flex-1 space-y-2 text-left">
+              <a href="/ai-website-builder" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider transition-colors">
+                <Sparkles class="w-3.5 h-3.5" />
+                <span>AI Website Builder &rarr;</span>
+              </a>
+              <h3 class="text-lg sm:text-xl font-black text-foreground">
+                Build & Launch with AI Speed
+              </h3>
+              <p class="text-muted-foreground text-xs leading-relaxed">
+                Generate responsive, conversion-ready landing pages with AI, or deploy 350+ popular web apps with 1-click Softaculous scripts.
+              </p>
+            </div>
+
+            <div class="w-full sm:w-[210px] shrink-0 bg-muted/40 rounded-2xl p-3.5 border border-border/80 text-xs">
+              <div class="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-2">INCLUDED IN EVERY PLAN</div>
+              <div class="space-y-1 mb-3">
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>AI Site Builder</span></div>
+                  <span class="text-[8px] font-extrabold text-primary bg-primary/10 px-1 py-0.2 rounded">INCLUDED</span>
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>Free Domain</span></div>
+                  <span class="text-[8px] font-extrabold text-emerald-500 bg-emerald-500/10 px-1 py-0.2 rounded">1ST YEAR</span>
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>Custom Email</span></div>
+                  <span class="text-[8px] font-extrabold text-blue-500 bg-blue-500/10 px-1 py-0.2 rounded">UNLIMITED</span>
+                </div>
+              </div>
+              <a href="/ai-website-builder" class="w-full flex items-center justify-between bg-primary hover:bg-primary/90 text-white font-extrabold text-[10px] px-3 py-1.5 rounded-xl transition-all shadow-xs">
+                <span>Try AI Builder</span>
+                <ArrowRight class="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
+          {/* Card 3: Domains & DNS */}
+          <div class="flex-1 rounded-3xl border border-border/80 shadow-md bg-card p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden hover:border-primary/40 transition-all">
+            <div class="flex-1 space-y-2 text-left">
+              <a href="/domain" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider transition-colors">
+                <Globe class="w-3.5 h-3.5" />
+                <span>Domain Management &rarr;</span>
+              </a>
+              <h3 class="text-lg sm:text-xl font-black text-foreground">
+                Ultra-Fast Anycast DNS & Domains
+              </h3>
+              <p class="text-muted-foreground text-xs leading-relaxed">
+                Register top-level domains (.com, .in, .net) at wholesale pricing with free WHOIS privacy, instant DNS propagation, and DNSSEC protection.
+              </p>
+            </div>
+
+            <div class="w-full sm:w-[210px] shrink-0 rounded-2xl p-3.5 border border-border/80 bg-gradient-to-br from-primary/10 via-background to-muted/40 flex items-center justify-center">
+              <div class="w-full bg-card rounded-xl p-3 shadow-xs border border-border/60 text-left">
+                <div class="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-0.5">GLOBAL DNS MESH</div>
+                <div class="text-xs font-black text-foreground leading-tight mb-2">Sub-5ms Resolution</div>
+                <div class="space-y-1 border-t border-border/50 pt-1.5 mb-1.5">
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="font-semibold text-muted-foreground">.COM Registration</span>
+                    <span class="font-black text-foreground">$9.99/yr</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="font-semibold text-muted-foreground">WHOIS Privacy</span>
+                    <span class="font-black text-emerald-500">100% Free</span>
+                  </div>
+                </div>
+                <div class="text-[9px] text-muted-foreground font-medium">Instant Nameserver Sync.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    {/* ─── TAB 2: SCALE & E-COMMERCE ─── */}
+    <div id="tab-panel-business" class="usecase-panel hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <div class="lg:col-span-6 flex flex-col h-full rounded-3xl overflow-hidden border border-border/80 shadow-md bg-gradient-to-b from-slate-900 to-slate-950 text-white">
+          <div class="p-6 sm:p-8 relative overflow-hidden bg-gradient-to-br from-emerald-600/25 via-teal-950/60 to-slate-950 flex items-center justify-center">
+            <div class="w-full max-w-md bg-white/95 dark:bg-zinc-900/95 text-zinc-900 dark:text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-white/40 dark:border-zinc-700/80 relative z-10 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/50 pb-2.5 mb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-500">HIGH-CONCURRENCY STACK</span>
+                <span class="text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                  10x Flash-Sale Boost
+                </span>
+              </div>
+              <div class="mb-3">
+                <div class="text-base sm:text-lg font-black text-foreground tracking-tight">
+                  100% Uptime Under Traffic Spikes
+                </div>
+              </div>
+              <div class="grid grid-cols-4 gap-2 pt-2.5 border-t border-border/50 text-center mb-3">
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Cache</div>
+                  <div class="text-xs font-black text-emerald-500">LSCache</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Object RAM</div>
+                  <div class="text-xs font-black text-foreground">Redis</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">TTFB</div>
+                  <div class="text-xs font-black text-blue-500">&lt; 90ms</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Staging</div>
+                  <div class="text-xs font-black text-foreground">1-Click</div>
+                </div>
+              </div>
+              <p class="text-[10px] text-muted-foreground font-medium">
+                LiteSpeed Enterprise web server eliminates slow checkout bottlenecks.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 bg-slate-950 flex-1 flex flex-col justify-between">
+            <div>
+              <a href="/wordpress-hosting" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 uppercase tracking-wider mb-2 transition-colors">
+                <Store class="w-3.5 h-3.5" />
+                <span>Managed WordPress & E-Commerce &rarr;</span>
+              </a>
+              <h3 class="text-xl sm:text-2xl font-black text-white mb-2">
+                Engineered for High-Converting Online Stores
+              </h3>
+              <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+                Boost store conversions with sub-second page loads. Automated Redis object caching, dedicated PHP workers, and instant WordPress staging allow you to sell without limits.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-300 font-semibold">
+              <span>Zero dropped transactions on flash sales</span>
+              <a href="/wordpress-hosting" class="text-white hover:underline flex items-center gap-1 font-bold">
+                Explore WP Hosting <ArrowRight class="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 flex flex-col gap-6 h-full justify-between">
+          
+          <div class="flex-1 rounded-3xl border border-border/80 shadow-md bg-card p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden hover:border-primary/40 transition-all">
+            <div class="flex-1 space-y-2 text-left">
+              <a href="/contact" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider transition-colors">
+                <ShieldCheck class="w-3.5 h-3.5" />
+                <span>Free White-Glove Migration &rarr;</span>
+              </a>
+              <h3 class="text-lg sm:text-xl font-black text-foreground">
+                Zero-Downtime Expert Migration
+              </h3>
+              <p class="text-muted-foreground text-xs leading-relaxed">
+                Stuck on an expensive or slow host? Our migration engineers move your sites, databases, and emails with guaranteed zero downtime in under 24 hours.
+              </p>
+            </div>
+            <div class="w-full sm:w-[210px] shrink-0 bg-muted/40 rounded-2xl p-3.5 border border-border/80 text-xs">
+              <div class="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-2">DONE-FOR-YOU SERVICE</div>
+              <div class="space-y-1 mb-3">
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>Zero Downtime</span></div>
+                  <span class="text-[8px] font-extrabold text-emerald-500 bg-emerald-500/10 px-1 py-0.2 rounded">GUARANTEED</span>
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>Turnaround</span></div>
+                  <span class="text-[8px] font-extrabold text-blue-500 bg-blue-500/10 px-1 py-0.2 rounded">&lt; 24H</span>
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>Migration Fee</span></div>
+                  <span class="text-[8px] font-extrabold text-emerald-600 bg-emerald-500/15 px-1 py-0.2 rounded">100% FREE</span>
+                </div>
+              </div>
+              <a href="https://manage.hostingspell.com/submitticket.php?step=2&deptid=1" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-between bg-primary hover:bg-primary/90 text-white font-extrabold text-[10px] px-3 py-1.5 rounded-xl transition-all shadow-xs">
+                <span>Request Migration</span>
+                <ArrowRight class="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
+          <div class="flex-1 rounded-3xl border border-border/80 shadow-md bg-card p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden hover:border-primary/40 transition-all">
+            <div class="flex-1 space-y-2 text-left">
+              <a href="/features" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider transition-colors">
+                <Database class="w-3.5 h-3.5" />
+                <span>Enterprise Backup Vaults &rarr;</span>
+              </a>
+              <h3 class="text-lg sm:text-xl font-black text-foreground">
+                Automated Offsite Snapshots
+              </h3>
+              <p class="text-muted-foreground text-xs leading-relaxed">
+                Sleep easy knowing your store is backed up daily with JetBackup 5 offsite snapshots. 1-click point-in-time recovery for files, databases, and emails.
+              </p>
+            </div>
+            <div class="w-full sm:w-[210px] shrink-0 rounded-2xl p-3.5 border border-border/80 bg-gradient-to-br from-emerald-500/10 via-background to-muted/40 flex items-center justify-center">
+              <div class="w-full bg-card rounded-xl p-3 shadow-xs border border-border/60 text-left">
+                <div class="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-0.5">DATA RECOVERY VAULT</div>
+                <div class="text-xs font-black text-foreground leading-tight mb-2">JetBackup 5 Offsite</div>
+                <div class="space-y-1 border-t border-border/50 pt-1.5 mb-1.5">
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="font-semibold text-muted-foreground">Restore Speed</span>
+                    <span class="font-black text-emerald-500">1-Click</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="font-semibold text-muted-foreground">Retention</span>
+                    <span class="font-black text-foreground">30-Day Vault</span>
+                  </div>
+                </div>
+                <div class="text-[9px] text-muted-foreground font-medium">Included at zero extra cost.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    {/* ─── TAB 3: DEVS & AGENCIES ─── */}
+    <div id="tab-panel-agencies" class="usecase-panel hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <div class="lg:col-span-6 flex flex-col h-full rounded-3xl overflow-hidden border border-border/80 shadow-md bg-gradient-to-b from-slate-900 to-slate-950 text-white">
+          <div class="p-6 sm:p-8 relative overflow-hidden bg-gradient-to-br from-indigo-600/30 via-purple-950/60 to-slate-950 flex items-center justify-center">
+            <div class="w-full max-w-md bg-white/95 dark:bg-zinc-900/95 text-zinc-900 dark:text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-white/40 dark:border-zinc-700/80 relative z-10 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-border/50 pb-2.5 mb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider text-indigo-500">WHITE-LABEL AGENCY SUITE</span>
+                <span class="text-[10px] font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/30">
+                  100% White-Label
+                </span>
+              </div>
+              <div class="mb-3">
+                <div class="text-base sm:text-lg font-black text-foreground tracking-tight">
+                  Launch Your Own Hosting Business
+                </div>
+              </div>
+              <div class="grid grid-cols-4 gap-2 pt-2.5 border-t border-border/50 text-center mb-3">
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Control</div>
+                  <div class="text-xs font-black text-indigo-500">WHM Panel</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">Nameservers</div>
+                  <div class="text-xs font-black text-foreground">Private</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">cPanels</div>
+                  <div class="text-xs font-black text-blue-500">Isolated</div>
+                </div>
+                <div class="p-1.5 rounded-xl bg-muted/50 border border-border/60">
+                  <div class="text-[9px] font-semibold text-muted-foreground">SSL</div>
+                  <div class="text-xs font-black text-emerald-500">Unlimited</div>
+                </div>
+              </div>
+              <p class="text-[10px] text-muted-foreground font-medium">
+                Create custom hosting tiers for clients and retain 100% of your recurring profits.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 bg-slate-950 flex-1 flex flex-col justify-between">
+            <div>
+              <a href="/reseller" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 hover:text-indigo-300 uppercase tracking-wider mb-2 transition-colors">
+                <Building2 class="w-3.5 h-3.5" />
+                <span>WHM Reseller Hosting &rarr;</span>
+              </a>
+              <h3 class="text-xl sm:text-2xl font-black text-white mb-2">
+                High-Margin Infrastructure for Agencies
+              </h3>
+              <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+                Manage dozens of client accounts from a single WHM dashboard. Deliver blazing LiteSpeed performance, automated daily JetBackup 5 vaults, and free SSL for all accounts.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-indigo-300 font-semibold">
+              <span>Start reselling from $12.99/mo</span>
+              <a href="/reseller" class="text-white hover:underline flex items-center gap-1 font-bold">
+                Explore Reseller Plans <ArrowRight class="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 flex flex-col gap-6 h-full justify-between">
+          
+          <div class="flex-1 rounded-3xl border border-border/80 shadow-md bg-card p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden hover:border-primary/40 transition-all">
+            <div class="flex-1 space-y-2 text-left">
+              <a href="/vps" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider transition-colors">
+                <Server class="w-3.5 h-3.5" />
+                <span>KVM Cloud VPS &rarr;</span>
+              </a>
+              <h3 class="text-lg sm:text-xl font-black text-foreground">
+                Dedicated Compute with Full Root SSH
+              </h3>
+              <p class="text-muted-foreground text-xs leading-relaxed">
+                Deploy high-IOPS Virtualizor KVM servers with dedicated CPU cores, DDR5 RAM, pure NVMe Gen4 arrays, and automated reboot APIs.
+              </p>
+            </div>
+            <div class="w-full sm:w-[210px] shrink-0 bg-muted/40 rounded-2xl p-3.5 border border-border/80 text-xs">
+              <div class="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-2">RAW HARDWARE SPECS</div>
+              <div class="space-y-1 mb-3">
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>KVM Virtualization</span></div>
+                  <span class="text-[8px] font-extrabold text-primary bg-primary/10 px-1 py-0.2 rounded">100% ISOLATED</span>
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>Root Access</span></div>
+                  <span class="text-[8px] font-extrabold text-blue-500 bg-blue-500/10 px-1 py-0.2 rounded">UNLOCKED</span>
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <div class="flex items-center gap-1 text-foreground"><Check class="w-3 h-3 text-emerald-500 shrink-0" /><span>DDoS Defense</span></div>
+                  <span class="text-[8px] font-extrabold text-emerald-500 bg-emerald-500/10 px-1 py-0.2 rounded">10GBPS+</span>
+                </div>
+              </div>
+              <a href="/vps" class="w-full flex items-center justify-between bg-primary hover:bg-primary/90 text-white font-extrabold text-[10px] px-3 py-1.5 rounded-xl transition-all shadow-xs">
+                <span>Configure VPS</span>
+                <ArrowRight class="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
+          <div class="flex-1 rounded-3xl border border-border/80 shadow-md bg-card p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden hover:border-primary/40 transition-all">
+            <div class="flex-1 space-y-2 text-left">
+              <a href="/nodejs-hosting" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-wider transition-colors">
+                <Cpu class="w-3.5 h-3.5" />
+                <span>Node.js & Python &rarr;</span>
+              </a>
+              <h3 class="text-lg sm:text-xl font-black text-foreground">
+                Modern Full-Stack Runtime
+              </h3>
+              <p class="text-muted-foreground text-xs leading-relaxed">
+                Deploy Next.js, Node.js 22 LTS, Django, Flask, and FastAPI apps with built-in PM2 process management, Git auto-pull, and WebSocket support.
+              </p>
+            </div>
+            <div class="w-full sm:w-[210px] shrink-0 rounded-2xl p-3.5 border border-border/80 bg-gradient-to-br from-indigo-500/10 via-background to-muted/40 flex items-center justify-center">
+              <div class="w-full bg-card rounded-xl p-3 shadow-xs border border-border/60 text-left">
+                <div class="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-0.5">DEV RUNTIME</div>
+                <div class="text-xs font-black text-foreground leading-tight mb-2">Node 22 & Python 3.12</div>
+                <div class="space-y-1 border-t border-border/50 pt-1.5 mb-1.5">
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="font-semibold text-muted-foreground">WebSockets</span>
+                    <span class="font-black text-emerald-500">Custom Ports</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="font-semibold text-muted-foreground">Databases</span>
+                    <span class="font-black text-foreground">MySQL & Redis</span>
+                  </div>
+                </div>
+                <div class="text-[9px] text-muted-foreground font-medium">Production-ready developer runtime.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabsContainer = document.getElementById('usecase-tabs');
+    if (!tabsContainer) return;
+    
+    const tabButtons = tabsContainer.querySelectorAll('.usecase-tab-btn');
+    const panels = {
+      'creators': document.getElementById('tab-panel-creators'),
+      'business': document.getElementById('tab-panel-business'),
+      'agencies': document.getElementById('tab-panel-agencies')
+    };
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+        
+        // Update button styles
+        tabButtons.forEach(b => {
+          b.classList.remove('bg-[#0073EC]', 'text-white', 'shadow-md', 'shadow-blue-500/20', 'scale-[1.02]');
+          b.classList.add('text-muted-foreground');
+        });
+        btn.classList.add('bg-[#0073EC]', 'text-white', 'shadow-md', 'shadow-blue-500/20', 'scale-[1.02]');
+        btn.classList.remove('text-muted-foreground');
+
+        // Toggle panels
+        Object.entries(panels).forEach(([key, panel]) => {
+          if (panel) {
+            if (key === targetTab) {
+              panel.classList.remove('hidden');
+              panel.classList.add('block');
+            } else {
+              panel.classList.add('hidden');
+              panel.classList.remove('block');
+            }
+          }
+        });
+      });
+    });
+  });
+</script>

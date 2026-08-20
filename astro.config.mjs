@@ -20,6 +20,9 @@ export default defineConfig({
   
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['react/jsx-dev-runtime', 'react/jsx-runtime'],
+    },
     build: {
       target: 'es2022',
       cssMinify: 'lightningcss',

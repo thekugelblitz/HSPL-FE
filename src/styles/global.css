@@ -185,29 +185,36 @@
   100% { transform: translateX(100%); }
 }
 
-.animate-shimmer {
-  animation: shimmer 2.5s infinite;
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
-/* Ultra-Fast Hardware-Accelerated View Transitions */
-::view-transition-old(root) {
-  animation: 120ms cubic-bezier(0.16, 1, 0.3, 1) both fade-out;
-  will-change: opacity, transform;
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
-::view-transition-new(root) {
-  animation: 120ms cubic-bezier(0.16, 1, 0.3, 1) both fade-in;
-  will-change: opacity, transform;
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+  will-change: transform;
 }
 
-@keyframes fade-out {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.995); }
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: scale(1.005); }
-  to { opacity: 1; transform: scale(1); }
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
 }
 
 /* Fallback for users with reduced-motion preferences or battery saver */
@@ -215,5 +222,11 @@
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none !important;
+  }
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none !important;
+    transform: none !important;
+    overflow-x: auto;
   }
 }

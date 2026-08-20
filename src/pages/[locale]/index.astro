@@ -1,26 +1,34 @@
 ---
 // src/pages/[locale]/index.astro
-// Dynamic Localized Homepage for International Regions (Hosting.com Architecture)
+// Dynamic Localized Homepage for International Regions (Hosting.com & DreamHost Architecture)
+// Funnel: Regional Hero → Social Proof Bar → Client Showcase Marquee → Use Case Bento Grid → Problem/Solution → Plan Browser → AI Stack → Reviews/Wall of Love → Migration Banner → Guarantee Stack → FAQs → Final Conversion CTA.
 
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/layout/Navbar.astro';
 import Footer from '../../components/layout/Footer.astro';
+
+// Funnel Blocks
 import SocialProofBar from '../../components/blocks/SocialProofBar.astro';
+import ClientShowcaseMarquee from '../../components/blocks/ClientShowcaseMarquee.astro';
+import UseCaseBento from '../../components/blocks/UseCaseBento.astro';
 import ProblemSolutionGrid from '../../components/blocks/ProblemSolutionGrid.astro';
-import AiDemocratizationSection from '../../components/blocks/AiDemocratizationSection.astro';
 import { PlanBrowser } from '../../components/pricing/PlanBrowser';
-import { HeroDomainSearch } from '../../components/blocks/HeroDomainSearch';
+import AiDemocratizationSection from '../../components/blocks/AiDemocratizationSection.astro';
+import HomepageReviews from '../../components/blocks/HomepageReviews.astro';
+import MigrationBanner from '../../components/blocks/MigrationBanner.astro';
 import GuaranteeStack from '../../components/blocks/GuaranteeStack.astro';
 import FaqAccordion from '../../components/blocks/FaqAccordion.astro';
+import FinalCta from '../../components/blocks/FinalCta.astro';
+import { HeroDomainSearch } from '../../components/blocks/HeroDomainSearch';
 import { Button } from '@/components/ui/button';
+
 import { 
   ALL_LOCALES, 
-  getLocaleBySlugOrCode, 
   formatLocalizedPrice, 
   type LocaleInfo 
 } from '../../lib/i18n/locales';
 import { premiumPlans, faqs } from '../../lib/data';
-import { ArrowRight, Check, Sparkles, ShieldCheck, Globe2, Award, Zap, Server, PhoneCall } from 'lucide-react';
+import { ArrowRight, Check, Server, PhoneCall } from 'lucide-react';
 
 export async function getStaticPaths() {
   const nonDefaultLocales = ALL_LOCALES.filter((loc) => loc.slug !== "");
@@ -37,8 +45,7 @@ interface Props {
 const { locale } = Astro.props;
 
 const spotlightPlan = premiumPlans.find((p) => p.name === "PREMIUM 2") || premiumPlans[1];
-const homepageFaqs = faqs.slice(0, 4);
-
+const homepageFaqs = faqs.slice(0, 3);
 const startingPrice = formatLocalizedPrice(0.89, locale.currency, 69);
 ---
 
@@ -50,7 +57,7 @@ const startingPrice = formatLocalizedPrice(0.89, locale.currency, 69);
   <Navbar />
   <main class="bg-background overflow-hidden">
     
-    {/* ─── Localized Region Hero Section (Hosting.com Style) ─── */}
+    {/* ─── Section 1: Localized Region Hero Section ─── */}
     <section class="relative overflow-hidden bg-background pt-16 sm:pt-20 pb-20 sm:pb-24 border-b border-border/40">
       <div class="absolute left-1/2 top-0 -z-0 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-primary/12 blur-[150px] pointer-events-none"></div>
       <div class="absolute right-0 bottom-0 -z-0 h-[300px] w-[400px] rounded-full bg-indigo-500/8 blur-[120px] pointer-events-none"></div>
@@ -146,16 +153,19 @@ const startingPrice = formatLocalizedPrice(0.89, locale.currency, 69);
       </div>
     </section>
 
-    {/* ─── Social Proof ─── */}
+    {/* ─── Section 2: Social Proof Strip (135k+ sites, 11+ years, 12+ countries) ─── */}
     <SocialProofBar />
 
-    {/* ─── Problem → Solution ─── */}
+    {/* ─── Section 3: Client Showcase Marquee (Serving Billion+ Visitors) ─── */}
+    <ClientShowcaseMarquee />
+
+    {/* ─── Section 4: Growth Hosting Platform for Every Use Case (Bento Grid) ─── */}
+    <UseCaseBento />
+
+    {/* ─── Section 5: Problem → Solution (Why HostingSpell NVMe vs Slow Legacy Hosts) ─── */}
     <ProblemSolutionGrid />
 
-    {/* ─── AI Studio & 1-Click Apps ─── */}
-    <AiDemocratizationSection />
-
-    {/* ─── Featured Plan Browser across all categories ─── */}
+    {/* ─── Section 6: Localized Plan Browser across all categories ─── */}
     <section class="py-20 border-b border-border/40 bg-muted/10" id="pricing">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <PlanBrowser 
@@ -166,11 +176,20 @@ const startingPrice = formatLocalizedPrice(0.89, locale.currency, 69);
       </div>
     </section>
 
-    {/* ─── Guarantee Stack ─── */}
+    {/* ─── Section 7: AI Democratization (AI Studio + 1-Click AI Apps Stack) ─── */}
+    <AiDemocratizationSection />
+
+    {/* ─── Section 8: Verified Customer Reviews & Wall of Love (4.8★ Ratings) ─── */}
+    <HomepageReviews />
+
+    {/* ─── Section 9: Zero-Downtime Migration CTA Banner ─── */}
+    <MigrationBanner />
+
+    {/* ─── Section 10: 30-Day Money-Back Guarantee Stack ─── */}
     <GuaranteeStack />
 
-    {/* ─── FAQ ─── */}
-    <section class="py-20 border-t border-border/40">
+    {/* ─── Section 11: Quick FAQ Answers (Top Objections Handled) ─── */}
+    <section class="py-20 border-b border-border/40">
       <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="text-center max-w-2xl mx-auto mb-10">
           <h2 class="text-3xl font-extrabold tracking-tight mb-3">Frequently Asked Questions</h2>
@@ -188,6 +207,9 @@ const startingPrice = formatLocalizedPrice(0.89, locale.currency, 69);
         </div>
       </div>
     </section>
+
+    {/* ─── Section 12: Final Closing Conversion CTA ─── */}
+    <FinalCta />
 
   </main>
   <Footer />
